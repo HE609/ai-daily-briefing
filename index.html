@@ -225,9 +225,9 @@
       grid.innerHTML +=
         '<div class="card' + (isFeatured ? ' featured' : '') + '">' +
           '<div class="card-date">' + (isFeatured ? '<span class="dot"></span>' : '') + getBadge(date) + ' · ' + date + '</div>' +
-          '<h2><a href="' + f.name + '">' + (isFeatured ? '🚨 ' : '') + 'AI Daily Briefing · ' + date + '</a></h2>' +
+          '<h2><a href="https://github.com/' + REPO + '/blob/main/' + encodeURIComponent(f.name) + '" target="_blank">' + (isFeatured ? '🚨 ' : '') + 'AI Daily Briefing · ' + date + '</a></h2>' +
           '<div class="card-summary" id="sum-' + i + '">加载中...</div>' +
-          '<div><a href="' + f.name + '" class="read-more">阅读全文 →</a></div>' +
+          '<div><a href="https://github.com/' + REPO + '/blob/main/' + encodeURIComponent(f.name) + '" target="_blank" class="read-more">阅读全文 →</a></div>' +
         '</div>';
       fetch(f.download_url).then(r => r.text()).then(txt => {
         document.getElementById('sum-' + i).textContent = cleanText(txt);
