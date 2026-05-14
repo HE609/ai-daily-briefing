@@ -2,8 +2,3 @@ title: AI Daily Briefing
 description: AI领域每日情报简报 — 每日整理最新技术动态、顶会论文、产业新闻及前沿进展
 lang: zh-CN
 theme: minima
-minima:
-  skin: classic
-exclude:
-  - "*.sh"
-  - ".git"
