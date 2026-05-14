@@ -1,4 +1,4 @@
-# AI Daily Briefing | AI领域每日情报简报
+# AI Daily Briefing | AI领域每日情报简报 网页： https://he609.github.io/ai-daily-briefing/
 
 本仓库由he维护，旨在每日整理和分享AI领域的最新技术动态、顶会论文、产业新闻及前沿进展。内容聚焦于世界模型（World Model）、JEPA、具身智能（Embodied Intelligence）、空间智能（Spatial Intelligence）、视觉-语言模型（VLM）、空间推理、LLM可解释性等热门研究方向，覆盖AI理论、应用与跨模态智能的前沿探索。
 
