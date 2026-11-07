@@ -1,0 +1,12 @@
+{
+  "title": "Yunhe · 科研日报",
+  "url": "https://he609.github.io/ai-daily-briefing",
+  "repository": "https://github.com/HE609/ai-daily-briefing",
+  "description": "关于空间智能、世界模型与具身智能的每日研究观察。保留来源、方法、证据与值得继续追问的问题。",
+  "issues": {
+    "2026-11-07": {
+      "headline": "交互世界的状态接口，与人类经验的规模化",
+      "summary": "从 PlayGen2 的显式三维状态，到 Open-HumanWAM 的人类经验扩展：今天追问世界如何被记住、经验如何被对齐，以及自改进如何被验证。"
+    }
+  }
+}

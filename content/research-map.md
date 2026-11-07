@@ -1,0 +1,209 @@
+# 空间智能与通用 AI 持续研究地图
+
+更新时间：2026-11-07。
+
+本文件保留跨期问题分类；各日晨报保留当日快照。研究机会是可检验假设，不是已验证结论。
+
+## 当前地图
+
+持续地图仍按“感知与状态 → 转移预测 → 规划执行 → 学习闭环 → 评测基础设施”组织。下列趋势、gap 与机会是本报综合判断，尚未由这些论文共同验证。
+
+| 问题分类 | 今日工作与近期趋势 | 未解决 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久空间与可交互世界 | Frameboy、PlayGen2；空间上下文与显式状态两路推进 | 重访一致、视野外动态、接触正确性缺少统一比较 | 同观测、同预算下比较像素递归与显式状态，并分离渲染错误 |
+| 人类经验与跨本体对齐 | Open-HumanWAM、Liber-0；数据覆盖和动作锚点结合 | 数据小时数、动作精度、硬件接近和计算量相互混合 | 固定数据量与预算，估计动作标注质量及形态差异的迁移曲线 |
+| 几何状态到动作 | Spatial-UMI-Dream，连接 UMI / WAM | 深度质量收益与标定、视角及接口转换贡献难分 | 深度尺度和外参受控扰动，区分几何推理与视觉捷径 |
+| 视频表示的控制效用 | Motion-guided regularization，连接 JEPA / LeWM | 分布不塌缩仍可能忽略任务动态 | 任务状态与背景独立干预，以闭环后果检验潜变量 |
+| 自改进与长期执行 | Criteria Exposure、BudgetMix、Anthropic memory | 验收适应、重试预算、记忆整理计算共同改变分数 | 冻结外部判据，联合报告预算曲线、记忆成本与跨任务保留 |
+| 研究基础设施 | LeRobot 0.7、持续跟踪 Genie Sim / SimuGuard | 包可安装、资源可见与任务成功之间仍有距离 | 流式数据、动作转换和远端运行的语义一致性审计 |
+
+本期新增的连接是：**持久化的不只是视觉状态，也包括目标、动作语义和经验规则；每一种持久化都需要校准其适用范围。**上一期的 ID-WM 可达性、GeoFlip 物理事件、SimuGuard 引擎异常与 Genie Sim 任务验收继续保留，不把旧结果重新计作本期进展。
+
+### 2026-11-03 地图快照
+
+持续地图仍按**感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**组织。下表中的趋势和论文机会为本报综合判断，尚待实验验证。
+
+| 问题分类 | 今日工作与近期趋势 | 未解决 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 三维空间与可达状态 | VoxLution、ID-WM；显式几何和可达状态成为中间接口 | 几何好看不保证可交互，潜在可达不保证能执行 | 同观测与预算下，几何约束的子目标生成及到达失败校准 |
+| 转移与视频到动作 | WorldBridge，衔接 JAM、GenSight、CoAWM | 目标视频、动作标注、预训练规模和控制接口贡献混合 | 分开目标视觉覆盖与动作 grounding 的样本效率及负迁移 |
+| 物理与仿真验收 | GeoFlip、SimuGuard、Genie Sim | 生成事件、参考引擎和策略得分都有各自错误 | 受控几何干预加跨引擎真值，量化评分对物理实现的敏感性 |
+| 控制程序与持续记忆 | RoboArchitect、DeepSeek，衔接 Agent2Act | 程序、工具、记忆、时间预算与参数能力难归因 | 固定策略的程序乘记忆对照，计入顺序依赖和全部执行成本 |
+| Agent 数据与学习闭环 | LongCat-2.5、EvoMCP 候选 | 可验证训练任务会否过拟合自身测试与 harness | 留出环境的失败驱动任务生成，冻结独立验收并测外部迁移 |
+
+相对上一期，新增连接是：**不仅要问模型记住或预测了什么，还要核对这些状态能否到达、参考答案是否可靠、执行程序怎样改变结果。**GROME 的动态记忆、Algebraic World Model 的规则适用域、人机 / 跨本体对齐和长期部署学习继续保留在地图中。
+
+### 2026-11-02 地图快照
+
+持续地图仍按 **感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**组织。以下趋势和论文机会是本报综合判断，尚待实验验证。
+
+| 问题分类 | 今日材料与近期趋势 | 未解决 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久空间与动态记忆 | GROME，衔接 L3G-World、LucidLyra | 静态重访、实体外观与真实动态正确性尚未统一 | 同观测、同预算的静态 / 动态记忆更新与失效校准 |
+| 可辨识转移与显式规则 | Algebraic World Model，衔接 world2vec | 解析器、学习规则和证明正确性仍有分界 | 带留出干预的规则发现与可审计模型适用域 |
+| 规划与动作执行 | Agent2Act，衔接 VLA / WAM 分层控制 | 模型判断、局部可行与实际成功之间有距离 | 同一动作后端下，深度查询、候选过滤和重规划的独立贡献 |
+| 反馈与学习闭环 | 形式模型修订、Agent 运行记录 | 外部反馈与系统自改进混合，验收器可能同步变化 | 冻结验收器、计入全部探索和反馈的自改进评测 |
+| 环境与评测基础设施 | Genie 评分修复、微软合成工作区 | 评分口径和合成真实度尚未绑定外部效度 | 旧结果可迁移性审计与合成质量到真实错误的预测 |
+
+相对上一期，新增连接是：**状态与时间接口明确之后，还必须追问谁负责更新、谁负责执行、谁负责验收，以及验收标准能否跨版本保持可比。**跨本体数据、接触、连续动作与预测效用等既有问题继续保留，没有因今天更换条目而撤销。
+
+### 2026-11-01 地图快照
+
+持续地图沿用 **感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**。下表为本报综合判断，研究机会尚待验证。
+
+| 问题分类 | 今日工作与近期趋势 | 未解决 gap | 可能形成论文的机会 |
+|---|---|---|---|
+| 可辨识状态与动力学 | world2vec，衔接 Spatial State；从回报走向状态与转移保真 | 简单环境、真实状态对齐与复杂接触之间仍有距离 | 等数据/等规划预算下，预测保真对控制与物理参数迁移的独立贡献 |
+| 可查询的生成空间 | LucidLyra，衔接 L3G、ScIntBench | 生成补全、语义一致和真实几何正确尚未绑定 | 按观测来源分区的语义、身份与物理交互联合验收 |
+| 生成与稠密感知 | GenSight，衔接 WorldFlow、RynnWorld4D | 观测感知、未来预测和闭环行动指标混用风险 | 同输入、同后端下的多模态预测一致性与实际行动效用 |
+| 时间与跨本体动作 | CoAWM，衔接 LaWAM、RynnWorld-Latent | 重采样收益、重规划频率和跨本体知识共享未分开 | 固定物理时间的函数表示、插值与迁移对照 |
+| 人机数据与采集 | UMI-Live，衔接 TouchBridge、Tactus | 数据量、坐标语义、目标场景适配和采集成本纠缠 | 有 provenance 的动作转换与迁移数据配比审计 |
+| 互动与自主改进 | Ludi 0.2、Agent Harness，衔接 Evolve-IPI | 官方能力描述缺量化，学习闭环缺固定外部验收 | 固定动作技能下的澄清/记忆归因与不随系统演化的评价器 |
+
+相对上一期，新增的连接是：**“有空间状态”之后，要检查状态按什么规律更新、如何被查询，以及怎样在时间与坐标接口中转为可执行数据。**Gym-Anything 的独立物理验收、Utility-WAM 的负迁移、长期部署学习与 Agent 授权保持等旧问题继续保留。
+
+### 2026-10-31 地图快照
+
+持续地图沿用“**感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**”。下表是本报研究判断，尚非已验证结论。
+
+| 问题分类 | 今日工作与近期趋势 | 未解决 gap 与可能的论文问题 |
+|---|---|---|
+| 空间状态与持久记忆 | Spatial State 探针、L3G-World；从可见几何走向离屏保持和直接潜空间记忆 | 读出、历史使用、预测接口、连续行动仍断裂；研究跨预测状态保持同一读取接口 |
+| 显式动力学接口 | WorldFlow、GenSight、CoAWM；几何轨迹、稠密感知和连续动作成为中间层 | 几何误差、静止先验、运动可执行性与本体对齐尚未闭合；研究同后端的接口归因 |
+| 仿真与可编程世界 | Gym-Anything、RFW-A、NVIDIA 工作流；生成代码、生成器和审计共同增长 | 参数有来源不等于真实物理正确；研究独立实测约束下的生成—验收闭环 |
+| 预测对控制的效用 | Utility-WAM，衔接 JAM、Best-of-N | 平均成功率掩盖精细任务负迁移；研究按状态分配想象预算及闭环风险校准 |
+| 人机与跨本体数据 | TouchBridge、Tactus、UMI-Live、AcrossDEX | 接触、时间同步、视觉转换与基座差异纠缠；研究接触约束的独立增益和跨手泛化 |
+| 自演化与通用 Agent | Evolve-IPI、A-RSI、VeriCUA、Mistral 权重 | 学习后能力提升未必保持授权和验证能力；研究固定验收下的能力—边界联合迁移 |
+
+与上一期的衔接是：JAM 问“未来监督用什么”，ImagiRep 问“空间状态怎样展示给模型”，今天进一步问“状态在预测后还能否读、生成的物理过程能否验、加入未来到底改善哪些动作”。此前的 ScIntBench、LabWorld、RynnWorld-Latent、TAPESTRY 和持续部署学习问题继续保留。
+
+### 2026-10-30 地图快照
+
+持续地图仍按 **感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**组织。下表的趋势、gap 与机会是本报的综合判断，均待实验检验。
+
+| 问题分类 | 今日工作与趋势 | 未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 空间表示与推理接口 | ImagiRep：同状态、多表示、按题路由 | 状态估计误差、表示优势与调用预算混合 | 等状态、等预算的空间证据选择与错误校准 |
+| 未来监督与动作表征 | JAM、ThinkWorld：特征预测、训练期动力学推理 | 增益来自目标、预训练、数据还是 RL | 统一动作接口下的未来目标与运动 grounding 归因 |
+| 想象与候选执行 | Best-of-N：真实可选择空间、失败门控 | 后续随机性、reset 噪声、推理开销 | 带留出续跑的局部优势预测与候选设计 |
+| 真实部署学习循环 | GO-3、Genie Sim / Master | 系统演示与可复现的独立模块收益有距离 | 分离记忆、参数更新、恢复与数据追加的长期评测 |
+| 科研与长时 Agent | MLE-World、Carbon、Fusion | 任务知识、反馈模拟、模型与编排成本纠缠 | 留出任务下的真实执行分配与完整成本审计 |
+
+与上一期的衔接是：ScIntBench 问“生成资产能否交互”，今天进一步问“世界状态怎样供推理/控制使用，以及何时值得调用”。LabWorld 的显式事件、BoxWorld 的状态—渲染分工、RynnWorld 的跨本体接口仍留在地图中；没有因今天换条目而撤销这些问题。
+
+
+### 2026-10-29 地图快照
+
+持续地图保留 **感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施**。下表的趋势、gap 和机会为本报综合判断，尚未验证。
+
+| 问题分类 | 今日工作与趋势 | 未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 可编辑空间与过程 | LabWorld、SceneEvolve；视频/图片转对象、事件与程序 | 渲染相似、事件约束满足与真实隐状态仍可能不一致 | 独立几何和事件真值下的重建与反事实交互验收 |
+| 持久世界与渲染 | BoxWorld、GameVerse；显式状态接口、长片与事件监督 | 状态来自引擎还是模型；相机变化干扰记忆指标 | 规则、状态记忆与渲染器的分离归因 |
+| 跨本体动作接口 | RynnWorld-Latent、TAPESTRY；共享潜在动作或视频 patch 输入 | 表征、数据增加、控制后端与预算纠缠 | 同数据/同预算的动作接口及可执行一致性实验 |
+| 任务相关预测 | SWIM；行为决定状态度量，再塑造 JEPA 距离 | 行为相关性与任务/因果重要性不等价 | 目标变化和隐参数变化下的状态权重审计 |
+| 自改进执行系统 | SceneEvolve、CoHARL、RuHarness；程序、权重和反馈分别适配 | 开发集过拟合、归因与完整搜索成本未清楚 | 固定外部验收的权重乘harness乘评价器对照 |
+| 开放部署与验收 | LFM3、ScIntBench、PhAIL；端侧模型、交互与真机评测 | 基座开放不等于完整机器人配方开放，仿真排名未必迁移 | 发布清单追踪与同接口、同频率的部署评测 |
+
+今天新增的共同问题是：把状态、渲染、动作和执行程序分开后，怎样用留出干预证明各自的独立贡献。上一期 Genie 4、Echo-3、EmbodiedLab、ZAP、GenSfM、FL4N、OSWAM、OpTTA、OpenWAM 与人类判断/科研Agent主线保留在历史，未被当前分类撤销。
+
+## 下一轮追踪
+
+- 2026-11-07 新增：Frameboy 低延迟与长期动态独立量化；PlayGen2 全图/局部状态审计及完整训练包；Open-HumanWAM 50K 上传完整性、Goal 后训练与 Vanilla 回合数协议；Spatial-UMI-Dream 预训练数据、深度扰动与动作转换；Liber-0 独立任务验收、精确动作数据占比与开放资源。
+- 2026-11-07 新增：Motion-guided regularization 专属实现与光流捷径；Criteria Exposure 改写判据/配对轨迹/独立审阅；BudgetMix 数值复现、固定错误前缀与总交互成本；Anthropic memory 独立语料与整理计算成本；LeRobot 数据流/远端推理的语义一致性。
+
+
+- ID-WM：实际代码与权重、NeurIPS录用记录；等数据/等搜索总预算下的子目标到达率，视觉设置32 H200与小模型替代。
+- GeoFlip：完整数据与脚本、442条件覆盖、成对准确率、裁判逐例可靠性与独立物理真值。
+- RoboArchitect：根许可、全部外部模型/时间成本，VLABench进度分与严格成功分离；回合顺序和记忆开关消融。
+- SimuGuard：固定65c0ef5的40通过/1跳过仅软件证据；下一步真实引擎同种子监控透明性、完整重放、修复配对，误报人工复核及统一许可。
+- Genie Sim 3.5.0：新50计分/25sandbox逐任务与新资产快照、正式tag/镜像、柔性与跨本体独立验收；World导出未接RT，旧记录不能代表当前checkout。
+- WorldBridge / VoxLution：专属代码/权重/处理数据是否实际发布；目标任务视频可见与动作标签分离，几何分布指标与物性分开。
+- LongCat-2.5 / DeepSeek原型：2.5权重与独立预算一致评测；原型不同于内部系统，测最终产物与人类干预量。Thinker-Sim官微原页/技术包与吞吐分母待补。
+- 下列跨期主线继续保留：
+
+- Genie Sim：11月2日3.5源码与任务文档已确认交付；继续核实正式release、资产和可运行链，分别验收Agent2Act、评分schema、RT/柔性后端，不能用70项旧离线检查代表整套新能力。
+- GROME：真实代码链接、数据快照和辅助模型许可；静态重访与动态位置分开，优先等容量/等预算记忆消融。
+- Algebraic World Model：lp85 Lean重编译与公理核验、缺少的formalize.py、完整探索成本、解析器和规则适用域；证明内外证据分别保留。
+- 微软合成企业评测：是否开放工作区生成器、固定配置与评分器；内部39%质量增长能否预测独立下游错误。
+- 上期主线：world2vec实现，LucidLyra预处理与补全可信度，GenSight闭环收益，CoAWM插值/长时/跨本体对照，UMI-Live动作转换与checkpoint，Ludi0.2量化技术包。
+- 跨期保留：GO-3技术报告/权重/独立榜单，JAM缓存总成本与目标归因，ImagiRep资源条款，HeadroomBench实际发布，MLE-World整任务留出，Carbon独立验证。
+
+## 变更记录
+
+- 2026-11-07：主窗口11月4日09:00—7日09:00；本地完整去重基线为11月3日，5日候选未交付、6日仅有调度未核本地成稿。4211分类记录/3364唯一ID/584宽主题标题不等于窗口首发。六篇新预印本与Frameboy/Liber-0/Anthropic memory/LeRobot四官方发布进入重点。
+- 2026-11-07：Open-HumanWAM权重与数据确有文件但50K仍上传中，Goal后训练链未齐、组件许可分开；Liber-0 36%为60任务总体，复杂多步10.5%，83.6/73.8为进度分。PlayGen2十分钟是模拟时长，公开门口固定打开；预算RL的示例为Pass@8。作者/官方结果未独立复现。
+- 2026-11-07：broader-web兜底补齐MoWorld2.0媒体发布线索但原始技术证据未闭环；Google Omni1.2与FieldAI/Kajima进入观察。TRI/Stanford/Princeton及动态页面覆盖缺口与Selection分开。
+
+
+- 2026-11-03：主窗口10月31日09:00—11月3日09:00；4287分类记录/3408去重ID，新461 ID/184主题标题，11月2日新公告恢复覆盖。六篇原始提交日30日或更早，按公告批次入选，不计3日提交；API严格窗口0条不推断没有其他提交。LongCat 1日官文、DeepSeek31日源码漏检回补；Wizard等已有候选未选为Selection。
+- 2026-11-03：ID-WM低层为前向模型经规划求逆，PushT随机目标.77但视觉随机.26；RoboArchitect 9.7→43.3/12.7→40.2混含VLABench进度分，全仿真，程序/工具/记忆与成本要分开。GeoFlip482对/964参考，442共同条件最佳27.98%，裁判排序相关高不代表逐例一致。
+- 2026-11-03：SimuGuard固定65c0ef5，47文件Git blob校验，40passed/1因缺MuJoCo跳过；无PhysX根因或成功率复现。作者89→98、90→94；75.8–98.5为异常回合全负/全正的敏感性范围，不是置信区间。
+- 2026-11-03：Genie2日晚3.5版本与新任务真实提交，50计分+25不计分sandbox；git Release仍v3.2，World→RT仍未支持。WorldBridge目标任务视频可见25.07→55.90，加1动作70.70；真机72.5均任务适配。Vox固定码本免训练非全系统免训练，几何指标不证明可交互物性。LongCat1.6T/48B，11月1文章/2正式，官方HF29条无2.5；DeepSeek31日MIT原型无统一能力评测。
+- 2026-11-02：主窗口10月30日09:00—11月2日09:00。2项窗口内新增为Genie Sim 31日Agent2Act/评分修复与微软30日合成企业评测官方文章，均为此前新证据漏检回补；GROME与Algebraic World Model两篇29UTC论文已在上期池，本次首次展开属Selection，明确在窗口外，不计今日新论文。
+- 2026-11-02：固定a2bbec0代码独立离线replay生成20/下发8步，闭环、policy capability、命令边界、重试预算4模块70测试通过；无模型API/GPU/Isaac或真机任务，评分修复仅源码查验。MPL2原始代码、第三方材料另核，默认G2示例关闭速度检查，11月2大更新仍为预告。
+- 2026-11-02：GROME主表200场景100静/100动、15–18秒；动态组PSNR19.291→24.111针对共同有效静态区域，实体.769低于WorldPlay.910，motion16.840对16.640无明确显著提升；静态PSNR低于Gen3C。项目Code空且禁用，未核完整实现/权重/评测包。
+- 2026-11-02：AWM Lean重放183关、封闭不可解6/6对0/12；4/6初界正确到6/6包含外部更便宜解反馈。99.9/43%只计正式轨迹，22游戏有先行探索。lp85.zip实际下载48文件，有Lean/Python/轨迹/作者审计，README注明formalize.py未含，本报未重编译；证明不自动验证外部环境规则。微软39%为内部合成质量而非Agent成功率，10万美元/数据集为估算，无公开完整数据/代码/裁判。
+- 2026-11-02：recent4346/3451IDs/353标题与上期同池，严格窗口API0条，new/recent仍到30日，保留30UTC后检索边界。影溯仿真中心媒体30日/事件29日，百万小时为目标；Spawn回溯29日。Princeton、Runway、Tripo及InSpatio已用web补核；TRI/Stanford和部分动态正文仍受限。Word/PDF最终7页逐页检查通过，89源单元/19源URL/19链接批注齐全，无缺字或内部token。
+
+- 2026-11-01：首次展开 world2vec、LucidLyra、GenSight、CoAWM、UMI-Live；均为29日UTC提交且上期已入池，属于Selection变化，不计11月1日新首发。Ludi0.2官方30日14:00ET供稿早于上期成稿却未入池，本期补齐Retrieval Failure。西湖31日建中心为组织布局，非模型能力交付。
+- 2026-11-01：world2vec约300k，DCL一秒LRC97.7、三任务回报826/895/232，Cartpole未解决；离线/在线、控制频率与IK目标构造差异保留。71吸引子符号方程有真值仿射对齐及案例选择；HTML结果后半缺失，已改核完整PDF。仓库README+素材、代码comingsoon。
+- 2026-11-01：LucidLyra SDG64.1/67.9mIoU，ADE49.8/53.7；teacher-lifting SDG实例22.8高于本法21.5，真实语义50.1高于基础49.8。2.1min从latent开始、不含视频生成，CHORUS1.0min更快；1580A100days预处理+8A100约10天decoder，代码/权重/全量监督未核开放。GenSight FVD14.55、观测感知IoU88.7/AbsRel2.4，生成EPE7.089差于Rynn4.936，RoboTwin深度4.98差于4.86；未闭环，64A800约5400GPUhours，仓库仅README/assets。
+- 2026-11-01：CoAWM8192windows2.503mm/.2295deg；16task800paired首秒jerk-36.7/-54.2%，10/15/20/30/50/60Hz150each成功116/121/117/119/116/110，固定1.2s；跨本体规模化为后续，不把跨频率当已证跨本体。机械功-22.6仅双方成功13scenario与PD估计，非电耗；专属资源未核。
+- 2026-11-01：UMI3255episodes/4288182pairedframes/39.705h，HF创建/更新10-10而非29新data，revision272d6cde8606080d877e3734cfc308ea7d179625。action14维同帧state副本、每手episode起点坐标；采集README仍写12Ddelta，训练需选未来及转20Dqueryrelative，不能直接控制。π0.5 9/10/10/10含5/10%targetteleop，Molmo8/10含25%；一task一seed/可恢复。采集遥操源码/硬件指南存在，根未见LICENSE，dataApache2/训练fork另核，论文policycheckpoint未核。
+- 2026-11-01：独立Agent线纳入VideoGenerationMeetsAgentHarness框架综述/文献仓，不当新的已验RSI模型。4类recent4346/3451IDs/353主题标题，API429后以recent+abs/pdf/project兜底，最新公告仍30日，不宣称31—1完整。补查spaitial.ai修复旧.com入口，Echo3官方27日；L3G/GR00T/GenieSim自上期成稿后无新commit，Uranus媒体27日与8月官方/9月权重分开。StanfordTLS/Princeton403/国内动态空页/Meta旧索引仍保留边界。
+
+- 2026-10-31：新增 Spatial State 探针、L3G-World、Gym-Anything/RoboWorld、WorldFlow、Utility-WAM、TouchBridge、RFW-A 与 Evolve-IPI；Mistral Large 4 为29日实质权重发布回补。8篇29UTC论文均补齐上一期接口停27日造成的检索缺口，不能计31日首发；Gym代码30日14:07UTC新建晚于上期成稿。
+- 2026-10-31：Spatial State 分开可读出/历史使用/预测接口/连续行动，Fast3R有ScanNet++场景重叠，公开探针包不覆盖所有新诊断且存在未公开快照/子集。L3G 9.02FPS引言为H100，部件效率A100，静态记忆不等于动态物理；代码权重待发布。WorldFlow学习基线ADE最佳不包含静止基线：Real3 static .062优于本法.081；24/36执行与35/36预测分开。
+- 2026-10-31：Gym 25test/175train、完整test0%、π0.5 53%为两任务仿真训练结果，未证明sim2real；MIT实现/报告/审计已核，GPU长测release未跑、渲染需RT卡。RFW-A402410/531类、Core200稳定.995不外推全部物理，$.053只API摊销，完整下载未核。TouchBridge4任务各60demonstrations/20trials，72.5vs77.5、7x仅采集；基座GR00T72.5vsπ0.538.8，不能全归因触觉。
+- 2026-10-31：Utility-WAM同共享checkpoint两mask与GT-guided残差+门控，RoboTwin跳过75.5%且较always-video快38%，仍较无未来慢17%；LIBERO保留87%查询/省6.7%。Evolve-IPI skill ASR增14–48.8pp/RL增3–39.3pp，MIT代码+本地模拟task有，未核全部权重。Mistral29日14:11:16UTC首commit9bc5357含54权重片约1.06TB，生态开放权重许可非纯MIT；第三方榜单仅官方引述未独立核配置。
+- 2026-10-31：四类recent4346记录/3451IDs；严格提交API724/主题标题298，最新29日17:59UTC，公告到30日。NVIDIA29日Agent+Omniverse案例入观察池；Mundo/Solaris/Dyna2重报非新。WorldProbe代码404为资源缺口；world2vec/CoAWM/GenSight/GROME/SpaceAct/UMI-Live/Tactus/RoboticDI/VeriCUA/EpiAgent/A-RSI已入候选未展开为Selection。官方TLS/403/动态空页/Meta旧索引仍保留可见性边界。
+
+- 2026-10-30：新增GO-3 Preview（29日活动，官网页28日时间与事件日期分记）、JAM、ImagiRep/GEARS、ThinkWorld、Best-of-N/HeadroomBench、MLE-World与Gemini 4 Carbon。五篇27日UTC论文此前已入候选，本期首次展开为Selection变化；Carbon为上一期官方检索失败回补；GO-3晚于上一期完成，本轮broader-web兜底补齐。
+- 2026-10-30：JAM Wan将生成损失换为预训练Wan特征仅55.31→55.58 Plus，最佳VAE目标64.54，随机Wan58.63；Plus固定1506任务，缓存73%为在线估算不含一次提取。ImagiRep实际GEARS61.4/77.7，87.5/91.7为oracle选择；数据gated，28日建档更新，代码许可文件已移除，未接受条款或跑核分。ThinkWorld112/120真机、单训练seed，未来监督主增量、RL最后+1.2pp；Code/Model占位。
+- 2026-10-30：HeadroomBench续跑去噪、失败门控，同任务76.9→81.6/留出任务62.6→69.8，额外17.5想象/episode，不等于想象必要性或全物理保真；代码数据仍承诺。MLE-World主评测已见17任务，497056执行记录，资源22日旧上传；终端77.9为裁判吻合，异常类别置信不等完整输出校准，arxiv表与网站严格回放分开。Carbon28官方受限发布，不含公开权重/配方，安全基准guardrails off、厂商报告。
+- 2026-10-30：Genie Sim28提交预告11月2大版本，实际落地是LeRobot元数据/全局index/图像统计/外参读取修复，29主要演示文档；不得把排期或现有旧包当新版本全量交付。Fusion28为路由编排GA，本地路由另属实验预览。Isaac Lab3正式release20日02:05UTC，29论坛非新版本；Infinity官方23日。PonderPounce-WM媒体线索已入池，专属官方包待核；HF推荐日期不代替论文首发。
+- 2026-10-30：四类recent3887记录/3080IDs，API严格窗口404记录/173标题候选，最新提交仍27日17:59UTC；不能声称完整29—30公告覆盖。保留StanfordAIblog/SpAItial TLS、Princeton403、国内动态空页及Meta旧索引缺口；SRC补查。后续优先GO-3技术包、GenieSim11月2实际变更、ImagiRep受限资源契约、JAM缓存同预算、Headroom原始包、MLE整任务留出及完整时间成本。
+
+- 2026-10-29：加入 ScIntBench、LabWorld、SceneEvolve、BoxWorld、RynnWorld-Latent、TAPESTRY、GameVerse、SWIM、CoHARL 和 Liquid AI LFM3。重点是生成资产的交互验收、事件几何与视觉拟合冲突、冻结接口下harness收益、状态/渲染分工、动作接口与等数据预算、长片段监督、行为权重及权重-harness联合演化。
+- 2026-10-29：上述9篇论文及LFM3为上期分类页停27日/官方漏扫造成的Retrieval Failure回补，论文多为27日提交/28日公告；LabWorld仓库28日10:37北京时间新建。API本轮可用返回951条、主题标题396，不能等同严格窗口重要首发数，也不能声称完整29日公告覆盖。
+- 2026-10-29：RynnWorld论文23datasets/553.5M帧与README32/>265M口径不同，HF权重10-5旧；TAPESTRY LIBERO有留出任务视频，不混标准监督榜，CoRL录用注释与项目under review不一致；SceneEvolve32.3%具体是对Sol-none平均SSIM，47%时间下降比较自家基座，公开清单占位且未见最终harness；GameVerse HF数据实际8-27已存在，未重算新数据首发，未分发MP4、5个pose缺失/部分caption不完整；SWIM默认+0.9–1.0pp与每任务挑参+1–6pp分开；CoHARL训练预算不等于总成本，avg@3不等于pass@3。
+- 2026-10-29：NVIDIA GR00T于10-28 21:46UTC新增strict_action_padding_mask和strict_vl_padding_mask选项，旧权重默认关闭，严格动作屏蔽不支持部分TensorRT路径；只计新代码证据，不计新权重或成功率提升。Hy-Nomas最新提交主要改arxiv文档链接。
+- 2026-10-29：官方观察池加入Machenta、GO-3 Nano Preview榜单（提交成绩非确认独立重跑）、10-26 PhAIL竞赛与10-28 Anthropic科学支持扩围。云深处10-28中文汇总不重算已于10-24报道同组5项研究。保留TRI/Stanford AI blog/SpAItial访问与Meta旧索引、国内动态页coverage风险；Stanford SRC及Princeton网页结果已补核。E0.5/WorldDreamer/ThinkWorld/Dwell/RuHarness/MLE-World等已入候选，未展开为Selection。
+
+- 2026-10-28：加入 Genie 4、Echo-3、EmbodiedLab、ZAP、GenSfM、FL4N、OSWAM、OpTTA、Anthropic 专家决策/科研Agent两项报告与 OpenWAM 清洗数据回访。六篇10-26论文为上期候选漏检回补；OSWAM另有10-28凌晨实际权重新增。新增重点为视听生成与规划归因、观测/补全与真实尺度分层、主动测量证据门、同接口运动迁移、固定计算预算的乐观适配、数据来源与人类判断独立性。
+- 2026-10-28：GenSfM权重10-24 02:55、FL4N权重10-22已存在，27日HF更新主要为文档，不重复计权重首发；OSWAM一步动作但两次模型求值。ZAP96.7%为29/30真机，Franka55.9%是仿真；Echo-3与Genie4暂无独立量化验证。OpenWAM四卡合计534605064同步步/6944.29h，不能混同论文518.5M/6400h口径。TripoEden博客更新10-27但研究预览5-31，不作新模型。
+
+- 2026-10-27：加入 Hy-Nomas 新技术报告、Predictable Latents、SceneAgent、RynnVLA-Latent、Mix Forcing、VMem-Bench、PhysEvolve、VISTA。Hy-Nomas 因 10-26 22:27 技术报告新增方法和人工评测而回访；后三篇新论文晚于上期完成，Predictable Latents/SceneAgent/RynnVLA-Latent/Mix Forcing 为上期 Retrieval Failure 回补。重点新增记忆失效、可预测表征、指令时窗、留出交互验证、相机反事实与同预算主动诊断。
+- 2026-10-27：已核实 Hy-Nomas 空间记忆对 Genie 3 为胜13.3/平56.7/负30.0；RynnVLA 表6平均88.6与正文88.3不一致；Mix Forcing正文256H20与附录512H200/H20冲突；PhysEvolve代码链接404。WorldFailBench和What Does World Modeling Actually Improve进入评测专题候选；Mundo上期完成后无新提交，不重复展开。
+
+- 2026-10-26：加入 UniAction、RynnUnify、WorldMirror、FLORA、SceneBloom、Tempo-Zero、4DMemory、RSIHub。WorldMirror 为公告批次边界项，FLORA 为窗口外重要检索遗漏回补，二者不计严格窗口首发。新增动作语义接口、按需想象的计算归因、留出动作的回放保真、关系契约与动态稳定分离、标注错误传播、执行真值课程、固定评测下的演化泛化。云深处 10-24 研究汇总进入官方观察池，早期论文不重复计新。
+- 2026-10-26：保留 10-25 的 Mundo / AGIBOT R4 / Trace2World / HERD / DiffDreamer / OpenTac 历史，无经核实的新代码、权重、基准或独立验证不重列。
+
+- 2026-10-25：加入 Mundo、AGIBOT WORLD Release 4、Trace2World、HERD、DiffDreamer 和 OpenTac；重点补上状态与渲染分离、条件化决策数据、来源约束仿真、经验内化的漂移控制、已知物理与学习动力学分工、跨几何触觉接口。Mundo／AGIBOT 为上期检索遗漏回补。
+- 2026-10-25：Hy-Nomas 仅跟踪 10 月 24 日 Diffusers 推理示例提交；S²／P² 等无新发布不重复升为重点。
+
+- 2026-10-24：加入 Hy-Nomas、AW-0、CADRE、FRED、DRILL、PhysiCalWorld、UniFlowWAM、WorldForge V2、Cosmos 工具扩展和 Anthropic/AISI 分析。新增重点为控制与空间记忆分离、压缩与动作可用性、面向策略收益的预测目标、可组合程序与授权保持。
+- 2026-10-24：ALPS、Sensorimotor Alignment、SkeLAM、P²、CW-WAM、RGF、Stream4D 和 Physical RSI 已纳入候选跟踪；WorldStream、AEON、Matrix-Game 4.0 保留为窗口外背景。
+
+上一期证据与来源：[2026-10-24 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-24/)。
+
+
+当期完整证据与来源：[2026-10-25 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-25/)。
+
+当期完整证据与来源：[2026-10-26 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-26/)。
+
+当期完整证据与来源：[2026-10-27 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-27/)。
+
+当期完整证据与来源：[2026-10-28 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-28/)。
+
+当期完整证据与来源：[2026-10-29 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-29/)。
+
+当期完整证据与来源：[2026-10-30 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-30/)。
+
+当期完整证据与来源：[2026-10-31 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-10-31/)。
+
+当期完整证据与来源：[2026-11-01 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-01/)。
+
+
+当期完整证据与来源：[2026-11-07 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-07/)。
