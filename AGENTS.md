@@ -12,7 +12,16 @@ not claims that a resource is still available today.
 
 For daily content updates, save the completed Markdown report in the parent
 workspace as `科研晨报-YYYY-MM-DD.md` and update the parent's
-`研究地图-持续更新.md`. Do not generate Word/PDF unless specifically requested.
+`研究地图-持续更新.md`. Every daily run must also generate and save both
+`空间智能与通用AI科研晨报-YYYY-MM-DD.docx` and
+`空间智能与通用AI科研晨报-YYYY-MM-DD.pdf` in the parent workspace. Word,
+PDF and the website are all required deliverables. Use the same completed
+Markdown source for all formats, retain historical files, and render-check
+both exports with the documents/PDF skills. Verify that both files exist and
+are readable; include their local download links in the final report alongside
+the daily webpage link. Keep these local documents and their QA files out of
+the website repository. If one delivery fails, preserve the others, retry and
+report the incomplete part explicitly.
 Then run `.venv/bin/python scripts/publish.py --source ..` from this checkout.
 It fast-forwards, imports completed reports, builds and checks the website,
 commits only content changes to `main`, and pushes verified static output to
