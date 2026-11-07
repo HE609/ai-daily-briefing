@@ -8,6 +8,7 @@ from pathlib import Path
 from build import build
 from check import check
 from sync_reports import sync
+from deploy_pages import deploy
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,8 +50,10 @@ def main():
             git('commit', '-m', f'daily: publish {items[0]["date"]} research briefing', capture=False)
         git('push', 'origin', 'HEAD:main', capture=False)
         print('Pushed commit:', git('rev-parse', 'HEAD'))
+        pages_commit = deploy()
+        print('Pages output commit:', pages_commit)
         print('Website: https://he609.github.io/ai-daily-briefing/')
-        print('Verify the matching GitHub Pages workflow finishes successfully before reporting the new issue as live.')
+        print('Verify the gh-pages commit has a successful Pages build/deployment before reporting the issue as live.')
 
 
 if __name__ == '__main__':
