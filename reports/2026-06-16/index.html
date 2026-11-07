@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-06-16｜🚨 今日重点 · 顶级研究组新发布 · 生成模型 / 新范式 · Yunhe</title><meta name="description" content="2. Anthropic Fable 5 全面下架风波持续发酵（2026-06-14~15）—— 因 jailbreak 攻击者 Pliny the Liberator 用 &quot;pack hunt&quot; 多智能体攻击绕过 Fable 5 的安全分类器（并把 12 万字符 system prompt 泄到 GitHub）…">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-06-16/"><meta property="og:type" content="article"><meta property="og:title" content="2026-06-16｜🚨 今日重点 · 顶级研究组新发布 · 生成模型 / 新范式"><meta property="og:description" content="2. Anthropic Fable 5 全面下架风波持续发酵（2026-06-14~15）—— 因 jailbreak 攻击者 Pliny the Liberator 用 &quot;pack hunt&quot; 多智能体攻击绕过 Fable 5 的安全分类器（并把 12 万字符 system prompt 泄到 GitHub）…"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-06-16/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>🚨 今日重点 · 顶级研究组新发布 · 生成模型 / 新范式</h1><p class="article-deck">2. Anthropic Fable 5 全面下架风波持续发酵（2026-06-14~15）—— 因 jailbreak 攻击者 Pliny the Liberator 用 &quot;pack hunt&quot; 多智能体攻击绕过 Fable 5 的安全分类器（并把 12 万字符 system prompt 泄到 GitHub）…</p><div class="article-meta"><time datetime="2026-06-16">2026 / 06 / 16</time><span>约 20 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span><span class="tag">具身智能</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E9%87%8D%E7%82%B9">🚨 今日重点</a><a class="toc-level-2" href="#%E9%A1%B6%E7%BA%A7%E7%A0%94%E7%A9%B6%E7%BB%84%E6%96%B0%E5%8F%91%E5%B8%83">顶级研究组新发布</a><a class="toc-level-2" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E6%96%B0%E8%8C%83%E5%BC%8F">生成模型 / 新范式</a><a class="toc-level-2" href="#%E5%A4%9A%E6%A8%A1%E6%80%81-vlm">多模态 / VLM</a><a class="toc-level-2" href="#%E5%85%B7%E8%BA%AB-vla-%E6%9C%BA%E5%99%A8%E4%BA%BA">具身 / VLA / 机器人</a><a class="toc-level-2" href="#agent-%E5%A4%A7%E6%A8%A1%E5%9E%8B">Agent / 大模型</a><a class="toc-level-2" href="#ai-for-science">AI for Science</a><a class="toc-level-2" href="#%E8%A1%8C%E4%B8%9A-%E5%95%86%E4%B8%9A%E5%8A%A8%E6%80%813-%E5%A4%A9%E5%86%85">📌 行业 &amp; 商业动态（3 天内）</a><a class="toc-level-2" href="#%E4%B8%AD%E6%96%87%E5%9C%88%E8%AE%A8%E8%AE%BA%E4%BA%AE%E7%82%B9">🇨🇳 中文圈讨论亮点</a><a class="toc-level-2" href="#%E8%B6%8B%E5%8A%BF-%E8%A7%82%E5%AF%9F">🔭 趋势 / 观察</a><a class="toc-level-2" href="#%E4%B8%BB%E8%A6%81%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">🔗 主要参考链接</a><a class="toc-level-2" href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E">⚠️ 免责声明</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-06-16.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-06-16</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn · BAAI · Hugging Face</p>
+<h2 id="今日重点">🚨 今日重点</h2>
+<ol>
+<li>
+<p><strong>BAAI 发布全球首个通用世界基础模型 Physis-v0.1</strong>（2026-06-14）—— 北京智源人工智能研究院（BAAI）联合清华大学发布 Physis-v0.1，号称"全球首个通用世界基础模型"。区别于文本 LLM，Physis 直接建模物理世界：理解物理定律、空间关系、常识因果，融合文本/图像/视频多模态信息，可用于具身 AI、机器人、科学研究、仿真与数字孪生。这一发布与 Yann LeCun（AMI Labs）、Fei-Fei Li（World Labs）的"世界模型"路线形成正面竞争。
+   - 来源：CGTN 英文报道（<a href="https://news.cgtn.com/news/2026-06-14/China-unveils-AI-world-model-that-understands-physical-world-1NYmex0KQlG/p.html" target="_blank" rel="noopener noreferrer">https://news.cgtn.com/news/2026-06-14/China-unveils-AI-world-model-that-understands-physical-world-1NYmex0KQlG/p.html</a>）
+   - 关联：百度百科 BAAI 词条（6 月 4 日条目更新提到 BAAI×清华成果发表于 Nature）
+   - 关联：NVIDIA Cosmos 3（5/31 发布）正面对标</p>
+</li>
+<li>
+<p><strong>Anthropic Fable 5 全面下架风波持续发酵</strong>（2026-06-14~15）—— 因 jailbreak 攻击者 Pliny the Liberator 用 "pack hunt" 多智能体攻击绕过 Fable 5 的安全分类器（并把 12 万字符 system prompt 泄到 GitHub），美国政府下令 Fable 5 整体下线，引发 Anthropic-白宫冲突升级、社区强烈呼吁转向本地开源模型（如 Kimi K2.7 Code）。同一天 Anthropic 还披露：截至 2026 年 5 月，Anthropic 自家合并入代码库的代码中 80%+ 由 Claude 写就。
+   - 来源：BuildFastWithAI Daily News（<a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-15-2026" target="_blank" rel="noopener noreferrer">https://www.buildfastwithai.com/blogs/ai-news-today-june-15-2026</a>）
+   - 来源：VentureBeat / CNBC / Axios / Reuters / Bloomberg
+   - 来源：Anthropic 官网新闻（"When AI builds itself" 报告）</p>
+</li>
+<li>
+<p><strong>Google DeepMind 开源扩散式 LLM DiffusionGemma 26B-A4B</strong>（2026-06-10~15 持续刷屏）—— 基于 Gemma 4 26B-A4B MoE 架构、推理时只激活 3.8B 参数，<strong>逐块并行扩散生成 256-token 段落而非逐 token</strong>，推理速度 H100 上 1000+ tok/s、RTX 5090 上 700+ tok/s，相比标准 Gemma 4 提速约 4×。量化后 18GB 显存即可加载，Apache 2.0 许可。在社区引发大量"非自回归 LLM 是否会颠覆现有推理栈"讨论。
+   - 来源：Google 官方博客（<a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener noreferrer">https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/</a>）
+   - 来源：Hugging Face 官方仓库（<a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank" rel="noopener noreferrer">https://huggingface.co/google/diffusiongemma-26B-A4B-it</a>）
+   - 来源：vLLM Recipes、The New Stack、Reddit r/singularity、Unsloth GGUF 量化版（3 小时内上线）</p>
+</li>
+</ol>
+<hr>
+<h2 id="顶级研究组新发布">顶级研究组新发布</h2>
+<ul>
+<li><strong>OpenAI：发布 OpenAI Academy 3 门新课 &amp; OpenAI Partner Network</strong>（2026-06-14）—— 三门课：AI Foundations、Applied AI Foundations、Agents；面向下一阶段工作的实战训练。同日宣布 OpenAI Partner Network，把渠道伙伴体系正式化。</li>
+<li>
+<p>来源：OpenAI 官网 Newsroom（<a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">https://openai.com/news/</a>）和 Product Releases 页</p>
+</li>
+<li>
+<p><strong>Anthropic：6 月 9 日发布 Claude Fable 5 → 6 月 12 日被白宫要求下线</strong> —— Fable 5 是 Anthropic 首款面向公众开放的 Mythos-级模型；6 月 12 日被迫暂停访问，正在通过法律手段恢复。Anthropic 总裁 Daniela Amodei 在 Bloomberg Tech 透露 2026 年 5 月年化收入已达 470 亿美元。</p>
+</li>
+<li>
+<p>来源：Anthropic Newsroom / Claude Help Center Release Notes / Bloomberg / TechCrunch</p>
+</li>
+<li>
+<p><strong>Google DeepMind：Gemma 4 12B 统一无编码器多模态 + 6 月模型系列</strong> —— 强调"encoder-free unified multimodal"，配合 5/31 发布的 Cosmos 3 世界基础模型，构建"模型-世界-动作"三位一体的 Physical AI 栈。</p>
+</li>
+<li>
+<p>来源：Google DeepMind Blog（<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">https://deepmind.google/blog/</a>）</p>
+</li>
+<li>
+<p><strong>NVIDIA：Cosmos 3 开源世界基础模型</strong>（2026-05-31~06-01）—— 首个完全开源的 omnimodel（同时处理文本/图像/视频/声音/动作），用 mixture-of-transformers 架构分离推理 transformer 与生成 transformer。Cosmos 3 Super / Nano / Edge 三档，对应机器人和自动驾驶场景。在 Artificial Analysis、Physics-IQ、RoboLab、VANTAGE-Bench 多个开源榜单登顶。</p>
+</li>
+<li>来源：NVIDIA Newsroom（<a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai" target="_blank" rel="noopener noreferrer">https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai</a>）</li>
+<li>
+<p>来源：NVIDIA Developer Blog（同步发布 6 个 SDG 合成数据集到 Hugging Face）</p>
+</li>
+<li>
+<p><strong>智源（BAAI）：2026 智源大会开幕</strong>（2026-06-13）—— 主题"三体互动"（AI、物理世界、生命科学），图灵奖得主 Whitfield Diffie、Andrew Barto 出席并做 Keynote。</p>
+</li>
+<li>来源：量子位 qbitai.com（"2026 智源大会开幕：推动 AI、物理世界和生命科学'三体互动'"）</li>
+</ul>
+<hr>
+<h2 id="生成模型-新范式">生成模型 / 新范式</h2>
+<ul>
+<li><strong>DiffusionGemma 26B-A4B（Google DeepMind）</strong> —— 扩散式 LLM 开源，单次前向生成整段 256 token，自纠错能力，详见今日重点 3。</li>
+<li>
+<p>来源：Google Blog / Hugging Face / vLLM Recipes / Reddit</p>
+</li>
+<li>
+<p><strong>MEMENTO：Reconstruct to Remember for Consistent Long Video Generation</strong>（arXiv 2606 新帖，2026-06-15）—— 通过"重建-记忆"机制解决长视频一致性难题。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV（<a href="https://arxiv.org/list/cs.CV/recent" target="_blank" rel="noopener noreferrer">https://arxiv.org/list/cs.CV/recent</a>）</p>
+</li>
+<li>
+<p><strong>VideoWeave：Unlocking Geometric Consistency in Video Generation via Joint Geometry-Video Modeling</strong>（arXiv 2606 新帖，2026-06-15）—— 把几何一致性与视频生成联合建模，作者包括清华/中科院自动化所系。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>CausalMotion：Structured Physical Reasoning as Keyframe and Trajectory Guidance for Training-Free Video Generation</strong>（arXiv 2026-06-15） —— 无需训练、通过结构化物理推理做关键帧-轨迹引导的视频生成。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>HPSv3++：Scaling Reward Models Across the Full Spectrum of Diffusion Model Capabilities</strong>（arXiv 2026-06-15） —— 把奖励模型扩展到全谱系的扩散能力评估上。</p>
+</li>
+<li>来源：arXiv cs.CV</li>
+</ul>
+<hr>
+<h2 id="多模态-vlm">多模态 / VLM</h2>
+<ul>
+<li><strong>Gaze Heads: How VLMs Look at What They Describe</strong>（Rohit Gandikota、David Bau，2026-06-15）—— 通过 gaze 机制分析 VLM 在生成描述时"看"哪里，可解释性研究。</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>OmniVideo-100K: A Dataset for Audio-Visual Reasoning through Structured Scripts and Evidence Chains</strong>（2026-06-15）—— 10 万条音视频推理数据，强调结构化脚本与证据链。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>MUSE: Agentic 3D Scene Authoring via Memory-Grounded Incremental Requirement Satisfaction</strong>（2026-06-15）—— 用智能体+记忆接地做 3D 场景创作。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>Instruct-Particulate: Scaling Feed-Forward 3D Object Articulation with Kinematic Control</strong>（2026-06-15） —— 喂 3D 物体铰接预测+运动学控制。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>WAM4D: Fast 4D World Action Model via Spatial Register Tokens</strong>（北大-银河通用等团队，2026-06-15） —— 4D 世界动作模型，spatial register tokens 加速生成。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>ForceForget: Reinforcement Concept Removal for Enhancing Safety in Text-to-Image Models</strong>（2026-06-15） —— 强化学习概念擦除，提升文生图安全。</p>
+</li>
+<li>来源：arXiv cs.CV</li>
+</ul>
+<hr>
+<h2 id="具身-vla-机器人">具身 / VLA / 机器人</h2>
+<ul>
+<li><strong>EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning</strong>（2026-06-15，arXiv cs.RO）—— 不依赖真实机器人的自我中心数据采集与学习框架。</li>
+<li>
+<p>来源：arXiv cs.RO</p>
+</li>
+<li>
+<p><strong>TRACE: Trajectory-Routed Causal Memory for Delayed-Evidence Visuomotor Imitation</strong>（2026-06-15） —— 轨迹路由因果记忆，处理"延迟证据"视觉运动模仿。</p>
+</li>
+<li>
+<p>来源：arXiv cs.RO</p>
+</li>
+<li>
+<p><strong>Spatially Conditioned Diffusion Policy: Learning Precise and Robust Manipulation with a Single RGB Camera</strong>（2026-06-15） —— 单 RGB 相机就能学到精确鲁棒操作策略。</p>
+</li>
+<li>
+<p>来源：arXiv cs.RO</p>
+</li>
+<li>
+<p><strong>AERMANI-PLACE: Language Guided Object Placement with Aerial Manipulators</strong>（2026-06-15） —— 空中机械臂+语言引导物体放置。</p>
+</li>
+<li>
+<p>来源：arXiv cs.RO</p>
+</li>
+<li>
+<p><strong>ORCA: A Platform for Open-Source Dexterity Research</strong>（2026-06-15） —— 灵巧操作的开源研究平台。</p>
+</li>
+<li>
+<p>来源：arXiv cs.RO</p>
+</li>
+<li>
+<p><strong>NVIDIA Cosmos 3 + 6 套物理 AI 合成数据集</strong>（持续刷屏，2026-05-31 起）—— 详见顶级研究组新发布。同步推动 Physical AI 训练和评估从月级缩短到天级。</p>
+</li>
+<li>
+<p>来源：NVIDIA Newsroom、Reddit r/SelfDrivingCars、Futurum Group、Axios</p>
+</li>
+<li>
+<p><strong>Embodied AI This Week: Two Scorecards — Who's Actually Working?</strong>（2026-06-15，EVST ROBOT YouTube） —— 行业人形态机器人/具身 AI 进度双榜评测。</p>
+</li>
+<li>
+<p>来源：YouTube @EVST ROBOT</p>
+</li>
+<li>
+<p><strong>ICRA 2026 后续效应</strong>：ETH Zürich 团队等多家实验室在 ICRA 2026（6/1-5）发表的论文已开始 arXiv 投放，WAFR 2026 在 Oulu（6/15-17）开幕。</p>
+</li>
+<li>来源：arXiv cs.RO 当前目录、LinkedIn @erdemb</li>
+</ul>
+<hr>
+<h2 id="agent-大模型">Agent / 大模型</h2>
+<ul>
+<li><strong>VISTA: View-Consistent Self-Verified Training for GUI Grounding</strong>（2026-06-15）—— 视图一致的自验证训练，做 GUI 接地的 VLM。</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>StreamMemBench: Streaming Evaluation of Agent Memory for Future-Oriented Assistance</strong>（2026-06-15） —— 流式评估 agent 长期记忆能力的新基准。</p>
+</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>Towards Direct Latent-Space Synthesis for Parallel Branches in LLM-Agent Workflows</strong>（Shikun Liu 等，2026-06-15）—— 在 LLM-Agent 工作流中直接合成并行分支的潜空间。</p>
+</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>GitOfThoughts: Version-Controlled Reasoning and Agent Memory You Can Replay, Diff, and Merge</strong>（2026-06-15） —— 把 git 思维套到智能体推理与记忆上，可回放/diff/合并。</p>
+</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry</strong>（2026-06-15） —— 智能体的可组合/自适应/可演化 harness 工厂。</p>
+</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>From Chatbot to Digital Colleague: The Paradigm Shift Toward Persistent Autonomous AI</strong>（2026-06-15）—— 综述：聊天机器人向"常驻数字同事"转变。</p>
+</li>
+<li>
+<p>来源：arXiv cs.AI</p>
+</li>
+<li>
+<p><strong>Code Correctness Signals in LLM Hidden States: Pre-Generation Probing and Repair Geometry</strong>（2026-06-15，arXiv cs.LG） —— 探测 LLM 隐藏态中的代码正确性信号。</p>
+</li>
+<li>
+<p>来源：arXiv cs.LG</p>
+</li>
+<li>
+<p><strong>Gemma 4 12B：encoder-free 统一多模态</strong>（DeepMind 6 月发布）—— 用一套 backbone 同时处理图像和文本，简化 VLM 训练栈。</p>
+</li>
+<li>
+<p>来源：Google DeepMind Blog</p>
+</li>
+<li>
+<p><strong>Anthropic 6 月 9 日推出 Fable 5</strong>（Mythos 级，已被下线） / 6 月 12 日暂停访问 / 6 月 14 日确认白宫指令 —— 详见今日重点 2。</p>
+</li>
+<li>
+<p>来源：Anthropic Newsroom / Claude Help Center / Bloomberg / Axios</p>
+</li>
+<li>
+<p><strong>OpenAI 6 月 14 日发 Academy 三门新课 + OpenAI Partner Network</strong> —— 详见顶级研究组新发布。</p>
+</li>
+<li>来源：OpenAI 官网</li>
+</ul>
+<hr>
+<h2 id="ai-for-science">AI for Science</h2>
+<ul>
+<li><strong>Gemma 4 12B 应用于 Sierra Leone 教育实验</strong>（DeepMind 6 月博文）—— DeepMind 公布"在塞拉利昂等地用 AI 辅助学习的实际影响评估"，是 AI for Education 方向的大规模田间实验。</li>
+<li>
+<p>来源：Google DeepMind Blog</p>
+</li>
+<li>
+<p><strong>Improving Lunar Topography with Deep Learning Schrödinger Bridges</strong>（Matthew Repasky 等，arXiv 2026-06-15） —— 用深度学习 Schrödinger Bridge 改进月球地形建模，月球测绘新方法。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>HiST: A Hierarchical Sparse Transformer for Cross-Modal Spatial Transcriptomics Modeling</strong>（2026-06-15） —— 跨模态空间转录组学的分层稀疏 Transformer。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>LapidaryEngine: Fully Conversational Crystal Generation</strong>（2026-06-15，arXiv cs.LG） —— 全对话式的晶体生成。</p>
+</li>
+<li>
+<p>来源：arXiv cs.LG</p>
+</li>
+<li>
+<p><strong>PepALD: Macrocyclic Peptide Generation via Autoregressive Latent Diffusion</strong>（2026-06-15，arXiv cs.LG） —— 用自回归潜扩散生成大环肽，药物发现相关。</p>
+</li>
+<li>
+<p>来源：arXiv cs.LG</p>
+</li>
+<li>
+<p><strong>Curvature-Informed Potential Energy Surface for Protein-Ligand Binding Affinity Prediction</strong>（arXiv 2026-06-15） —— 曲率信息势能面预测蛋白-配体结合亲和力。</p>
+</li>
+<li>
+<p>来源：arXiv cs.LG</p>
+</li>
+<li>
+<p><strong>Diffusion-Refined Segmentation and Vision-Language Interpretation for Pediatric Brain Tumor MRI</strong>（2026-06-15） —— 扩散精炼的儿童脑肿瘤 MRI 分割与视觉-语言解读。</p>
+</li>
+<li>
+<p>来源：arXiv cs.CV</p>
+</li>
+<li>
+<p><strong>Hybrid Classical-Quantum (HCQ) Alzheimer's Classification via Supervised β-VAE and Quantum Kernels</strong>（2026-06-15） —— 混合经典-量子的阿尔茨海默症分类。</p>
+</li>
+<li>来源：arXiv cs.CV</li>
+</ul>
+<hr>
+<h2 id="行业-商业动态3-天内">📌 行业 &amp; 商业动态（3 天内）</h2>
+<ul>
+<li><strong>OpenAI 6 月 9 日 S-1 机密提交 SEC</strong>（早 8 天就传闻，6 月 14 日多家媒体再确认）—— 估值 8520 亿美元、月营收约 20 亿美元。</li>
+<li>
+<p>来源：OpenAI 官网 / LinkedIn AI Insiders News</p>
+</li>
+<li>
+<p><strong>Anthropic Fable 5 下架 + IPO 提速</strong> —— 详见今日重点 2。Anthropic 6 月 4 日发"全球协同暂停前沿 AI 开发"提案，争议集中在"80% 代码由 Claude 写"和"建议暂停"是否矛盾。</p>
+</li>
+<li>
+<p>来源：VentureBeat / SiliconAngle / Scientific American / Bloomberg</p>
+</li>
+<li>
+<p><strong>Kimi（月之暗面）新一轮 20 亿美元融资，估值 300 亿美元</strong>（6 月 8 日曝光，6 月 14 日持续讨论）—— 中国大模型独角兽估值重排。</p>
+</li>
+<li>
+<p>来源：澎湃 / ZAKER / 36 氪</p>
+</li>
+<li>
+<p><strong>Goldman Sachs：2026-2031 AI 资本开支 7.6 万亿美元</strong>（6 月 14 日刷屏） —— 包含算力/数据中心/电力。</p>
+</li>
+<li>
+<p>来源：RD World Online</p>
+</li>
+<li>
+<p><strong>OpenAI 6 月 8 日在 API + Codex 上线 gpt-image-2</strong>（早于 6 月 14 日，已属于"3 天内"边缘信息）—— 新一代图像生成模型进入生产。</p>
+</li>
+<li>
+<p>来源：OpenAI Developer Community Announcements</p>
+</li>
+<li>
+<p><strong>Gemini 3.1 Flash / Pro 图片模型 6 月 25 日停服</strong>（6 月初公告，6 月 14 日再次提醒）—— 开发者需要迁移。</p>
+</li>
+<li>
+<p>来源：Google AI for Developers Gemini API Changelog</p>
+</li>
+<li>
+<p><strong>"硬主权"（hardware sovereignty）概念走红</strong> —— Fable 5 事件后，企业 AI 战略从"用云"转向"自建+多供应商+本地化"。</p>
+</li>
+<li>
+<p>来源：VentureBeat / CosmicJS</p>
+</li>
+<li>
+<p><strong>2026 智源大会 6 月 13 日开幕</strong>（详见顶级研究组新发布）—— 图灵奖得主 Diffie &amp; Barto 出席。</p>
+</li>
+<li>
+<p>来源：量子位 qbitai.com</p>
+</li>
+<li>
+<p><strong>SpaceX 上市后 SPCX 强势被纳入 MSCI Large-Cap 指数</strong>（6 月 14 日）—— 与 NVIDIA Jensen Huang 公开站台 AI IPO 互为呼应。</p>
+</li>
+<li>来源：Investing.com / XTB / Web And IT News</li>
+</ul>
+<hr>
+<h2 id="中文圈讨论亮点">🇨🇳 中文圈讨论亮点</h2>
+<ul>
+<li><strong>小红书 / 知乎 / 微博</strong>：Fable 5 下架引发国内"卡脖子 vs 自研"讨论，多位 KOL 呼吁"自建本地大模型+数据不出域"。</li>
+<li>
+<p>来源：知乎专栏"国内外知名大模型及应用——模型/应用维度（2026/06/12）"（<a href="https://zhuanlan.zhihu.com/p/670574382" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/670574382</a>）</p>
+</li>
+<li>
+<p><strong>量子位奇点智能产品大会首批嘉宾官宣</strong> —— 7/17-18 召开，主题"AI 的可交付时代"。</p>
+</li>
+<li>
+<p>来源：qbitai.com 首页</p>
+</li>
+<li>
+<p><strong>千问 Qwen 世界杯剧本预测神准</strong>（6 月 13 日首日） —— 比分、红牌、绝杀全部押中，引发"大模型预测体育赛事"话题刷屏。</p>
+</li>
+<li>
+<p>来源：量子位 qbitai.com</p>
+</li>
+<li>
+<p><strong>机器之心：AGI Lab 西湖大学多模态安全研究</strong>（6 月 14 日） —— 多模态大模型"读得出 ≠ 防得住"，低分辨率渲染文本可绕过安全过滤。</p>
+</li>
+<li>
+<p>来源：新浪 AI 热点小时报（2026-06-14 15 时）转引机器之心</p>
+</li>
+<li>
+<p><strong>DeepSeek 技术社区 6 月第 2 周 AI 技术周报</strong>（6 月 14 日刷屏）—— 汇总包括 DiffusionGemma 在内的开源大事件。</p>
+</li>
+<li>来源：deepseek.csdn.net</li>
+</ul>
+<hr>
+<h2 id="趋势-观察">🔭 趋势 / 观察</h2>
+<ol>
+<li><strong>世界模型成为 6 月 AI 主线</strong>：Physis-v0.1（BAAI）、Cosmos 3（NVIDIA）、Yann LeCun AMI Labs 的种子、Fei-Fei Li 的 World Labs、Meta Avocado —— 整个 6 月所有"非语言"主线的 AI 公司/实验室都在朝世界模型靠拢。</li>
+<li><strong>非自回归 LLM 范式回归</strong>：DiffusionGemma 26B-A4B 在开源社区引爆讨论——arXiv 6/15 立刻出现"Neither Parallel Nor Sequential: How DiffusionGemma Actually Commits Tokens"等分析性论文。</li>
+<li><strong>Agent 栈进入"harness 工程化"阶段</strong>：HarnessX、GitOfThoughts、VISTA、StreamMemBench 等多篇 arXiv 新文都在解决"agent 怎么管"的问题，而不是"agent 怎么更聪明"。</li>
+<li><strong>Fable 5 事件触发"AI 主权"概念爆火</strong>：硬主权、开源本地化、多供应商策略从讨论走向 CIO 决策。</li>
+<li><strong>AI for Science 跨学科加速</strong>：从量子计算（HCQ Alzheimer's）、蛋白-配体亲和力（PES）、大环肽（PepALD）、晶体生成（LapidaryEngine）到儿童脑肿瘤 MRI，arXiv 6/15 当天就有 8+ 篇跨学科 AI4Science 论文。</li>
+</ol>
+<hr>
+<h2 id="主要参考链接">🔗 主要参考链接</h2>
+<ul>
+<li>BuildFastWithAI 每日 AI 新闻（2026-06-15）：<a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-15-2026" target="_blank" rel="noopener noreferrer">https://www.buildfastwithai.com/blogs/ai-news-today-june-15-2026</a></li>
+<li>arXiv cs.AI recent：<a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener noreferrer">https://arxiv.org/list/cs.AI/recent</a></li>
+<li>arXiv cs.CV recent：<a href="https://arxiv.org/list/cs.CV/recent" target="_blank" rel="noopener noreferrer">https://arxiv.org/list/cs.CV/recent</a></li>
+<li>arXiv cs.LG recent：<a href="https://arxiv.org/list/cs.LG/recent" target="_blank" rel="noopener noreferrer">https://arxiv.org/list/cs.LG/recent</a></li>
+<li>arXiv cs.RO recent：<a href="https://arxiv.org/list/cs.RO/recent" target="_blank" rel="noopener noreferrer">https://arxiv.org/list/cs.RO/recent</a></li>
+<li>Google DeepMind Blog：<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">https://deepmind.google/blog/</a></li>
+<li>Anthropic Newsroom：<a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/news</a></li>
+<li>OpenAI News：<a href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">https://openai.com/news/</a></li>
+<li>NVIDIA Cosmos 3：<a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai" target="_blank" rel="noopener noreferrer">https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai</a></li>
+<li>BAAI / Physis-v0.1（CGTN 报道）：<a href="https://news.cgtn.com/news/2026-06-14/China-unveils-AI-world-model-that-understands-physical-world-1NYmex0KQlG/p.html" target="_blank" rel="noopener noreferrer">https://news.cgtn.com/news/2026-06-14/China-unveils-AI-world-model-that-understands-physical-world-1NYmex0KQlG/p.html</a></li>
+<li>DiffusionGemma 模型卡：<a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank" rel="noopener noreferrer">https://huggingface.co/google/diffusiongemma-26B-A4B-it</a></li>
+<li>量子位：<a href="https://www.qbitai.com/" target="_blank" rel="noopener noreferrer">https://www.qbitai.com/</a></li>
+<li>知乎专栏：<a href="https://zhuanlan.zhihu.com/p/670574382" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/670574382</a></li>
+</ul>
+<hr>
+<h2 id="免责声明">⚠️ 免责声明</h2>
+<ul>
+<li>本简报由 AI 自动整理生成，仅供研究参考</li>
+<li>3 天内发布的内容可能存在时区差和滞后，所有时间均以原始来源标注为准</li>
+<li>部分实验性项目（如 DiffusionGemma）官方明示"在通用基准上弱于 Gemma 4"，仅在速度/交互场景具优势</li>
+<li>涉及 Fable 5 监管动态仍在变化中，请关注官方最新公告</li>
+<li>不构成投资建议，请独立判断</li>
+</ul></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-06-15/"><span>← 上一期 · 2026-06-15</span><strong>🚨 今日重点 · 🏛️ 顶级研究组 / 机构新发布 · 🌐 生成模型 / 新范式</strong></a><a class="newer" href="../2026-06-17/"><span>下一期 → · 2026-06-17</span><strong>🚨 今日重点 · 🏛 顶级研究组新发布（arXiv / 顶会） · 🧠 生成模型 / 新范式</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-04｜World Motion Models · UniWAM · Reconstruct, Practice, Go Real · Yunhe</title><meta name="description" content="今天的 arXiv 机器人最新批次在 10 月 2 日有 107 项投稿；CV、AI、ML 批次也分别完成了当日首屏与全文列表交叉筛选。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-04/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-04｜World Motion Models · UniWAM · Reconstruct, Practice, Go Real"><meta property="og:description" content="今天的 arXiv 机器人最新批次在 10 月 2 日有 107 项投稿；CV、AI、ML 批次也分别完成了当日首屏与全文列表交叉筛选。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-04/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><link rel="stylesheet" href="../../assets/katex/katex.min.css"><script defer src="../../assets/katex/katex.min.js"></script><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>World Motion Models · UniWAM · Reconstruct, Practice, Go Real</h1><p class="article-deck">今天的 arXiv 机器人最新批次在 10 月 2 日有 107 项投稿；CV、AI、ML 批次也分别完成了当日首屏与全文列表交叉筛选。</p><div class="article-meta"><time datetime="2026-10-04">2026 / 10 / 04</time><span>约 21 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-world-motion-models-flexible-sequence-modeling-of-se3-trajectoriesp0">1. World Motion Models: Flexible Sequence Modeling of SE(3) Trajectories｜P0</a><a class="toc-level-2" href="#2-uniwam-unified-world-action-modelp0">2. UniWAM: Unified World-Action Model｜P0</a><a class="toc-level-2" href="#3-reconstruct-practice-go-real-guided-self-improvement-for-embodied-agentsp0">3. Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents｜P0</a><a class="toc-level-2" href="#4-interevolve-test-time-evolution-of-reward-programs-for-humanoid-loco-manipulationp0">4. InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation｜P0</a><a class="toc-level-2" href="#5-activewam-evidence-aware-active-vision-for-world-action-modelsp1">5. ActiveWAM: Evidence-Aware Active Vision for World-Action Models｜P1</a><a class="toc-level-2" href="#6-skelewam-skeleton-world-action-modeling-for-efficient-robotic-manipulationp1">6. SkeleWAM: Skeleton World-Action Modeling for Efficient Robotic Manipulation｜P1</a><a class="toc-level-2" href="#7-4director-controlling-video-world-models-with-rigid-3d-geometryp1">7. 4Director: Controlling Video World Models with Rigid 3D Geometry｜P1</a><a class="toc-level-2" href="#8-humanoidtoolbench-benchmarking-humanoid-tool-use-from-selection-to-mobile-executionp1">8. HumanoidToolBench: Benchmarking Humanoid Tool Use from Selection to Mobile Execution｜P1</a><a class="toc-level-2" href="#9-fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokensp1">9. Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-04.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-04</div><article class="prose"><p>检索窗口为 2026-10-01 09:00 至 2026-10-04 09:00（Asia/Shanghai），覆盖 arXiv cs.RO、cs.CV、cs.AI、cs.LG 最新批次，以及主要实验室、公司、GitHub、Hugging Face 和项目页。相较上一期（2026-10-02），已排除 ReWAM、EVO-WAM、IronMind、Magic-W0、EmbodiRSI、MotionWeave 等已报道条目；只有出现新版本、代码/权重、基准结果或第三方验证才保留重复追踪。本轮新增判断是：研究重点正在从“生成一段看起来合理的视频”转向三种可测接口——可组合的 3D 运动状态、带语义推理的动作生成、以及由执行反馈驱动的测试时进化。</p>
+<p>今天的 arXiv 机器人最新批次在 10 月 2 日有 107 项投稿；CV、AI、ML 批次也分别完成了当日首屏与全文列表交叉筛选。广泛网页兜底覆盖了 Spatial Intelligence、World Model、Physical AI、Embodied/Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 及主要机构。没有把搜索结果中的“最近抓取”当作发布时间；以下条目均有原始论文或官方项目页作为时间证据。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → World Motion Models</strong>：先看它如何用稀疏 SE(3) 轨迹把空间世界、动作、逆运动学和 MPC 放进同一个可遮罩的生成模型。</p>
+<p><strong>B → UniWAM</strong>：再看 WAM 与 VLA 的统一方式、三源数据监督和历史条件 flow matching；它是今天最接近可复现实验的完整发布。</p>
+<p><strong>C → Reconstruct, Practice, Go Real</strong>：随后读不改模型权重、只改技能库和系统提示的机器人自改进闭环，区分“能力增长”与“参数更新”。</p>
+<p><strong>D → InterEvolve</strong>：最后看奖励程序的结构搜索、数值调参和跨场景验证如何把测试时进化推进到人形全身操作。</p>
+<p><strong>E → ActiveWAM / HumanoidToolBench</strong>：用一个主动视觉 WAM 和一个工具使用基准检查当前方法是否真正处理了证据获取、工具选择、移动与接触转换。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-world-motion-models-flexible-sequence-modeling-of-se3-trajectoriesp0">1. <a href="https://arxiv.org/abs/2610.01742" target="_blank" rel="noopener noreferrer">World Motion Models: Flexible Sequence Modeling of SE(3) Trajectories</a>｜P0</h2>
+<p>作者 Jiahui Lei、Qianqian Wang、Trevor Darrell、Angjoo Kanazawa，来自 UC Berkeley、Harvard University 等；项目页在 <a href="https://jiahuilei.com/projects/wmm" target="_blank" rel="noopener noreferrer">jiahuilei.com/projects/wmm</a>。论文于 2026-10-01 提交 arXiv，并标注为 NeurIPS 2026 Spotlight；性质是 arXiv 预印本/会议接收信息，尚无同行评审后的最终版本或第三方复现。</p>
+<p>它解决的问题是：图像或视频世界模型把几何、外观、光照和视角混在一起，导致同一个模型难以同时承担未来预测、动作策略、逆动力学、跨本体迁移和 MPC。WMM 把对象、人体关节、手物交互、相机、机器人状态和动作都表达为稀疏的 SE(3) 轨迹 token；用带逐 token 噪声等级的 flow matching 学习联合分布，并用 context token 表示跨时间、跨示例的非连续条件。推理时只需改变哪些 token 已知、哪些 token 加噪，就能得到未来预测、动作生成、动作条件动力学或运动补全：</p>
+<div class="arithmatex">\[
+p(\text{unknown}\mid\text{known})
+\]</div>
+<p>作者在 6 类 3D 视觉与机器人应用中报告了强结果，覆盖 Language Table 策略与动力学、TraceGen 场景未来、OMOMO 人物-物体交互、人体/人形 retargeting 和 MPC。局限是表示假设刚性 SE(3) 轨迹，尚未覆盖一般缩放、剪切和高频接触形变；所有结果仍是作者报告，没有独立验证。</p>
+<p>创新点在于把“空间状态语言”和“动作语言”统一，而不是把视频 latent 直接当作控制接口。与视频 WAM、3D diffusion policy、传统动力学模型相比，它更像一个可编程的空间生成先验。值得深入阅读，尤其应关注 mask 设计、上下文 token 的跨本体语义是否真的稳定。</p>
+<p>可复现性：论文源码可下载，项目页提供示例和可视化；公开权重、完整训练数据和一键训练脚本尚未确认。轻量验证可在 Language Table 或一个 2D/3D toy 版上复现：固定部分 SE(3) token，比较未来预测、动作条件预测和 inverse-kinematics 三种 mask 是否共享同一模型；再与独立 policy head 对比数据效率和长时误差累积。</p>
+<h2 id="2-uniwam-unified-world-action-modelp0">2. <a href="https://arxiv.org/abs/2610.02054" target="_blank" rel="noopener noreferrer">UniWAM: Unified World-Action Model</a>｜P0</h2>
+<p>作者 Jiayi Chen、Wenxuan Song、Jingbo Wang、Shuai Zhou 等，来自香港科技大学（广州）、OLA Dimensions、Carnegie Mellon University、北京大学、上海交通大学和北京智源人工智能研究院；有<a href="https://uniwam.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://github.com/UniWAM/UniWAM" target="_blank" rel="noopener noreferrer">官方 GitHub</a> 和 <a href="https://www.modelscope.cn/collections/Kosmos524/UniWAM" target="_blank" rel="noopener noreferrer">ModelScope 检查点</a>。论文于 2026-10-01 提交，是 arXiv 预印本；代码、训练配置和检查点已经公开，尚无第三方验证。</p>
+<p>UniWAM 直接回答 VLA 缺少动力学、WAM 缺少语义推理的问题。架构由 physical reasoner、world generator 和 action predictor 三个专家组成，用 Mixture-of-Transformers 联合注意力连接。预训练混合 VQA、人体第一视角数据和机器人示范：VQA 保留语言能力，人体视频学习物理变化，机器人数据提供精确动作监督；低层动作先用自然语言表达以贴近 VLM 的预训练分布。后训练加入 future visual noise augmentation，使动作分支不能依赖精确未来帧，并用 history-conditioned flow matching 让动作历史初始化未来动作生成。</p>
+<p>作者报告的结果包括 LIBERO 平均成功率 99.2%、LIBERO-Plus 总体 92.6%、RoboTwin 2.0 Clean2Rand 68.32%，并声称在鲁棒性、泛化、指令跟随和长时任务上达到 SOTA；这些是作者/项目页数字，尚无第三方复核。它与 <span class="arithmatex">\(\pi_0/\pi_{0.5}\)</span>、Cosmos-Policy、Fast-WAM 的关系是把语义 reasoner、视频生成和 action flow 统一在一个 MoT 中，而不是简单增加一个动作头。</p>
+<p>主要风险是多专家、多数据源的收益可能来自数据清洗和 benchmark 配置，三源监督的相互干扰仍需独立消融；RoboTwin 和 LIBERO 结果也不能替代真实接触任务。值得精读，优先检查 action history 的信息泄漏、未来视觉噪声的训练/推理差异，以及 scaling law 是否跨机器人和跨数据集成立。</p>
+<p>可复现性是今天最强的一项：Apache-2.0 代码、ModelScope 预训练和 post-trained checkpoint、RoboTwin/LIBERO 配置均可见，但 Bridge、DROID、Fractal 和真实世界完整推理被明确排除。轻量验证可只跑 LIBERO-plus 的 2B/5B 子配置，做四个消融：无 human data、无 VQA、无 future-noise、无 history initialization；同时报告每一步 denoising 次数、动作延迟和长时失败类型。</p>
+<h2 id="3-reconstruct-practice-go-real-guided-self-improvement-for-embodied-agentsp0">3. <a href="https://arxiv.org/abs/2610.02204" target="_blank" rel="noopener noreferrer">Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents</a>｜P0</h2>
+<p>作者 Yen-Jen Wang、Haozhe Jiang、Shuying Deng、Haoru Xue、Weirui Ye、Rocky Duan、Nika Haghtalab、S. Shankar Sastry、Pieter Abbeel、Haozhi Qi，来自 UC Berkeley/BAIR 等合作团队；<a href="https://rpg-robot.github.io/" target="_blank" rel="noopener noreferrer">项目页</a> 与论文同日发布。性质是 arXiv 预印本，未见公开权重或完整训练代码，也没有第三方验证。</p>
+<p>RPG 的问题是：机器人系统经常需要人工维护技能、奖励和感知控制接口。它不更新基础模型参数，而是从离线数据中识别已有操作能力，在模拟器自动构造相关练习任务；执行时使用反馈、特权模拟器状态和数据集视频诊断失败，新增或修改符号技能，更新系统提示，并在跨任务评估后只保留稳定修改。测试时，多模态 LLM 通过技能库和系统提示协调感知与控制。</p>
+<p>作者在 22 个保留初始化的操作任务上报告成功率从第一次练习的 28.6% 提升到 15 轮后的 95.0%，超过 ASPIRE 75.5% 和 CaP-Agent0 60.0%；经统一校准与硬件适配后，3 个真实任务共 30 次试验全部成功。这是作者报告，不等同于跨实验室复现。创新点在于把自我改进的对象放在“可验证技能、提示和执行接口”，而不是把每次失败都写进权重；它连接了 agent memory、sim-to-real 和长时任务。</p>
+<p>局限是模拟器特权状态、练习任务生成器和 LLM 提示本身可能携带大量先验；真实实验只有 3 个任务，且“冻结系统”前仍有校准与硬件适配。与普通 test-time planning、RoboTTT 或参数级 self-training 相比，RPG 提供了一个可审计的修改边界，值得深入阅读。</p>
+<p>可复现性：项目页可访问性不稳定，代码/权重状态需向作者确认。轻量验证可以不训练任何模型：用 RoboTwin 的 5 个长时任务构建符号技能库，记录每轮“失败原因 → 技能/提示修改 → 留出任务回归”，比较只记忆轨迹、只改 prompt、改 prompt+技能库三种条件，并强制检查中间接触状态而非只看最终帧。</p>
+<h2 id="4-interevolve-test-time-evolution-of-reward-programs-for-humanoid-loco-manipulationp0">4. <a href="https://arxiv.org/abs/2610.02196" target="_blank" rel="noopener noreferrer">InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</a>｜P0</h2>
+<p>作者 Zhuo Lin、Sirui Xu、Liuyu Bian、Yu-Xiong Wang、Liang-Yan Gui，核心团队来自 University of Illinois Urbana-Champaign；<a href="https://sirui-xu.github.io/" target="_blank" rel="noopener noreferrer">作者项目页</a> 明确列出 UIUC 归属和 Unitree G1 实验。论文于 2026-10-01 提交，是 arXiv 预印本；未找到公开代码或权重，暂无第三方验证。</p>
+<p>InterEvolve 不重新训练全身控制器，而是把任务写成有阶段顺序、奖励项、完成条件和可调常数的 reward program。LLM 在外循环修改程序结构，CMA-ES 在内循环调常数；每个候选程序都在并行场景中验证，只有在相同初始条件和重复确认中稳定优于当前最好者才进入技能库。object-aware forward-backward behavioral foundation model 通过对象残差把奖励映射成冻结身体先验可执行的 latent prompt。</p>
+<p>作者报告人类手写奖励没有释放控制器已有的全部能力，而进化程序能在模拟中产生新的接触策略、复杂场景和长时组合，并在真实 Unitree G1 上从第一视角感知自主运行。论文摘要未给单一 headline success 数字，因此不能把演示视频当作量化第三方证据。</p>
+<p>其研究价值是把“自进化”拆成可审计的结构搜索、数值校准、验证和记忆累积，较清楚地隔离了 LLM 生成、控制器能力和 verifier 偏差。主要局限是仿真 verifier 仍是瓶颈，reward program 的表达能力决定上限，且 192 级别的并行 rollout 成本很高。与 RPG 的 prompt/skill 更新互补：InterEvolve 更靠近接触丰富的人形控制，RPG 更靠近多任务操作系统。</p>
+<p>可复现性：论文和项目说明完整，但公开实现尚未确认。轻量验证可用 Isaac Lab 的固定全身策略和 5 个接触阶段任务，先只进化两个阈值；把每轮候选、验证噪声、跨初始条件回归和 skill-library 迁移全部记录，验证收益是否来自真正的结构变化而非搜索预算。</p>
+<h2 id="5-activewam-evidence-aware-active-vision-for-world-action-modelsp1">5. <a href="https://arxiv.org/abs/2610.01698" target="_blank" rel="noopener noreferrer">ActiveWAM: Evidence-Aware Active Vision for World-Action Models</a>｜P1</h2>
+<p>作者 Renjun Wu、Luzhou Ge、Xuesong Li；论文于 2026-10-01 提交，是 arXiv 预印本。它研究主动视觉操作中“移动相机会丢掉关键证据，保持视角又可能看不到新信息”的 retain/acquire 决策。训练时用 training-time inversion 让冻结视频先验受任务证据和可见时序变化约束；部署时从 view-aware history 同时生成双臂动作、云台动作、stay 和 reacquisition 行为。未来视频预测只作为共同训练信号，不需要测试时反演或最优视角标注。</p>
+<p>作者报告在 TAVIS OOD 成功率最高提升 17.0 个百分点，在 RoboTwin-AV 50 任务上比 Fast-WAM 多 20.0 个百分点，在真实厨房任务上多 26.7 个百分点；这些是作者报告。创新点是把“观察动作”纳入 WAM 的 action space，并提供带可执行 pan/tilt 控制的 RoboTwin-AV。局限是相机、双臂和场景标注的联合设置较重，真实厨房覆盖有限；尚未确认公开代码、权重和数据。</p>
+<p>它值得作为 UniWAM 的正交补充：前者解决语义/动力学统一，ActiveWAM 解决证据获取和观测窗口。轻量验证可固定机械臂策略，只让一个虚拟相机在“保持/重采样”二选一，比较视角熵、关键物体可见率、动作成功率和额外相机运动成本。</p>
+<h2 id="6-skelewam-skeleton-world-action-modeling-for-efficient-robotic-manipulationp1">6. <a href="https://arxiv.org/abs/2610.02120" target="_blank" rel="noopener noreferrer">SkeleWAM: Skeleton World-Action Modeling for Efficient Robotic Manipulation</a>｜P1</h2>
+<p>作者 Juyi Sheng、Hua Wang、Mengyuan Liu，来自北京大学；<a href="https://skelewam-project.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>。论文于 2026-10-01 提交，是 arXiv 预印本，项目页公开但未见完整权重。</p>
+<p>SkeleWAM 用在线 RGB-D 和本体感知构造稀疏 3D skeleton：机器人关节、物体中心和交互点。模型同时预测当前 skeleton 的动作和未来 skeleton，不生成未来视频；推理时用 Medoid Action Consensus 合并随机动作样本。作者在 LIBERO-Plus 报告 57.1M 参数、85.9% 总成功率，比 Cosmos-Policy 高 3.7 个百分点。</p>
+<p>创新点是把控制相关几何从视觉 latent 中显式剥离，计算量明显低于视频 WAM；与 WMM 的通用 SE(3) 状态语言相比，它是针对桌面操作的低维、可落地特化。局限是依赖深度、物体中心和交互点质量，难以表达遮挡、柔性物体和复杂外观语义；结果仍是作者报告。轻量验证可在 LIBERO-Plus 只训练 skeleton future loss 与 action loss，比较视频 latent、点云和 skeleton 三种状态在同等参数量下的控制成功和碰撞率。</p>
+<h2 id="7-4director-controlling-video-world-models-with-rigid-3d-geometryp1">7. <a href="https://arxiv.org/abs/2610.02160" target="_blank" rel="noopener noreferrer">4Director: Controlling Video World Models with Rigid 3D Geometry</a>｜P1</h2>
+<p>作者 Wei Cao、Hao Zhang、Vikram Voleti、Yuqun Wu、Mallikarjun B. R.、Shimon Vainer、Mark Boss、Yaoyao Liu；项目页在 <a href="https://stability-ai.github.io/4director/" target="_blank" rel="noopener noreferrer">stability-ai.github.io</a>。论文于 2026-10-01 提交，是 arXiv 预印本。</p>
+<p>它面向空间智能中的“可控世界生成”：输入图像中的每个对象先重建成 canonical mesh，再用每帧一个 rigid transform 控制；先渲染 depth video，再由 Motion Adapter 补全视角一致的外观、光照和非刚性变化。训练集 RealCOD-Rigid 含 20,774 个自动标注刚性 3D 场景片段，提出 Identity-Gated IoU 同时测运动遵循和身份保持。作者报告在视觉质量、相机/物体控制上持续超过已有方法；尚无第三方验证，代码/权重和数据开放范围需以项目页最新状态为准。</p>
+<p>相较 WMM 的状态生成，4Director 更偏向“几何控制接口 → 视频渲染”；相较纯 2D trajectory control，它能处理深度和旋转歧义。局限是刚性物体先验、自动场景标注误差和视频生成器的外观漂移。轻量验证可只用公开视频和 Blender 生成 3D mesh/rigid transform，测 IG-IoU、跨视角身份保持和长时漂移，暂不训练完整视频模型。</p>
+<h2 id="8-humanoidtoolbench-benchmarking-humanoid-tool-use-from-selection-to-mobile-executionp1">8. <a href="https://arxiv.org/abs/2610.02089" target="_blank" rel="noopener noreferrer">HumanoidToolBench: Benchmarking Humanoid Tool Use from Selection to Mobile Execution</a>｜P1</h2>
+<p>作者 Kyochul Jang、Seohyeon Park、Ohchul Kwon、Sangjun Park 等，来自 Seoul National University PI 团队及合作机构；<a href="https://snu-pi.github.io/" target="_blank" rel="noopener noreferrer">项目页/代码与数据</a>。论文于 2026-10-01 提交，是 arXiv 预印本，代码和数据已公开。</p>
+<p>基准包含 18 个任务、3 类场景、3 个执行层级和 2 种工具集合模式，ToolBook 提供 3.1k 条仿真与真实 Unitree G1 示范。它首次把工具选择、移动和操作完成放在同一人形评测里；对 GR00T N1.7 的探针显示，遇到未见工具时选择准确率下降，并可能在无关指令下继续执行。作者报告了 7 个仿真策略和 3 个真实机器人策略之间的明显差距。</p>
+<p>价值在于把“知道选哪个工具”和“真的用工具完成任务”分开，适合检验 WLA/VLA 的语义到接触链路。局限是 18 任务规模仍小，工具集合和场景分布可能偏向单一硬件；代码开放但第三方 leaderboard 尚未形成。轻量验证可在仿真中只跑 selection→navigation→contact 三段，加入工具外观、质量和抓取姿态扰动，报告每一段的条件成功率和错误传递，而不是单一最终成功率。</p>
+<h2 id="9-fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokensp1">9. <a href="https://arxiv.org/abs/2610.01939" target="_blank" rel="noopener noreferrer">Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</a>｜P1</h2>
+<p>作者 Ruiyang Si、Jianxin Bi、Shunyu Yang 等；论文于 2026-10-01 提交，是 arXiv 预印本。PyRUA-Lean 让 agent 把经典机器人 primitive 和 VLA policy 组合成 Python cell，通过条件检查、局部重试和 selective observation，只返回明确请求的图像与状态。</p>
+<p>在 LIBERO-PRO、RoboTwin 2.0 和 RoboCasa365 的 700 个模拟实例上，使用同一个 GPT-6 Astra planner 和底层 primitive，在相同 LLM 调用预算下成功率从 63.1% 提升到 71.7%；共同解决的实例中调用次数减少 49%，输入 token 减少 65%。这是作者报告，优势主要来自执行接口和观察策略，而不是新基础模型。局限是模拟环境、primitive 库和 planner 均固定，尚未证明跨硬件泛化；未确认公开代码/权重。轻量验证可把同一 harness 接到一个本地 VLM 或小型策略上，只改变 observation policy，测成功率、调用数、输入 token 和错误恢复率。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描主要官方发布入口，未发现足以进入 Top Papers 的重大新增。扫描范围包括 <a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.physicalintelligence.company/" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind/Robotics</a>、<a href="https://developer.nvidia.com/robotics" target="_blank" rel="noopener noreferrer">NVIDIA Robotics/Cosmos/GR00T</a>、<a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer">Figure</a>、<a href="https://www.skild.ai/" target="_blank" rel="noopener noreferrer">Skild AI</a>、<a href="https://fieldai.com/" target="_blank" rel="noopener noreferrer">Field AI</a>、<a href="https://www.1x.tech/" target="_blank" rel="noopener noreferrer">1X</a>、<a href="https://ai.meta.com/research/" target="_blank" rel="noopener noreferrer">Meta FAIR</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic</a>、<a href="https://www.tri.global/news" target="_blank" rel="noopener noreferrer">Toyota Research Institute</a>，以及 Stanford、Berkeley、MIT、CMU、Princeton、Unitree、AGIBOT 等团队。</p>
+<p>窗口内的边界信息需要保留但不算今日新增：World Labs 的 Atlas 与“加入 AMD”均在 9 月 1 日/9 月 28 日；Generalist GEN-1.5 在 8 月 19 日；Unitree UnifoLM-WLA-1.0 的 Base/微调代码在 9 月 28 日；Figure 9 月 30 日的 F.02 Decommission 属于产品运营更新而非新研究模型。FieldAI 页面仍强调 Belief World Model 和数字孪生路线，但窗口内未见新论文或权重。对 Physical Intelligence、Skild、TRI 和 NVIDIA 个别页面抓取受限，已用官方搜索结果、项目索引和 arXiv/GitHub 交叉核对，未发现应补入 Top 的窗口内发布。</p>
+<p>Spatial Intelligence 今日有实质新增，主要来自 WMM、4Director、ARROW、Dyna3 和 4D/视频世界模型条目；它们不一定使用 VLA/WAM 关键词，但直接决定空间状态、重建、可控生成和 real-to-sim 的上限。ARROW（Ilya Fradlin、Christian Schmidt、Jens Piekenbrinck 等，RWTH Aachen；2026-10-01 arXiv，<a href="https://arxiv.org/abs/2610.01314" target="_blank" rel="noopener noreferrer">论文</a>）尤其值得作为配套基础模块：其 order-invariant 查询统一任意图像集合的 3D reconstruction 与 point tracking，作者明确提供代码和权重，并在 WorldTrack、TAPVid-3D 上报告 SOTA。Dyna3（Xinhao Xiang、Weiyang Li、Zhijie Zheng 等；2026-10-01 arXiv，<a href="https://arxiv.org/abs/2610.01286" target="_blank" rel="noopener noreferrer">论文</a>）则用冻结深度基础模型、跨帧 best-match 特征、VLM 语义提示和 SAM3 将动态场景拆为静态背景与逐帧动态点云；作者报告动态分割 J-Mean 比 VGGT4D 高 5.5 个百分点、姿态估计最高快 13 倍、4D 重建快 3 倍，但仍缺少第三方验证。CAG（Seungyeon Kim、Junhoo Lee、Baekseung Kim、Minkyu Kim、Nojun Kwak；2026-10-01 arXiv，<a href="https://arxiv.org/abs/2610.01559" target="_blank" rel="noopener noreferrer">论文</a>）是训练后无需改权重的 WAM 采样引导：作者在 RoboTwin 子集报告成功率 64%→70%、零样本仿真 69%→75%，并把不完整想象从 79% 降到 40%；它适合做小规模推理时验证，但同样没有第三方复核。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题层</th>
+<th>今日新增证据</th>
+<th>代表缺口</th>
+<th>可形成的研究机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空间状态与 4D 表征</td>
+<td>WMM 的稀疏 SE(3)、SkeleWAM 的 skeleton、ARROW/Dyna3 的重建跟踪</td>
+<td>状态是否保留接触、柔性、遮挡和语义因果</td>
+<td>用同一状态接口联合预测几何、接触事件和动作，并在跨本体上做 mask/retargeting</td>
+</tr>
+<tr>
+<td>世界生成与可控仿真</td>
+<td>4Director 的 canonical mesh + rigid transform，Dyna3 的静态/动态解耦</td>
+<td>长时一致性、物理守恒、身份保持和控制可逆性仍分离</td>
+<td>建立几何指标、接触指标、视频质量和闭环成功率的统一评测</td>
+</tr>
+<tr>
+<td>VLA/WAM/WLA 统一</td>
+<td>UniWAM 的三专家 MoT、history flow、future-noise</td>
+<td>语义推理和视频动力学的梯度冲突；数据源贡献难复核</td>
+<td>做 source-aware routing 或 ability injection，分别测语言、世界、动作能力的必要性</td>
+</tr>
+<tr>
+<td>主动感知与证据获取</td>
+<td>ActiveWAM 的 retain/acquire、RoboTwin-AV</td>
+<td>视角动作成本与操作成功的联合优化不足</td>
+<td>将视角选择作为 WAM action token，加入证据保留率和重新规划触发率</td>
+</tr>
+<tr>
+<td>测试时自进化</td>
+<td>RPG 的技能/提示闭环、InterEvolve 的 reward program 演化</td>
+<td>verifier 偏差、搜索成本、跨任务负迁移</td>
+<td>做“可验证修改单元”的 benchmark：prompt、skill、reward、adapter 四类更新逐层比较</td>
+</tr>
+<tr>
+<td>长时工具与接触</td>
+<td>HumanoidToolBench、PyRUA-Lean</td>
+<td>最终成功掩盖选择、导航、接触和恢复失败</td>
+<td>采用有序中间状态评测，并把 agent 调用预算、观察成本、恢复率纳入主指标</td>
+</tr>
+</tbody>
+</table></div>
+<p>近期趋势可以概括为：视频 latent 正被几何/骨架/SE(3) 状态补充；WAM 正吸收语言推理、自然语言动作和人类视频；“自进化”从权重更新转向可验证程序、技能库和执行接口；benchmark 从单帧或终态成功转向工具选择、视角获取、接触阶段和长时闭环。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li>
+<p><strong>统一的几何-接触-动作状态</strong>：以 WMM 的 SE(3) 为骨架，增加接触事件、物体可见性和动作历史 token。先在 LIBERO-Plus/RoboTwin 做 3 个 mask 任务：未来状态、逆动作、动作条件未来；只有当同一模型的状态预测提升闭环成功，才进入视频生成或蒸馏。</p>
+</li>
+<li>
+<p><strong>WAM/VLA 能力分解实验</strong>：复现 UniWAM 的三源数据配方，但只训练小模型，分别关闭 VQA、人体视频、机器人动作和 history flow。输出语言保持、动态预测、动作成功和 denoising steps 四个维度，避免把总成功率误读为统一能力已经解决。</p>
+</li>
+<li>
+<p><strong>可验证测试时更新基准</strong>：基于 RPG/InterEvolve 建立 10 个长时接触任务，每轮只允许一种修改：技能、系统提示、奖励程序或 adapter。用固定 verifier、跨初始条件复测和负迁移测试，区分真正能力增长与 evaluator hacking。</p>
+</li>
+<li>
+<p><strong>主动视觉与工具使用合并</strong>：将 ActiveWAM 的视角动作接到 HumanoidToolBench，要求机器人先找到工具、移动到工具、抓取并完成操作。指标同时记录视角移动成本、工具选择准确率、接触阶段成功率和最终成功率。</p>
+</li>
+<li>
+<p><strong>低成本空间世界模型复现</strong>：用 ARROW/Dyna3 的公开代码生成静态背景 + 动态对象点云，再用一个小 flow model 预测对象 SE(3) 轨迹；不训练大视频模型，先验证几何误差、身份保持和 10 步闭环重建漂移。</p>
+</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<ul>
+<li><strong>有代码与权重/数据</strong>：UniWAM（GitHub、ModelScope、RoboTwin/LIBERO 配置）；ARROW（论文明确写明 code and weights）；HumanoidToolBench（代码与 ToolBook 数据）；SkeleWAM 有项目页和部分资源。</li>
+<li><strong>有代码或项目页但权重/数据不完整</strong>：WMM、4Director、Dyna3、ActiveWAM。</li>
+<li><strong>主要是论文/项目描述，复现仍需作者资源</strong>：RPG、InterEvolve、PyRUA-Lean、Completion Aware Guidance。</li>
+<li><strong>证据性质</strong>：除 WMM 标注 NeurIPS 2026 Spotlight、UniWAM 的官方代码/检查点与部分 benchmark 资源外，其余 Top 条目均应视为作者报告的 arXiv 预印本；本轮未发现可靠第三方复现或独立 leaderboard。</li>
+<li><strong>大算力替代原则</strong>：先复现数据契约、状态表示、采样/搜索策略和小规模消融，再考虑 5B–14B 视频/动作模型；不得把项目页演示或单次真实机器人视频当作严格数据集证据。</li>
+</ul>
+<p>今天先读 <strong>WMM → UniWAM → RPG/InterEvolve</strong>，优先验证“统一状态是否改善闭环”和“测试时修改是否跨任务稳定”；如果只有一台中等 GPU，先做 UniWAM 的数据源消融或 WMM/SkeleWAM 的小规模状态模型，不要直接启动大视频模型训练。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-02/"><span>← 上一期 · 2026-10-02</span><strong>Rethinking Representations for World-Action Modeling（ReWAM） · EVO-WAM · IronMind</strong></a><a class="newer" href="../2026-10-05/"><span>下一期 → · 2026-10-05</span><strong>Bonsai World · Praxis-1</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

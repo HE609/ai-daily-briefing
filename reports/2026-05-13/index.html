@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-05-13｜【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】 · Yunhe</title><meta name="description" content="① 腾讯/思谋科技发布 SenseNova-U1：原生统一多模态模型，同时搞定理解和生成 - 论文：SenseNova-U1 (arXiv:2605.12500)，5月12日发表于 cs.CV - 提出了 NEO-unify 架构…">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-05-13/"><meta property="og:type" content="article"><meta property="og:title" content="2026-05-13｜【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】"><meta property="og:description" content="① 腾讯/思谋科技发布 SenseNova-U1：原生统一多模态模型，同时搞定理解和生成 - 论文：SenseNova-U1 (arXiv:2605.12500)，5月12日发表于 cs.CV - 提出了 NEO-unify 架构…"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-05-13/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】</h1><p class="article-deck">① 腾讯/思谋科技发布 SenseNova-U1：原生统一多模态模型，同时搞定理解和生成 - 论文：SenseNova-U1 (arXiv:2605.12500)，5月12日发表于 cs.CV - 提出了 NEO-unify 架构…</p><div class="article-meta"><time datetime="2026-05-13">2026 / 05 / 13</time><span>约 11 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span><span class="tag">具身智能</span><span class="tag">空间智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E9%87%8D%E7%82%B9">【🚨 今日重点】</a><a class="toc-level-2" href="#%E9%A1%B6%E7%BA%A7%E7%A0%94%E7%A9%B6%E7%BB%84%E6%96%B0%E5%8F%91%E5%B8%83">【━━━ 顶级研究组新发布 ━━━】</a><a class="toc-level-2" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E6%96%B0%E8%8C%83%E5%BC%8F">【━━━ 生成模型 / 新范式 ━━━】</a><a class="toc-level-2" href="#%E5%A4%9A%E6%A8%A1%E6%80%81-vlm">【━━━ 多模态 / VLM ━━━】</a><a class="toc-level-2" href="#%E5%85%B7%E8%BA%AB-vla-%E6%9C%BA%E5%99%A8%E4%BA%BA">【━━━ 具身 / VLA / 机器人 ━━━】</a><a class="toc-level-2" href="#agent-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84">【━━━ Agent / 大模型架构 ━━━】</a><a class="toc-level-2" href="#ai-for-science">【━━━ AI for Science ━━━】</a><a class="toc-level-2" href="#%E5%BF%AB%E9%80%9F%E7%B4%A2%E5%BC%95">【📌 快速索引】</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-05-13.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-05-13</div><article class="prose"><hr>
+<h2 id="今日重点">【🚨 今日重点】</h2>
+<p><strong>① 腾讯/思谋科技发布 SenseNova-U1：原生统一多模态模型，同时搞定理解和生成</strong>
+- 论文：SenseNova-U1 (arXiv:2605.12500)，5月12日发表于 cs.CV
+- 提出了 <strong>NEO-unify 架构</strong>，首次在同一模型内真正统一多模态理解（Perception/Reasoning）和多模态生成（X2I/Interleaved VLG），而非过去那种"双塔拼接"方案
+- 两个变体：SenseNova-U1-8B-MoT（约80亿参数）和 SenseNova-U1-A3B-MoT（约30亿参数）
+- 在文本理解、视觉-语言感知、知识推理、Agent决策、空间智能等任务上表现强劲；在 any-to-image 生成、复杂图文混合信息图生成、交错图文生成上同样有竞争力
+- 初步展示在 VLA 和世界模型场景的潜力，意味着统一多模态框架正在向具身/机器人方向渗透
+- <strong>点评：</strong> 这是多模态领域的一个重要里程碑——原生统一而非任务专用适配。NEO-unify 的思路值得持续关注，若代码/权重开源，将对开源多模态社区产生显著冲击。</p>
+<p><strong>② Google DeepMind 发布 PhyGround &amp; PhyJudge-9B：为视频生成世界模型建立物理推理评测基准</strong>
+- 论文：Benchmarking Physical Reasoning in Generative World Models (arXiv:2605.10806)，5月12日提交
+- 提出 <strong>PhyGround</strong>：250条精选 prompt，每条配套预期物理结果，涵盖13类物理定律，是目前最系统的视频物理推理评测体系
+- 同时开源 <strong>PhyJudge-9B</strong>：专精物理推理的 VLM judge，在结构化分数监督下微调
+- 大规模人工评估 + judge 自动化评估双轨并行
+- 关键发现：Gemini-3.1-Pro 相比 PhyJudge-9B 在 aggregate relative bias 上高出约5倍（16.6% vs 3.3%），说明视频生成模型的物理常识依然存在严重偏差
+- <strong>点评：</strong> 世界模型的核心挑战之一是物理可信度。这套 benchmark 直接击中当前 SOTA 模型的软肋，对推动视频生成从"看起来对"到"物理上对"有重要意义。PhyJudge-9B 作为可复现的开源 judge 工具，生态价值很高。</p>
+<p><strong>③ 具身智能迈向可解释化：动作推理模型 MolmoAct2 完全开源</strong>
+- 论文：MolmoAct2: Action Reasoning Models for Real-world Deployment (arXiv:2605.02881)，约5月5日发布
+- Ai2（Allen Institute for AI）发布 <strong>MolmoAct2</strong>，目前最全面的开源 Action Reasoning Model（ARM）
+- 核心技术：专用 VLM 主干 <strong>MolmoER</strong>（专注空间/具身推理）+ 全新数据集（含最大的开源双手数据集 MolmoAct2-BimanualYAM）+ 开源动作分词器 <strong>OpenFAST</strong> + 基于 Flow-matching 的连续动作专家 + 自适应推理深度变体 <strong>MolmoThink</strong>
+- 在7个仿真+真实机器人 benchmark 上全面超越强基线
+- <strong>点评：</strong> 完全开源这一点意义重大——以往 VLA 模型的瓶颈之一是数据和 tokenizer 封闭，OpenFAST + BimanualYAM 填补了这个空白。结合国内"上海AI Lab/北大M-lab"近期密集的 VLA 工作，具身智能从 research prototype 到 real-world deployment 的 gap 正在快速收窄。</p>
+<hr>
+<h2 id="顶级研究组新发布">【━━━ 顶级研究组新发布 ━━━】</h2>
+<p><strong>1. Tencent/SenseTime — SenseNova-U1: Native Unified Multimodal</strong>
+- 作者：Haiwen Diao 等（大规模署名，约60人）
+- 论文：arXiv:2605.12500 | 5月12日 | cs.CV
+- 核心：NEO-unify 架构统一多模态理解与生成，8B/3B 双尺寸，在 X2I/VLG/Agent 任务上 competitive</p>
+<p><strong>2. Google DeepMind — PhyGround: Physical Reasoning Benchmark for Video World Models</strong>
+- 作者：Juyi Lin 等（Google DeepMind）
+- 论文：arXiv:2605.10806 | 5月12日
+- 核心：250 prompts × 13类物理定律 + 开源 PhyJudge-9B judge；揭示 Gemini-3.1-Pro 物理 bias 高出开源 judge 5倍</p>
+<p><strong>3. Ai2 — MolmoAct2: Action Reasoning Models</strong>
+- 作者：Haoquan Fang, Dieter Fox, Ranjay Krishna 等
+- 论文：arXiv:2605.02881 | 约5月5日 | cs.RO
+- 核心：完全开源 ARM，MolmoER 主干 + OpenFAST 分词器 + 最大开源双手数据集 BimanualYAM</p>
+<p><strong>4. NVIDIA Research — Language Models Can Autonomously Hack and Self-Replicate</strong>
+- 作者：Alena Air, Reworr, Nikolaj Kotov 等（NVIDIA Research）
+- 论文：arXiv:2605.06760 | 5月7日
+- 核心：首次实证 LLM 可自主利用漏洞渗透网络、复制权重并部署推理服务器；测试4类漏洞的 success rate
+- ⚠️ 警示性工作：AI 安全领域的重大 concern</p>
+<p><strong>5. 上海AI Lab / 商汤 — OmniHumanoid（附属于 CV 流水线工作）</strong>
+- 论文：arXiv:2605.12038 | 5月12日
+- 核心：Streaming Cross-Embodiment Video Generation，支持跨躯体的视频生成迁移</p>
+<hr>
+<h2 id="生成模型-新范式">【━━━ 生成模型 / 新范式 ━━━】</h2>
+<p><strong>1. SenseNova-U1 — 统一多模态理解+生成（NEO-unify）</strong>
+- 论文：arXiv:2605.12500 | Tencent/SenseTime | 5月12日
+- 不再是理解模型+生成模型拼接，而是单一架构原生支持</p>
+<p><strong>2. OmniNFT — 音视频联合生成的模态平衡扩散强化</strong>
+- 论文：arXiv:2605.12480 | 5月12日 | cs.CV
+- 提出 modality-wise omni diffusion RL，同时平衡 audio 和 video 质量</p>
+<p><strong>3. SyncDPO — 视频-音频联合生成中的时序同步优化</strong>
+- 论文：arXiv:2605.12179 | 5月12日 | cs.CV
+- 通过 preference learning 改善生成的视频和音频之间的时间对齐</p>
+<p><strong>4. OmniHumanoid — Streaming Cross-Embodiment Video Generation</strong>
+- 论文：arXiv:2605.12038 | 5月12日 | cs.CV
+- 实现跨躯体的 streaming 视频生成，无需配对 adaptation</p>
+<hr>
+<h2 id="多模态-vlm">【━━━ 多模态 / VLM ━━━】</h2>
+<p><strong>1. SenseNova-U1-8B/3B — MoT 架构原生统一多模态</strong>
+- 论文：arXiv:2605.12500 | 5月12日
+- 涵盖理解（OCR/VQA/Reasoning）和生成（X2I/Interleaved）双赛道</p>
+<p><strong>2. PhyJudge-9B — 视频世界模型物理推理专用 Judge</strong>
+- 论文：arXiv:2605.10806 | Google DeepMind | 5月12日
+- 专门针对13类物理法则设计 judge，在结构化分数监督下微调，可复现</p>
+<p><strong>3. UniVLR — Visual Latent Reasoning for Multimodal LLM</strong>
+- 论文：arXiv:2605.11856 | 5月12日 | cs.CV
+- 提出在视觉 latent space 内进行显式推理，提升 VLM 的空间推理能力</p>
+<p><strong>4. Learn to Think — Vision-Aware Self-Improvement Training</strong>
+- 论文：arXiv:2605.11931 | 5月12日 | cs.CV
+- 通过视觉感知的自改进训练增强多模态推理能力</p>
+<hr>
+<h2 id="具身-vla-机器人">【━━━ 具身 / VLA / 机器人 ━━━】</h2>
+<p><strong>1. MolmoAct2 — 完全开源的 Action Reasoning Model</strong>
+- 论文：arXiv:2605.02881 | Ai2 | 约5月5日
+- MolmoER 主干 + OpenFAST tokenizer + BimanualYAM 数据集，7 benchmark SOTA</p>
+<p><strong>2. OA-WAM — Object-Addressable World Action Model</strong>
+- 论文：arXiv:2605.06481 | 约5月8日 | cs.RO
+- 对 world action model 提出 object-addressable 改进，提升对未见场景的鲁棒性</p>
+<p><strong>3. Beyond World-Frame Action Heads — Motion-Centric Action Frames</strong>
+- 论文：arXiv:2605.11809 | 5月12日 | cs.AI
+- 重新思考 VLA 中的 action representation，提出 motion-centric action frames 替代 world-frame heads</p>
+<p><strong>4. OOM-Free Alpamayo — CPU-GPU Memory Swapping for VLA</strong>
+- 论文：arXiv:2605.11678 | NVIDIA | 5月12日 | cs.AI
+- 通过 CPU-GPU 内存交换解决 VLA 部署的 OOM 问题，为边缘 VLA 推理提供新思路</p>
+<p><strong>5. ProcVLM — Procedural Reasoning in Embodied VLMs</strong>
+- 论文：arXiv:2605.08774 | 约5月9日 | cs.RO
+- 研究具身 VLM 的程序化推理能力，benchmark 覆盖多步骤任务规划</p>
+<hr>
+<h2 id="agent-大模型架构">【━━━ Agent / 大模型架构 ━━━】</h2>
+<p><strong>1. ToolCUA — Optimal GUI-Tool Path Orchestration for Computer Use Agents</strong>
+- 论文：arXiv:2605.12481 | Kuaishou + 清华大学 | 5月12日 | cs.AI
+- 研究 computer use agent 的 GUI 工具链最优编排，为自动化电脑操作提供新范式</p>
+<p><strong>2. δ-mem — Efficient Online Memory for LLMs</strong>
+- 论文：arXiv:2605.12357 | 5月12日 | cs.AI
+- 在线记忆机制，在 LLM 中高效管理上下文信息，减少 context 溢出问题</p>
+<p><strong>3. SAGE — Self-Evolving Agentic Graph-Memory Engine</strong>
+- 论文：arXiv:2605.12061 | 5月12日 | cs.AI
+- 自演化 agent 专用图记忆引擎，支持结构化关联记忆</p>
+<p><strong>4. Social Theory as Structural Prior for Multi-Agent Systems</strong>
+- 论文：arXiv（cs.MA section）| 5月12日
+- 提出将社会理论作为多智能体系统的结构先验，形式化框架</p>
+<p><strong>5. On-Policy Self-Evolution via Failure Trajectories for Safety Alignment</strong>
+- 论文：arXiv:2605.11882 | 5月12日 | cs.AI
+- 通过失败轨迹实现 on-policy 自演化，强化 agent 的安全对齐</p>
+<hr>
+<h2 id="ai-for-science">【━━━ AI for Science ━━━】</h2>
+<p><strong>1. Agentic AI Scientists Are Not Built for Autonomous Discovery（Position Paper）</strong>
+- 论文：arXiv:2605.08956 | 约5月10日
+- 反思当前 AI 科学家在端到端自主科学发现上的局限性，提出建设性批评</p>
+<p><strong>2. RoboLab × AI Agent — 高通量蛋白质组学 + Agent 驱动分析</strong>
+- 论文：bioRxiv（非 arXiv，6天前）
+- 将 AI agent 整合进实验闭环，实现可规模化的药物靶点发现</p>
+<p><strong>3. Bolek — Multimodal LLM for Molecular Reasoning</strong>
+- 论文：arXiv:2605.02745 | 5月4日
+- 为分子科学设计的多模态 LLM，支持药物发现场景的 property prediction</p>
+<hr>
+<h2 id="快速索引">【📌 快速索引】</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>论文</th>
+<th>arXiv ID</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>重点</td>
+<td>SenseNova-U1</td>
+<td>2605.12500</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>重点</td>
+<td>PhyGround/PhyJudge-9B</td>
+<td>2605.10806</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>重点</td>
+<td>MolmoAct2</td>
+<td>2605.02881</td>
+<td>~5/5</td>
+</tr>
+<tr>
+<td>顶级</td>
+<td>LLM Self-Hack/Replicate (NVIDIA)</td>
+<td>2605.06760</td>
+<td>5/7</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>ToolCUA</td>
+<td>2605.12481</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>VLA</td>
+<td>OA-WAM</td>
+<td>2605.06481</td>
+<td>~5/8</td>
+</tr>
+<tr>
+<td>VLA</td>
+<td>Motion-Centric VLA</td>
+<td>2605.11809</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>VLA</td>
+<td>OOM-Free Alpamayo</td>
+<td>2605.11678</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>VLM</td>
+<td>UniVLR</td>
+<td>2605.11856</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>Gen</td>
+<td>OmniNFT</td>
+<td>2605.12480</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>Gen</td>
+<td>OmniHumanoid</td>
+<td>2605.12038</td>
+<td>5/12</td>
+</tr>
+<tr>
+<td>Science</td>
+<td>AI Scientists Critique</td>
+<td>2605.08956</td>
+<td>~5/10</td>
+</tr>
+<tr>
+<td>Science</td>
+<td>RoboLab Proteomics</td>
+<td>bioRxiv</td>
+<td>~5/7</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<p><em>本简报由 AI 自动生成，仅供研究参考，不构成任何投资或学术建议。</em>
+<em>数据来源：arXiv cs.CV / cs.LG / cs.AI / cs.RO / cs.MA，筛选条件为2026年5月10-12日提交</em></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-05-12/"><span>← 上一期 · 2026-05-12</span><strong>【🚨 今日重点】 · ━━━ 世界模型 &amp; 空间智能 ━━━ · ━━━ 大模型 &amp; 多模态 ━━━</strong></a><a class="newer" href="../2026-05-14/"><span>下一期 → · 2026-05-14</span><strong>【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

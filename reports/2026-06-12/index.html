@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-06-12｜【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】 · Yunhe</title><meta name="description" content="① MiniMax M3：首个融合前沿编程 + 百万上下文 + 原生多模态的开源权重模型（来源：arXiv · X · Reddit · 科技媒体） &gt; 6月1日，MiniMax正式发布M3模型，打出&quot;首个将三项前沿能力融于一体的开放权重模型&quot;旗帜。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-06-12/"><meta property="og:type" content="article"><meta property="og:title" content="2026-06-12｜【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】"><meta property="og:description" content="① MiniMax M3：首个融合前沿编程 + 百万上下文 + 原生多模态的开源权重模型（来源：arXiv · X · Reddit · 科技媒体） &gt; 6月1日，MiniMax正式发布M3模型，打出&quot;首个将三项前沿能力融于一体的开放权重模型&quot;旗帜。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-06-12/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>【🚨 今日重点】 · 【━━━ 顶级研究组新发布 ━━━】 · 【━━━ 生成模型 / 新范式 ━━━】</h1><p class="article-deck">① MiniMax M3：首个融合前沿编程 + 百万上下文 + 原生多模态的开源权重模型（来源：arXiv · X · Reddit · 科技媒体） &gt; 6月1日，MiniMax正式发布M3模型，打出&quot;首个将三项前沿能力融于一体的开放权重模型&quot;旗帜。</p><div class="article-meta"><time datetime="2026-06-12">2026 / 06 / 12</time><span>约 11 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span><span class="tag">具身智能</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E9%87%8D%E7%82%B9">【🚨 今日重点】</a><a class="toc-level-2" href="#%E9%A1%B6%E7%BA%A7%E7%A0%94%E7%A9%B6%E7%BB%84%E6%96%B0%E5%8F%91%E5%B8%83">【━━━ 顶级研究组新发布 ━━━】</a><a class="toc-level-2" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E6%96%B0%E8%8C%83%E5%BC%8F">【━━━ 生成模型 / 新范式 ━━━】</a><a class="toc-level-2" href="#%E5%A4%9A%E6%A8%A1%E6%80%81-vlm">【━━━ 多模态 / VLM ━━━】</a><a class="toc-level-2" href="#%E5%85%B7%E8%BA%AB-vla-%E6%9C%BA%E5%99%A8%E4%BA%BA">【━━━ 具身 / VLA / 机器人 ━━━】</a><a class="toc-level-2" href="#agent-%E5%A4%A7%E6%A8%A1%E5%9E%8B">【━━━ Agent / 大模型 ━━━】</a><a class="toc-level-2" href="#ai-for-science">【━━━ AI for Science ━━━】</a><a class="toc-level-2" href="#%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81-%E5%B7%A5%E5%85%B7">【━━━ 开源生态 / 工具 ━━━】</a><a class="toc-level-2" href="#%E4%BA%A7%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E8%B5%84%E6%9C%AC">【━━━ 产业 · 创业 · 资本 ━━━】</a><a class="toc-level-2" href="#%E5%AE%89%E5%85%A8-%E6%94%BF%E7%AD%96-%E7%9B%91%E7%AE%A1">【━━━ 安全 · 政策 · 监管 ━━━】</a><a class="toc-level-2" href="#%E5%85%B6%E4%BB%96%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8">【━━━ 其他值得关注 ━━━】</a><a class="toc-level-2" href="#%E6%9C%AC%E6%97%A5%E6%95%B0%E6%8D%AE%E9%80%9F%E8%A7%88">【📊 本日数据速览】</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-06-12.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-06-12</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<hr>
+<h2 id="今日重点">【🚨 今日重点】</h2>
+<p><strong>① MiniMax M3：首个融合前沿编程 + 百万上下文 + 原生多模态的开源权重模型</strong>（来源：arXiv · X · Reddit · 科技媒体）</p>
+<blockquote>
+<p>6月1日，MiniMax正式发布M3模型，打出"首个将三项前沿能力融于一体的开放权重模型"旗帜。M3支持文本/图像/视频输入，配备100万Token超长上下文窗口，在SWE-bench编程评测中性能直逼GPT-4.5，宣称同时实现前沿级编程能力、超长上下文与原生多模态。MiniMax表示将在10天内陆续开源权重并发布技术报告。
+MiniMax M3的发布搅动了开源模型格局，Reddit r/LocalLLaMA社区热议其是否真的开源权重（部分用户质疑"open weight"宣传与实际开放时间的差距）。这是2026年最具冲击力的开源模型发布之一。</p>
+</blockquote>
+<p><strong>② 微软Build 2026重磅发布MAI家族7款新模型</strong>（来源：CNBC · Microsoft官方 · X · 科技媒体）</p>
+<blockquote>
+<p>6月2日，微软在Build 2026开发者大会上由CEO Mustafa Suleyman主导发布了MAI（Microsoft AI）家族全新7款自研模型，标志微软在AI战略上进一步减少对OpenAI的依赖。主要包括：
+- <strong>MAI-Thinking-1</strong>：首个推理模型，1T参数，35B活跃参数，定位复杂推理与科学研究
+- <strong>MAI-Code-1-Flash</strong>：编程旗舰模型，剑指Anthropic Claude Code和OpenAI Codex的领地
+- 以及覆盖图像生成、语音合成等的多模态模型
+CNBC评价"微软发布新AI模型以减少对OpenAI依赖并降低成本"，微软AI正从"代理"走向"自研"。</p>
+</blockquote>
+<p><strong>③ Anthropic正式提交IPO申请，估值或超9650亿美元</strong>（来源：NYT · TechCrunch · Bloomberg · The Guardian · 科技媒体）</p>
+<blockquote>
+<p>6月1日，Anthropic宣布已向美国SEC提交保密S-1文件，正式启动IPO流程。这是AI行业2026年最重大的资本市场事件之一。此前Anthropic刚完成650亿美元巨额融资，IPO估值据报道高达9650亿美元，与OpenAI的IPO竞速赛正式打响。Anthropic CEO Dario Amodei此前曾表示Claude已是"全球最安全的AI系统"，公司还宣布了Claude Fable 5的新安全措施。</p>
+</blockquote>
+<hr>
+<h2 id="顶级研究组新发布">【━━━ 顶级研究组新发布 ━━━】</h2>
+<ul>
+<li>
+<p><strong>Google DeepMind：多智能体AI安全研究 + 4倍速文本生成</strong>（来源：Google DeepMind Blog · arXiv）
+  DeepMind发布最新多智能体AI安全研究框架，并宣布文本生成速度提升4倍的新技术进展。博客显示"Investing in multi-agent AI safety research"为6月重点方向。</p>
+</li>
+<li>
+<p><strong>CVPR 2026本周在即（6月8-12日）</strong>（来源：Reddit r/MachineLearning）
+  计算机视觉顶会CVPR 2026本周举办，Reddit社区指出"CVPR 2026 takes place next week"，大量论文即将放出。Hugging Face PapersTrending出现多篇CVPR 2026 accepted papers。</p>
+</li>
+<li>
+<p><strong>arXiv cs.CL 6月9日新帖：RLVR + 幻觉研究</strong>（来源：arXiv）
+  6月9日arXiv cs.CL列出368篇新提交，聚焦RLVR（Reinforcement Learning with Verifiable Rewards）范式与LLM幻觉问题。Hugging FaceTrending出现"Rethinking the Divergence Regularization in LLM RL"等新工作。</p>
+</li>
+<li>
+<p><strong>Role-Agent框架：自演化LLM智能体</strong>（来源：alphaXiv · HuggingFace）
+  6月9日新论文提出Role-Agent框架，使LLM智能体同时作为Agent和环境进行自举共演化，性能通过环境感知改进。Hugging Face trending关注。</p>
+</li>
+<li>
+<p><strong>Google DeepMind：Gemini 3 DeepThink持续升级</strong>（来源：Threads · Google Blog）
+  Gemini 3 Deep Think持续更新，2月发布后在6月继续迭代，与科学家合作推进数学与科学研究。</p>
+</li>
+</ul>
+<hr>
+<h2 id="生成模型-新范式">【━━━ 生成模型 / 新范式 ━━━】</h2>
+<ul>
+<li><strong>Seedance 2.0全面上线</strong>（来源：量子位 · 剪映官方 · Runway API）</li>
+<li>5月28日：Seedance 2.0通过Runway API正式上线，支持关键帧、参考媒体与AI生成音频</li>
+<li>
+<p>6月15日：剪映官方小红书预告，Seedance 2.0将于6月15日首发上线剪映，生成速度提升、价格更低</p>
+</li>
+<li>
+<p><strong>Runway Gen-4 Turbo持续迭代</strong>（来源：科技媒体）
+  Runway Gen-4系列持续更新，Gen-4 Turbo实现10秒视频30秒生成，专业创作者工作流进一步优化。</p>
+</li>
+<li>
+<p><strong>OpenAI Sora命运悬念</strong>（来源：Wikipedia · 科技媒体）
+  Wikipedia显示Sora应用已于4月26日关闭，API计划9月24日停用。OpenAI战略重心似乎正在转移。</p>
+</li>
+<li>
+<p><strong>AI视频生成2026格局</strong>（来源：Reddit r/ContentCreators）
+  Reddit用户实测比较Sora 2、Runway Gen-4、Kling、Luma等主流工具，Runway Gen-4凭借质量与可用性平衡仍是专业首选。</p>
+</li>
+</ul>
+<hr>
+<h2 id="多模态-vlm">【━━━ 多模态 / VLM ━━━】</h2>
+<ul>
+<li>
+<p><strong>多模态视频理解新基准</strong>（来源：YouTube · 科技媒体）
+  6月7日发布"Benchmarking Visual State Tracking in Multimodal Video Understanding"论文，专注于追踪视频中的视觉状态变化。</p>
+</li>
+<li>
+<p><strong>HuggingFace Trending多款VLM新论文</strong>（来源：HuggingFace）
+  Scouts by Yutori 6月3日列出5篇高引作者的新VLM/MLLM论文，涵盖零样本开放词汇、PDDL形式化等方向。</p>
+</li>
+<li>
+<p><strong>小红书Hi Lab开源dots.vlm1</strong>（来源：36氪 · 小红书）
+  小红书Hi Lab团队2025年中后发布了一系列自研开源大模型，包括dots.vlm1（视觉语言模型）和dots.ocr（文档解析模型），AI从产品功能升格为一级战略。</p>
+</li>
+<li>
+<p><strong>OpenAI收购Ona</strong>（来源：OpenAI官方）
+  6月11日OpenAI宣布收购视频创作工具Ona，交易细节未披露。</p>
+</li>
+</ul>
+<hr>
+<h2 id="具身-vla-机器人">【━━━ 具身 / VLA / 机器人 ━━━】</h2>
+<ul>
+<li>
+<p><strong>JPMorgan Chase：部署可连续运行数小时的自主AI智能体</strong>（来源：CNBC · Quartz · LinkedIn · Investment News）
+  6月9日CNBC独家报道，摩根大通计划今年晚些时候部署可无需人工干预连续运行数小时的AI智能体，标志着"长程自主智能体时代"正式开启。首席分析官称此技术突破将清除AI在企业应用中的关键障碍。</p>
+</li>
+<li>
+<p><strong>Physical Intelligence π0.7新进展</strong>（来源：Reddit r/robotics）
+  Physical Intelligence (π) 发布π0.7新型tokenizer用于具身AI，Reddit r/robotics社区高度关注，π0系列持续引领VLA通用机器人基础模型方向。</p>
+</li>
+<li>
+<p><strong>具身智能2026部署元年</strong>（来源：知乎 · 36氪 · IT之家）
+  知乎"2026具身智能论坛"热议多条技术路线，IT之家6月4日发布《2026具身智能大模型企业榜单》，横评5家代表企业Psi系列模型（Psi R0/R0.5/R1/R2/W0）核心竞争力。2026被视为"具身智能部署元年"。</p>
+</li>
+<li>
+<p><strong>宇树科技73天IPO过会</strong>（来源：爱合伙 · AI创业快讯）
+  中国人形机器人公司宇树科技（Unitree）创纪录地以73天完成IPO过会，机器人+AI成为资本市场热点。</p>
+</li>
+</ul>
+<hr>
+<h2 id="agent-大模型">【━━━ Agent / 大模型 ━━━】</h2>
+<ul>
+<li>
+<p><strong>微软MAI-Thinking-1：自研推理模型</strong>（来源：Microsoft AI Blog · Simon Willison · Mashable）
+  MAI-Thinking-1为1T参数推理模型，35B活跃参数，现已向"精选早期合作伙伴"开放。这是微软首次推出完整自研推理模型，直接对标OpenAI o系列。</p>
+</li>
+<li>
+<p><strong>OpenAI GPT-5.5 Instant更新 + GPT-4.5即将退役</strong>（来源：OpenAI Help Center · Instagram）
+  5月28日OpenAI更新GPT-5.5 Instant，改进响应风格与质量。GPT-4.5将于6月27日正式退役，OpenAI持续推进GPT-5统一模型战略。</p>
+</li>
+<li>
+<p><strong>Anthropic Claude Fable 5安全措施调整</strong>（来源：Reddit r/MachineLearning）
+  Anthropic宣布调整Claude Fable 5安全措施，用户将可感知AI安全护栏，回应社区对"护栏不透明"的关切。</p>
+</li>
+<li>
+<p><strong>云知声U2通用基座模型发布</strong>（来源：新浪财经 · 机器学习热点小时报）
+  6月8日港股AI企业云知声（9678.HK）发布新一代通用基座模型U2，在"百模洗牌"背景下寻求差异化突破。</p>
+</li>
+<li>
+<p><strong>字节豆包2.0持续领先</strong>（来源：36氪 · 新浪财经）
+  36氪独家披露字节豆包在中国公有云大模型API市场份额达46.4%断层第一，豆包2.0于2月14日发布后持续扩大优势。字节AI矩阵包括Seed 2.0、Seedance 2.0、豆包等全线产品。</p>
+</li>
+</ul>
+<hr>
+<h2 id="ai-for-science">【━━━ AI for Science ━━━】</h2>
+<ul>
+<li>
+<p><strong>Gemini 3 Deep Think × 科学研究</strong>（来源：Google Blog · Threads）
+  Gemini 3 Deep Think与科学家深度合作，推进数学与计算机科学领域的重大研究突破。Google官方称其在ARC-AGI-2评测中达到84.6%的准确率。</p>
+</li>
+<li>
+<p><strong>AI × Bio 2026大会（6月8-10日）</strong>（来源：Wellcome Connecting Science · 科技媒体）
+  AI与生物学交叉领域盛会AI × Bio 2026于6月8-10日举办，聚焦单细胞生物学与AI驱动药物发现。</p>
+</li>
+<li>
+<p><strong>AI模型预测化学物质对基因表达的影响</strong>（来源：Phys.org · 科技媒体）
+  AI模型预测化学物质对基因表达的影响研究3月发表，2026年持续推动药物发现效率提升。</p>
+</li>
+<li>
+<p><strong>ICML 2026 AI for Science Workshop</strong>（来源：AI4Science Community）
+  ICML 2026 workshop汇聚ML研究者、领域科学家、实验人员与政策制定者，建立跨学科共同词汇。</p>
+</li>
+</ul>
+<hr>
+<h2 id="开源生态-工具">【━━━ 开源生态 / 工具 ━━━】</h2>
+<ul>
+<li>
+<p><strong>MiniMax M3开源权重冲击</strong>（来源：X · Reddit r/LocalLLaMA · YouTube）
+  MiniMax M3的发布搅动开源生态，Reddit社区热议"首个将编程+百万上下文+原生多模态融合的开源模型"，YouTube频道密集解读其技术架构与评测表现。</p>
+</li>
+<li>
+<p><strong>GitHub Trending：OpenClaw等AI Agent项目爆发</strong>（来源：GitHub · ByteByteGo）
+  OpenClaw被评为"2026年GitHub历史上增长最快的开源项目之一"，AI Agent框架持续爆发式增长。</p>
+</li>
+<li>
+<p><strong>小红书FireRed-OpenStoryline开源</strong>（来源：BibiGPT · 小红书）
+  小红书OpenStoryline视频剪辑AI产品1.0.0版开源，为内容创作者提供"素材→笔记"自动化捷径。</p>
+</li>
+<li>
+<p><strong>awesome-ai-agents-2026：300+资源列表</strong>（来源：GitHub）
+  GitHub开源项目awesome-ai-agents-2026收录300+资源、20+分类，AI智能体生态工具库持续扩充。</p>
+</li>
+</ul>
+<hr>
+<h2 id="产业-创业-资本">【━━━ 产业 · 创业 · 资本 ━━━】</h2>
+<ul>
+<li>
+<p><strong>Anthropic IPO：史上最大AI公司上市</strong>（来源：NYT · NPR · TechCrunch · Bloomberg · The Guardian）
+  Anthropic 6月1日提交保密S-1，启动IPO流程。潜在估值9650亿美元，与OpenAI的公开竞速赛白热化。</p>
+</li>
+<li>
+<p><strong>DeepSeek首轮融资约70亿美元</strong>（来源：爱合伙AI创业快讯）
+  据AI创业快讯（6月5日），DeepSeek完成首轮融资约70亿美元，腾讯与宁德时代入局。这是中国AI公司有史以来最大规模首轮融资之一。</p>
+</li>
+<li>
+<p><strong>Q1 2026 VC创纪录：3000亿美元砸向AI</strong>（来源：Crunchbase News · AI Insider）
+  Q1 2026全球VC融资创历史新高，3000亿美元涌入6000家初创，AI占VC总额约80%，同比增长150%+。</p>
+</li>
+<li>
+<p><strong>智维创芯完成数千万元天使轮</strong>（来源：爱合伙AI创业快讯）
+  中国AI芯片/硬件创业持续获资本青睐。</p>
+</li>
+<li>
+<p><strong>JPMorgan 3万AI智能体规模化部署</strong>（来源：YouTube · VentureBeat）
+  VentureBeat Transform 2026大会披露JPMorgan已部署3万个AI智能体，并持续扩大规模。</p>
+</li>
+<li>
+<p><strong>小红书AI升格为一级战略</strong>（来源：36氪 · 新浪财经）
+  小红书4月30日发全员内部信成立AI一级部门"Dots"，将AI应用"点点"纳入体系，Hi Lab自研开源模型矩阵成型。</p>
+</li>
+</ul>
+<hr>
+<h2 id="安全-政策-监管">【━━━ 安全 · 政策 · 监管 ━━━】</h2>
+<ul>
+<li>
+<p><strong>OpenAI/Anthropic/Google/Microsoft CEOs联署生物安全信</strong>（来源：Instagram · Threads · The Hill）
+  AI四巨头CEO联署致美国国会，呼吁强制要求DNA合成筛选，称"AI降低了生物武器制造门槛"。此为AI安全领域的重大政策信号。</p>
+</li>
+<li>
+<p><strong>Google/OpenAI员工支持Anthropic拒绝五角大楼要求</strong>（来源：The Hill）
+  员工对Anthropic拒绝国防部部分AI使用要求表示支持，反映科技行业内部对军事AI应用的持续争议。</p>
+</li>
+</ul>
+<hr>
+<h2 id="其他值得关注">【━━━ 其他值得关注 ━━━】</h2>
+<ul>
+<li>
+<p><strong>量子位MEET2026启动，年度榜单征集中</strong>（来源：量子位）
+  量子位年度"MEET2026智能未来大会"启动，AI年度榜单征集开启。</p>
+</li>
+<li>
+<p><strong>NVIDIA GTC台北2026（6月1-4日）</strong>（来源：NVIDIA官网）
+  黄仁勋亲自揭晓NVIDIA最新AI基础设施平台，全面覆盖AI工厂、代理AI、物理AI与机器人技术。</p>
+</li>
+<li>
+<p><strong>B站"百铲大战"入局AI视频</strong>（来源：钛媒体）
+  B站2026年3月宣布自研AI视频创作工具Updream，专业创作者AI工具赛道持续拥挤。</p>
+</li>
+<li>
+<p><strong>微软Copilot定价体系更新（6月1日）</strong>（来源：tech-insider.org）
+  GitHub Copilot于6月1日更新AI Credits定价系统，保持$10/月的亲民价格。</p>
+</li>
+</ul>
+<hr>
+<h2 id="本日数据速览">【📊 本日数据速览】</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1 2026全球AI VC融资</td>
+<td>~3000亿美元</td>
+</tr>
+<tr>
+<td>Anthropic IPO估值（预测）</td>
+<td>~9650亿美元</td>
+</tr>
+<tr>
+<td>DeepSeek首轮融资</td>
+<td>~70亿美元</td>
+</tr>
+<tr>
+<td>小红书豆包API市场份额</td>
+<td>46.4%</td>
+</tr>
+<tr>
+<td>Gemini 3 DeepThink ARC-AGI-2</td>
+<td>84.6%</td>
+</tr>
+<tr>
+<td>arXiv cs.AI 6月9日新帖</td>
+<td>407篇</td>
+</tr>
+<tr>
+<td>arXiv cs.CL 6月9日新帖</td>
+<td>368篇</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<p>⚠️ <strong>免责声明</strong>：本简报由AI自动生成，内容基于公开网络搜索，仅供参考。不构成投资建议，请独立判断。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-06-11/"><span>← 上一期 · 2026-06-11</span><strong>【🚨 今日重点】 · 1️⃣ Anthropic 发布 Claude Fable 5 &amp; Claude Mythos 5 · 2️⃣ Apple WWDC 2026 ——全面重新构建的 Siri AI 登场</strong></a><a class="newer" href="../2026-06-13/"><span>下一期 → · 2026-06-13</span><strong>AI 研究观察 · 2026-06-13</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

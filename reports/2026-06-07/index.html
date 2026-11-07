@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-06-07｜NVIDIA Cosmos 3 · MiniMax M3正式发布 · 字节跳动2026 AI战略曝光 · Yunhe</title><meta name="description" content="台北时间6月1日，黄仁勋在GTC暨Computex 2026大会上正式发布 NVIDIA Cosmos 3，这是全球首个完全开放的 Physical AI（物理AI）全模态基础模型（Omnimodel）。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-06-07/"><meta property="og:type" content="article"><meta property="og:title" content="2026-06-07｜NVIDIA Cosmos 3 · MiniMax M3正式发布 · 字节跳动2026 AI战略曝光"><meta property="og:description" content="台北时间6月1日，黄仁勋在GTC暨Computex 2026大会上正式发布 NVIDIA Cosmos 3，这是全球首个完全开放的 Physical AI（物理AI）全模态基础模型（Omnimodel）。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-06-07/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>NVIDIA Cosmos 3 · MiniMax M3正式发布 · 字节跳动2026 AI战略曝光</h1><p class="article-deck">台北时间6月1日，黄仁勋在GTC暨Computex 2026大会上正式发布 NVIDIA Cosmos 3，这是全球首个完全开放的 Physical AI（物理AI）全模态基础模型（Omnimodel）。</p><div class="article-meta"><time datetime="2026-06-07">2026 / 06 / 07</time><span>约 11 分钟阅读</span><div class="tags"><span class="tag">具身智能</span><span class="tag">Agent</span><span class="tag">通用 AI</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E9%87%8D%E7%82%B9">【🚨 今日重点】</a><a class="toc-level-3" href="#1-nvidia-cosmos-3%E5%85%A8%E7%90%83%E9%A6%96%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%BC%80%E6%BA%90%E7%9A%84%E7%89%A9%E7%90%86ai%E5%85%A8%E6%A8%A1%E6%80%81%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B">1. NVIDIA Cosmos 3：全球首个完全开源的物理AI全模态基础模型</a><a class="toc-level-3" href="#2-minimax-m3%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%9B%BD%E4%BA%A7%E6%97%97%E8%88%B0%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%8F%90%E4%B8%89%E9%A1%B9%E8%83%BD%E5%8A%9B%E5%85%BC%E5%A4%87">2. MiniMax M3正式发布：国产旗舰模型首提&quot;三项能力兼备&quot;</a><a class="toc-level-3" href="#3-%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A82026-ai%E6%88%98%E7%95%A5%E6%9B%9D%E5%85%89%E5%B9%B4%E5%BA%95%E5%89%8D%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%A0%87-google-genie-3">3. 字节跳动2026 AI战略曝光：年底前世界模型对标 Google Genie 3</a><a class="toc-level-2" href="#%E9%A1%B6%E7%BA%A7%E7%A0%94%E7%A9%B6%E7%BB%84%E6%96%B0%E5%8F%91%E5%B8%83">【━━━ 顶级研究组新发布━━━】</a><a class="toc-level-3" href="#arxiv-6%E6%9C%884-5%E6%97%A5%E6%96%B0%E8%AE%BA%E6%96%87%E7%B2%BE%E9%80%89">📄 arXiv 6月4-5日新论文精选</a><a class="toc-level-3" href="#anthropic-claude-opus-48-%E5%8F%91%E5%B8%83-mythos-%E6%8C%81%E7%BB%AD%E6%89%A9%E5%B1%95">🤖 Anthropic Claude Opus 4.8 发布 &amp; Mythos 持续扩展</a><a class="toc-level-3" href="#openai-gpt-55-instant-%E6%88%90%E4%B8%BA-chatgpt-%E6%96%B0%E9%BB%98%E8%AE%A4%E6%A8%A1%E5%9E%8B">🧠 OpenAI GPT-5.5 Instant 成为 ChatGPT 新默认模型</a><a class="toc-level-3" href="#%E8%85%BE%E8%AE%AFai%E5%A4%A7%E4%BC%9A%E5%8F%AC%E5%BC%80%E5%BE%AE%E4%BF%A1agent%E8%BF%9B%E5%85%A5%E5%90%88%E8%A7%84%E5%AE%A1%E6%89%B9%E5%80%92%E8%AE%A1%E6%97%B6">🔬腾讯AI大会召开，微信Agent进入合规审批倒计时</a><a class="toc-level-2" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E6%96%B0%E8%8C%83%E5%BC%8F">【━━━ 生成模型 / 新范式 ━━━】</a><a class="toc-level-3" href="#stable-diffusion-4-flux-%E6%96%B0%E5%8A%A8%E6%80%81">🎨 Stable Diffusion 4 / FLUX 新动态</a><a class="toc-level-3" href="#%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B-diffusion-%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6%E6%96%B0%E8%BF%9B%E5%B1%95">🧬 扩散模型 (Diffusion) 理论研究新进展</a><a class="toc-level-3" href="#google-io-2026-ai%E5%85%A8%E5%AE%B6%E6%A1%B6%E5%90%8E%E7%BB%AD%E5%BD%B1%E5%93%8D%E6%8C%81%E7%BB%AD">🌐 Google I/O 2026 AI全家桶后续影响持续</a><a class="toc-level-2" href="#%E5%A4%9A%E6%A8%A1%E6%80%81-vlm">【━━━ 多模态 / VLM ━━━】</a><a class="toc-level-3" href="#qwen37-plus-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%99%BA%E8%83%BD%E4%BD%93%E6%A8%A1%E5%9E%8B%E5%8F%91%E5%B8%83">👁️ Qwen3.7-Plus 多模态智能体模型发布</a><a class="toc-level-3" href="#nvidia-cosmos-3-%E7%9A%84%E8%A7%86%E8%A7%89-%E8%AF%AD%E8%A8%80-%E5%8A%A8%E4%BD%9C%E5%85%A8%E6%A8%A1%E6%80%81%E8%83%BD%E5%8A%9B">🖼️ NVIDIA Cosmos 3 的视觉-语言-动作全模态能力</a><a class="toc-level-3" href="#glm-46v-qwen25-vl-%E6%8C%81%E7%BB%AD%E8%BF%AD%E4%BB%A3">📊 GLM-4.6V / Qwen2.5-VL 持续迭代</a><a class="toc-level-2" href="#%E5%85%B7%E8%BA%AB-vla-%E6%9C%BA%E5%99%A8%E4%BA%BA">【━━━ 具身 / VLA / 机器人 ━━━】</a><a class="toc-level-3" href="#nvidia-cosmos-3-cosmos-%E5%8D%8F%E4%BD%9C%E8%81%94%E7%9B%9F%E7%89%A9%E7%90%86ai%E4%BA%A7%E4%B8%9A%E5%8C%96%E5%A4%A7%E9%97%A8%E6%89%93%E5%BC%80">🤖 NVIDIA Cosmos 3 + Cosmos 协作联盟：物理AI产业化大门打开</a><a class="toc-level-3" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86ydt677020266%E6%9C%881%E6%97%A5%E6%AD%A3%E5%BC%8F%E5%AE%9E%E6%96%BD">🏭 具身智能行业标准《YD/T6770—2026》6月1日正式实施</a><a class="toc-level-3" href="#%E5%B0%8F%E9%B9%8F%E6%B1%BD%E8%BD%A6%E5%85%A8%E6%96%B0iron%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BAq2%E5%8F%91%E5%B8%83">🐉 小鹏汽车全新IRON人形机器人Q2发布</a><a class="toc-level-3" href="#%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA2026%E5%A4%A7%E6%B4%97%E7%89%8C%E8%B0%81%E5%B0%86%E8%A3%B8%E6%B3%B3%E8%B0%81%E5%B0%86%E5%90%83%E8%82%89">🏗️ 人形机器人2026大洗牌：谁将裸泳，谁将吃肉</a><a class="toc-level-2" href="#agent-%E5%A4%A7%E6%A8%A1%E5%9E%8B">【━━━ Agent / 大模型 ━━━】</a><a class="toc-level-3" href="#wechat-ai-agent%E8%85%BE%E8%AE%AF%E6%9C%80%E5%A4%A7%E4%BA%A7%E5%93%81%E5%8D%B3%E5%B0%86%E6%8E%A5%E5%85%A5ai%E6%99%BA%E8%83%BD%E4%BD%93">💬 WeChat AI Agent：腾讯最大产品即将接入AI智能体</a><a class="toc-level-3" href="#microsoft-build-2026%E5%8F%91%E5%B8%83%E7%B3%BB%E5%88%97%E7%94%9F%E6%88%90%E5%BC%8Fai%E6%A8%A1%E5%9E%8B%E9%99%8D%E4%BD%8Eapi%E6%88%90%E6%9C%AC">🛠️ Microsoft Build 2026：发布系列生成式AI模型，降低API成本</a><a class="toc-level-3" href="#devin-%E5%8F%91%E5%B8%83-personal-automations6%E6%9C%883%E6%97%A5">📦 Devin 发布 Personal Automations（6月3日）</a><a class="toc-level-3" href="#deepseek-v4-api-%E8%BF%81%E7%A7%BB%E5%80%92%E8%AE%A1%E6%97%B6-%E6%96%B0%E4%B8%80%E8%BD%AE%E8%9E%8D%E8%B5%84">📈 DeepSeek V4 API 迁移倒计时 &amp; 新一轮融资</a><a class="toc-level-3" href="#manus-ai-%E6%8C%81%E7%BB%AD%E8%BF%AD%E4%BB%A3google-play-%E6%9B%B4%E6%96%B0%E8%87%B36%E6%9C%885%E6%97%A5">📚 Manus AI 持续迭代（Google Play 更新至6月5日）</a><a class="toc-level-3" href="#awesome-ai-agents-2026-github%E5%88%97%E8%A1%A8%E6%9B%B4%E6%96%B0">🔗 awesome-ai-agents-2026 GitHub列表更新</a><a class="toc-level-2" href="#ai-for-science">【━━━ AI for Science ━━━】</a><a class="toc-level-3" href="#nature%E5%8F%91%E8%A1%A8-the-ai-scientist%E7%AB%AF%E5%88%B0%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A7%91%E7%A0%94%E6%B5%81%E7%A8%8B">🧬 Nature发表 The AI Scientist：端到端自动化科研流程</a><a class="toc-level-3" href="#mit-stanford%E4%B8%93%E5%AE%B6%E9%A2%84%E6%B5%8B2026%E5%B9%B4ai%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6%E7%AA%81%E7%A0%B4">🏥 MIT Stanford专家预测2026年AI生物医学突破</a><a class="toc-level-3" href="#nersc-2026-ai-for-science-%E6%8F%90%E6%A1%88%E5%BE%81%E9%9B%86">⚛️ NERSC 2026 AI for Science 提案征集</a><a class="toc-level-2" href="#%E8%9E%8D%E8%B5%84-%E4%BA%A7%E4%B8%9A%E5%8A%A8%E6%80%81">【━━━ 融资 &amp; 产业动态 ━━━】</a><a class="toc-level-3" href="#deepseek-%E8%9E%8D%E8%B5%84%E8%BF%9174%E4%BA%BF%E7%BE%8E%E5%85%83">💰 DeepSeek 融资近74亿美元</a><a class="toc-level-3" href="#gartner%E9%A2%84%E6%B5%8B2026%E5%B9%B4%E5%BA%9540%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8%E5%B0%86%E5%86%85%E7%BD%AEai-agent">📊 Gartner预测：2026年底40%企业应用将内置AI Agent</a><a class="toc-level-3" href="#%E6%96%AF%E5%9D%A6%E7%A6%8Fhai-2026-ai-index-report-%E5%8F%91%E5%B8%83">🏛️ 斯坦福HAI 2026 AI Index Report 发布</a><a class="toc-level-3" href="#google%E6%AF%8D%E5%85%AC%E5%8F%B8%E5%9C%A8io%E5%90%8E%E5%90%AF%E5%8A%A8800%E4%BA%BF%E7%BE%8E%E5%85%83%E8%82%A1%E6%9D%83%E8%9E%8D%E8%B5%84">🌏 Google母公司在I/O后启动800亿美元股权融资</a><a class="toc-level-2" href="#reddit-x-%E7%A4%BE%E5%8C%BA%E7%83%AD%E5%B8%96">【━━━ Reddit / X 社区热帖━━━】</a><a class="toc-level-3" href="#reddit-rmachinelearning">Reddit r/MachineLearning</a><a class="toc-level-3" href="#reddit-rlocalllama">Reddit r/LocalLLaMA</a><a class="toc-level-3" href="#xtwitter">X/Twitter</a><a class="toc-level-1" href="#physicalai-%E8%AF%9D%E9%A2%98%E6%8C%81%E7%BB%AD%E5%8D%87%E6%B8%A9">PhysicalAI 话题持续升温</a><a class="toc-level-2" href="#%E6%9C%AC%E5%91%A8%E9%87%8D%E8%A6%81%E4%BA%8B%E4%BB%B6%E6%97%A5%E5%8E%86">【━━━ 本周重要事件日历━━━】</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-06-07.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-06-07</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<hr>
+<h2 id="今日重点">【🚨 今日重点】</h2>
+<h3 id="1-nvidia-cosmos-3全球首个完全开源的物理ai全模态基础模型">1. NVIDIA Cosmos 3：全球首个完全开源的物理AI全模态基础模型</h3>
+<p><strong>来源：</strong> 英伟达GTC台北2026 · 知乎 · 新浪财经</p>
+<p>台北时间6月1日，黄仁勋在GTC暨Computex 2026大会上正式发布 <strong>NVIDIA Cosmos 3</strong>，这是全球首个完全开放的 Physical AI（物理AI）全模态基础模型（Omnimodel）。Cosmos 3基于全新混合Transformer架构，整合了视觉推理、物理世界生成与仿真能力，专为机器人和自动驾驶训练设计。基于数十亿条文本、图像、视频、音效及动作轨迹训练，将原本需要数月的机器人训练周期压缩到数天。英伟达同时宣布成立 Cosmos 协作联盟，加速物理AI产业化落地。</p>
+<hr>
+<h3 id="2-minimax-m3正式发布国产旗舰模型首提三项能力兼备">2. MiniMax M3正式发布：国产旗舰模型首提"三项能力兼备"</h3>
+<p><strong>来源：</strong> IT之家 · 搜狐 · 凤凰科技</p>
+<p>6月1日，MiniMax稀宇科技正式发布 <strong>MiniMax M3</strong>，打出"Frontier Coding &amp; Agentic · 百万上下文· 原生多模态"三项能力兼备的旗帜。M3采用全新自研稀疏注意力架构 <strong>MiniMax Sparse Attention（MSA）</strong>，在编程及智能体（Agent）能力上实现突破，上线即支持100万token上下文窗口，并具备原生多模态能力，被视为国产大模型在长上下文赛道的重要里程碑。</p>
+<hr>
+<h3 id="3-字节跳动2026-ai战略曝光年底前世界模型对标-google-genie-3">3. 字节跳动2026 AI战略曝光：年底前世界模型对标 Google Genie 3</h3>
+<p><strong>来源：</strong> 36氪独家 · 新浪财经 · 微博</p>
+<p>36氪从多个信源处独家获悉，字节跳动2026年AI战略包含四大命题：①加大对世界模型训练的投入，年底前模型性能达到全球SOTA（对标 Google Genie 3），目前距全球SOTA差距约10%，训练数据预算达数千万元；②视频模型继续保持领先，探索"动态生成"等新方向；③ Coding能力提升；④豆包产品全面升级。同期，字节豆包课堂内置 Seedance 2.0 视频生成模型，可将课文生成带画面、讲解、问答的AI互动视频课。</p>
+<hr>
+<h2 id="顶级研究组新发布">【━━━ 顶级研究组新发布━━━】</h2>
+<h3 id="arxiv-6月4-5日新论文精选">📄 arXiv 6月4-5日新论文精选</h3>
+<p><strong>来源：</strong> arXiv cs.CV/cs.LG/cs.AI</p>
+<ul>
+<li><strong>PAR3D: A Unified 3D-MLLM with Part-Aware Representation for Scene Understanding</strong> — 6月5日新帖，统一3D多模态大模型，引入部件级感知表示，用于场景理解（cs.CV）</li>
+<li><strong>Video-Action Models (VAMs)</strong> — 6月4日新帖，视频动作模型相关工作（cs.CV）</li>
+<li><strong>MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm</strong> — 自进化AutoML框架（cs.AI）</li>
+<li><strong>Operation-Guided Progressive Human-to-AI Text Transformation</strong> — 操作引导的渐进式人向AI文本转换（cs.CL）</li>
+<li>Jacob Steinhardt 团队新论文：<strong>Learning a generative meta-model of LLM activations</strong>（cs.LG）</li>
+</ul>
+<hr>
+<h3 id="anthropic-claude-opus-48-发布-mythos-持续扩展">🤖 Anthropic Claude Opus 4.8 发布 &amp; Mythos 持续扩展</h3>
+<p><strong>来源：</strong> Anthropic官网 · LinkedIn · Fortune</p>
+<p>Anthropic发布 <strong>Claude Opus 4.8</strong>（5月正式版），性能较4.7显著提升。同时，<strong>Project Glasswing（Claude Mythos Preview）</strong>持续扩展，已向15个国家新增150家合作伙伴开放，覆盖电力等之前试点覆盖不足的行业。UK AISI（人工智能安全研究所）对 Mythos 在网络安全领域的能力评估认为其有持续改进，但尚未达到"失控"级别。</p>
+<hr>
+<h3 id="openai-gpt-55-instant-成为-chatgpt-新默认模型">🧠 OpenAI GPT-5.5 Instant 成为 ChatGPT 新默认模型</h3>
+<p><strong>来源：</strong> OpenAI官网 · TechCrunch</p>
+<p>OpenAI宣布 <strong>GPT-5.5 Instant</strong> 正式成为 ChatGPT 新默认模型，向所有用户推送。新版本主打：更高事实准确度、更佳个性化能力、更自然的长期互动记忆。同时通过 Codex平台向API用户开放，GPT-5.5在编程和科研场景的 HumanEval-X 得分达89.3%。</p>
+<hr>
+<h3 id="腾讯ai大会召开微信agent进入合规审批倒计时">🔬腾讯AI大会召开，微信Agent进入合规审批倒计时</h3>
+<p><strong>来源：</strong> 财富号 · 36氪 · 钛媒体</p>
+<p>6月5日，腾讯AI大会以 <strong>"Agent进场，效能生长"</strong> 为主题开幕。大会发布效率智能体 WorkBuddy、智能体开发平台ADP、腾讯会议AI同传、企业微信AI数据洞察、出行全场景智能体平台等系列新品。同日，微信AI智能体（Agent）消息确认：已完成原型测试，最快本月启动公开上线前所需的合规审批流程，将作为微信会话列表中的聊天界面出现，可连接数百万个小程序完成任务。此消息当日推动腾讯港股收盘大涨10.46%。</p>
+<hr>
+<h2 id="生成模型-新范式">【━━━ 生成模型 / 新范式 ━━━】</h2>
+<h3 id="stable-diffusion-4-flux-新动态">🎨 Stable Diffusion 4 / FLUX 新动态</h3>
+<p><strong>来源：</strong> Reddit r/StableDiffusion · X</p>
+<p>Reddit社区近期热议 FLUX 和 Stable Diffusion 4 在艺术创作和视频生成方面的进展，多个社区分支在讨论本地部署优化和工作流整合。</p>
+<hr>
+<h3 id="扩散模型-diffusion-理论研究新进展">🧬 扩散模型 (Diffusion) 理论研究新进展</h3>
+<p><strong>来源：</strong> arXiv cs.LG</p>
+<p>arXiv近期收录多篇扩散模型理论论文，包括 score-based 模型的理论分析、连续时间扩散方程的收敛性证明等，理论进展持续为生成模型提供更坚实的数学基础。</p>
+<hr>
+<h3 id="google-io-2026-ai全家桶后续影响持续">🌐 Google I/O 2026 AI全家桶后续影响持续</h3>
+<p><strong>来源：</strong> Google Blog · TechCrunch · TIME</p>
+<p>Google I/O 2026（5月19日）发布的AI Agent化 Gemini能力（包括 AI agents in Search）引发持续讨论。Google宣布搜索栏将"被AI完全重新构想"，是25年来最大变化，AI服务流量同比增长393%（2026年Q1）。</p>
+<hr>
+<h2 id="多模态-vlm">【━━━ 多模态 / VLM ━━━】</h2>
+<h3 id="qwen37-plus-多模态智能体模型发布">👁️ Qwen3.7-Plus 多模态智能体模型发布</h3>
+<p><strong>来源：</strong> 微博 · CSDN博客</p>
+<p>据千问大模型官方微博消息，阿里正式发布 <strong>Qwen3.7-Plus</strong> 多模态智能体模型，在保持Qwen3系列语言优势的同时大幅增强视觉理解和跨模态推理能力。</p>
+<hr>
+<h3 id="nvidia-cosmos-3-的视觉-语言-动作全模态能力">🖼️ NVIDIA Cosmos 3 的视觉-语言-动作全模态能力</h3>
+<p><strong>来源：</strong> 英伟达 · 知乎专栏</p>
+<p>Cosmos 3 作为全模态基础模型（Omnimodel），原生支持图像、视频、文本、动作轨迹等多种模态输入，是真正意义上的视觉-语言-动作（VLA）世界模型底座，可直接驱动机器人和自动驾驶系统。</p>
+<hr>
+<h3 id="glm-46v-qwen25-vl-持续迭代">📊 GLM-4.6V / Qwen2.5-VL 持续迭代</h3>
+<p><strong>来源：</strong> BentoML · RoboFlow Blog</p>
+<p>国产开源多模态模型 GLM-4.6V（智谱）和 Qwen2.5-VL（阿里）在2026年持续迭代更新，在开源 VLM 榜单上保持竞争力，GLM-4.6V 仍是当前最好的开源多模态模型之一。</p>
+<hr>
+<h2 id="具身-vla-机器人">【━━━ 具身 / VLA / 机器人 ━━━】</h2>
+<h3 id="nvidia-cosmos-3-cosmos-协作联盟物理ai产业化大门打开">🤖 NVIDIA Cosmos 3 + Cosmos 协作联盟：物理AI产业化大门打开</h3>
+<p><strong>来源：</strong> 英伟达GTC台北 · 新浪新闻 · 财富号</p>
+<p>6月1日GTC台北大会上，NVIDIA正式成立 <strong>Cosmos 协作联盟</strong>，加速物理AI产业化落地。Cosmos 3 将自动驾驶和人形机器人作为两项核心应用方向，基于新架构打通视觉推理与物理仿真。英伟达表示单一系统即可支持机器人从虚拟训练到真实场景部署的全流程。</p>
+<hr>
+<h3 id="具身智能行业标准ydt677020266月1日正式实施">🏭 具身智能行业标准《YD/T6770—2026》6月1日正式实施</h3>
+<p><strong>来源：</strong> 新华网 · IDC报告</p>
+<p>2026年6月1日，具身智能领域首份行业标准《YD/T6770—2026》正式实施，标志着具身智能从技术研发走向规范化产业落地阶段。</p>
+<hr>
+<h3 id="小鹏汽车全新iron人形机器人q2发布">🐉 小鹏汽车全新IRON人形机器人Q2发布</h3>
+<p><strong>来源：</strong> 小鹏官网 · IDC报告</p>
+<p>小鹏汽车全新一代IRON人形机器人将于2026年Q2正式发布，采用物理世界模型驱动的技术路线，由机器人、整车和动力等多个研发团队联合支持开发。</p>
+<hr>
+<h3 id="人形机器人2026大洗牌谁将裸泳谁将吃肉">🏗️ 人形机器人2026大洗牌：谁将裸泳，谁将吃肉</h3>
+<p><strong>来源：</strong> B站 · 知乎</p>
+<p>B站科技UP主深度解析2026年人形机器人赛道格局，宇树科技、Figure、智元机器人、星动纪元等公司面临商业化大考，资本市场开始关注真正有落地能力的公司。</p>
+<hr>
+<h2 id="agent-大模型">【━━━ Agent / 大模型 ━━━】</h2>
+<h3 id="wechat-ai-agent腾讯最大产品即将接入ai智能体">💬 WeChat AI Agent：腾讯最大产品即将接入AI智能体</h3>
+<p><strong>来源：</strong> 南方财经网 · 36氪 · 钛媒体</p>
+<p>6月2日确认，微信正在开发AI智能体产品，最快本月启动合规审批。该Agent将作为微信会话列表中的聊天界面出现，可调用微信生态内数百万个小程序，是腾讯撬动估值的新起点。腾讯AI大会（6月5日）同期召开，大会主题"Agent进场，效能生长"。</p>
+<hr>
+<h3 id="microsoft-build-2026发布系列生成式ai模型降低api成本">🛠️ Microsoft Build 2026：发布系列生成式AI模型，降低API成本</h3>
+<p><strong>来源：</strong> CNBC · VentureBeat</p>
+<p>微软Build开发者大会（6月2日）发布系列生成式AI模型，降低对OpenAI依赖，并大幅降低API成本，涵盖编程辅助、企业搜索等场景。</p>
+<hr>
+<h3 id="devin-发布-personal-automations6月3日">📦 Devin 发布 Personal Automations（6月3日）</h3>
+<p><strong>来源：</strong> Devin Docs</p>
+<p>Cognition AI 的 AI编程助手 Devin 于6月3日发布 <strong>Personal Automations</strong> 功能，允许用户创建个人自动化工作流，在 Chrome/Edge 上安装后即可使用。</p>
+<hr>
+<h3 id="deepseek-v4-api-迁移倒计时-新一轮融资">📈 DeepSeek V4 API 迁移倒计时 &amp; 新一轮融资</h3>
+<p><strong>来源：</strong> DeepSeek官方 · LinkedIn · 稀土掘金</p>
+<p>DeepSeek V4 API迁移截止日期为2026年7月24日，届时 deepseek-chat 和 deepseek-reasoner 将正式停用，需迁移至 deepseek-v4-pro 和 deepseek-v4-flash。另据多方报道，DeepSeek 首轮融资规模接近 <strong>74亿美元</strong>，腾讯、宁德时代、网易、京东参与投资，公司估值约5900亿美元。</p>
+<hr>
+<h3 id="manus-ai-持续迭代google-play-更新至6月5日">📚 Manus AI 持续迭代（Google Play 更新至6月5日）</h3>
+<p><strong>来源：</strong> Google Play · Threads</p>
+<p>Manus AI（Monica AI团队，2025年12月被Meta以约20亿美元收购）在Google Play持续更新，6月5日发布新版本，评分4.6（36万+评价），持续领跑AI Agent应用赛道。</p>
+<hr>
+<h3 id="awesome-ai-agents-2026-github列表更新">🔗 awesome-ai-agents-2026 GitHub列表更新</h3>
+<p><strong>来源：</strong> GitHub · Reddit</p>
+<p>Zijian-Ni 维护的 <strong>awesome-ai-agents-2026</strong> 列表刚刚更新，成为2026年最全面的AI Agent框架、工具和资源汇总，被Reddit社区广泛引用。</p>
+<hr>
+<h2 id="ai-for-science">【━━━ AI for Science ━━━】</h2>
+<h3 id="nature发表-the-ai-scientist端到端自动化科研流程">🧬 Nature发表 The AI Scientist：端到端自动化科研流程</h3>
+<p><strong>来源：</strong> Nature · Nature论文</p>
+<p>Nature发表重磅论文 <strong>"Towards end-to-end automation of AI research"</strong>，推出 <strong>The AI Scientist</strong>  pipeline，实现科学研究从假设生成、实验设计到论文撰写的端到端自动化，标志着AI for Science迈入新阶段。</p>
+<hr>
+<h3 id="mit-stanford专家预测2026年ai生物医学突破">🏥 MIT Stanford专家预测2026年AI生物医学突破</h3>
+<p><strong>来源：</strong> Stanford HAI · MIT Tech Review</p>
+<p>Stanford HAI 和 MIT Tech Review 联合预测：2026年生物医学基础模型将大幅提升医疗AI系统准确性，并催生罕见病诊断新工具。</p>
+<hr>
+<h3 id="nersc-2026-ai-for-science-提案征集">⚛️ NERSC 2026 AI for Science 提案征集</h3>
+<p><strong>来源：</strong> NERSC官方 · DOE</p>
+<p>美国国家能源研究科学计算中心（NERSC）发布2026年 AI for Science 提案征集，邀请利用 Perlmutter 超算推动 AI+科学前沿的项目。</p>
+<hr>
+<h2 id="融资-产业动态">【━━━ 融资 &amp; 产业动态 ━━━】</h2>
+<h3 id="deepseek-融资近74亿美元">💰 DeepSeek 融资近74亿美元</h3>
+<p><strong>来源：</strong> 稀土掘金 · LinkedIn</p>
+<p>中国大模型公司 DeepSeek 正以约5900亿美元估值进行约700亿美元融资，腾讯和宁德时代（CATL）为最大外部投资者，网易和京东也参与其中。</p>
+<hr>
+<h3 id="gartner预测2026年底40企业应用将内置ai-agent">📊 Gartner预测：2026年底40%企业应用将内置AI Agent</h3>
+<p><strong>来源：</strong> VentureBeat · Gartner</p>
+<p>Gartner 预测，到2026年底，40%的企业应用将包含任务专用AI Agent（目前不足5%），AI Agent化已成不可逆转趋势。</p>
+<hr>
+<h3 id="斯坦福hai-2026-ai-index-report-发布">🏛️ 斯坦福HAI 2026 AI Index Report 发布</h3>
+<p><strong>来源：</strong> Stanford HAI · Facebook</p>
+<p>斯坦福HAI发布 <strong>2026 AI Index Report</strong>，指出美国和加拿大AI博士数量较2022年增长22%，但选择进入学术界的比例反而上升，显示学术就业吸引力增强。</p>
+<hr>
+<h3 id="google母公司在io后启动800亿美元股权融资">🌏 Google母公司在I/O后启动800亿美元股权融资</h3>
+<p><strong>来源：</strong> Google Blog · CSDN博客</p>
+<p>Google母公司Alphabet宣布启动总额800亿美元的股权融资计划，用于支持AI计算基础设施建设，是AI基础设施军备竞赛的最新注脚。</p>
+<hr>
+<h2 id="reddit-x-社区热帖">【━━━ Reddit / X 社区热帖━━━】</h2>
+<h3 id="reddit-rmachinelearning">Reddit r/MachineLearning</h3>
+<ul>
+<li>NeurIPS 2026 Position Paper Track 投稿被拒引发的AI政策讨论（学术诚信）</li>
+<li>2026年AI Agent stack讨论帖获大量关注</li>
+</ul>
+<h3 id="reddit-rlocalllama">Reddit r/LocalLLaMA</h3>
+<ul>
+<li>Nemotron 3 Ultra 开源讨论热烈</li>
+<li>国产模型（DeepSeek、Kimi K2.6）性能对比帖</li>
+</ul>
+<h3 id="xtwitter">X/Twitter</h3>
+<ul>
+<li>Jim Fan（NVIDIA）、Yann LeCun（Meta）、Jim Gao（Google DeepMind）等AI大V持续分享物理AI和世界模型相关研究</li>
+<li>
+<h1 id="physicalai-话题持续升温">PhysicalAI 话题持续升温</h1>
+</li>
+</ul>
+<hr>
+<h2 id="本周重要事件日历">【━━━ 本周重要事件日历━━━】</h2>
+<ul>
+<li><strong>6月12-13日：</strong>2026智源大会，世界模型论坛主题"破浪·重构"</li>
+<li><strong>6月17日：</strong> CPHI China AI驱动药物研发创新论坛（上海）</li>
+<li><strong>6月：</strong> 微信AI Agent合规审批推进中</li>
+</ul>
+<hr>
+<blockquote>
+<p>⚠️ <strong>免责声明</strong> — 本简报由AI自动整理，仅供参考，不构成任何投资建议。数据来源为公开网络信息，实际情况请以官方公告为准。</p>
+</blockquote></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-06-06/"><span>← 上一期 · 2026-06-06</span><strong>AI 研究观察 · 2026-06-06</strong></a><a class="newer" href="../2026-06-08/"><span>下一期 → · 2026-06-08</span><strong>GPT-5.6 疑似通过 Codex 平台泄露，OpenAI &quot;多角色 Agent&quot; 战略曝光 · Google I/O 2026 落幕 · Figure 03 量产突破：人形机器人进入&quot;万台时代&quot;倒计时</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

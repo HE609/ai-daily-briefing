@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-13｜Splat2Act · SmolWAM · Artisan · Yunhe</title><meta name="description" content="研究竞争点从“生成一段看起来合理的未来”继续转向三个可检查接口——场景是否可被物理执行、未来表示是否足够小但仍保留控制信息、经验是否真的转化成跨世界可迁移能力。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-13/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-13｜Splat2Act · SmolWAM · Artisan"><meta property="og:description" content="研究竞争点从“生成一段看起来合理的未来”继续转向三个可检查接口——场景是否可被物理执行、未来表示是否足够小但仍保留控制信息、经验是否真的转化成跨世界可迁移能力。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-13/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Splat2Act · SmolWAM · Artisan</h1><p class="article-deck">研究竞争点从“生成一段看起来合理的未来”继续转向三个可检查接口——场景是否可被物理执行、未来表示是否足够小但仍保留控制信息、经验是否真的转化成跨世界可迁移能力。</p><div class="article-meta"><time datetime="2026-10-13">2026 / 10 / 13</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">具身智能</span><span class="tag">空间智能</span><span class="tag">世界模型</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-splat2act-from-captured-scenes-to-personalized-vla-manipulationp0">1. Splat2Act: From Captured Scenes to Personalized VLA Manipulation｜P0</a><a class="toc-level-2" href="#2-smolwam-a-latent-world-action-model-for-robotic-manipulation-on-edge-devicesp0%E5%89%8D%E6%9C%9F%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5%E5%9B%9E%E8%A1%A5">2. SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices｜P0（前期检索失败回补）</a><a class="toc-level-2" href="#3-towards-physically-grounded-articulated-3d-assets-a-multi-agent-pipeline-and-benchmarkartisanp0">3. Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark（Artisan）｜P0</a><a class="toc-level-2" href="#4-noise-space-learning-for-vla-adaptationp1">4. Noise Space Learning for VLA Adaptation｜P1</a><a class="toc-level-2" href="#5-dream-to-remember-continual-steering-of-generalist-robot-policies-with-world-modelsp0%E5%89%8D%E6%9C%9F%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5%E5%9B%9E%E8%A1%A5">5. Dream to Remember: Continual Steering of Generalist Robot Policies with World Models｜P0（前期检索失败回补）</a><a class="toc-level-2" href="#6-horizonnav-geometry-guided-video-diffusion-for-anticipatory-3d-robot-navigationp1%E8%BE%B9%E7%95%8C%E5%9B%9E%E8%A1%A5">6. HorizonNav: Geometry-Guided Video Diffusion for Anticipatory 3D Robot Navigation｜P1（边界回补）</a><a class="toc-level-2" href="#7-mc-evobench-auditing-experience-driven-self-improvement-in-minecraft-agentsp0%E5%89%8D%E6%9C%9F%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5%E5%9B%9E%E8%A1%A5">7. MC-EvoBench: Auditing Experience-Driven Self-Improvement in Minecraft Agents｜P0（前期检索失败回补）</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-13.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-13</div><article class="prose"><p>检索窗口为 <strong>2026-10-10 09:02—2026-10-13 09:02（Asia/Shanghai）</strong>。候选池并行覆盖 arXiv 的 cs.RO/cs.CV/cs.AI/cs.LG 最新批次、frontier lab/company 官方研究入口、GitHub/Hugging Face、Spatial Intelligence/3D-4D/real-to-sim、WAM/VLA/机器人学习、LLM Agent/self-evolution 与 broader web；arXiv API 仍按上一轮经验不重复请求，改用 category recent、具体 abs/project 页核验。上一轮自动化停在检索阶段，没有完成可交付的会话正文，因此今天把之前未进入候选池的高价值论文标为“前期检索失败回补”，不把它们伪装成窗口内新版本。</p>
+<p>去重策略是：跳过已经在 10 月 12 日完整草稿中出现且没有新证据的 WorldGuide、MiniWAM、LeWAM、VioLA、WOVEN、SpatialHarness 等；本期新增的 Splat2Act、Artisan、Noise Space Learning 属于窗口内的新 arXiv 条目。Dream to Remember、HorizonNav、JANUS、MC-EvoBench 和 SmolWAM 的 arXiv v1 时间集中在窗口边界附近或上一轮检索失败区间，单独注明时间边界和回补原因。今天最重要的判断是：研究竞争点从“生成一段看起来合理的未来”继续转向三个可检查接口——<strong>场景是否可被物理执行、未来表示是否足够小但仍保留控制信息、经验是否真的转化成跨世界可迁移能力</strong>。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → Splat2Act</strong>：把手机扫描、建筑尺度数字孪生、仿真 oracle 和真实 Stretch 3 部署连成闭环，是本期 real-to-sim-to-real 最完整的新证据。</p>
+<p><strong>B → SmolWAM</strong>：虽然 arXiv v1 比严格窗口早约 9.5 小时，但上一轮检索失败；今天已核实代码、Hugging Face 权重和详细诊断，最适合先做轻量复现。</p>
+<p><strong>C → Artisan</strong>：把 3D 资产的验收目标从外观扩展到碰撞、稳定性、质量/材料与下游机器人任务，直接补齐 Spatial Intelligence 的物理接口。</p>
+<p><strong>D → Dream to Remember</strong>：用冻结 world model 做想象回放来避免连续学习遗忘，连接 world model、RL 和 long-horizon policy adaptation。</p>
+<p><strong>E → MC-EvoBench</strong>：它不假设“有记忆或最终成功就等于学会”，而是用 source-target reset、阶段 verifier 和 provenance 审计递归自我改进。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-splat2act-from-captured-scenes-to-personalized-vla-manipulationp0">1. Splat2Act: From Captured Scenes to Personalized VLA Manipulation｜P0</h2>
+<p><strong>作者与机构</strong>：Xiaomeng Ye、Krishna Jaganathan、Gyubeum Lim、Zsolt Kira（Georgia Tech）；Gunjan Chhablani（Waymo）；Muhammad Zubair Irshad（Toyota Research Institute）。<strong>发布时间与性质</strong>：arXiv v1 于 2026-10-09 17:59 UTC（北京时间 10 月 10 日 01:59，严格窗口内）；预印本，未同行评审。入口：<a href="https://arxiv.org/abs/2610.13945" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://splat2act.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>。项目页将 GitHub 代码和 Hugging Face 数据集标为 coming soon，暂不等同于已公开 artifact。</p>
+<p>它解决的是通用 VLA 进入用户真实房间后的场景和物体个性化：仅靠手机 RGB-D 扫描和少量物体照片，自动建出建筑尺度的 3D Gaussian Splatting 数字孪生与碰撞网格，发现桌面/货架等 receptacle，用 privileged geometric oracle 生成可行 pickup demonstrations，再分两阶段微调 π₀.₅——先学通用物体与任务，再学目标房间中的用户物体。101 个扫描场景、852 个 receptacle、68,021 条成功演示构成了可扩展的数据管线。</p>
+<p>作者/官方项目页报告：目标场景 aggregate pickup success <strong>62.5%</strong>；在真实 Stretch 3 上的 12-task、36-attempt 子集为 <strong>63.9%</strong>，同一子集仿真为 <strong>66.7%</strong>，而未适配的 π₀.₅ 在其 captured deployment scenes 为 0%。这些是作者结果，不是第三方复现。创新点是把 real-to-sim 由桌面级重建推进到建筑尺度，并让场景捕获结束后由仿真自动产生训练数据；与上一期的 R2S2R/World Labs 方向相连，但本项给出了真实机器人数字和具体 receptacle 规模。</p>
+<p>主要局限是几何/材质重建、oracle-to-real gap、pickup-only 任务边界，以及真实评测只有一个 Stretch 3 和 12 个任务。代码、数据、权重均尚未在项目页确认公开；没有第三方验证。轻量验证可以只取 1 个办公室、3 个目标物体和 2 类 receptacle，比较 splat+mesh、mesh-only、少量真实示范三种适配方式，记录仿真到真实成功率差、碰撞 false positive、物体/货架换位泛化。<strong>值得深入阅读：是，P0。</strong></p>
+<h2 id="2-smolwam-a-latent-world-action-model-for-robotic-manipulation-on-edge-devicesp0前期检索失败回补">2. SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices｜P0（前期检索失败回补）</h2>
+<p><strong>作者与机构</strong>：Timi Owolabi、Hikmah Olawore、Frances Adelakun、Ayotomiwa Oyewumi；项目页署名 ML Collective，作者公开简介显示其 Embodied AI Research Group 与 Covenant University 背景。<strong>发布时间与性质</strong>：arXiv v1 为 2026-10-09 15:34 UTC，较本期严格窗口起点早约 9.5 小时；本次纳入是因为上一轮检索未进入候选池，且今天核实到 artifact。论文获 NeurIPS 2026 Robot Learning with World Models Workshop 接收；入口：<a href="https://arxiv.org/abs/2610.13740" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://smolwam.vercel.app/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/iitimii/SmolWAM" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://huggingface.co/timiiowolabi/SmolWAM" target="_blank" rel="noopener noreferrer">Hugging Face 模型</a>。</p>
+<p>SmolWAM 从 2B Cosmos Policy 保留 trunk，重建推理接口：单帧视觉 latent、缓存文本特征、28 个 transformer block 中保留 12 个、1008 个 token，并在一次 rectified-flow readout 中同时读出动作和未来视觉 latent。训练目标是 teacher/student action 与 future-latent 的蒸馏 L1；公开数据说明为 Cosmos Policy 释放的 1,700 条成功 LIBERO 演示、68,830 个 observation。</p>
+<p>官方/作者结果很具体：400 个 LIBERO episode <strong>95.5%</strong> success（teacher 98.2%），A100 每 16-action chunk <strong>57 ms</strong>、<strong>2.3 TFLOP</strong>、<strong>2.36 GiB</strong>，约 <strong>11×</strong> 更快、<strong>18.5×</strong> 更少 FLOPs、<strong>3.2×</strong> 更省显存；训练只用 3.6 GPU-hours。world head 不在部署时解码，但 held-out future latent 的 flow endpoint error 从复制当前帧的 1.63 降到 1.43。作者还报告 latent-action cascade 和只对视觉指标做 reward fine-tuning 会明显伤害控制，这一负结果比单一成功率更有价值。尚无第三方独立复现。</p>
+<p>它相对 MiniWAM/LeWAM 的区别是：重点不是再设计一个大规模 JEPA，而是把 video-WAM 的部署接口压缩到可接近 edge 的延迟；局限是只评 LIBERO、长时 Goal/Long suite 更易失败、A100 延迟不能替代真实 edge 芯片测试、INT8 结果仍用 bf16 kernel 模拟。代码和权重已公开，复现门槛最低。轻量验证先跑官方 60-episode screening，再比较 12-block、8-block、one-step teacher 三个版本的延迟、二级 subgoal success 和 future-latent flow error；不要只看总成功率。<strong>值得深入阅读：是，P0。</strong></p>
+<h2 id="3-towards-physically-grounded-articulated-3d-assets-a-multi-agent-pipeline-and-benchmarkartisanp0">3. Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark（Artisan）｜P0</h2>
+<p><strong>作者与机构</strong>：Xudong Cai、Ruijie Zhu、Haoliang Shang、Ruining Li、Chuanxia Zheng（PVG, Nanyang Technological University）；Marc Pollefeys（ETH Zürich、Microsoft）；Ruining Li/Andrea Vedaldi（VGG, University of Oxford）；Shangzhe Wu（University of Cambridge）。<strong>发布时间与性质</strong>：arXiv v1 于 2026-10-09 17:59:41 UTC（北京时间 10 月 10 日 01:59:41，严格窗口内）；预印本，项目、代码、benchmark 已有入口。入口：<a href="https://arxiv.org/abs/2610.13947" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://physicalvision.github.io/artisan/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/physicalvision/Artisan" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://huggingface.co/physicalvision" target="_blank" rel="noopener noreferrer">Benchmark/Hugging Face</a>。</p>
+<p>Artisan 把 Articraft 式程序化 3D 生成拆为 Design、Coding、Review 三个 agent，并把 MuJoCo 的碰撞、关节运动、重力稳定性以及质量/材料估计反馈回生成与修复循环。Benchmark 覆盖 spatial fidelity、physical plausibility、downstream robot task、overall quality 四个方面，包含 ArtVIP/LightWheel 的 100 个 reference assets、50 个 stability prompts 和带参考质量的 50 个 ABO objects。关键训练/优化目标不是单纯图像相似，而是让关节运动、碰撞和 rest-state 在模拟器中通过。</p>
+<p>官方项目页报告的 ArtisanGPT-6 Astra 结果为单关节碰撞 <strong>1.7%</strong>、双关节 <strong>3.7%</strong>、多关节 <strong>13.0%</strong>，对比 Articulate-Anything 的 31.2% 单关节碰撞；rest-state stability <strong>98%</strong>，对比 Codex 的 86%；人类 first-choice preference <strong>43.3%</strong>，对比 21.1%。关闭 physics validation 后单关节碰撞升至 <strong>37.5%</strong>，是较清楚的机制消融。这些数字由作者/官方交互项目页报告；已有公开的静态审阅指出需用第二物理引擎复核，不能视为第三方复现。</p>
+<p>创新在于把“可用世界”的最小单元从可渲染 asset 推到可交互、可验证 asset；与 World Labs/3D-4D world generation 平行但互补。局限是 MuJoCo 依赖、agent 生成可能被 benchmark 物体分布牵引、物理参数仍是估计值，且不能直接证明复杂接触任务中的 sim-to-real。代码、benchmark 入口和交互资产已公开，但完整权重/所有生成轨迹需以仓库为准。轻量验证可将同一 20 个 held-out articulated assets 导出到 MuJoCo 与 Isaac/另一接触模型，比较碰撞率、稳定率与 RoboTwin policy success；若跨引擎仍保持收益，物理 grounding 的证据更强。<strong>值得深入阅读：是，P0。</strong></p>
+<h2 id="4-noise-space-learning-for-vla-adaptationp1">4. Noise Space Learning for VLA Adaptation｜P1</h2>
+<p><strong>作者与机构</strong>：Junjie Lu、Chuheng Zhang、Yucen Wang、Yuhua Jiang、Xinyao Qin、Min Xu、Li Zhao；arXiv 摘要页未列完整机构；本期不把未在当前可访问页面确认的机构归属写成事实，机构以论文 PDF 版本为准。<strong>发布时间与性质</strong>：arXiv v1 为 2026-10-09 17:58:50 UTC（北京时间 10 月 10 日 01:58:50，严格窗口内）；预印本，未同行评审。入口：<a href="https://arxiv.org/abs/2610.13943" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>Noise Space Learning（NSL）冻结 flow-matching VLA 的 action generator，只训练一个 context-conditioned noise actor，改变输入噪声分布而不改 noise-to-action 映射；同一接口分别实例化 PPO、SAC、AWR，并用 KL/信息论分析解释为何重塑 source distribution 可能比更新 generator 或叠加 residual 更省适配信息。实验覆盖 LIBERO、RoboTwin，以及 cup stacking、toy fishing、sequential insertion、bead placement 四个真实机器人任务；训练目标是 actor/value/critic 的 RL 或 advantage-weighted regression，VLA backbone 保持冻结。</p>
+<p>作者报告在 LIBERO-10 上，Full setting 的峰值 success 为 SmolVLA <strong>95.8%</strong>、π₀.₅ <strong>99.8%</strong>；One-demo setting 从 <strong>24.4%/40.4%</strong> 提升至 <strong>77.0%/71.2%</strong>。真实机器人部分显示 NSL-AWR 更适合交互受限和安全敏感场景，而 NSL-SAC 在仿真高交互预算下更强；噪声偏离标准高斯时真实机器人会出现 unsafe motion 和 emergency stop。数字是作者报告；目前未确认公开代码、权重或独立复现。</p>
+<p>它与上一期 RLT、FastOPD、PLaW-VLA 的关系是把“适配”放到生成器的 source/noise interface，而不是直接改 action head 或全模型。局限包括单 seed 风险、噪声 KL 没有物理安全保证、不同 backbone 的迁移尚未证明、真实任务规模较小。轻量验证可在一个冻结 π₀.₅/SmolVLA 上比较 generator fine-tune、residual、NSL-AWR，固定 20/50/100 rollouts，记录 success、KL、joint-limit violation、急停率和旧任务保持率。<strong>值得深入阅读：是，尤其适合做低交互 adaptation 对照。</strong></p>
+<h2 id="5-dream-to-remember-continual-steering-of-generalist-robot-policies-with-world-modelsp0前期检索失败回补">5. Dream to Remember: Continual Steering of Generalist Robot Policies with World Models｜P0（前期检索失败回补）</h2>
+<p><strong>作者与机构</strong>：Bahey Tharwat、Iman Nematollahi、Marvin Alles、Xingyuan Zhang、Akshay L. Chandra、Abhinav Valada；论文页面未在摘要区列机构；当前可访问入口不足以可靠确认完整机构，故本期保留作者名单并将机构标为待核。<strong>发布时间与性质</strong>：arXiv v1 为 2026-10-09 16:28 UTC（北京时间 10 月 10 日 00:28，较严格窗口早约 34 分钟）；预印本，未同行评审。入口：<a href="https://arxiv.org/abs/2610.13816" target="_blank" rel="noopener noreferrer">论文</a>。它被本次纳入是因为上一轮自动化在 arXiv 限流后未完成候选筛选，不是窗口内新版本。</p>
+<p>D2R 冻结 generalist policy 与 pretrained world model，只学习一个 steering module；新任务到来时，world model 用 imagined rollouts 重演旧技能，给 steering module 提供无 replay buffer 的保持约束。若 world model 足够 faithful，新任务也可以完全在 imagination 中学习；若不够，则真实环境只负责新任务，world model 仍用于旧技能 rehearsal。这让 world model 承担“记忆/保持”角色，而不是直接做 policy optimization。</p>
+<p>作者在 CALVIN 报告连续 8 个任务全部在 imagination 中学习，平均 success <strong>63.7% → 74.8%</strong>；同序列 LoRA fine-tuning 降至 <strong>11.7%</strong>。在 π₀+A2World 的 LIBERO-90 上，新任务在环境中学习同时保留原 fine-tuned suites；真实 Franka 上连续 3 个任务也报告保持早期改进。这些均是作者结果，尚无第三方复现；arXiv 页面没有确认代码/权重入口。</p>
+<p>创新是把 world model 的 utility 定义成“保持旧能力的 rehearsal substrate”，并明确承认 world model 不够准确时不能直接用来优化 policy。局限是仿真连续任务与真实机器人规模有限，旧技能保持指标和新技能质量之间可能有 trade-off。轻量验证只需 4 个 CALVIN/LIBERO 任务：顺序加入任务，比较 LoRA、steering-only、steering+imagined-rehearsal，画新任务 success、旧任务 retention、world-model rollout error 三条曲线。<strong>值得深入阅读：是，适合和 NSL 放在同一 adaptation 对照中。</strong></p>
+<h2 id="6-horizonnav-geometry-guided-video-diffusion-for-anticipatory-3d-robot-navigationp1边界回补">6. HorizonNav: Geometry-Guided Video Diffusion for Anticipatory 3D Robot Navigation｜P1（边界回补）</h2>
+<p><strong>作者与机构</strong>：Hajira Amjad、Valerii Serpiva、Viacheslav Liubimov、Didar Seyidov、Dzmitry Tsetserukov；论文页面未列机构，已标明投稿 IEEE ICRA 2027。<strong>发布时间与性质</strong>：arXiv v1 为 2026-10-09 16:57:08 UTC（北京时间 10 月 10 日 00:57，严格窗口早约 5 分钟）；预印本，未同行评审。入口：<a href="https://arxiv.org/abs/2610.13849" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>HorizonNav 将单张 RGB 与文本目标送入 VLM，生成结构化探索 prompt，再由 video diffusion 产生 plausible future observations；随后用 ORB-SLAM3 估计相机位姿、Video Depth Anything 估计稠密深度，并用三角化 landmarks 对齐深度尺度/偏移，构造 3D point cloud，最后用 RRT 做独立的 collision-aware navigation planning。生成视频只提供虚拟 sensing，不能被直接当作可执行相机轨迹。</p>
+<p>作者报告 19-scene horizon study 中 planning-feasible scenes 从 P20 的 <strong>13/19</strong> 增至 P81 的 <strong>15/19</strong>，RRT 成功 trials 从 <strong>62/90 → 75/90</strong>；corridor study 中 25 条可评估轨迹有 6 条违反 collision constraints，RRT 在 5 条中找到可行替代；15 个 corridor reconstruction 的 matched landmark 平均误差约 <strong>0.30 m</strong>。这是作者报告，暂无代码/权重或第三方复现。</p>
+<p>它是 Spatial Intelligence 的重要边界项：不是声称 video world model 能准确复原 unseen space，而是测“生成的多视角证据是否足以支持保守规划”。局限是生成幻觉、窄通道和未知障碍仍会导致失败，真实 flight 只有小规模验证。轻量实验可用 10 个 corridor，分别比较 raw generated video、无深度对齐、SLAM-guided alignment，并要求 planner 在第二物理引擎或真实深度图上复核碰撞；将“规划可行”与“真实可飞”分开报告。<strong>值得深入阅读：是，作为生成式空间感知的负责任评测模板。</strong></p>
+<h2 id="7-mc-evobench-auditing-experience-driven-self-improvement-in-minecraft-agentsp0前期检索失败回补">7. MC-EvoBench: Auditing Experience-Driven Self-Improvement in Minecraft Agents｜P0（前期检索失败回补）</h2>
+<p><strong>作者与机构</strong>：Jingwei Song、Zhisheng Chen、Bingfan Zeng、Jing Tang、Yubo Hou、Jinhao Jing、Zhengwei Xie、Linfeng Zhang；作者机构以论文 PDF 为准；公开代码仓库名为 <code>xzw-ustc/mc-bench-open-source</code>。<strong>发布时间与性质</strong>：arXiv v1 为 2026-10-09 16:37:39 UTC（北京时间 10 月 10 日 00:37，严格窗口早约 25 分钟）；预印本，但 <strong>代码和数据已公开</strong>。入口：<a href="https://arxiv.org/abs/2610.13829" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/xzw-ustc/mc-bench-open-source" target="_blank" rel="noopener noreferrer">代码与数据</a>。</p>
+<p>MC-EvoBench 直接审计 embodied recursive self-improvement 是否产生跨世界可迁移能力。它构造 19 条注册 evolution chains（12 条主评测、7 条 calibration/probe），将每个任务写成 task-state graph，使用阶段 verifier、matched source-target roles、target world reset，并只允许声明的 agent artifact 穿越 source-target 边界。每个 probe 比较 no-prior、related、unrelated、shuffled source，统一 environment-step budget、5 个 seeds，并保留 provenance；指标包括 TSR、WGP、VMP。</p>
+<p>作者结果显示 controller 与 planner-backed variant 之间存在稳定 direct-capability gap，而 related experience 对两个 tool probe 没有稳定 transfer，小幅 wood-species gain 依赖单个 seed，区间包含 0；stage audit 还显示早期采木/制造瓶颈会令后续能力根本没被观测到。这里的负结果非常重要：它把“记忆被保存”与“能力真正改变”分开。结果来自作者 benchmark，代码/数据已公开，但没有第三方复跑。</p>
+<p>与 JANUS 这类 co-evolving world model 的关系是：JANUS 优化候选生成、预测和 skill evolution，MC-EvoBench 提供更严格的 source-target transfer 审计。局限是 Minecraft 与真实机器人仍有 embodiment gap，指标需要读懂 task-state graph。轻量验证可以先运行 3 条 chain、每条 3 seeds，加入 source artifact hash、target reset、stage success 和 no-prior baseline；若没有 held-out target world，不应声称 self-improvement。<strong>值得深入阅读：是，P0，优先级仅次于 Splat2Act/SmolWAM。</strong></p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描主要官方发布入口，<strong>未发现足以进入 Top Papers 的窗口内 frontier lab/company World Model/VLA 重大发布</strong>。窗口内最重要的非 arXiv 证据来自学术项目页和 artifact：Splat2Act 的 real-to-sim-to-real 页面、Artisan 的代码/benchmark/交互资产、SmolWAM 的公开代码与 Hugging Face 权重。扫描范围包括 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国团队的官网、新闻、项目页、GitHub/Hugging Face 与 broader web。</p>
+<ul>
+<li><strong>World Labs</strong>：官方研究页当前仍以 9 月 1 日 Atlas、7 月 28 日 R2S2R、9 月 28 日加入 AMD 为最近相关条目；没有窗口内新的 Atlas/Marble/World API 发布。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">Research &amp; Insights</a></li>
+<li><strong>NVIDIA Robotics/Cosmos/GR00T</strong>：机器人 archive 的最新相关条目为 10 月 8 日 Omniverse simulation/agent 工作流，Isaac ROS 5.0 为 9 月 22 日；没有窗口内新的 WAM 权重或 GR00T/Cosmos 大版本。<a href="https://blogs.nvidia.com/blog/category/robotics/" target="_blank" rel="noopener noreferrer">Robotics archive</a></li>
+<li><strong>Generalist AI、Figure、Skild AI、Field AI、1X</strong>：Generalist 最近公开技术长文仍是 8 月 19 日 GEN-1.5；Figure 的 Helix 2.5 为 9 月 17 日；Skild 的可见博客为 2026 年 1 月及更早；1X 的 World Model Lab 为 6 月 4 日。窗口内没有足以进入 Top Papers 的新模型/权重。<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist blog</a> · <a href="https://www.figure.ai/news" target="_blank" rel="noopener noreferrer">Figure news</a> · <a href="https://www.skild.ai/blogs" target="_blank" rel="noopener noreferrer">Skild blog</a> · <a href="https://www.1x.tech/discover" target="_blank" rel="noopener noreferrer">1X Discover</a></li>
+<li><strong>Google DeepMind/Robotics、Anthropic、Meta FAIR、TRI</strong>：官方入口已查；DeepMind 首页继续列 Genie 3、Gemini Robotics 等既有产品，Anthropic 的 unintended model actions 报告属于 10 月 9 日上一期背景，窗口内没有新实体机器人 artifact。<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">DeepMind news</a> · <a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a></li>
+<li><strong>重大遗漏兜底</strong>：broader web 交叉检索了 Spatial Intelligence、World Model、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与主要机构。它补充发现并核实 Artisan、Splat2Act、SmolWAM、NSL、MC-EvoBench；没有发现应替换本期主条目的重大非 arXiv 发布。未进入 Top Papers 的 BT-Agent、Chronos Policy、HorizonNav 仍作为候选/边界条目记录，属于 Selection，不是检索失败。</li>
+</ul>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射</th>
+<th>近期趋势</th>
+<th>尚未解决的 gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real-to-sim / 个性化 VLA</td>
+<td>Splat2Act</td>
+<td>从桌面重建扩展到建筑尺度、用户物体与自动 oracle 数据</td>
+<td>capture 误差、oracle-to-real gap、跨房间/跨机器人泛化</td>
+</tr>
+<tr>
+<td>物理可用的 Spatial Intelligence</td>
+<td>Artisan</td>
+<td>3D asset 从“看起来对”走向碰撞、稳定、质量/材料与下游任务</td>
+<td>第二物理引擎、真实接触、开放世界组合仍缺证据</td>
+</tr>
+<tr>
+<td>紧凑 World-Action Model</td>
+<td>SmolWAM；与 MiniWAM/LeWAM 对照</td>
+<td>保留 future latent 与 action，但删掉 video-WAM 的部署冗余</td>
+<td>压缩表示是否保留接触/长时 subgoal，真实 edge latency 是否成立</td>
+</tr>
+<tr>
+<td>VLA 低交互适配</td>
+<td>Noise Space Learning</td>
+<td>冻结 backbone/generator，改 source noise 或 steering interface</td>
+<td>噪声 KL 不是安全约束；跨 backbone、多 seed、长期保持未解决</td>
+</tr>
+<tr>
+<td>World model 与持续学习</td>
+<td>Dream to Remember</td>
+<td>world model 做 rehearsal substrate，避免 replay buffer 与灾难性遗忘</td>
+<td>world model fidelity 的阈值、保持与新技能的 trade-off</td>
+</tr>
+<tr>
+<td>生成式空间感知</td>
+<td>HorizonNav</td>
+<td>生成 future views 作为 virtual sensing，再做显式几何与保守规划</td>
+<td>hallucinated geometry、真实飞行/导航的独立验证</td>
+</tr>
+<tr>
+<td>Agent 自进化与迁移</td>
+<td>MC-EvoBench；JANUS 回补</td>
+<td>从“记忆/最终成功”转向 source-target reset、stage verifier、skill provenance</td>
+<td>跨世界能力是否真正提升，早期 bottleneck 如何不遮蔽后续能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期趋势可以归纳为三条：第一，<strong>闭环和物理验收成为世界模型的实际接口</strong>；第二，<strong>压缩表示与 source/noise adaptation 正在替代无条件扩大 backbone</strong>；第三，<strong>自进化系统开始用 provenance、reset、stage-level verifier 抵抗“看似学会”的假象</strong>。最明显的研究 gap 是：生成式未来、latent prediction、物理模拟和真实控制仍各自有指标，尚缺一个能同时追踪 <code>predicted state → action → observed state → recovery</code> 的统一协议。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<p><strong>机会 A：把 Splat2Act 的场景个性化和 Artisan 的物理验收接起来。</strong> 用同一个扫描场景生成 articulated receptacle/object，再在第二物理引擎做碰撞和稳定性筛选，比较未验收资产与 physics-reviewed 资产对 VLA success 和 sim-real gap 的影响。</p>
+<p><strong>机会 B：建立 WAM 的“压缩—控制”曲线。</strong> 复现 SmolWAM 的 60-episode screening，在相同 action head/backbone 下逐步减少 future tokens，记录显存、吞吐、future-latent flow error、first-subgoal 和 second-subgoal success。若 state reconstruction 下降而 closed-loop success 不降，才说明压缩保留了 control-relevant information。</p>
+<p><strong>机会 C：NSL × D2R 的持续适配对照。</strong> 在一个冻结 π₀.₅/SmolVLA 上，用 NSL-AWR 学新任务，用 D2R imagined rehearsal 保留旧任务，和 LoRA、residual 两个 baseline 统一 20/50/100 rollouts；必须同时报告新任务、旧任务、急停率和 world-model rollout calibration。</p>
+<p><strong>机会 D：用 MC-EvoBench 的审计协议评测机器人 skill memory。</strong> 把 source-target reset、artifact-only transfer、stage verifier 和 provenance 迁移到 5 个 LIBERO/RoboTwin 长时任务；任何只在同一 scene 或同一 object 上提升的结果都标为 memorization，不能标为 transfer。</p>
+<p><strong>机会 E：将 HorizonNav 的显式几何约束放进视频 world model。</strong> 先在 10 个 corridor 做生成视频、SLAM-depth alignment、真实深度/第二引擎复核；报告 planning-feasible、collision-consistent、physically executable 三个分数，避免把“RRT 找到路径”当成空间重建已正确。</p>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<ul>
+<li><strong>Splat2Act</strong>：论文与项目页公开；代码、Hugging Face 数据集标为 coming soon；权重未确认；101 场景和 68,021 demos 是作者报告；真实 Stretch 3 结果无第三方复现。</li>
+<li><strong>SmolWAM</strong>：论文、项目页、GitHub 与 Hugging Face 代码/权重可访问；LIBERO 400-episode 和 A100 性能为作者/项目页结果；尚无第三方复现；只评 LIBERO，真实 edge 测量未完成。</li>
+<li><strong>Artisan</strong>：论文、代码、benchmark/交互资产入口公开；项目页报告 MuJoCo 物理和人类偏好结果；静态第三方审阅提出跨引擎复核建议，但没有完整重跑；权重与所有生成轨迹状态需以仓库为准。</li>
+<li><strong>Noise Space Learning</strong>：论文和方法细节公开；代码、权重、数据未确认；LIBERO/RoboTwin/四类真实任务指标为作者报告；没有独立复现，且真实安全性不能由 noise KL 代替。</li>
+<li><strong>Dream to Remember</strong>：论文公开；代码/权重未在论文入口确认；CALVIN、LIBERO-90 和 Franka 结果为作者报告；本期属于上一轮检索失败后的边界回补。</li>
+<li><strong>HorizonNav</strong>：论文公开，提交 ICRA 2027；代码、权重、数据未确认；导航/飞行数字为作者报告；生成轨迹只是 virtual sensing，不能当成独立真实地图。</li>
+<li><strong>MC-EvoBench</strong>：论文、GitHub 代码与数据公开；19 evolution chains、5 seeds、source-target reset 协议清楚；作者结果显示 related experience 无稳定 transfer；尚无第三方复跑。</li>
+<li><strong>Frontier 官方发布</strong>：本轮扫描到的页面大多是窗口外的既有条目或基础设施更新；已明确区分“已扫描但无 Top-Paper 级新增”和“检索失败回补”，没有把官方宣传升级成独立验证。</li>
+</ul>
+<p>今天先读 <strong>Splat2Act → SmolWAM → Artisan</strong>：前者回答场景如何进入 VLA，第二篇回答 WAM 如何在有限算力上运行，第三篇回答生成的空间资产是否真的能被物理系统使用。验证上先做一个单场景 real-to-sim 小实验和 SmolWAM screening，再把 MC-EvoBench 的 reset/provenance 规则写进自己的长时机器人评测。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-12/"><span>← 上一期 · 2026-10-12</span><strong>WorldGuide · MiniWAM · VioLA</strong></a><a class="newer" href="../2026-10-14/"><span>下一期 → · 2026-10-14</span><strong>Gemini 4 Argon for Robotics · Grounded-Dreamer · What Visual Representations Do World Action Models Need?</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

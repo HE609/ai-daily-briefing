@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-25｜Mundo: Customized World Model · AGIBOT WORLD 2026 Release 4 Physical Reasoning · Trace2World · Yunhe</title><meta name="description" content="应把场景重建、转移动力学、视频外观和学习收益分别验收。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-25/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-25｜Mundo: Customized World Model · AGIBOT WORLD 2026 Release 4 Physical Reasoning · Trace2World"><meta property="og:description" content="应把场景重建、转移动力学、视频外观和学习收益分别验收。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-25/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Mundo: Customized World Model · AGIBOT WORLD 2026 Release 4 Physical Reasoning · Trace2World</h1><p class="article-deck">应把场景重建、转移动力学、视频外观和学习收益分别验收。</p><div class="article-meta"><time datetime="2026-10-25">2026 / 10 / 25</time><span>约 17 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-mundo-customized-world-modelp0">1. Mundo: Customized World Model｜P0</a><a class="toc-level-2" href="#2-agibot-world-2026-release-4-physical-reasoningp0">2. AGIBOT WORLD 2026 Release 4 Physical Reasoning｜P0</a><a class="toc-level-2" href="#3-trace2world-reconstructing-app-worlds-from-real-interaction-traces-for-scalable-gui-agent-trainingp0">3. Trace2World: Reconstructing App Worlds from Real Interaction Traces for Scalable GUI Agent Training｜P0</a><a class="toc-level-2" href="#4-herd-harness-evolving-recursive-distillation-for-continual-learningp1">4. HERD: Harness-Evolving Recursive Distillation for Continual Learning｜P1</a><a class="toc-level-2" href="#5-diffdreamer-coupling-world-models-with-differentiable-simulation-for-agile-quadrotor-controlp1">5. DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control｜P1</a><a class="toc-level-2" href="#6-opentac-an-open-ecosystem-for-customizable-scalable-and-transferable-3d-tactile-sensingp1">6. OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-25.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-25</div><article class="prose"><p>检索窗口为北京时间 <strong>2026-10-22 08:57—2026-10-25 08:57</strong>，并补查至本轮结束。以 10 月 24 日完成版为去重基线：不重述 AW-0、CADRE、FRED、DRILL、PhysiCalWorld、UniFlowWAM、WorldForge V2、Cosmos 扩展与 Anthropic/AISI 分析。周末可访问的 arXiv 最新公告仍为 10 月 23 日；本文逐项核对首版提交时间，不把公告日期、Hub 推荐日期或仓库最后修改时间当成首发时间。今天保留 <strong>6 项重点</strong>，没有足够证据支持增加更多大模型发布条目。</p>
+<p>今天最重要的新增判断是：<strong>应把场景重建、转移动力学、视频外观和学习收益分别验收。</strong> Mundo 与 AGIBOT WORLD Release 4 是官方入口补查发现的窗口内发布，上一期没有纳入候选，属于 <strong>Retrieval Failure 回补</strong>；其余重点是窗口内首次展开的论文。昨日仅提名的 S²、P² 等保留在跟踪地图，不包装成新发布。Hy-Nomas 确有 10 月 24 日的接入文档更新，单独列在 Frontier 扫描。P0/P1 表示阅读优先级，不代表已完成独立验证。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>Mundo → AGIBOT WORLD Release 4 → Trace2World → HERD → DiffDreamer</strong></p>
+<ul>
+<li><strong>Mundo</strong>：先看显式状态、物理引擎与视频渲染如何分工，同时划清演示与可用模拟器的证据边界。</li>
+<li><strong>AGIBOT WORLD Release 4</strong>：看“同一目标、不同现场条件”如何进入数据与标注，直接影响具身推理评测设计。</li>
+<li><strong>Trace2World</strong>：看环境真实性如何用来源轨迹验证，以及仿真训练收益如何核对到真实设备。</li>
+<li><strong>HERD</strong>：看外部技能如何蒸馏成持续能力，以及限制单步漂移与累计漂移为何需要两个参照。</li>
+<li><strong>DiffDreamer</strong>：看已知物理与学习动力学怎样共同优化策略，避免把所有动力学都交给一个预测网络。</li>
+</ul>
+<p>若你今天主要关注接触操作和数据采集工具链，可将 OpenTac 提前到第三位。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-mundo-customized-world-modelp0">1. Mundo: Customized World Model｜P0</h2>
+<p><strong>Yihang Luo、Zunnan Xu、Shangchen Zhou、Xingang Pan、Chen Change Loy 等；MMLab@NTU，南洋理工大学。</strong> 作者于 <strong>10 月 23 日</strong>发布项目页与 Hugging Face 作者博客。性质是研究预览；本轮未核实独立 arXiv 技术报告或同行评审接受。HF 页面是作者发布的 Community Article，不是 Hugging Face 的官方评测。<a href="https://mundo-world-model.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://huggingface.co/blog/Luo-Yihang/mundo-world-model" target="_blank" rel="noopener noreferrer">作者技术博客</a>。</p>
+<p>它研究如何从一个具体场所的少量图像建立可探索、可编辑、能运行交互的世界。系统先恢复几何与物体框，由 VLM 编辑代理结合数值拟合修正 3D proxy，并用未参与拟合的视图检查结果；场景程序显式记录物体、位姿和物理参数，多数交互由 MuJoCo 推进。视频模型根据 proxy 帧、参考图像和相机射线生成外观。作者以约 <strong>4 万对</strong>真实或渲染视频与 proxy 视频，微调 MiniMax-H3 的 Ref2VA；训练目标是使条件渲染匹配目标视频，博客未公开完整损失与训练配置。<a href="https://huggingface.co/blog/Luo-Yihang/mundo-world-model" target="_blank" rel="noopener noreferrer">机制与训练说明</a>。</p>
+<p>作者展示了 1–12 张参考图的空间探索、较长路径、物体交互及机器人仿真。<strong>未见统一量化 benchmark、真实机器人策略收益或独立复现。</strong> 官方披露常见场景重建耗时 10–20 分钟，视频渲染在 <strong>8 张 A800、20 步推理</strong>下约 <strong>1.5 帧/秒</strong>；这不是实时闭环结果。小物体交互仍会漂浮或幻觉，系统也尚无长期动态记忆机制。<a href="https://huggingface.co/blog/Luo-Yihang/mundo-world-model" target="_blank" rel="noopener noreferrer">作者披露的局限</a>。</p>
+<p>其研究价值在于明确连接 <a href="https://arxiv.org/abs/2608.25927" target="_blank" rel="noopener noreferrer">Code World Model</a> 一类可执行场景与生成式外观；可与 World Labs 的世界生成路线比较状态接口，但现有证据不足以比较整体能力。<strong>值得精读机制与失败案例。</strong> <a href="https://github.com/Luo-Yihang/Mundo" target="_blank" rel="noopener noreferrer">官方仓库</a>当前只有 README 和素材，代码、权重计划于 <strong>11 月底</strong>开放，训练配对数据未核实公开。轻量验证可先在 10 个小型 MuJoCo 场景固定真实状态，分别测几何重建误差、接触结果与视频对状态的遵循率；用现有可用视频模型替代其大渲染器，先检验分工机制。</p>
+<h2 id="2-agibot-world-2026-release-4-physical-reasoningp0">2. AGIBOT WORLD 2026 Release 4 Physical Reasoning｜P0</h2>
+<p><strong>作者与机构：AGIBOT／智元数据团队。</strong> 公告正文写 <strong>10 月 22 日</strong>，官网页面发布时间为 <strong>10 月 23 日 10:34</strong>，两者都在窗口内。性质是官方数据发布，尚无本次发布对应的同行评审结果；“首个覆盖全具身研究的数据集”等属于企业定位。<a href="https://www.agibot.com/article/231/detail/129.html" target="_blank" rel="noopener noreferrer">官方公告</a>、<a href="https://huggingface.co/datasets/agibot-world/AgiBotWorld2026" target="_blank" rel="noopener noreferrer">官方数据仓库</a>。</p>
+<p>它把任务设计重点转向条件化决策：例如目标同为取钥匙，无遮挡时直接抓取，有遮挡时先移开箱子。数据围绕数量、遮挡、空间占用和任务进度改变执行分支，覆盖九类推理能力与三档难度。标注把高层目标、Task Frame、子任务区间和动作步骤连接起来；Dense Prompt 说明目标物体、操作部位、双臂分工及预期结果，并配合框、点、轨迹线与执行结果标注。它为高层决策监督和低层动作学习提供接口，<strong>没有发布一个新的统一模型架构或固定训练目标</strong>。<a href="https://www.agibot.com/article/231/detail/129.html" target="_blank" rel="noopener noreferrer">任务与标注设计</a>。</p>
+<p>本轮核实 HF 仓库可公开读取，存在 <code>PhysicalReasoning</code> 及两个版本目录，各含 <code>lerobot</code> 和 <code>sharegpt</code>；数据卡说明了 Parquet 状态／动作、分相机 MP4 与分段标注。<strong>这证明公开文件入口存在，不代表全量同步性、标注质量或训练收益已经验证。</strong> 官方称已用于后续 Agent 与基础模型，但未给出可比较的收益实验；不把 HF 总仓库的行数或体量冒充 Release 4 的规模。<a href="https://huggingface.co/datasets/agibot-world/AgiBotWorld2026/blob/main/README.md" target="_blank" rel="noopener noreferrer">数据结构与许可</a>。</p>
+<p>与 DROID、BridgeDataV2 等真实演示资源相比，本次最值得研究的是条件变化、子目标顺序和执行结果之间的标注关系。局限包括单一主要采集平台、分支覆盖及场景泄漏尚待审计。<strong>值得精读数据规范并抽样检查，暂不接受“推理提升”结论。</strong> 数据采用 <strong>CC BY-NC-SA 4.0</strong>；未核实配套新模型权重。轻量方案只取两个任务、每任务约 20 条轨迹，构造同目标不同初态配对，比较有无历史与 Task Frame 监督，测正确分支、先决条件和有序完成率。</p>
+<h2 id="3-trace2world-reconstructing-app-worlds-from-real-interaction-traces-for-scalable-gui-agent-trainingp0">3. Trace2World: Reconstructing App Worlds from Real Interaction Traces for Scalable GUI Agent Training｜P0</h2>
+<p><strong>Zezhou Wang、Hanzhang Zhou、Panrong Tong、Quyu Kong 等；南京大学、阿里巴巴 Alibaba Token Hub、北京理工大学。</strong> 首版提交于 <strong>10 月 22 日 06:10 UTC</strong>，即北京时间 14:10。性质为预印本，作者标注 under review，未核实同行评审接受。<a href="https://arxiv.org/abs/2610.30792" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.30792v1" target="_blank" rel="noopener noreferrer">全文与附录</a>。</p>
+<p>它解决 GUI 强化学习的环境真实性问题：从几条真实操作录屏直接写出的网页，可能运行正常却拥有错误状态转移。方法先把多条轨迹协调成共享、可追溯来源的应用行为模型，再编译执行环境；由独立流程重放原始工作流，定位并有限修复实现错误。行为规格冻结后，修复不能擅自增加无来源支持的语义。随后在受支持行为内生成学习者需要的任务，以状态验证提供 RL 奖励。这延续 GUI-GENESIS、PhoneWorld 等环境构造方向，更强调先确定行为证据，再验证代码实现。<a href="https://arxiv.org/html/2610.30792v1" target="_blank" rel="noopener noreferrer">方法与验证契约</a>。</p>
+<p>作者报告由 <strong>1,570 条轨迹构造 50 个环境</strong>；十个应用的 200 个工作流端到端重现率为 <strong>91.1%</strong>，匹配的最强任务局部基线为 <strong>59.8%</strong>。来源约束验证使真实设备保留 <strong>94.0% 的仿真训练增益</strong>，自验证对照为 54.7%；94.0% 不是任务成功率。另报告在 100 个真实设备任务上提高 <strong>16.3 个百分点</strong>。这些全部是作者实验，尚未找到独立复现。<a href="https://arxiv.org/abs/2610.30792" target="_blank" rel="noopener noreferrer">实验结果</a>。</p>
+<p><strong>值得精读来源绑定、reset、独立回放与迁移评测。</strong> 局限是浏览器重实现与原生应用仍有视觉和行为差距，真实证据之外的行为不能自然外推到新任务。论文声明释放来源录屏、环境和评测资源，但本轮未核实可稳定使用的官方代码／数据下载入口及训练权重，不能记为完整开源。轻量验证可取 3–5 个应用、约 20 条工作流，对比“边猜语义边写代码”和“冻结行为规格后实现”，先测留出工作流的状态转移保真，再测小策略收益；机器人 real-to-sim 可借鉴其验证方法，跨领域有效性仍需实验。</p>
+<h2 id="4-herd-harness-evolving-recursive-distillation-for-continual-learningp1">4. HERD: Harness-Evolving Recursive Distillation for Continual Learning｜P1</h2>
+<p><strong>Xun Sun、Thanh Thi Nguyen、Thuy-Trang Vu；Monash University、University of the Sunshine Coast。</strong> 首版提交于 <strong>10 月 22 日 15:03 UTC</strong>，即北京时间 23:03。性质为预印本，未核实同行评审接受；已核实官方代码与实验文档。<a href="https://arxiv.org/abs/2610.31401" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://github.com/a1exsun/HERD" target="_blank" rel="noopener noreferrer">官方仓库</a>。</p>
+<p>它研究如何让外部技能和参数学习共同积累经验。外部 harness 更新可复用技能，并保存技能无法解释的高残差样本；上一阶段模型在技能与已验证答案条件下作为 teacher，学生用 LoRA 将经验蒸馏到裸模型。训练通过两个 KL 漂移约束，分别参照上一 checkpoint 和初始模型，控制阶段变化与累计变化。相对 ACE、HCL 的外部经验保留及 OPHSD 的固定 harness 蒸馏，它把技能更新、高残差记忆与双参照约束结合起来。<strong>答案有验证监督，不能把它描述为无需外部反馈的自主进化。</strong><a href="https://arxiv.org/html/2610.31401v1" target="_blank" rel="noopener noreferrer">训练机制</a>。</p>
+<p>作者在 Qwen3.5-4B、TRACE+17 的 <strong>25 阶段、三随机种子</strong>实验中报告最终平均分 <strong>0.706</strong>、新任务获取 <strong>0.713</strong>、遗忘 <strong>0.010</strong>。均匀 replay 的最终平均分为 0.699，两者差异的 95% 区间包含零，不能写显著胜出。HERD 的通用能力仍下降 <strong>6.3 个百分点</strong>、最差类别下降 13.0 个百分点；“保持最好”限于所比较的权重更新方法，冻结控制组保留更多通用能力。<a href="https://arxiv.org/html/2610.31401v1" target="_blank" rel="noopener noreferrer">结果与统计边界</a>。</p>
+<p><strong>值得精读约束目标与消融，尚不能据此声称通用递归自我改进。</strong> 只评一个基座和任务顺序，有限探针也不保证整个行为分布不漂移。仓库含训练、数据构建和评测工具，但无训练 checkpoint、原始预测及完整运行归档；README 指出原论文代码在 <code>arr</code> 分支，当前数据构建 v1.1 改变样本重复次数，需新跑，不能混作论文复现。轻量方案用 4B 或更小基座做 5 个任务，对比无约束、单参照、双参照，固定更新和记忆预算，同时测旧任务、通用能力、长回答漂移与推理成本。<a href="https://github.com/a1exsun/HERD" target="_blank" rel="noopener noreferrer">实际开放范围</a>。</p>
+<h2 id="5-diffdreamer-coupling-world-models-with-differentiable-simulation-for-agile-quadrotor-controlp1">5. DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control｜P1</h2>
+<p><strong>Fanxing Li、Yuxiang Huang、Shengyang Wang、Fangyu Sun、Danping Zou、Wenxian Yu 等。</strong> 首版提交于 <strong>10 月 22 日 17:41 UTC</strong>，即北京时间 10 月 23 日 01:41。机构字段在本轮可访问稿中未明确列示，暂不推断完整机构名单。性质为预印本；PDF 使用 RA-L 格式，不据此认定已被接收。<a href="https://arxiv.org/abs/2610.31617" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.31617v1" target="_blank" rel="noopener noreferrer">全文</a>。</p>
+<p>它针对动态穿门与敏捷跟踪，把“外界下一步如何运动”和“飞机如何响应控制”分开。RSSM 世界模型学习外部动态与历史信息，可微仿真器推进显式刚体状态，两者由同一动作序列同步。世界模型训练包括观测重建、潜在状态及奖励／延续预测；策略目标把不可微任务事件交给 critic，把可微运动奖励通过物理轨迹反传。它在 Dreamer 式想象学习与可微 RL 之间建立接口，核心创新是责任分工与奖励路径，而非增加视频生成器。<a href="https://arxiv.org/html/2610.31617v1" target="_blank" rel="noopener noreferrer">方法</a>。</p>
+<p>作者报告最大门速为 <strong>1.0／1.5／2.0 米每秒</strong>时，512 仿真步内通过门的平均次数为 <strong>16／12／8</strong>，MPC 为 12／4／1，PPO 为 14／8／3。这里统计可重复通过的次数，不是不同门的数量或成功率。真实飞行策略在机载设备上超过 100 Hz，但依赖外部动作捕捉提供飞机、目标和门的状态；仅是校准环境下的概念验证，尚未证明纯机载视觉闭环。<a href="https://arxiv.org/html/2610.31617v1" target="_blank" rel="noopener noreferrer">实验与局限</a>。</p>
+<p><strong>值得读联合优化与失配消融。</strong> 局限是已知动力学、状态反馈及可微模型的适用范围，接触与不连续系统未验证。本轮未核实本文专属代码、权重或数据；搜索得到的 2022／2023 年同名场景外推项目是另一项工作。轻量替代可用二维飞行体与移动门、小型 RSSM，比较纯模型自由、纯可微、纯潜在模型和混合方法，在相同交互预算下增加推力误差、延迟及观测噪声，检查收益是否来自预测或理想物理梯度。</p>
+<h2 id="6-opentac-an-open-ecosystem-for-customizable-scalable-and-transferable-3d-tactile-sensingp1">6. OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing｜P1</h2>
+<p><strong>Ariel Slepyan、Geeta Chandra Raju Bethala、Jiafeng Gu、Krishna Murthy Jatavallabhula、Nitish V. Thakor 等；Johns Hopkins University 与 MIT。</strong> 首版提交于 <strong>10 月 22 日 17:59 UTC</strong>，即北京时间 10 月 23 日 01:59。性质为预印本及硬件／软件发布；项目提到 CoRL 现场演示，不等于论文已获会议接受。<a href="https://arxiv.org/abs/2610.31661" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://opentac.github.io/" target="_blank" rel="noopener noreferrer">官方项目与文档</a>。</p>
+<p>它解决触觉皮肤难以适配不同形状、法向力与剪切力难以共同读取的问题。柔性电阻阵列上的结构化凸点，将切向载荷转成邻近 taxel 的差分响应，公共分量反映法向载荷。CAD 工具自动生成制造文件与传感器 manifest；仿真、跨传感器转移和自适应采样共享该描述。它主要贡献硬件与数据接口，力标定及下游接触策略学习各有自己的目标，<strong>并非一个统一触觉基础模型的预训练方案</strong>。<a href="https://arxiv.org/html/2610.31661v1" target="_blank" rel="noopener noreferrer">系统与方法</a>。</p>
+<p>作者报告制造 <strong>30 多种</strong>传感器，并在四种真实机器人本体演示控制或学习用途。1024-taxel 皮肤全阵列扫描为 <strong>67 帧/秒</strong>，每次只读 16 taxel 时为 <strong>1286 次部分读数/秒</strong>，约 19.2 倍；不能写成完整触觉图以千赫兹刷新。4×4 凸点区域相对参考力传感器的三个方向拟合 R² 为 0.95、0.93、0.96，属于样本内标定，非跨形状泛化精度。<a href="https://opentac.github.io/" target="_blank" rel="noopener noreferrer">作者结果与口径</a>。</p>
+<p>相对 FlexiTac、AnySkin 等触觉系统，它突出几何定制、剪切感知及软件接口的联合设计，为跨本体接触数据提供可研究的统一描述。<strong>做触觉、接触建模和数据基础设施值得深读。</strong> 仍需检验材料批次、迟滞、磨损和跨传感器标定迁移；未见独立复现。官方仓库已含 CAD、固件、读出板文件、仿真与 transfer 工具；软件 MIT、硬件 CERN-OHL-P-2.0，未核实论文策略权重与全量轨迹公开。低成本先用无需硬件的仿真，固定接触事件而更换 taxel 几何，测法向／剪切／接触位置能否一致转移，再制作少量传感器验证。<a href="https://github.com/opentac/opentac" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://opentac.github.io/get-started/" target="_blank" rel="noopener noreferrer">入门与无硬件路径</a>。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮窗口内新增重点为 Mundo 和 AGIBOT Release 4；前者是大学团队研究预览，后者是企业官方数据发布。</strong> 已同时扫描空间生成、持久场景、3D／4D、重建、real-to-sim 与交互仿真，没有要求工作必须带 VLA／机器人动作关键词才进入候选。它们的首发早于本次运行，作为上轮遗漏回补，不伪装成过去 24 小时新发生的事件。</p>
+<p><strong>已完成主要官方入口扫描；除上述回补及下面的接入更新，未核实足以新增为 Top Papers 的重大 frontier 模型／权重发布。</strong> 扫描范围与边界如下：</p>
+<ul>
+<li><a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a>：可读入口未核实窗口内相关重大发布。Atlas、GEN-1.5、Pi API、Argon 等既有工作不重新计新。</li>
+<li><a href="https://nvidianews.nvidia.com/news" target="_blank" rel="noopener noreferrer">NVIDIA</a>、<a href="https://www.figure.ai/news" target="_blank" rel="noopener noreferrer">Figure</a>、<a href="https://www.skild.ai/blogs" target="_blank" rel="noopener noreferrer">Skild AI</a>、<a href="https://www.fieldai.com/news" target="_blank" rel="noopener noreferrer">Field AI</a>、<a href="https://www.1x.tech/discover" target="_blank" rel="noopener noreferrer">1X</a>：检查 Robotics、Cosmos、GR00T 和相关 research/news；未核实新的窗口内重大模型结果。NVIDIA 10 月 21 日事件不移入本期窗口。</li>
+<li><a href="https://ai.meta.com/blog/" target="_blank" rel="noopener noreferrer">Meta FAIR</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a>、<a href="https://alignment.anthropic.com/" target="_blank" rel="noopener noreferrer">Alignment Science</a>、<a href="https://www.tri.global/news" target="_blank" rel="noopener noreferrer">Toyota Research Institute</a>：Anthropic/AISI 10 月 23 日分析已在上期展开；本轮不重复。Meta 可读列表偏旧，不能视为完整覆盖。</li>
+<li>学术入口覆盖 Stanford、Berkeley、MIT、CMU、Princeton，以及上海 AI 实验室、清华 AIR、北大 EPIC、腾讯混元、智元；并回查论文和作者项目。Stanford 连接失败、Princeton 返回 403，混元站点未提供可提取正文；上海 AI 实验室与清华 AIR 的初始子路径失效，已改查主页。这些是检索缺口，不能宣称已排除全部新增。</li>
+</ul>
+<p><strong>唯一重复跟踪的工程变化：Hy-Nomas。</strong> 官方仓库在 <strong>10 月 24 日 08:09 UTC</strong>合入 Diffusers 推理示例，涉及 README 与中文 README，并指向专用 diffusers 分支及模型入口。这是新接入说明，尚不构成新架构、性能或独立复现证据，因此仅记录变化，不重复上期模型分析。<a href="https://github.com/Tencent-Hunyuan/Hy-Nomas/commit/911cea6458a89c2663513ff7099561ec190dd491" target="_blank" rel="noopener noreferrer">可核验提交</a>。</p>
+<p><strong>重大遗漏兜底已执行。</strong> broader web 交叉检索 Spatial Intelligence、World Model、Physical AI、Embodied／Robot Foundation Model、Real-to-Sim、3D／4D World Generation、Human-to-Robot、Agent／Self-Evolution 与机构名，再回到第一方核实。没有采信把旧工作重新推荐的日期：例如 <a href="https://arxiv.org/abs/2609.33665" target="_blank" rel="noopener noreferrer">CompoWorld</a>首版为 9 月 27 日，<a href="https://arxiv.org/abs/2610.11942" target="_blank" rel="noopener noreferrer">LGWM／Right Screen, Wrong Transition</a>首版为 10 月 8 日，未核实窗口内新版本，不列本期新作。HERD 等已进入候选；S²、P²、ALPS、Stream4D 等既有候选未再次展开，属于 Selection。Mundo／AGIBOT 上轮未入池才属于 Retrieval Failure。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续沿用 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>。下表把今天与前期问题连接起来；gap 与机会是本报判断，不是作者已验证结论。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射与近期趋势</th>
+<th>未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空间世界与持久状态</td>
+<td>Mundo；接续 Hy-Nomas、WorldForge V2 的控制与回访问题</td>
+<td>可执行 proxy 与渲染视频可能拥有不同状态</td>
+<td>同时验收对象身份、编辑持久性、坐标与接触结果</td>
+</tr>
+<tr>
+<td>转移预测与物理</td>
+<td>DiffDreamer：已知刚体物理与学习外界动态分工</td>
+<td>模型失配与观测噪声下，理想梯度收益是否保留</td>
+<td>测未知因素占比与混合动力学收益的关系</td>
+</tr>
+<tr>
+<td>决策与动作对齐</td>
+<td>AGIBOT R4：同目标、多条件、多执行分支</td>
+<td>场景相似性和任务模板可能泄漏正确分支</td>
+<td>条件反事实与历史干预下的有序执行评测</td>
+</tr>
+<tr>
+<td>表征与评测</td>
+<td>延续 CADRE／FRED、S²／P² 跟踪</td>
+<td>压缩、语义或离线相关性不能保证闭环收益</td>
+<td>固定数据与本体，检验离线排序在 OOD 上是否成立</td>
+</tr>
+<tr>
+<td>接触与跨本体数据</td>
+<td>OpenTac：几何 manifest 连接采集、仿真与迁移</td>
+<td>taxel 重采样一致不等于物理接触语义一致</td>
+<td>跨几何且跨材料的接触事件对齐与不确定性估计</td>
+</tr>
+<tr>
+<td>Agent 环境与 RL</td>
+<td>Trace2World：来源约束、独立回放、真实迁移</td>
+<td>能运行的模拟器可能教会错误行为</td>
+<td>用转移保真预测训练增益，而非只评外观或可运行性</td>
+</tr>
+<tr>
+<td>持续学习与自进化</td>
+<td>HERD：外部技能选择、参数内化、双参照约束</td>
+<td>有限漂移探针、已知任务边界与验证答案依赖</td>
+<td>未知任务边界下，兼顾旧能力与经验内化的受控实验</td>
+</tr>
+</tbody>
+</table></div>
+<p>近期值得追踪的共同趋势，是把世界模型与 Agent 系统拆成有可核验接口的部分，同时用真实任务收益评估接口是否有用。<strong>目前证据支持这种分解值得实验，不支持“混合路线已普遍胜过统一大模型”的结论。</strong></p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<p>以下是实验建议，本轮没有运行这些实验。它们不要求先复现大模型训练。</p>
+<ul>
+<li><strong>状态与外观是否一致。</strong> 用 10 个场景、3 种相机回路，固定物理状态后改变视频渲染器，再固定渲染器扰动状态。测物体身份、接触位置、遮挡后状态恢复与动作结果。若提升只出现在视觉偏好分数，停止把它解释为动力学进步；若真实状态误差和下游决策同时改善，再扩大规模。</li>
+<li><strong>同一目标是否真的根据条件决策。</strong> 从 AGIBOT R4 抽取两类存在明确先决条件的任务，按场景和分支留出；比较无历史、正确历史、打乱历史，以及有无阶段标注。以先决条件违例、错误分支和有序子目标完成率为主要指标，避免只看最终帧。</li>
+<li><strong>模拟器真实性能否预测 RL 迁移。</strong> 借 Trace2World 的来源冻结与独立回放思路，在一个小型 GUI 或机械操作环境中注入状态转移错误，保持图像近似。先测可运行性、视觉误差、转移保真，再检验哪个指标预测真实环境收益。若高分模拟器反而损害策略，优先修验证协议。</li>
+<li><strong>学到新任务以后，还保留了什么。</strong> 按 HERD 做 5 阶段小模型实验，固定更新、上下文和记忆预算，加入稀有旧任务及长回答检查。只有新增任务收益、旧能力保持和总成本共同改善，才继续扩到 25 阶段；单一平均分上涨不足以支持自进化结论。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实的开放内容</th>
+<th>当前证据边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mundo</td>
+<td>作者博客、项目与演示；占位仓库</td>
+<td>代码／权重计划 11 月底；无量化独立验证</td>
+</tr>
+<tr>
+<td>AGIBOT R4</td>
+<td>HF 数据目录、LeRobot／ShareGPT、数据卡；CC BY-NC-SA 4.0</td>
+<td>未下载全量、未核实完整标注质量；无公开训练收益对照</td>
+</tr>
+<tr>
+<td>Trace2World</td>
+<td>论文、完整方法及实验契约</td>
+<td>声明释放资源，稳定官方下载入口与权重未核实</td>
+</tr>
+<tr>
+<td>HERD</td>
+<td>代码、构建与训练工具；原论文 arr 分支可定位</td>
+<td>无训练权重／完整预测归档；主分支数据 v1.1 与论文需区分</td>
+</tr>
+<tr>
+<td>DiffDreamer</td>
+<td>论文、仿真与真实概念验证报告</td>
+<td>专属代码／权重／数据未核实；真实实验依赖动作捕捉</td>
+</tr>
+<tr>
+<td>OpenTac</td>
+<td>CAD、固件、硬件制造文件、仿真及 transfer 工具</td>
+<td>未独立制造或复现实验；全量策略数据／权重未核实</td>
+</tr>
+</tbody>
+</table></div>
+<p>本轮并行读取 arXiv 四类 recent 列表，得到含交叉投稿与旧文更新的 <strong>4,218 条记录、3,392 个不同 ID</strong>；在 10 月 22／23 日公告批次中有 <strong>400 个标题级主题命中</strong>。这些不是 400 篇严格窗口首发论文，也不是全部读过全文的数量。入选项再核对首版时间、全文或作者技术资料与资源状态。<a href="https://arxiv.org/list/cs.RO/recent?show=2000" target="_blank" rel="noopener noreferrer">Robotics</a>、<a href="https://arxiv.org/list/cs.CV/recent?show=2000" target="_blank" rel="noopener noreferrer">CV</a>、<a href="https://arxiv.org/list/cs.AI/recent?show=2000" target="_blank" rel="noopener noreferrer">AI</a>、<a href="https://arxiv.org/list/cs.LG/recent?show=2000" target="_blank" rel="noopener noreferrer">ML</a>。</p>
+<p>六项重点的量化结果均为作者／官方报告；本轮未找到独立团队对核心结果的复现。论文内部的独立回放、作者真实机器人实验、AI 自动审稿与第三方新闻转述，都不能替代外部复现。另有一个来源校验教训：S² 的可读 HTML 与当前 PDF／仓库覆盖范围并不完全同步，正式取数应固定版本并优先核对 PDF 和对应结果包；本期没有把旧候选重新计为新发布。</p>
+<p><strong>今天先读 Mundo 的技术分工与限制，再读 AGIBOT R4 的条件分支和标注规范。先做一个“同目标、不同初态、必须按顺序完成”的小验证，再决定是否投入大规模生成、训练或蒸馏。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-24/"><span>← 上一期 · 2026-10-24</span><strong>Hy-Nomas · Agentic World Action Models · Rethinking Video Autoencoders for Interactive World Models</strong></a><a class="newer" href="../2026-10-26/"><span>下一期 → · 2026-10-26</span><strong>UniAction · RynnUnify · WorldMirror</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-28｜Genie 4 · EmbodiedLab · GenSfM · Yunhe</title><meta name="description" content="本期主检索窗口为北京时间 2026-10-25 09:02—2026-10-28 09:02，来源核验延伸至成稿。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-28/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-28｜Genie 4 · EmbodiedLab · GenSfM"><meta property="og:description" content="本期主检索窗口为北京时间 2026-10-25 09:02—2026-10-28 09:02，来源核验延伸至成稿。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-28/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Genie 4 · EmbodiedLab · GenSfM</h1><p class="article-deck">本期主检索窗口为北京时间 2026-10-25 09:02—2026-10-28 09:02，来源核验延伸至成稿。</p><div class="article-meta"><time datetime="2026-10-28">2026 / 10 / 28</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-genie-4-a-new-generation-of-world-simulationp0">1. Genie 4: A new generation of world simulation｜P0</a><a class="toc-level-2" href="#2-echo-3-%E4%B8%8E-spaitial-app%E4%BB%8E%E6%89%8B%E6%9C%BA%E9%87%87%E9%9B%86%E5%88%B0%E7%9C%9F%E5%AE%9E%E5%B0%BA%E5%BA%A6%E7%A9%BA%E9%97%B4p0">2. Echo-3 与 SpAItial app：从手机采集到真实尺度空间｜P0</a><a class="toc-level-2" href="#3-embodiedlab-benchmarking-embodied-agents-that-act-to-knowp0">3. EmbodiedLab: Benchmarking Embodied Agents That Act to Know｜P0</a><a class="toc-level-2" href="#4-zap-pretraining-knows-what-simulation-teaches-howp0">4. ZAP: Pretraining Knows What, Simulation Teaches How｜P0</a><a class="toc-level-2" href="#5-gensfm-generative-structure-from-motion-with-native-3d-diffusionp0">5. GenSfM: Generative Structure from Motion with Native 3D Diffusion｜P0</a><a class="toc-level-2" href="#6-fl4n-feed-forward-latent-model-for-4d-novel-view-synthesisp1">6. FL4N: Feed-forward Latent Model for 4D Novel View Synthesis｜P1</a><a class="toc-level-2" href="#7-oswam-an-effective-world-action-model-with-one-step-action-generationp1">7. OSWAM: An Effective World Action Model with One-Step Action Generation｜P1</a><a class="toc-level-2" href="#8-optta-adapt-for-planning-not-just-predictionp1">8. OpTTA: Adapt for Planning, Not Just Prediction｜P1</a><a class="toc-level-2" href="#9-how-ai-agents-shape-experts-judgment-callsp1">9. How AI agents shape experts’ judgment calls｜P1</a><a class="toc-level-2" href="#10-openwam-%E6%B8%85%E6%B4%97%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A2%84%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B8%83p1">10. OpenWAM 清洗机器人预训练数据发布｜P1</a><a class="toc-level-2" href="#11-early-progress-on-accelerating-drug-development-with-claudep1">11. Early progress on accelerating drug development with Claude｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-28.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-28</div><article class="prose"><p>本期主检索窗口为<strong>北京时间 2026-10-25 09:02—2026-10-28 09:02</strong>，来源核验延伸至成稿。相对 10 月 27 日晨报，今天最重要的新增是 <strong>Genie 4 的混合式交互世界预览、Echo-3 的真实尺度空间重建，以及 OSWAM 学生/教师权重落地</strong>。空间智能继续作为独立主线；P0/P1 表示阅读优先级，不表示结论已获独立验证。</p>
+<p>本期展开 <strong>4 项官方研究/产品发布、6 篇窗口内论文和 1 项旧工作的数据发布回访</strong>。六篇论文均在 10 月 26 日提交、早于上一期成稿，却未进入上一期候选池，明确列为 <strong>Retrieval Failure 回补</strong>；OSWAM 另有昨夜新增权重。OpenWAM 因 10 月 25 日清洗数据官宣回访，论文与初始数据上传时间另列。昨天的 Hy-Nomas、Predictable Latents、SceneAgent 等没有核实到足够的新证据，不机械重复。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>Genie 4 → EmbodiedLab → GenSfM → ZAP → OpTTA</strong>。</p>
+<ul>
+<li><strong>Genie 4：</strong>先看语言规划、实时生成和音频怎样组成系统，同时明确哪些物理与持久性主张还只有演示。</li>
+<li><strong>EmbodiedLab：</strong>读“操作以获取知识”的任务契约，理解接触、测量、推理和收尾分别怎样限制成功。</li>
+<li><strong>GenSfM：</strong>看生成先验怎样与观测一致性联合求解，尤其注意相机与形状共同去噪的收益和评测对齐方式。</li>
+<li><strong>ZAP：</strong>关注仿真训练如何补齐预训练 VLM 的运动能力，以及统一控制接口对迁移结论的影响。</li>
+<li><strong>OpTTA：</strong>这是今天最直接可做小规模受控复现的方法：把测试时世界模型更新目标与实际规划目标连接起来。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-genie-4-a-new-generation-of-world-simulationp0">1. Genie 4: A new generation of world simulation｜P0</h2>
+<p><strong>Raia Hadsell、Diego Rivas、Hang Qi 及 Google DeepMind 团队；10 月 27 日官方发布。</strong> 性质是面向可信测试者的研究预览，当前公告没有给出配套论文或同行评审证据。<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener noreferrer">官方研究博客</a>。它要解决的是实时世界生成中的可控事件、人物行为、环境音和交互对话，以及多步过程的连续性。</p>
+<p>公开机制分成两层：Genie 4 生成视觉与原生音频，Gemini 模型参与理解场景、拆解目标和持续调整过程。官方明确展示 <strong>Gemini 3.8 Flash 在环观察、规划和检查进度</strong>，以及 Gemini 4 Argon 把 Apollo 人形机器人下棋任务拆成文本步骤、交错输入 Genie 4。Gemini Omni 被描述为提供现实外观与行为基础。<strong>具体网络、训练数据、训练目标和算力未披露</strong>，不能据此补写成某种已知扩散架构。</p>
+<p><strong>官方证据是交互录像与测试者反馈</strong>，涵盖导航、语言修改、人物动作、音频和多步事件；公告未报告标准化物理基准、长期记忆分数、机器人闭环训练收益或端到端时延分布。“实时”是官方运行主张，不能移植 Genie 3 或其他模型的帧率数字。官方也承认长会话、复杂编辑和场景移动后，物体持久性、空间精度、音频与物理交互仍会漂移。</p>
+<p><strong>值得优先阅读系统分工，能力结论仍需量化。</strong> 相比 Hy-Nomas 的动作时窗与生成训练，这次更突出的方向是语言推理系统持续引导感官模拟；它与显式维护可执行世界状态的仿真系统仍有区别。尚未核实开放权重、训练代码、训练数据或独立复现；公告将面向 Ultra、Project Genie 和 API 伙伴的进一步开放列为后续安排，不能写成人人已可调用。</p>
+<p>轻量验证无需重训：先在可访问的交互世界模型上固定 <strong>12 个重访/干预场景</strong>，交叉有无外部规划器，包含移物后离场再返回、事件顺序改变和音画冲突。联合测状态保持、干预响应和规划器纠错，后续有 Genie 4 权限再运行同一协议；只提升叙事流畅度而未改善状态正确性时，不扩大“混合世界模型提升物理可靠性”的结论。</p>
+<h2 id="2-echo-3-与-spaitial-app从手机采集到真实尺度空间p0">2. Echo-3 与 SpAItial app：从手机采集到真实尺度空间｜P0</h2>
+<p><strong>SpAItial Team；10 月 27 日官方公告。</strong> 这是模型与 iOS 采集产品发布，无配套论文或同行评审证据。<a href="https://spaitial.ai/blog/echo-3-release" target="_blank" rel="noopener noreferrer">发布说明</a>、<a href="https://spaitial.ai/blog/capture-guide" target="_blank" rel="noopener noreferrer">采集指南</a>、<a href="https://spaitial.ai/gallery" target="_blank" rel="noopener noreferrer">官方样例</a>。它研究怎样用几分钟手机采集，恢复外观忠实、几何干净且具有真实尺度的可探索空间，而不依赖完整密集扫描。</p>
+<p>官方公开的功能分工是<strong>保留已观测区域，同时用生成先验补齐漏拍表面</strong>，相对 Echo-2 的单图/全景生成，更强调真实空间的重建忠实度与尺度。公告没有披露具体 3D 表示、相机/尺度估计模块、训练监督及损失，因此目前只能确认产品机制边界，不能把它认定为某种 Gaussian、mesh 或视频扩散实现。“几分钟采集”也不是重建推理耗时。</p>
+<p><strong>官方结果为同一路径附近采集的定性对照</strong>，比较 Polycam、KIRI Engine、Niantic Scaniverse，展示更干净表面和较少漂浮碎片；未给出尺度误差、几何精度/完整度、测试场景数量、失败率或下游仿真收益。案例挑选与各工具配置尚不足以支持全面领先；“metric”目前是官方产品主张，仍需尺量或扫描真值验证。</p>
+<p><strong>值得关注 real-to-sim 的资产入口。</strong> 它与 GenSfM 的物体级联合重建、SceneAgent 的可交互仿真构建处在不同层次：恢复可浏览空间后，还需要碰撞、质量、关节与接触等物理属性。iOS app 可下载，企业 API 需联系；未核实开放权重、代码、训练集或独立测试。另有日期较早但当前已提及 Echo-3 的采集指南，所以本报把 <strong>10 月 27 日作为官方公告日，不宣称这是模型首次可用的精确时点</strong>。</p>
+<p>轻量验证选三个房间和一个楼梯/跨层场景，同一路径、同一采集预算，预留十处实测距离及两个未拍区域。分别验收已见区域几何误差、尺度漂移和补全区域的真实性，再检查导入仿真后的可通行性；外观改善却系统性改动真实门宽、通道或设备尺寸时，应停止把资产直接用于策略评测。</p>
+<h2 id="3-embodiedlab-benchmarking-embodied-agents-that-act-to-knowp0">3. EmbodiedLab: Benchmarking Embodied Agents That Act to Know｜P0</h2>
+<p><strong>Hongcheng Gao、Zelin Zheng、Alex Zhou 等；HexaFuture、清华、NUS、北大。</strong> v1 为北京时间 <strong>10 月 26 日 21:06</strong>；新技术报告与开源 benchmark，未核实同行评审。<a href="https://arxiv.org/abs/2610.35385" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35385v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://hexafuture.ai/benchmarks/embodiedlab/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://github.com/HexaFuture/EmbodiedLab" target="_blank" rel="noopener noreferrer">代码</a>。这是上一期漏检回补。研究对象是机器人主动选择实验程序，通过真实操作和仪器反馈获得原先不知道的量。</p>
+<p>基准在 Isaac Sim 中包含<strong>五学科、14 套仪器平台、30 个实验</strong>；每个实例重新采样隐藏参数。成功同时要求答案在仪器容差内、引用本次操作留下的有效测量证据，并满足实验台最终状态。T0 提供相机、机器人状态、基础控制和纯运动学 IK；T1 增加 SAM3、深度定位与 cuRobo；T2 用成功轨迹蒸馏操控技能，作为诊断条件。基准本身没有新模型训练目标，核心贡献是实例、接口、证据门和评分契约。</p>
+<p><strong>作者结果：</strong>六个模型与各自 coding agent 组合中，T0 最佳 Claude Opus 5.5 为 <strong>43.3%</strong>，GPT-6 Astra 为 <strong>40.0%</strong>；T1 分别为 <strong>53.3% / 46.7%</strong>。各组合失败中，操作、观察和收尾合计占 <strong>75%–100%</strong>，纯“已有读数后的求知”至多占 25%。T2 对弱模型提升较大，但技能来自同一组实验的成功运行，不能当作独立的未知实验泛化结果。</p>
+<p><strong>值得精读任务契约与错误归因。</strong> 相比 LIBERO/RoboTwin 的目标状态操作和纯符号科学发现，它把动作变成获取信息的手段；但仍是预设物理规律与装置家族中的参数/程序识别，不等于开放式发现新定律。模型与各家 harness 一起变化，成绩也不是纯模型能力排名。当前公开 T0/T1，T2 未随版本发布；Apache-2.0 源码、30 份任务卡与评测实现已核实，Isaac Sim、SAM3 和 cuRobo 分别保留原依赖条款，尚未独立运行验证。</p>
+<p>官方建议 Linux 与 24 GB RTX GPU，T0 可省去感知服务。轻量验证先选弹簧、悬臂梁和黑箱电路三个实验，各五个新 seed，固定接口与交互/token 预算；分别记录接触、读数、参数估计和收尾失败，并核对隐藏参数不进入 agent 可读目录。先确认“更多动作是否带来更多有效信息”，再考虑扩展全部 30 实验。</p>
+<h2 id="4-zap-pretraining-knows-what-simulation-teaches-howp0">4. ZAP: Pretraining Knows What, Simulation Teaches How｜P0</h2>
+<p><strong>Benjamin Pikus、Daniel Saunders、Mircea Mironenco 等，Luma AI。</strong> 完整标题为 《Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent》；v1 为北京时间 <strong>10 月 27 日 01:44</strong>。新预印本，未核实同行评审；上一期漏检回补。<a href="https://arxiv.org/abs/2610.35817" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35817v1" target="_blank" rel="noopener noreferrer">全文</a>。问题是预训练 VLM 已有语义与推理知识，怎样只用仿真教会它可靠地控制机器人，并迁移到新任务和本体。</p>
+<p>ZAP 从 <strong>Qwen 3.6 27B</strong> 出发，在 40 个简单仿真任务上用短 GRPO 暖启动和前缀树搜索挖掘自身成功轨迹，先 SFT，再做带任务级稠密奖励的 GRPO/LoRA。输入包括相机图像、SAM 3.1 分割与深度得到的几何读数；输出是末端绝对位姿和夹爪开合等工具调用。统一 harness 负责校验、IK、运动执行与反馈，没有直接提供抓取宏。未用真实机器人训练轨迹，但相机及机械臂动力学经过真机校准，不能扩张成“完全不需要真实世界信息”。</p>
+<p><strong>作者结果：</strong>真机 10 任务、每任务三次，共 30 次，ZAP 与同 harness 的 GPT-6 Astra 都为 <strong>29/30（96.7%）</strong>，基础模型为 <strong>16.7%</strong>，MolmoAct2 为 <strong>33.3%</strong>。平均任务时间 <strong>146 秒对 397 秒</strong>；成本 <strong>0.29 美元对 4.87 美元</strong>，其中 ZAP 按单 B300 服务费用估算。跨本体 Franka 的 <strong>55.9% 是 RoboLab-120 仿真结果</strong>，不能写成第二种真机上的成功率。</p>
+<p><strong>值得读训练配方和接口设计，暂不足以证明通用真机泛化。</strong> 同一 GPT-6 Astra 换到 Robocurve harness 后为 36.7%，说明接口贡献很大；跨 VLA 的比较还混有感知和控制方式差异。真机样本仅 30 次，新策略/下棋等还包含定性演示；稠密奖励系数未消融，完整训练算力与总成本未披露。它与 Code as Policies、VLA/WAM 的主要关系是：将预训练语义、仿真运动学习和本体后端分别承接。</p>
+<p>未核实专属可用代码、ZAP 权重和训练轨迹发布。可先用较小 VLM 与同一末端控制接口，在三个仿真任务上对比基础模型、成功轨迹 SFT 和少量 RL，留出“放进/放后面”“一个/三个”等语义变化，并将相同感知反馈提供给对照策略。只有在接口一致时仍保留语义与运动组合收益，才值得扩大任务和真机测试。</p>
+<h2 id="5-gensfm-generative-structure-from-motion-with-native-3d-diffusionp0">5. GenSfM: Generative Structure from Motion with Native 3D Diffusion｜P0</h2>
+<p><strong>Haobin Duan、Binbin Huang、Mochu Xiang 等；港大、Transengram、腾讯。</strong> v1 为北京时间 <strong>10 月 26 日 22:40</strong>；作者标注 NeurIPS 2026 接收，本轮未另核会议录。论文属于上一期漏检回补。<a href="https://arxiv.org/abs/2610.35522" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35522v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://dotb1ue.github.io/GenSfm/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://github.com/dotb1ue/GenSfm" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://huggingface.co/dotblue/GenSfm" target="_blank" rel="noopener noreferrer">权重</a>。它要同时恢复少量未标定图片对应的物体几何、外观与相机，而不让“先重建再生成”的误差逐级放大。</p>
+<p>方法在 TRELLIS 的原生 3D 潜在空间中，把共享形状 latent 与各视角紧凑 UV-volume 位姿 latent 放入同一多模态 DiT，联合做流匹配去噪；第二阶段按预测相机把图像特征投影到活跃体素，细化几何与纹理。关键是让观测约束和物体生成先验共同决定形状与相机，替代外置位姿估计器与事后优化。完整训练包含位姿自编码器及两阶段生成器，报告使用多张 H200、百万级步数。</p>
+<p><strong>作者结果：</strong>Toys4k/GSO 各取 400 物体、两个四视图组合。与多视图 TRELLIS-M 在同一生成评测协议下比较，PSNR 从 <strong>24.01→28.54 / 22.28→25.50 dB</strong>，中位 Chamfer 约降低 <strong>3.8 / 2.8 倍</strong>；预测内参时的相对旋转 Acc@5° 为 <strong>97.23% / 98.21%</strong>。不同表分别采用输入点图最小二乘、相似变换 ICP 或成对位姿评价，不能跨表拼接成一个收益。</p>
+<p><strong>值得深入阅读生成与重建的耦合方式。</strong> 相比 VGGT/FreeSplatter 和 ReconViaGen，它把生成先验放进联合求解本体；但实验局限于分割良好的物体、四个输入视角及既有物体分布。其对 VGGT 的内参优势也部分反映可变 FOV 训练分布，不能全部归因于结构。物体级相似对齐后的高分不证明真实房间的公制尺度、动态可交互性或机器人碰撞准确性。</p>
+<p>MIT 代码与约 <strong>5.8 GB 推理 bundle</strong> 已核实，阶段一/二 safetensors 和解码器均存在。权重上传实际为北京时间 <strong>10 月 24 日 02:55</strong>，本轮是新论文回补，不是今天新开源权重；训练 UV 编码器不在推理 bundle，完整训练链仍需额外资产。轻量验证用 20 个物体固定四视图、三次采样，对照联合估计与外部相机条件化，分开测已见表面、遮挡补全和位姿；再加入分割偏差与焦距干预，观察是否“看起来更完整但更不符合观测”。</p>
+<h2 id="6-fl4n-feed-forward-latent-model-for-4d-novel-view-synthesisp1">6. FL4N: Feed-forward Latent Model for 4D Novel View Synthesis｜P1</h2>
+<p><strong>Eunbeen Hong、Hyeonseo Yu、Honggyu An 等；KAIST AI、Google DeepMind。</strong> v1 为北京时间 <strong>10 月 27 日 01:58</strong>；新预印本，未核实同行评审，上一期漏检回补。<a href="https://arxiv.org/abs/2610.35854" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35854v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://cvlab-kaist.github.io/FL4N/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://github.com/cvlab-kaist/FL4N" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://huggingface.co/eunbeen-hong/FL4N" target="_blank" rel="noopener noreferrer">权重</a>。目标是从单目视频的少量帧恢复能按视角和时间查询的动态场景，减轻显式 4D Gaussians 的重影与空洞。</p>
+<p>方法冻结预训练静态 latent NVS 编码器与渲染器，以八层动态编码器持续交叉读取静态特征，学习时间残差和动态 mask；目标时间模块调节残差，再送入冻结渲染器。训练使用图像重建、感知、动态区域及 mask 损失。虽然没有深度或 3D 运动真值监督，<strong>公开数据准备仍通过 WAFT 光流构造动态 mask</strong>，不能写成没有运动伪标签依赖。</p>
+<p><strong>作者结果：</strong>在有输入位姿的设置，NVIDIA Dynamic Scenes 的 PSNR 为 <strong>20.435 dB</strong>，4DGT 为 <strong>16.127 dB</strong>；CamxTime 为 <strong>25.730 对 17.125 dB</strong>。无位姿结果应单列，也并非每个数据集所有指标都领先。单 RTX 5880 Ada、<strong>224×224、每目标视图渲染约 0.025 秒（40 FPS）</strong>；残差预先计算，这个数字不等于包含采集、编码和全部视图的端到端处理速度。</p>
+<p><strong>值得研究静态先验与动态残差的分工。</strong> 它更接近可查询的 4D 视觉表征，尚无动作条件动力学或闭环机器人验证。大范围外推会继承静态 latent NVS 的模糊/坍塌，残差也难以修正严重相机或几何错误。代码与约 <strong>6.79 GB checkpoint</strong> 已核实；许可是 FAIR Noncommercial Research License。权重早在 <strong>10 月 22 日</strong>上传，27 日更新的是 README，不算新增模型权重。</p>
+<p>作者训练为四张 RTX 5880 Ada、32k 步；轻量验证优先直接推理：选十段有相机运动、遮挡和独立物体运动的视频，固定上下文帧，对照静态 backbone、完整 FL4N 与打乱时间输入。只有在新视角和新时刻同时改善、且不抹掉真实运动时，才考虑训练残差模块。</p>
+<h2 id="7-oswam-an-effective-world-action-model-with-one-step-action-generationp1">7. OSWAM: An Effective World Action Model with One-Step Action Generation｜P1</h2>
+<p><strong>Guowen Zhang、Liyi Chen、Xu Hu 等，香港理工大学。</strong> v1 为北京时间 <strong>10 月 27 日 01:57</strong>；新预印本及代码，未核实同行评审；论文为上期漏检。<strong>10 月 28 日 01:18—01:50</strong> 又实质上传 NAVSIM/RoboTwin 的学生与特权教师权重，是本期窗口内新增可复现资产。<a href="https://arxiv.org/abs/2610.35850" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35850v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/PolyU-VCLab/OSWAM" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://huggingface.co/VCLab-PolyU/OSWAM" target="_blank" rel="noopener noreferrer">权重</a>。</p>
+<p>它针对直接出动作 WAM 仍需多次动作去噪的问题，用 Action/Scene Imagination Tokens 从当前观测建立结构化动作先验，再加一次 Action DiT 精修；训练时以未来帧条件教师做特征蒸馏，推理不展开未来视频。目标包含动作学习、先验构造和特权特征对齐。<strong>“一步”指动作精修；代码明确要求两次模型求值：一次 Video proposal、一次 Action refinement</strong>，README 的 <code>num_inference_steps=2</code> 与此相符。</p>
+<p><strong>作者结果：</strong>RoboTwin 2.0 五十任务 Clean/Randomized 平均 <strong>90.00%</strong>，Fast-WAM 为 <strong>91.83%</strong>；H20 延迟 <strong>142 对 397 ms</strong>，用少量成功率换约 2.8 倍提速。5090 上缓存语言、编译与 CUDA Graph 后为 <strong>40.81 ms</strong>，不能与 H20 未缓存数字直接比较。PiPER 两项真机任务各 20 次，成功率 <strong>85% / 80%</strong>，Fast-WAM 为 <strong>80% / 75%</strong>，各只多一次成功。</p>
+<p><strong>值得读初始化与计算分解，尚无广泛真机优势证据。</strong> 它与 Fast-WAM、SimWAM 的关系是改造直接策略的动作初值，并把未来条件作为训练期监督；不是把整个世界模型蒸馏成单次前向。MIT 代码、训练/评测目录与四个约 12.08 GB checkpoint 已核实；Wan、数据和仿真资源另取，尚未实跑。NAVSIM v2 仓库封装使用 reactive one-stage EPDMS，与官方 two-stage 协议存在差别，不能混报。</p>
+<p>轻量验证先固定十个 RoboTwin 任务和 checkpoint，分别计冷启动/热启动、缓存/未缓存、编译/未编译的端到端与模型耗时，再比较随机初值、结构先验、去掉教师三条件。只有相同成功率下的真实控制周期收益稳定，才值得继续做完整预训练或更大的少步模型。</p>
+<h2 id="8-optta-adapt-for-planning-not-just-predictionp1">8. OpTTA: Adapt for Planning, Not Just Prediction｜P1</h2>
+<p><strong>Akshay Mete、Dileep Kalathil、P. R. Kumar，Texas A&amp;M。</strong> 完整标题为《Adapt for Planning, Not Just Prediction: Optimistic Test-Time World Model Adaptation》；v1 为北京时间 <strong>10 月 26 日 23:46</strong>；作者标注 CoRL 2026 Pretrain to Adapt Workshop 接收，不等同主会论文；上期漏检回补。<a href="https://arxiv.org/abs/2610.35636" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35636v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/akshaymete/optta" target="_blank" rel="noopener noreferrer">代码</a>。问题是测试时仅拟合自身经历的轨迹，可能预测得更准，却仍误判那些能到达目标的动作。</p>
+<p>OpTTA 在已有预测损失上，加入模型对规划候选轨迹计算的目标到达代价：<code>L = L_prediction + α · L_planning</code>。梯度更新世界模型参数，预测项锚定已观测转移，规划项鼓励能实现目标的模型解释。它承接自适应控制中的 reward-biased maximum likelihood，扩展 AdaJEPA 的预测式适配；使用规划器已经生成的候选，不增加环境交互，但增加适配计算。</p>
+<p><strong>作者结果：</strong>三个 JEPA 世界模型、15 种偏移设置中，仅更新 predictor 时，相对冻结模型平均成功率提升 <strong>13.5 个百分点</strong>，AdaJEPA 为 <strong>6.9 个百分点</strong>；也更新 encoder 时为 <strong>13.5 / 7.5 个百分点</strong>。TwoRoom 两者均未改善。DINO-WM PushT 单次重规划从冻结时 <strong>2.955 秒</strong>增至完整 OpTTA <strong>5.233 秒</strong>；仅用 30 个 CEM 精英候选可降至 <strong>3.304 秒</strong>，说明预算控制是方法的一部分。</p>
+<p><strong>值得优先做小规模复现，结果仍限于仿真。</strong> 乐观目标可能偏向模型容易想象而真实不可达的状态，需要观察预测锚定是否及时纠偏；不能用低规划代价直接证明真实进展。MIT 实现覆盖 LeWM、DINO-WM 和 temporal straightening；沿用已有权重与数据，不是发布新的基础模型。轻量验证可在 PushT 的视觉扰动和一种动力学偏移下，各用 20 个 episode、三个 seed，固定重规划/更新预算比较 Frozen、AdaJEPA、OpTTA，同时测成功、真实进展、预测误差与耗时。</p>
+<h2 id="9-how-ai-agents-shape-experts-judgment-callsp1">9. How AI agents shape experts’ judgment calls｜P1</h2>
+<p><strong>Amaç Herdağdelen、Hailey Joren、Alex Tamkin；Anthropic Fellows Program / Anthropic。</strong> 10 月 27 日官方研究发布；论文标题为 《Who’s Aligned to Whom? How AI Agents Shape Experts’ Research Judgment Calls》，未核实同行评审。<a href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener noreferrer">官方报告</a>、<a href="https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf" target="_blank" rel="noopener noreferrer">论文 PDF</a>。它研究人类专家是否真的保留研究决策权，还是在核查代码和结果时，不知不觉采用了 Agent 的研究偏好。</p>
+<p>研究让 <strong>50 位因果推断从业者</strong>用 Claude Code / Opus 4.8 分析同一农业咨询政策问题，在四个分析选择与一个最终建议上随机注入 Agent 偏好。两种选项都可以有合理依据，Agent 被要求诚实论证、遇到相反证据时改变立场。这是随机干预实验，没有新模型训练或新损失；它把“答案对不对”之外的决策主导权变成可测对象。</p>
+<p><strong>作者结果：</strong>四项分析选择中，人类与随机注入立场一致的比例为 <strong>86%</strong>；事后 <strong>77%</strong> 的参与者在至少一个解释中复用了 Agent 的论点，只有 <strong>15%</strong> 提到 Agent 来源。86% 不是模型准确率，也不是所有真实科研工作的影响率。研究人为加强了立场，只有一个任务、一个模型和一个专业场景；无 AI 的 11 人是自选退出，不能把两组效率/错误率差值当成随机实验的因果效果。</p>
+<p><strong>值得与自演化研究一起读。</strong> 相比只检验任务成功的 Agent benchmark，它暴露了“有人签字”不一定构成独立判断；但尚未验证哪种交互设计能降低影响并保持效率。公开论文有实验材料和分析说明，未核实完整匿名参与者数据与部署包；没有本次新权重发布或第三方复现。轻量验证先在合成研究决策任务中，比较直接给建议、先记录人的初始判断、并列两种最强论证三种界面；同时记录选择改变、证据理解和完成时间，不只测最终是否同意 AI。</p>
+<h2 id="10-openwam-清洗机器人预训练数据发布p1">10. OpenWAM 清洗机器人预训练数据发布｜P1</h2>
+<p><strong>Yuran Wang、Siqiao Huang、Mingleyang Li 等；NUS、清华、北大、港大等合作团队。</strong> 本次关注官方 <strong>10 月 25 日数据发布公告</strong>，旧论文 v1 为 9 月 7 日，不重新计新论文；也是前期未追踪到的数据更新回补。<a href="https://openwam-official.github.io/" target="_blank" rel="noopener noreferrer">项目</a>、<a href="https://github.com/OpenWAM-Official/OpenWAM" target="_blank" rel="noopener noreferrer">官方仓库公告</a>、<a href="https://arxiv.org/abs/2609.07398" target="_blank" rel="noopener noreferrer">原论文</a>。四份数据文件在 10 月 23—25 日前后分批上传，25 日晚补齐统计；公告只有日期级时间，本报不把全部文件都算作严格 72 小时内首次公开。</p>
+<p>发布对象是供 OpenWAM 预训练使用的<strong>清洗后 LeRobot v3 机器人数据</strong>：<a href="https://huggingface.co/datasets/OpenWAM/AgiBotWorld-Beta" target="_blank" rel="noopener noreferrer">AgiBotWorld-Beta</a>、<a href="https://huggingface.co/datasets/wayrise/RoboCOIN" target="_blank" rel="noopener noreferrer">RoboCOIN</a>、<a href="https://huggingface.co/datasets/OpenWAM/InternData-A1" target="_blank" rel="noopener noreferrer">InternData-A1</a>、<a href="https://huggingface.co/datasets/OpenWAM/Droid" target="_blank" rel="noopener noreferrer">DROID</a>。它们与原始数据集的关系是处理和重打包，不是新采集四套数据。原研究把生成 backbone、动作容量、信息流、联合去噪和人类/机器人数据配比模块化，以控制变量研究世界与动作学习。</p>
+<p><strong>官方数据卡合计 534,605,064 个同步观测/动作时间步、约 6,944.29 小时</strong>；四份数据采样率分别为 15/30/30/10 FPS，相机视角不重复计帧。这个发布版本的统计，不能与原模型约 518.5M 帧、6,400 小时的人类加机器人训练配方直接等同。此次未给出“开放这些清洗数据以后”的新对照实验，因此不重述旧模型成绩为今天的新结果。</p>
+<p><strong>值得读数据契约并抽样核查，优先于全量下载。</strong> 已确认多个 TB 级压缩归档与数据卡存在；但本轮没有解包验证动作语义、同步、去重或训练/测试交叉来源，简短数据卡也未明示完整许可和逐项处理来源。代码与既有权重可访问，不等于清洗数据能无修改复现原实验。轻量验证从四源各抽 25 段，对齐时间戳、相机、动作单位、控制模式和有效维 mask，保留原 episode ID 与变换记录，再用固定小模型比较等轨迹数的原始/清洗数据收益。</p>
+<h2 id="11-early-progress-on-accelerating-drug-development-with-claudep1">11. Early progress on accelerating drug development with Claude｜P1</h2>
+<p><strong>Anthropic Science 团队与 Generate、Divergence Labs、BigHat、Enveda、BMS、The Column Group 等合作机构；10 月 27 日官方研究报告。</strong> <a href="https://www.anthropic.com/research/early-progress-drug-development" target="_blank" rel="noopener noreferrer">主报告</a>链接多份合作技术报告与预印本，不是新基础模型发布，也不能统一标成同行评审论文。它把科研 Agent 的研究对象扩展到完整研发流程中的不同瓶颈，而不限于提出一个候选设计。</p>
+<p>公开案例涵盖研究设计、方案优化、制造与文档工作、实验协调和开发决策；Claude/Claude Code 与领域专家、工具及外部实验机构共同组成系统。主报告没有提出统一新架构或训练目标，其方法价值在于识别并打通跨环节工作流。<strong>官方称 Mithril 的一人核心团队借助 Claude 协调 11 家外部实验室，在不到 18 个月内从想法推进到小鼠中的初步结果</strong>；其他伙伴也报告了部分设计的前期实验结果。这些是合作方案例证据，不是同预算对照，也不是通用自主科研成功率。</p>
+<p><strong>值得作为科研 Agent 系统案例阅读，方法复现优先级低于 OpTTA。</strong> 大部分成果仍属临床前阶段，不能当作患者疗效；一人核心团队也不等于只投入一人的实验资源。相对 EmbodiedLab 的封闭可验证实验，它提供真实研发网络中的外部反馈，但模型、专家与实验网络的贡献尚难分离。已核实主报告及技术报告入口；未逐项复核全部补充实验，未核到统一开放的完整 harness/轨迹包或独立复现，部分合作使用私有数据。</p>
+<p>轻量替代实验可用三个公开符号回归或数值优化任务，固定工具、试验次数、模型和人工时间，对照一次性方案、Agent 迭代和专家参与的迭代。保留失败试验、方案版本与外部留出评价，检验收益是否来自更有效的研究决策，而不是更多试验或事后挑选。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮确认的重大官方新增为 Genie 4、Echo-3、Anthropic 专家决策与科研 Agent 案例研究，以及 OSWAM 权重；OpenWAM 的数据官宣作为遗漏回补。</strong> 论文与官方发布入口并行收集，最终用 broader web 交叉核对 Spatial Intelligence、persistent world、World Model、Physical AI、Robot/Embodied Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot 和 Agent/Self-Evolution。Echo-3 与 OpenWAM 数据正是在此检查中补进候选，未用 Selection 掩盖漏检。</p>
+<p>官方范围包括 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、TRI；高校覆盖 Stanford、Berkeley、MIT、CMU、Princeton，并检查腾讯、阿里/达摩院、Robbyant、字节 Seed、智源、上海 AI 实验室、清华 AIR、北大 EPIC、智元和云深处。另扩展 SpAItial、Luma、VAST/Tripo 与 Dream Labs。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">PI</a>、<a href="https://blogs.nvidia.com/blog/category/robotics/" target="_blank" rel="noopener noreferrer">NVIDIA Robotics</a>、<a href="https://www.tri.global/news" target="_blank" rel="noopener noreferrer">TRI</a>。除本报所列与下述工程发布，可访问入口未核实到其他足以展开为 Top Papers 的重大新增。</p>
+<p><strong>另三项发布状态值得记住。</strong> <a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud" target="_blank" rel="noopener noreferrer">Gemini Robotics ER 2</a> 于 10 月 27 日进入 Google Cloud 公共预览；新的是访问和部署渠道，模型年内已介绍，不算新一代模型首发。<a href="https://www.agibot.com/article/231/detail/130.html" target="_blank" rel="noopener noreferrer">AGIBOT Genie Studio 2.0</a> 于 10 月 26 日发布数据、工作流、仿真和运维平台；99.9% 等产线指标是厂商特定集成案例，尚无公开同条件基准。<a href="https://www.tri.global/news/toyota-research-institutes-multimillion-dollar-materials-science-challenge-moves-next-stage" target="_blank" rel="noopener noreferrer">TRI SARC</a> 10 月 27 日选择 GLASS 进入下一阶段实验验证，不能写成完整实验验证已完成。</p>
+<p><strong>日期纠偏：</strong>Tripo 的 <a href="https://www.tripo3d.ai/blog/project-eden" target="_blank" rel="noopener noreferrer">Project Eden 博客</a> 虽显示 10 月 27 日更新，但页面 <code>datePublished</code> 为 6 月 1 日，<a href="https://www.tripo3d.ai/research/project-eden" target="_blank" rel="noopener noreferrer">研究预览</a> 为 5 月 31 日；未发现本次实质新模型证据，不计新发布。EdenLive 官方发布为 10 月 18 日，Dream-1 的官方页只标“October 2026”，本轮未核到窗口内新版本，均不靠今天的搜索抓取时间计新。 Hy-Nomas 的 <a href="https://github.com/Tencent-Hunyuan/Hy-Nomas/commit/350524efa2a0888504c870af14136b6a67a3ab74" target="_blank" rel="noopener noreferrer">10 月 27 日 README 更新</a>把蒸馏推理步数改为 4–8；这是工程说明更新，不升档为新模型或独立能力验证。</p>
+<p><strong>覆盖边界：</strong>arXiv API 本轮返回 429，已转 recent/new、单篇全文、项目和 broader web；可取得列表仍显示 10 月 27 日公告批次，不能声称完整覆盖尚未刷新的 28 日批次。四类 recent 共取得 <strong>3,996 条分类记录 / 3,160 个去重 ID</strong>，26/27 日公告标题规则命中 <strong>582 项</strong>，这些是覆盖统计，不是严格窗口首发数。Stanford TLS、Princeton 403，腾讯 3D/Seed/智源/达摩院动态页正文不足；上海 AI 实验室与 AIR 失效子路径已回主页，Meta 列表偏旧并补站点搜索，仍保留 coverage gap。</p>
+<p>已入候选但本期未展开的有 WorldPager、WMEval、World-in-Context、RoboJev、PhysCreator、DUET4D 与 <a href="https://arxiv.org/abs/2610.34938" target="_blank" rel="noopener noreferrer">How Do Coding-Agent Harnesses Self-Evolve?</a>。后者已读全文并确认 <a href="https://zenodo.org/records/23653700" target="_blank" rel="noopener noreferrer">Zenodo 复现包</a>，适合接下来做 Agent 记忆收益审计专题；这类已进入候选后的取舍属于 <strong>Selection</strong>。World-in-Context 的 v1 在 10 月 23 日，HF 推荐日期不能代替提交日期。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图保留 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>。下表的趋势、gap 和机会为本报综合判断，尚未验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与趋势</th>
+<th>未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久世界与事件</td>
+<td>Genie 4；语言规划持续引导视听生成</td>
+<td>事件叙事自洽是否对应可检查的真实状态</td>
+<td>外部规划器与状态记忆的正交消融及干预重访基准</td>
+</tr>
+<tr>
+<td>生成与空间重建</td>
+<td>Echo-3、GenSfM；补全与观测约束结合</td>
+<td>已见区域的忠实度、未见区域的幻觉和真实尺度怎样同时验收</td>
+<td>按观测覆盖分层的几何置信度及物理资产验收</td>
+</tr>
+<tr>
+<td>动态视觉表征</td>
+<td>FL4N；静态先验加时间残差</td>
+<td>视角与时间解耦是否保留接触、遮挡后的身份和运动细节</td>
+<td>对残差 latent 做时间/相机干预，测行动关键变量</td>
+</tr>
+<tr>
+<td>运动、语义与本体</td>
+<td>ZAP；VLM 语义加仿真运动训练和统一接口</td>
+<td>迁移来自学到的运动，还是强感知/控制后端</td>
+<td>同接口、同观测下的语义组合与本体留出实验</td>
+</tr>
+<tr>
+<td>快速动作与规划</td>
+<td>OSWAM、OpTTA；结构化初值和任务相关适配</td>
+<td>低延迟、低预测误差与实际任务收益不总一致</td>
+<td>固定控制周期下联合比较动作质量、模型偏差与适配预算</td>
+</tr>
+<tr>
+<td>主动求知与验证</td>
+<td>EmbodiedLab；行动产生测量证据</td>
+<td>动作成功、信息增益和答案可信度怎样连接</td>
+<td>隐藏参数与新装置分开的主动实验设计评测</td>
+</tr>
+<tr>
+<td>数据与科研决策</td>
+<td>OpenWAM、Anthropic 两项报告；来源、外部实验与判断可审计</td>
+<td>数据处理、模型偏好、专家和实验网络的贡献难分离</td>
+<td>来源追踪、同预算研究工作流与独立评测链</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天较清晰的方向是把“场景像不像”“状态对不对”“动作能否执行”“试验是否提供信息”“人是否保持判断”分开测量。将这些指标串起来的证据仍稀缺；这是研究机会，尚不是任何一家系统已经实现的完整能力。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>可检查的混合世界模型。</strong> 十二场景，固定相机/动作序列，做“无规划/有规划 × 无状态记忆/有记忆”对照；测状态重访、物体改变后的持久性、事件顺序和音画一致。继续信号是状态正确性与干预响应同时改善；只有偏好分或故事流畅度提高时，停止扩大物理能力结论。</li>
+<li><strong>从重建资产到可交互资产。</strong> 四个空间或二十个物体，按已观测/未观测表面分层，联合验收尺度、接触位置和碰撞；把预测几何好坏与五种留出动作的结果对应。视觉分提升而接触误差不降时，先补物理校准与不确定性表达。</li>
+<li><strong>“知道”是否需要主动动作。</strong> 在 EmbodiedLab 三实验中比较被动观察、固定测量程序和自主实验设计，严格留出隐藏参数与部分装置变化；共同记录有效读数、估计误差、操控和收尾成功。固定程序已能覆盖全部变化时，不把差值包装为开放式科学发现。</li>
+<li><strong>任务收益与预测适配。</strong> 固定 PushT rollout、模型和更新次数，比较预测损失与乐观规划目标，并记录真实进展和总耗时；先做三个 seed。只有收益能跨偏移且不由更多计算解释，才继续更大视觉世界模型。</li>
+<li><strong>有生命周期的经验与数据。</strong> 对 OpenWAM 各源抽样，保留原 episode 和处理轨迹；对 Agent 经验逐条做留出任务对照。可借用 harness 实证研究的检验顺序：目标问题是否出现、规则是否被使用、行为是否改善、任务成功和时间是否受益；命中旧问题却增加无关工作时，应缩小或撤销经验。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>本轮已核实</th>
+<th>仍待验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genie 4 / Echo-3</td>
+<td>10 月 27 日官方公告、演示与产品访问说明</td>
+<td>训练方法、标准化物理/几何评测、开放模型及独立验证</td>
+</tr>
+<tr>
+<td>EmbodiedLab</td>
+<td>30 任务、T0/T1 源码与评分契约，Apache-2.0</td>
+<td>实际运行与独立复现，T2 完整发布及真机扩展</td>
+</tr>
+<tr>
+<td>ZAP</td>
+<td>论文方法、30 次真机统计、仿真跨本体结果</td>
+<td>专属代码/权重/轨迹，更多真机 seed 和同接口基线</td>
+</tr>
+<tr>
+<td>GenSfM / FL4N</td>
+<td>专属源码与实际权重文件，分别 MIT / 非商业研究许可</td>
+<td>完整训练资产、分布外可靠性、端到端与交互收益</td>
+</tr>
+<tr>
+<td>OSWAM</td>
+<td>学生/教师四权重、一步动作/两次求值代码、评测脚本</td>
+<td>本地运行、同硬件时延复现、真机显著性</td>
+</tr>
+<tr>
+<td>OpTTA</td>
+<td>三世界模型适配实现、目标和计算对照，MIT</td>
+<td>独立复现、真机在线偏移、长期模型漂移</td>
+</tr>
+<tr>
+<td>Anthropic 科研 Agent</td>
+<td>主报告及多份合作技术报告入口</td>
+<td>逐项实验复核、完整轨迹/工作流与独立验证</td>
+</tr>
+<tr>
+<td>Anthropic 判断研究 / OpenWAM 数据</td>
+<td>研究 PDF 与随机化设计；四源数据文件、统计及提交历史</td>
+<td>人类研究完整复现包；数据解包、同步/语义/来源核查</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期量化结果均为作者或厂商报告；源码和文件存在性核查不等于独立复现，本轮没有下载大模型或执行论文训练/策略实验。上述轻量验证均为待做实验。</p>
+<p><strong>今天先读 Genie 4 的系统分工，再读 EmbodiedLab 的证据门与失败归因。若只启动一个实验，优先做固定预算的 OpTTA 小对照；若先看新发布能力，优先验 Echo-3 的实测尺度与未观测区域，而非只看演示画质。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-27/"><span>← 上一期 · 2026-10-27</span><strong>Hy-Nomas · Video World Models Need Predictable Latents · SceneAgent</strong></a><a class="newer" href="../2026-10-29/"><span>下一期 → · 2026-10-29</span><strong>ScIntBench · LabWorld · RynnWorld-Latent</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

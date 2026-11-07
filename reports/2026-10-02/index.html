@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-02｜Rethinking Representations for World-Action Modeling（ReWAM） · EVO-WAM · IronMind · Yunhe</title><meta name="description" content="窗口内最有价值的新增集中在“动作相关世界表征”“可验证的 WAM 自训练”“人类视频到人形机器人对齐”“可执行物理世界探测”四条链路。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-02/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-02｜Rethinking Representations for World-Action Modeling（ReWAM） · EVO-WAM · IronMind"><meta property="og:description" content="窗口内最有价值的新增集中在“动作相关世界表征”“可验证的 WAM 自训练”“人类视频到人形机器人对齐”“可执行物理世界探测”四条链路。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-02/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Rethinking Representations for World-Action Modeling（ReWAM） · EVO-WAM · IronMind</h1><p class="article-deck">窗口内最有价值的新增集中在“动作相关世界表征”“可验证的 WAM 自训练”“人类视频到人形机器人对齐”“可执行物理世界探测”四条链路。</p><div class="article-meta"><time datetime="2026-10-02">2026 / 10 / 02</time><span>约 21 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">具身智能</span><span class="tag">空间智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%B8%80%E9%A1%B5%E9%80%9F%E8%A7%88">一页速览</a><a class="toc-level-2" href="#%E6%A3%80%E7%B4%A2%E8%A6%86%E7%9B%96%E6%97%B6%E9%97%B4%E8%BE%B9%E7%95%8C%E4%B8%8E%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81">检索覆盖、时间边界与证据状态</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E6%9D%A1%E7%9B%AE%E4%B8%A5%E6%A0%BC%E7%AA%97%E5%8F%A3%E5%86%85">重点条目：严格窗口内</a><a class="toc-level-3" href="#1-rethinking-representations-for-world-action-modelingrewam">1. Rethinking Representations for World-Action Modeling（ReWAM）</a><a class="toc-level-3" href="#2-evo-wam-evolving-world-action-models-through-video-action-verification">2. EVO-WAM: Evolving World Action Models through Video-Action Verification</a><a class="toc-level-3" href="#3-ironmind-scaling-humanoid-dexterous-manipulation-via-camera-space-ego-centric-pretraining">3. IronMind: Scaling Humanoid Dexterous Manipulation via Camera-Space Ego-Centric Pretraining</a><a class="toc-level-3" href="#4-magic-w0-a-structured-world-action-foundation-model-for-physical-intelligence">4. Magic-W0: A Structured World-Action Foundation Model for Physical Intelligence</a><a class="toc-level-3" href="#5-embodirsi-recursive-self-improvement-for-data-efficient-robot-adaptation">5. EmbodiRSI: Recursive Self-Improvement for Data-Efficient Robot Adaptation</a><a class="toc-level-3" href="#6-asking-the-world-generalist-physical-reasoning-through-agentic-world-modeling-and-probing">6. Asking the World: Generalist Physical Reasoning through Agentic World Modeling and Probing</a><a class="toc-level-3" href="#7-motionweave-learning-motion-centered-future-dynamics-for-vision-language-action-policies">7. MotionWeave: Learning Motion-Centered Future Dynamics for Vision-Language-Action Policies</a><a class="toc-level-3" href="#8-world2motion-turning-video-world-models-into-3d-human-motion-generators">8. World2Motion: Turning Video World Models into 3D Human Motion Generators</a><a class="toc-level-2" href="#%E8%A1%A5%E5%85%85%E6%9D%A1%E7%9B%AE%E5%80%BC%E5%BE%97%E8%B7%9F%E8%B8%AA%E4%BD%86%E6%9A%82%E4%B8%8D%E8%BF%9B%E5%85%A5%E5%89%8D%E4%BA%94">补充条目：值得跟踪但暂不进入前五</a><a class="toc-level-2" href="#%E7%AA%97%E5%8F%A3%E5%A4%96%E4%BD%86%E5%BF%85%E9%A1%BB%E4%BF%9D%E7%95%99%E7%9A%84%E9%AB%98%E5%BD%B1%E5%93%8D%E8%B7%9F%E8%B8%AA">窗口外但必须保留的高影响跟踪</a><a class="toc-level-2" href="#%E5%A4%A7%E7%AE%97%E5%8A%9B%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81%E6%96%B9%E6%A1%88">大算力工作的轻量验证方案</a><a class="toc-level-2" href="#%E6%8C%81%E7%BB%AD%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE%E9%97%AE%E9%A2%98%E8%B6%8B%E5%8A%BF%E4%B8%8E%E6%9C%BA%E4%BC%9A">持续研究地图：问题、趋势与机会</a><a class="toc-level-2" href="#%E6%8E%A8%E8%8D%90%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F5%E7%AF%87">推荐精读顺序（5篇）</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%BB%93%E8%AE%BA">今日结论</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-02.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-02</div><article class="prose"><p>World Model · Video World Model · VLA/WAM · Spatial Intelligence · Embodied AI · Agent 自进化</p>
+<p>检索窗口：2026-09-29 09:00—2026-10-02 09:00（Asia/Shanghai；严格近72小时）</p>
+<p>生成时间：2026-10-02 09:01（Asia/Shanghai）</p>
+<p>证据原则：论文、官方研究/项目页、官方 GitHub/Hugging Face 分层记录；对“官方宣称”和第三方验证分别标注。</p>
+<p>今日判断：窗口内最有价值的新增集中在“动作相关世界表征”“可验证的 WAM 自训练”“人类视频到人形机器人对齐”“可执行物理世界探测”四条链路。论文与官方报告数量不少，但可直接复现的权重仍稀缺，因此本报优先给出机制、证据强度和轻量替代实验。</p>
+<h2 id="一页速览">一页速览</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>判断</th>
+<th>代表工作</th>
+<th>一句话证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最强方法信号</td>
+<td>ReWAM</td>
+<td>动作损失只回传到时序瓶颈，直接优化“可控的紧凑世界表示”；报告 RoboTwin2.0 93.6%。</td>
+</tr>
+<tr>
+<td>最强自进化信号</td>
+<td>EVO-WAM</td>
+<td>用任务完成度、释放状态、物体/机器人一致性和逆动力学过滤想象轨迹，再做 WAM 自训练。</td>
+</tr>
+<tr>
+<td>最强数据/对齐信号</td>
+<td>IronMind</td>
+<td>10,000+ 小时人类第一视角视频与机器人数据，camera-space action 避免显式身体重定向；报告55.0% OOD 真机成功率。</td>
+</tr>
+<tr>
+<td>最强空间智能信号</td>
+<td>Asking the World</td>
+<td>模型主动校准可执行世界并查询、模拟、干预；把视频理解变成可探测的物理假设。</td>
+</tr>
+<tr>
+<td>最值得跟踪的结构化 WAM</td>
+<td>Magic-W0</td>
+<td>把当前状态、3D运动和未来语义拆成结构化世界转移；权重尚未公开。</td>
+</tr>
+<tr>
+<td>主要风险</td>
+<td>证据与复现</td>
+<td>多数工作为 arXiv/官方技术报告，缺少公开权重、完整训练数据和第三方复核；小样本真机不能等同泛化。</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="检索覆盖时间边界与证据状态">检索覆盖、时间边界与证据状态</h2>
+<p>候选池入口：A arXiv Robotics/AI/CV/ML及交叉投稿；B frontier lab/company官方research/news/project/model；C官方GitHub/Hugging Face/benchmark/dataset；D Spatial Intelligence、3D/4D world generation、real-to-sim、interactive simulation；E robot foundation model、VLA/WAM、RL；F LLM Agent、self-evolution、agent infrastructure。</p>
+<p>兜底检查：已用 broader web 交叉核对 Spatial Intelligence、World Model、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与主要机构。</p>
+<p>检索失败与筛选：“未进入重点条目”只表示在已覆盖入口中按影响力、机制新颖性和证据强度筛选后未入选；没有把重要工作遗漏解释为筛选。对官方首页没有窗口内重大更新的机构，明确记录为“已扫描，未发现足以进入 Top 的新增”。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>扫描维度</th>
+<th>覆盖对象</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>官方 frontier 清单</td>
+<td>World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、TRI、Stanford、Berkeley、MIT、CMU、Princeton及中国团队</td>
+<td>窗口内未发现足以进入 Top 的新模型/论文；Anthropic 发布物理工作任务研究报告，XPENG 发布 IRON 系列技术报告。</td>
+</tr>
+<tr>
+<td>边界外高影响跟踪</td>
+<td>World Labs/AMD、Skild Physical Self-Play、AgiBot World 2026、CF-WAM</td>
+<td>不计入严格72小时主榜；World Labs/AMD交易是空间智能产业信号，放在边界外补充。</td>
+</tr>
+<tr>
+<td>代码/权重核验</td>
+<td>EVO-WAM、ReWAM、MotionWeave、Magic-W0、IronMind、EmbodiRSI、ATW、Social-WM</td>
+<td>MotionWeave明确公开GitHub；EVO-WAM有仓库但实验实现需联系作者；ReWAM/Magic-W0页面显示即将公开或暂无权重；其余未见可直接运行权重。</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="重点条目严格窗口内">重点条目：严格窗口内</h2>
+<h3 id="1-rethinking-representations-for-world-action-modelingrewam">1. Rethinking Representations for World-Action Modeling（ReWAM）</h3>
+<p>发布时间：2026-09-29 17:59 UTC｜arXiv预印本，未见同行评审/第三方复核｜作者：Haoyi Jiang等｜HUSTV L/华中科技大学团队，合作方含D-Robotics、Horizon Robotics等</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.38163" target="_blank" rel="noopener noreferrer">arXiv 2609.38163</a>  ·  <a href="https://github.com/hustvl/ReWAM" target="_blank" rel="noopener noreferrer">GitHub（Coming soon）</a></p>
+<p>研究问题：政策控制表示与未来观测预测之间缺少一个既能表达动力学、又能被动作直接利用的紧凑接口；像素重建或通用视觉特征不自动带来控制收益。</p>
+<p>核心方法与训练目标：冻结DINO特征；Feature Calibration对齐分布；Temporal Representation Bottleneck压缩跨帧状态；Action-Grounded Representation Shaping只让action loss更新瓶颈，使策略目标决定“什么应该被记住”。</p>
+<p>实验结果：报告RoboTwin2.0 93.6%；RoboDojo平均分12.29、成功率8.28%，约600小时具身预训练；均为作者报告。</p>
+<p>创新点：把表征质量拆成状态、动力学、动作可用性、紧凑性，并用动作梯度塑造瓶颈而不污染整个视觉骨干。</p>
+<p>局限性：有限仿真设置；GitHub未公开代码和权重；瓶颈维度、DINO冻结和数据配方可能敏感。</p>
+<p>潜在研究价值：适合作为WAM/VLA的中间接口基线，研究latent是否携带可控状态。</p>
+<p>与代表性工作的关系：连接Dreamer/latent dynamics、DINO视觉表征与WAM next-state prediction，但把action-grounded bottleneck置于核心。</p>
+<p>是否值得深入阅读：是；先看方法和消融，再看RoboDojo任务分布。</p>
+<p>可复现性：代码：官方仓库占位；权重/数据：未见；可用小规模DINO+128D瓶颈替代实验。</p>
+<h3 id="2-evo-wam-evolving-world-action-models-through-video-action-verification">2. EVO-WAM: Evolving World Action Models through Video-Action Verification</h3>
+<p>发布时间：2026-09-29 17:25 UTC｜arXiv预印本，未见同行评审/第三方复核｜作者：Shiyang Zhou等｜HITSZ、SLAI、清华、京东、HKUST、北大、上交、港大、UBC、CUHK等</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.38057" target="_blank" rel="noopener noreferrer">arXiv 2609.38057</a>  ·  <a href="https://evo-wam.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>  ·  <a href="https://github.com/Clausy9/EVO-WAM" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+<p>研究问题：没有新人工示范且不把候选动作执行到机器人时，如何让WAM借助自生成数据变强。</p>
+<p>核心方法与训练目标：状态预测+锚定多帧上下文生成自回归视频-动作轨迹；VLM过滤任务完成前缀；逆动力学检查视频-动作一致性；通过完成度、释放状态、物体/机器人一致性和IDM阈值后回灌训练。</p>
+<p>实验结果：7个未见RoboTwin2任务：Cosmos3 26.9%→68.0%，DreamZero 28.5%→46.4%；3个未见长时真实任务：Cosmos3 20.0%→76.7%；均为作者报告。</p>
+<p>创新点：把WAM自训练变成生成—验证—再训练闭环，把视觉任务完成与视频-动作一致性分开验证。</p>
+<p>局限性：验证器继承VLM/IDM偏差；长时滚动会漂移；仓库说明实验细节需联系作者，复现门槛高。</p>
+<p>潜在研究价值：对自进化、离线世界模型和failure-driven data都具有通用价值。</p>
+<p>与代表性工作的关系：连接Dreamer/TD-MPC imagined rollout与WAM未来观测预测，新增视频-动作一致性验证层。</p>
+<p>是否值得深入阅读：是；重点看verifier错误分析和阈值敏感性。</p>
+<p>可复现性：GitHub公开但非开箱即用；权重/数据未见；可只跑2个RoboTwin任务和一次自训练。</p>
+<h3 id="3-ironmind-scaling-humanoid-dexterous-manipulation-via-camera-space-ego-centric-pretraining">3. IronMind: Scaling Humanoid Dexterous Manipulation via Camera-Space Ego-Centric Pretraining</h3>
+<p>发布时间：2026-09-30 09:45 UTC｜XPENG Robotics官方项目页+arXiv技术报告，未见同行评审/第三方复核｜作者：Huimin Pan等｜XPENG Robotics，合作Tongji、RPI、USTC、Michigan、UBC、Zhejiang University</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.39403" target="_blank" rel="noopener noreferrer">arXiv 2609.39403</a>  ·  <a href="https://xpeng-robotics.github.io/ironmind/" target="_blank" rel="noopener noreferrer">官方项目页</a></p>
+<p>研究问题：如何把大规模人类第一视角视频迁移到不同身体结构的人形机器人，而不依赖昂贵的显式身体重定向。</p>
+<p>核心方法与训练目标：camera-space action；10,000+小时人类第一视角视频+异构机器人数据；VLM与flow-matching action expert的Mixture-of-Transformers；训练期未来帧/深度/语义辅助头，推理时移除；规则过滤、原子动作重标注/VLM recaption、速度对齐、逐帧质量加权。</p>
+<p>实验结果：6个OOD真机任务报告55.0%；≤5k小时预训练≤11.7%，无预训练5.0%；官方对照camera-space without world prior 55.0%，with world prior 31.7%，torso-space 26.7%，InternVLA-A1.5 30.0%。单台IRON-R01、每任务10次。</p>
+<p>创新点：用相机坐标作为跨身体共同接口；给出数据规模曲线和“world prior可能有害”的反常结果。</p>
+<p>局限性：真机任务与机器人数量有限；world-prior仍需更多环境；无公开权重/代码/数据，尚无第三方复核。</p>
+<p>潜在研究价值：人类数据到机器人策略的对齐、数据规模收益和辅助世界监督都值得精读。</p>
+<p>与代表性工作的关系：连接RT-2、OpenVLA、π0和humanoid teleoperation，把重点从关节重定向转到camera-space与数据质量。</p>
+<p>是否值得深入阅读：是；优先看数据清洗、相机空间定义和world-prior消融。</p>
+<p>可复现性：官方未提供可下载代码/权重/数据；可用10–50小时小数据在sim reaching/placing比较camera-space与torso-space。</p>
+<h3 id="4-magic-w0-a-structured-world-action-foundation-model-for-physical-intelligence">4. Magic-W0: A Structured World-Action Foundation Model for Physical Intelligence</h3>
+<p>发布时间：2026-09-30 14:49 UTC｜arXiv+Hugging Face模型页，未见同行评审/第三方复核｜作者：Xuhua Chen等｜Magic-Lab / Magiclab Robotics Inc</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.39870" target="_blank" rel="noopener noreferrer">arXiv 2609.39870</a>  ·  <a href="https://huggingface.co/Flyfish101/Magic-W0" target="_blank" rel="noopener noreferrer">Hugging Face模型页</a></p>
+<p>研究问题：WAM只预测未来RGB或通用latent时，难以同时表达几何、运动和未来语义，需要支持动作生成的结构化状态。</p>
+<p>核心方法与训练目标：Structured World Transition将当前状态拆为视觉-语言+3D几何、Transition为3D运动、Future State为未来语义；动作假设条件化世界转移，再把预测表示反馈动作生成；使用人类egocentric、UMI、真机和仿真数据，借助几何/3D运动/未来语义教师预训练，推理teacher-free。</p>
+<p>实验结果：RoboDojo-Sim平均Score 27.10，论文声称在比较WAM中领先，并报告有限数据真机迁移；暂无第三方验证。</p>
+<p>创新点：把world state拆成几何、运动、语义三种可解释变量，并让动作假设参与世界转移。</p>
+<p>局限性：HF显示“Model weights coming soon”；代码、训练集和完整消融不可用；指标依赖作者材料。</p>
+<p>潜在研究价值：适合研究结构化状态接口、3D motion teacher和teacher-free推理。</p>
+<p>与代表性工作的关系：与WAM、3D motion forecasting、VLM action expert同源，但比单latent/像素预测更结构化。</p>
+<p>是否值得深入阅读：是；先读结构化token/interface，再核对RoboDojo协议。</p>
+<p>可复现性：官方模型页有MIT许可声明，但权重未发布；代码/数据未见；可冻结三类teacher做三头多任务。</p>
+<h3 id="5-embodirsi-recursive-self-improvement-for-data-efficient-robot-adaptation">5. EmbodiRSI: Recursive Self-Improvement for Data-Efficient Robot Adaptation</h3>
+<p>发布时间：2026-09-30 03:54 UTC（v2：2026-10-01 05:05 UTC）｜arXiv预印本，未见同行评审/第三方复核｜作者：Haoran Lang等｜机构以arXiv为准</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.38905" target="_blank" rel="noopener noreferrer">arXiv 2609.38905</a></p>
+<p>研究问题：策略适应最缺的是知道哪一种失败需要哪一种数据；目标是把真实试错预算集中在高价值失败模式。</p>
+<p>核心方法与训练目标：agentic real-to-sim-to-real；依据部署构建任务仿真；Collaborative Error Correction从策略到达的失败状态生成纠正轨迹；Adaptive Data Collection将专家示范指向弱点；仿真用于warm-up、评测、诊断和数据生成。</p>
+<p>实验结果：3个桌面环境14个子任务：两轮RSI后仿真50.4%→83.5%；每子任务400条自适应仿真+10条真实精修达83.1%真实成功率，而200条真实示范为75.0%。</p>
+<p>创新点：把sim-to-real变成按失败模式递归采样的闭环，而不是固定比例堆真实示范。</p>
+<p>局限性：仿真器偏差可能固化错误诊断；真实任务规模小；代码、权重和数据未见。</p>
+<p>潜在研究价值：对低真实数据预算、自动curriculum和agentic data collection很有启发。</p>
+<p>与代表性工作的关系：连接active learning、DAgger、domain randomization和RoboMimic，新增从策略到达状态生成纠正数据。</p>
+<p>是否值得深入阅读：是；重点看error taxonomy、sim warm-up与real refinement耦合。</p>
+<p>可复现性：无公开代码/权重/数据；可在一个数字孪生、3任务上复现400 sim+10 real。</p>
+<h3 id="6-asking-the-world-generalist-physical-reasoning-through-agentic-world-modeling-and-probing">6. Asking the World: Generalist Physical Reasoning through Agentic World Modeling and Probing</h3>
+<p>发布时间：2026-09-30 07:04 UTC｜arXiv预印本，未见同行评审/第三方复核｜作者：Shenxiang Zeng等｜机构以arXiv为准</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.39135" target="_blank" rel="noopener noreferrer">arXiv 2609.39135</a></p>
+<p>研究问题：VLM直接从视频给出物理答案不稳定；固定工具链又难以覆盖不同材质、约束和干预需求。</p>
+<p>核心方法与训练目标：ATW agent自适应构建可执行世界并主动提问、模拟、干预；PolyWorld Engine基于Warp处理刚体、软体、布料、绳、流体；CEM系统辨识恢复动力学，模型据不确定性决定探测。</p>
+<p>实验结果：CLEVRER 80.82%，较Gemini3-Flash +46.50、GPT5.5 +13.58；ContPhy 70.56%，较Gemini3-Flash +28.10、GPT5.5 +3.53；3个真实场景71.67%，较GPT5.5 +28.33。</p>
+<p>创新点：把world model从生成未来视频推进为可查询、可干预、可执行的假设空间，空间智能进入推理动作闭环。</p>
+<p>局限性：依赖Gemini3-Flash与PolyWorld；仿真覆盖和系统辨识误差影响结论；无公开代码/权重。</p>
+<p>潜在研究价值：对spatial intelligence、physical reasoning、可执行仿真和主动探测均有高价值。</p>
+<p>与代表性工作的关系：连接CLEVRER/Physion/ContPhy、VLM tool-use和显式物理，但强调由agent选择何时问世界。</p>
+<p>是否值得深入阅读：是；先读探测策略和CEM system identification，再看真实干预。</p>
+<p>可复现性：无公开代码/权重；可在单一刚体/布料场景用Warp或MuJoCo+CEM做最小验证。</p>
+<h3 id="7-motionweave-learning-motion-centered-future-dynamics-for-vision-language-action-policies">7. MotionWeave: Learning Motion-Centered Future Dynamics for Vision-Language-Action Policies</h3>
+<p>发布时间：2026-09-30 09:00 UTC｜arXiv预印本，未见同行评审/第三方复核｜作者：Jingqiu Wang、Yan Wang｜机构以arXiv为准</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.39324" target="_blank" rel="noopener noreferrer">arXiv 2609.39324</a>  ·  <a href="https://github.com/autu-mn/MotionWeave" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+<p>研究问题：未来视频中很多外观变化与控制无关；全局未来表征不能保证对准真正发生作用的局部。</p>
+<p>核心方法与训练目标：Action-Induced Motion Grounder用动作+本体感知horizon query定位交互区域；Horizon Residual Composer从不同horizon差分中提取时间运动并门控注入action token；训练使用未来机械臂mask的KL监督，推理只需当前观测。</p>
+<p>实验结果：MetaWorld 6任务平均75.3%，较π0的66.7%高8.6个百分点，持续接触任务收益更明显。</p>
+<p>创新点：把future dynamics从“场景会变什么”改成“当前动作会让哪里怎样变”，实现局部和时间对齐。</p>
+<p>局限性：任务有限；未来mask标注和真实遮挡可能改变效果；仓库公开但权重未见。</p>
+<p>潜在研究价值：是ReWAM/Magic-W0之外的局部动作-视觉对齐增量基线。</p>
+<p>与代表性工作的关系：连接π0、OpenVLA的action chunking和未来视频预测，差异在horizon residual+mask grounding。</p>
+<p>是否值得深入阅读：是；适合先做模块复现和可解释性可视化。</p>
+<p>可复现性：GitHub公开；权重未见；可用MetaWorld小子集和现成π0代理复现。</p>
+<h3 id="8-world2motion-turning-video-world-models-into-3d-human-motion-generators">8. World2Motion: Turning Video World Models into 3D Human Motion Generators</h3>
+<p>发布时间：2026-09-29 08:30 UTC｜arXiv预印本，未见同行评审/第三方复核｜作者：Fangyuan Tu等｜机构以arXiv为准</p>
+<p>来源：<a href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener noreferrer">arXiv 2609.37004</a>  ·  <a href="https://fyantu.github.io/World2Motion/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>研究问题：视频世界模型覆盖环境和交互，但不天然产生稳定、场景一致的全身3D运动；两阶段恢复昂贵。</p>
+<p>核心方法与训练目标：把Cosmos3 Mixture-of-Transformers适配为联合场景视频与3D人体运动生成；混合合成视频-运动对和真实视频估计运动；video/motion使用shift-decoupled noise schedule共享去噪进度以减抖。</p>
+<p>实验结果：报告更好的文本-运动对齐和场景交互；交互成功率接近两阶段方法时推理约快3.3倍。</p>
+<p>创新点：把视频世界模型环境生成能力接到motion token，强调场景条件、速度和运动稳定性。</p>
+<p>局限性：主要是离线合成与估计运动；与真实机器人接触尚未证明；项目页有但无公开代码/权重。</p>
+<p>潜在研究价值：连接spatial intelligence、human-to-robot和animation，是非机器人关键词工作中的重要主线。</p>
+<p>与代表性工作的关系：连接视频扩散、SMPL/3D motion generation和Cosmos3，创新在统一去噪和场景条件化。</p>
+<p>是否值得深入阅读：建议读；重点看运动token能否成为可迁移的世界状态。</p>
+<p>可复现性：项目页与论文可读；代码/权重未见；可用1k合成+100真实视频-运动对训练小型模型。</p>
+<h2 id="补充条目值得跟踪但暂不进入前五">补充条目：值得跟踪但暂不进入前五</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>证据状态</th>
+<th>链接</th>
+<th>核心信息与限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Social-WM：Safety-Aware Latent World Models for Robot Social Navigation</td>
+<td>2026-09-30 17:03 UTC｜arXiv预印本；Zhihao Zheng、Mooi Choo Chuah</td>
+<td><a href="https://arxiv.org/abs/2609.40177" target="_blank" rel="noopener noreferrer">打开来源</a></td>
+<td>用真实未来latent target和inverse dynamics估计动作可实现性，把nominal-realizable discrepancy变为安全信号；Social-HM3D报告63.77%成功率、21.67%人类碰撞率。无代码/权重。</td>
+</tr>
+<tr>
+<td>Spike-driven Vision-Language-Action Model</td>
+<td>2026-09-30 11:16 UTC｜arXiv预印本；Shuai Wang等</td>
+<td><a href="https://arxiv.org/abs/2609.39514" target="_blank" rel="noopener noreferrer">打开来源</a></td>
+<td>0.15B参数；spiking encoder、Multi-Winner Spike Fusion、Spike Action Chunking Transformer；LIBERO-Plus报告53.2%。能效主要为估算，未见硬件实测；无代码/权重。</td>
+</tr>
+<tr>
+<td>IronLLM / IronViT：XPENG IRON官方模型发布</td>
+<td>IronLLM arXiv 2026-09-29 07:03 UTC；IronViT论文更早、官方模型页2026-09-29更新</td>
+<td><a href="https://xpeng-robotics.github.io/iron-fm/" target="_blank" rel="noopener noreferrer">打开来源</a></td>
+<td>IronLLM 0.6B/654M，hybrid attention、shared-KV multi-token prediction，报告1.48×解码加速；IronViT以softmax bridge汇聚教师做高效视觉表征。官方未给可下载权重/代码。</td>
+</tr>
+<tr>
+<td>Anthropic：What work can robots do?</td>
+<td>2026-09-30｜官方研究报告，非同行评审、无权重/代码</td>
+<td><a href="https://www.anthropic.com/research/what-work-can-robots-do" target="_blank" rel="noopener noreferrer">打开来源</a></td>
+<td>机器人暴露指数：约四分之三物理任务可由机器人完成但主要限于受控设置，约34%工作时长暴露；仅0.3%任务成本竞争力明确。属于物理AI经济与部署边界信号。</td>
+</tr>
+<tr>
+<td>VLA通用对抗攻击：Exploiting Vulnerabilities</td>
+<td>2026-09-30 07:34 UTC｜arXiv预印本</td>
+<td><a href="https://arxiv.org/abs/2609.39178" target="_blank" rel="noopener noreferrer">打开来源</a></td>
+<td>通用对抗物体纹理使Pi0/RDT成功率下降31.2–39.9%，仿真与真实均观察到；应纳入VLA安全评测线。无代码/权重信息。</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="窗口外但必须保留的高影响跟踪">窗口外但必须保留的高影响跟踪</h2>
+<p>World Labs / AMD（2026-09-28）：AMD宣布约82亿美元全股票收购World Labs，Fei-Fei Li任AMD EVP与Chief Scientist；World Labs继续做生成、重建和仿真交互式3D环境。超过严格72小时边界，不混入主榜，但属于Spatial Intelligence产业化信号。</p>
+<p>来源：<a href="https://www.worldlabs.ai/blog/amd-announcement" target="_blank" rel="noopener noreferrer">World Labs公告</a>  ·  <a href="https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute" target="_blank" rel="noopener noreferrer">AMD公告</a></p>
+<p>Skild AI Physical Self-Play（2026-09-23）：官方展示S1在仿真足球中的physical self-play RL；时间超窗，保留为自进化机器人训练跟踪。</p>
+<p>来源：<a href="https://skild.ai/blogs/physical-self-play" target="_blank" rel="noopener noreferrer">Skild AI</a></p>
+<p>AgiBot World 2026 Theme 3（2026-09-01）：官方数据/项目线索仍值得跟踪，包含大规模真实轨迹与分层标注；不属于本次72小时新增。</p>
+<p>来源：<a href="https://agibot-world.com/2026-1" target="_blank" rel="noopener noreferrer">AgiBot World</a></p>
+<h2 id="大算力工作的轻量验证方案">大算力工作的轻量验证方案</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>可行的最小实验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReWAM</td>
+<td>冻结DINOv3-L；用2–3个RoboTwin任务的128D时序瓶颈，比较视频VAE、DINO pooled、action-grounded bottleneck；分别做状态线性探针、动力学预测、动作成功率和维度扫描。</td>
+</tr>
+<tr>
+<td>EVO-WAM</td>
+<td>选2个RoboTwin任务；离线生成候选rollout，使用VLM完成度+物体/机器人一致性+简化IDM过滤，一次自训练；比较无verifier、只VLM、VLM+IDM。</td>
+</tr>
+<tr>
+<td>IronMind</td>
+<td>用10–50小时egocentric与机器人数据，训练camera-space与torso-space小action head；在仿真reaching/placing测开放环误差、闭环成功率和跨身体泛化。</td>
+</tr>
+<tr>
+<td>Magic-W0</td>
+<td>冻结几何、3D motion、未来语义教师，只训练三头latent adapter与动作头；在2–3个操作任务比较单latent、几何+运动、三结构联合。</td>
+</tr>
+<tr>
+<td>EmbodiRSI</td>
+<td>构建一个数字孪生并注入抓取/接触失败；由错误分类器选择纠正轨迹，比较固定采样、只仿真、400条自适应仿真+10条真实。</td>
+</tr>
+<tr>
+<td>Asking the World</td>
+<td>单一刚体/布料场景用Warp或MuJoCo+CEM做系统辨识；让VLM选择探测问题，比较直接回答、固定探测、主动探测。</td>
+</tr>
+<tr>
+<td>MotionWeave</td>
+<td>复现action/proprio horizon query与局部mask KL；在MetaWorld小子集比较全局未来token、local grounder、residual composer，输出注意区域。</td>
+</tr>
+<tr>
+<td>World2Motion</td>
+<td>用1k合成+100真实视频-运动对训练小型latent diffusion/SMPL token，评价jitter、场景交互成功率和推理延迟，不追求完整Cosmos3规模。</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="持续研究地图问题趋势与机会">持续研究地图：问题、趋势与机会</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>近期工作</th>
+<th>趋势</th>
+<th>未解决 gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动作相关世界表征</td>
+<td>ReWAM、Magic-W0、MotionWeave、Social-WM</td>
+<td>从像素/通用latent转向状态、几何、局部运动、可实现性</td>
+<td>缺少统一指标同时测state、dynamics、action usefulness、compactness、safety</td>
+</tr>
+<tr>
+<td>WAM自进化与数据闭环</td>
+<td>EVO-WAM、EmbodiRSI、Skild Self-Play（边界外）</td>
+<td>生成—验证—再训练与real-to-sim failure curriculum汇合</td>
+<td>验证器偏差、自生成数据坍缩、长时信用分配和真实安全</td>
+</tr>
+<tr>
+<td>人类到机器人对齐</td>
+<td>IronMind、IronViT、XPENG IRON</td>
+<td>camera-space、视频规模、数据质量和辅助头成为主线</td>
+<td>跨相机、跨身体、跨接触属性的统一benchmark缺失</td>
+</tr>
+<tr>
+<td>空间智能与可执行世界</td>
+<td>Asking the World、World2Motion、World Labs/AMD</td>
+<td>世界模型从视频生成器转为可探测、可干预、可仿真的状态空间</td>
+<td>长期持久记忆、多视角一致性、接触/材质/流体参数、真实干预闭环</td>
+</tr>
+<tr>
+<td>高效与安全</td>
+<td>Spike-driven VLA、IronLLM、VLA adversarial attack</td>
+<td>边缘端推理、低功耗、攻击面与安全信号并行上升</td>
+<td>能效需要硬件实测；安全测试尚未融入主流WAM/VLA训练协议</td>
+</tr>
+</tbody>
+</table></div>
+<p>可形成论文的机会：（1）建立跨WAM/VLA/Spatial World的统一latent审计协议，分开测状态、短期动力学、动作可用性、压缩率、控制泄漏和安全可实现性；（2）合成ReWAM的action-grounded bottleneck、MotionWeave的局部motion grounder与EVO-WAM的verifier；（3）用camera-space人类视频接口连接EmbodiRSI的failure curriculum，研究跨身体、跨视角、跨接触对齐；（4）把ATW的主动world probing作为机器人数据采集器，测物理探测是否比更多被动视频更有效。</p>
+<h2 id="推荐精读顺序5篇">推荐精读顺序（5篇）</h2>
+<ol>
+<li>
+<ol>
+<li>ReWAM：先建立“什么是控制可用的世界表示”的问题定义和指标，适合作为表征主线起点。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>EVO-WAM：看verifier如何把想象轨迹变成可训练数据，理解WAM自进化闭环风险。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>IronMind：看人类视频如何通过camera-space接口落到人形机器人，以及规模/质量的真实收益。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Magic-W0：看结构化3D几何—运动—语义transition，比较它与ReWAM的紧凑latent路线。</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>EmbodiRSI或Asking the World：关注部署与数据效率选EmbodiRSI；关注Spatial Intelligence与主动物理推理选Asking the World。</li>
+</ol>
+</li>
+</ol>
+<h2 id="今日结论">今日结论</h2>
+<p>今天最清晰的领域转向是：世界模型的竞争焦点正在从“能否生成逼真未来帧”转到“能否保留对动作有用的状态、能否验证自生成轨迹、能否在不同身体和真实约束下持续改进”。Spatial Intelligence也在从离线3D生成走向可执行的世界探测。判断一项工作是否值得跟进，应优先看接口是否可测、验证器是否可靠、真机/跨本体是否有证据，以及代码和权重能否让第三方复核。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-08-01/"><span>← 上一期 · 2026-08-01</span><strong>🚨 今日重点 · 顶级研究组新发布（3-5 条，3 天内） · 生成模型 / 新范式</strong></a><a class="newer" href="../2026-10-04/"><span>下一期 → · 2026-10-04</span><strong>World Motion Models · UniWAM · Reconstruct, Practice, Go Real</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

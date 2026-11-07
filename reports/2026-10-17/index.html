@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-17｜T2-z · ORBIA · CoDA · Yunhe</title><meta name="description" content="研究前沿正在从“生成看起来合理的视频”转向三条更可检验的路线——用环境隐变量和测试时交互适配真实动力学，用持久 3D/空间一致性基准约束世界模型，用失败诊断与任务进度把数据引擎、策略和智能体 harness 做成可复用闭环。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-17/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-17｜T2-z · ORBIA · CoDA"><meta property="og:description" content="研究前沿正在从“生成看起来合理的视频”转向三条更可检验的路线——用环境隐变量和测试时交互适配真实动力学，用持久 3D/空间一致性基准约束世界模型，用失败诊断与任务进度把数据引擎、策略和智能体 harness 做成可复用闭环。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-17/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>T2-z · ORBIA · CoDA</h1><p class="article-deck">研究前沿正在从“生成看起来合理的视频”转向三条更可检验的路线——用环境隐变量和测试时交互适配真实动力学，用持久 3D/空间一致性基准约束世界模型，用失败诊断与任务进度把数据引擎、策略和智能体 harness 做成可复用闭环。</p><div class="article-meta"><time datetime="2026-10-17">2026 / 10 / 17</time><span>约 27 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-t2-z-test-time-optimization-of-environment-latents-for-robotic-world-modelsp0">1. T2-z: Test-Time Optimization of Environment Latents for Robotic World Models｜P0</a><a class="toc-level-2" href="#2-orbia-do-generated-videos-form-a-consistent-3d-worldp0">2. ORBIA: Do Generated Videos Form a Consistent 3D World?｜P0</a><a class="toc-level-2" href="#3-perceive-predict-and-plan-a-unified-world-action-model-for-egocentric-dexterous-manipulationp0">3. Perceive, Predict, and Plan: A Unified World Action Model for Egocentric Dexterous Manipulation｜P0</a><a class="toc-level-2" href="#4-ltm-latent-transition-based-in-context-memory-for-vision-language-action-modelsp1">4. LTM: Latent Transition Based In-Context Memory for Vision-Language-Action Models｜P1</a><a class="toc-level-2" href="#5-coda-co-evolution-of-data-engines-and-action-policiesp1">5. CoDA: Co-Evolution of Data Engines and Action Policies｜P1</a><a class="toc-level-2" href="#6-coworld-reasoner-agentic-multimodal-reasoning-with-the-evolving-video-world-model-driven-harnessp1">6. CoWorld Reasoner: Agentic Multimodal Reasoning with the Evolving Video World Model-Driven Harness｜P1</a><a class="toc-level-2" href="#7-anvil-scaling-embodied-spatial-intelligence-through-knowledge-recirculationp1">7. Anvil: Scaling Embodied Spatial Intelligence through Knowledge Recirculation｜P1</a><a class="toc-level-2" href="#8-fast-vla-you-only-think-once-for-robot-manipulationp1">8. Fast-VLA: You Only Think Once for Robot Manipulation｜P1</a><a class="toc-level-2" href="#9-libero-perm-benchmarking-personalized-robotic-manipulationp1">9. LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation｜P1</a><a class="toc-level-2" href="#10-predict-before-you-modify-learning-improvement-dynamics-for-self-evolving-agentsp2">10. Predict Before You Modify: Learning Improvement Dynamics for Self-Evolving Agents｜P2</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-17.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-17</div><article class="prose"><p>本轮严格窗口为 2026-10-14 13:41—2026-10-17 13:41（Asia/Shanghai），重点核查 10 月 15—16 日 UTC 的 arXiv 新提交、官方研究/新闻/模型页、GitHub/Hugging Face、Spatial Intelligence/3D-4D/real-to-sim、VLA/WAM/Robot Learning、Agent/self-evolution，并做 broader-web 交叉兜底。上一期已经展开的 What Matters for World Modeling in VLAs、PAWA、StateCraft、OneLA、Back on Track、SafeDriveVLA、AdaRSI、TacClaw-Infinity、SceneAE 这轮没有新版本、代码/权重、基准结果或第三方验证，因此不机械重复。</p>
+<p>今天最重要的判断是：研究前沿正在从“生成看起来合理的视频”转向三条更可检验的路线——用环境隐变量和测试时交互适配真实动力学，用持久 3D/空间一致性基准约束世界模型，用失败诊断与任务进度把数据引擎、策略和智能体 harness 做成可复用闭环。ORBIA 是上一期候选池的检索失败回补；其余主条目主要是上一期截止后才提交的新工作。</p>
+<p>今天我建议的精读顺序是：</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p><strong>A → T2-z</strong>：先看“未知环境因素能否用一次交互识别并改变世界预测”，它最直接触及 world model 是否真的有控制价值。</p>
+<p><strong>B → ORBIA</strong>：再看如何把持久 3D 一致性、生成内容记忆和长时探索拆成可复现的评测协议。</p>
+<p><strong>C → P³-WAM</strong>：接着看视频、结构化 3D 手动作、未来视频和目标规划是否能在一个 WAM 里互相约束。</p>
+<p><strong>D → CoDA</strong>：然后看失败诊断如何反过来改写仿真场景和训练信号，形成数据引擎与策略的共同进化。</p>
+<p><strong>E → CoWorld Reasoner</strong>：最后看 VWM 是否能从固定“生成器”变成由 agent 自己选择操作、解释证据并修改 harness 的推理工具。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-t2-z-test-time-optimization-of-environment-latents-for-robotic-world-modelsp0">1. T2-z: Test-Time Optimization of Environment Latents for Robotic World Models｜P0</h2>
+<p><strong>作者与机构</strong>：Chenyuan Zhou、Yining Hong、Huang Huang、Yunfan Jiang、Wenlong Huang、David Held、Vitor Campagnolo Guizilini、Yue Wang、Li Fei-Fei、Jiajun Wu、Leonidas Guibas、Yejin Choi；作者团队来自 Stanford、CMU、Toyota Research Institute、USC 等。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 17:59 UTC；论文预印本，未同行评审。论文：<a href="https://arxiv.org/abs/2610.22364" target="_blank" rel="noopener noreferrer">arXiv 2610.22364</a>。</p>
+<p>它解决的问题是：同一张图像下，摩擦、质量、接触规则或人为约束不同，世界模型对动作后果的预测就会失真。T2-z 学习一个无监督环境隐变量 (z_e)，训练时交替冻结 (z_e) 学世界动力学、冻结世界模型优化 (z_e)，测试时只用一条或少量交互轨迹优化新环境的 (z_e)，而不改模型权重。作者报告在 7 个仿真设置和 4 个真实机器人任务上，把物体预测误差从 15.20 降到 7.00，动作成功率从 33.73% 提升到 72.96%，并称单条测试轨迹也能完成有效适配。</p>
+<p>创新点是把“系统识别”变成世界模型内部的可优化条件，而不是给每个环境单独训练一个 dynamics model；这和 Dreamer/MBRL 的在线适配、以及近期 test-time adaptation 相邻，但更强调可组合的环境因素结构。局限是环境隐变量是否真的对应可解释物理因素，仍主要靠作者的消融与可视化；论文没有公开权重、训练数据或完整代码，真实任务规模也不足以证明跨机器人稳健性。结果属于作者报告，尚无第三方复现。</p>
+<p><strong>是否值得深入阅读</strong>：值得，优先级最高。<strong>轻量验证</strong>：在一个小型 action-conditioned video model 或 MuJoCo 单物体任务上只保留摩擦/质量两种隐变量；比较无适配、正确交互适配、打乱动作适配三组的预测误差和闭环成功，重点看 (z_e) 是否对 nearby-action 仍保持因果敏感，而不是只降低重建损失。<strong>可复现性</strong>：论文和 TeX 可取，代码/权重/数据未确认公开；算力可用 1–2 张 GPU、短 horizon 和 20–50 条交互替代。</p>
+<h2 id="2-orbia-do-generated-videos-form-a-consistent-3d-worldp0">2. ORBIA: Do Generated Videos Form a Consistent 3D World?｜P0</h2>
+<p><strong>作者与机构</strong>：Dongyue Lu、Guian Fang、Hur Lim、Yonggang Wu 等 23 位作者；NUS、LIGHTSPEED、HKU、ZJU、澳门大学、CUHK-Shenzhen、Aalto、HKUST(GZ)。<strong>发布时间与性质</strong>：arXiv v1，2026-10-14 18:00 UTC；技术报告/benchmark，未同行评审。论文：<a href="https://arxiv.org/abs/2610.20731" target="_blank" rel="noopener noreferrer">arXiv 2610.20731</a>；项目页：<a href="https://orbia-bench.github.io/" target="_blank" rel="noopener noreferrer">ORBIA</a>；<a href="https://github.com/worldbench/Orbia" target="_blank" rel="noopener noreferrer">代码</a>；<a href="https://huggingface.co/datasets/Orbia/Orbia" target="_blank" rel="noopener noreferrer">Hugging Face 数据集</a>。</p>
+<p>ORBIA 直接问“生成视频是否描述同一个 3D 世界”，把评测拆为输入场景保持、生成内容持久性、跨视角 3D 自洽性，并加入分钟级探索与回访。项目页公布 720 个 exploration cases、6 类轨迹协议、27 个 text/action/camera-conditioned 模型；指标包括跨视角深度与特征一致性、尺度一致性、held-out Gaussian rendering、回到原位后的稳定性。作者自己的 leaderboard 显示，整体第一的 SolarWM-H3 为 76.32，但 3D consistency 仍仅 68.84；Cosmos3-Nano、Genie3、LingBot-World 等也暴露出“画面漂亮但回访不一致”的差距。</p>
+<p>创新点是把“长期世界记忆”从一句 VLM 评语变成含注册 RGB-D、锚点、可回访轨迹和生成内容记忆的协议。它和 WorldCast 的多步世界状态预测、以及前一期的 SceneAE/SpatialHarness 互补：WorldCast 测预测语义，ORBIA 测生成空间是否能被再次访问。局限是 benchmark 仍由作者适配各模型原生接口，分数会受到 adapter 质量和控制接口差异影响；它评估一致性，不直接证明规划或机器人成功。</p>
+<p><strong>是否值得深入阅读</strong>：值得，与 T2-z 并列。<strong>轻量验证</strong>：先取 20 个 ORBIA 案例，统一用一个公开 video/world model，计算 return-view LPIPS、深度重投影误差、区域尺度漂移和生成内容 revisit 相似度；再加 action shuffle，区分“记住空间”与“只复现视觉纹理”。<strong>可复现性</strong>：代码和数据公开，模型权重不是该项目交付物；可在单卡上先做短轨迹子集。</p>
+<h2 id="3-perceive-predict-and-plan-a-unified-world-action-model-for-egocentric-dexterous-manipulationp0">3. Perceive, Predict, and Plan: A Unified World Action Model for Egocentric Dexterous Manipulation｜P0</h2>
+<p><strong>作者与机构</strong>：Zirui Wu、Chen Guo、Tianjian Jiang、Zeren Jiang、Zeming Li、Lingchen Yang、Longteng Duan、Ying Xue、Handi Yin、Shenyuan Gao、Martin R. Oswald、Jun Zhang、Ping Tan、Jie Song；作者团队的完整机构映射以论文版面为准。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 17:59 UTC；论文预印本。论文：<a href="https://arxiv.org/abs/2610.22363" target="_blank" rel="noopener noreferrer">arXiv 2610.22363</a>；项目页：<a href="https://p3-wam.pages.dev/" target="_blank" rel="noopener noreferrer">P³-WAM</a>。</p>
+<p>P³-WAM 用同一个视频动作模型做三件事：从视频重建 3D 手和相机运动（Perceive），在给定结构化动作下预测未来视频（Predict），以及根据初始图像、语言指令和可选目标图像共同生成动作轨迹与未来视频（Plan）。核心是 mixture-of-transformers、共享基础权重、双向视觉—动作注意力和随机 modality visibility；训练目标同时覆盖 flow-matching 视频预测、MANO 手参数、3D 关节、相机状态、动作轨迹与目标规划。</p>
+<p>作者报告在 EgoDex、ARCTIC、HOT3D、EgoLive 四个数据集上，统一训练让手部重建误差平均降低 23.46%，视频预测 PSNR 提升 0.782 dB；计划模式在 17 个任务、188 对视频上优于单模式训练。项目页还展示了将生成的人手轨迹 retarget 到真实机器人，但明确说这是 open-loop execution，机器人不使用新观测纠偏。创新点是把“表征—预测—规划”做成同一 WAM 的互相约束，而不是串联三个独立模型。</p>
+<p>局限是单目绝对深度和人手—机器人本体差距仍未解决，目标规划的视觉语言评分不是闭环成功率；代码标为 forthcoming，权重和训练数据未公开。<strong>是否值得深入阅读</strong>：值得，用于理解 human video 到 WAM 接口的结构化动作瓶颈。<strong>轻量验证</strong>：只复现 Predict 模式，在 4 个公开数据集各抽 100 clips，做 prescribed-action vs action-shuffle 的未来视频差异；再在一个双指夹爪上比较 open-loop retarget 与带视觉反馈的末端误差。结果仍是作者报告，暂无第三方验证。</p>
+<h2 id="4-ltm-latent-transition-based-in-context-memory-for-vision-language-action-modelsp1">4. LTM: Latent Transition Based In-Context Memory for Vision-Language-Action Models｜P1</h2>
+<p><strong>作者与机构</strong>：Qixin Sun、WenLong Gao、Xiansheng Chen、Zhongyuan Wang、Si Liu、Pengwei Wang；北京航空航天大学/BAAI 相关团队，公开仓库组织为 buaa-colalab。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 06:41 UTC；论文预印本。论文：<a href="https://arxiv.org/abs/2610.21362" target="_blank" rel="noopener noreferrer">arXiv 2610.21362</a>；<a href="https://github.com/buaa-colalab/LTM-pi" target="_blank" rel="noopener noreferrer">Apache-2.0 代码</a>。</p>
+<p>LTM 不把历史压成自然语言摘要，而是让冻结的 latent-action encoder 把相邻观测 ((o_{t-1},o_t)) 编成“发生了什么变化”的低维 transition token，再通过轻量 adapter 和 causal KV cache 递增地放入 (pi_{0.5})。它在 RoboMME 上达到 58.54%、LIBERO-Mem 上 80.5%；RoboMME 演示规模扩大十倍时从 57.67% 升到 87.50%，200-token memory cap 下仍有 84.00%，真实机器人 counting 从 11.25% 升到 82.50%。</p>
+<p>它和前期 StateCraft/长期记忆方向的关系是：不显式维护可编辑状态，而是把“相邻观测的变化”作为可缓存事件；和 Fast-VLA 的一次性任务记忆不同，LTM 是执行过程中持续追加的过程记忆。创新点是 memory token 在控制路径上可异步计算，固定 lag 避免阻塞。局限是 transition encoder 仍依赖 DreamDojo/CD-LAM，事件内容不具语义可解释性，场景突变或对象交换可能丢失关键信息；仓库明确不含训练数据和最终模型权重，只有代码、外部资源下载和公开 transition cache。</p>
+<p><strong>是否值得深入阅读</strong>：值得，尤其适合长时序与过程监督。<strong>轻量验证</strong>：在 LIBERO-Mem 的 3–4 个任务上分别比较全帧 history、语言摘要、transition token、transition token + shuffle；报告 200-token 与 1,000-token 的成功、memory latency、对关键事件丢失的敏感性。代码是 Apache-2.0，完整训练需要 8×H100，但 cache/inference 可单卡运行；当前结果主要是作者报告。</p>
+<h2 id="5-coda-co-evolution-of-data-engines-and-action-policiesp1">5. CoDA: Co-Evolution of Data Engines and Action Policies｜P1</h2>
+<p><strong>作者与机构</strong>：Tianjiao Yu、Zhilin Ou、Yifan Shen、Xinzhuo Li、Yuanzhe Liu、Onkar Kishor Susladkar、Fan Wang、Ismini Lourentzou；UIUC、香港中文大学（深圳）、Amazon。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 17:59 UTC；论文预印本。论文：<a href="https://arxiv.org/abs/2610.22362" target="_blank" rel="noopener noreferrer">arXiv 2610.22362</a>；项目页：<a href="https://plan-lab.github.io/projects/coda/" target="_blank" rel="noopener noreferrer">PLAN Lab CoDA</a>。</p>
+<p>CoDA 把生成仿真和策略训练放进同一个共享异构记忆：VLM critic 根据失败定位场景因素和轨迹阶段，生成程序负责重建该困难，训练程序负责提供针对性学习信号；Text2potential 把失败诊断转成 action-chunk value 的阶段势函数。五步循环是 Generate → Diagnose → Remember → Train → Measure，下一轮生成预算由学习进展决定。</p>
+<p>作者在四类操作任务上报告 OOD success 从 SFT 的 5.3% 升到 27.6%，同生成预算比 scalar-feedback co-evolution 高 9.5 个百分点；LIBERO-Pro 位置扰动从 25% 升到 84%，指令扰动从 1% 升到 76%，15 轮继续训练时平均 OOD 达 42.1%。创新点是“一个失败诊断对应两个可执行程序”，把环境生成和 dense supervision 绑定，而不是只随机扩增场景。局限是强依赖 VLM critic 和可编辑模拟器，代码仍标注 coming soon，真实机器人和第三方复现均未有。</p>
+<p><strong>是否值得深入阅读</strong>：值得，适合连接 world model、数据引擎与自进化策略。<strong>轻量验证</strong>：只选 LIBERO-Pro 的 pick/place 与 articulation 两个 family，比较随机变体、scalar-feedback、CoDA diagnosis 三组；把 Text2potential 换成固定 dense reward，控制生成预算与 policy updates，观察失败覆盖率和“先修空间、再修动作”的顺序是否成立。算力可限制为 5 轮、单一 critic、冻结 (pi_{0.5}) 主干。</p>
+<h2 id="6-coworld-reasoner-agentic-multimodal-reasoning-with-the-evolving-video-world-model-driven-harnessp1">6. CoWorld Reasoner: Agentic Multimodal Reasoning with the Evolving Video World Model-Driven Harness｜P1</h2>
+<p><strong>作者与机构</strong>：Dongjie Cheng、Ruifeng Yuan、Ran Wei、Ning Song、Yongqi Li、Wenjie Li；论文摘要页未列完整机构标签，按作者团队论文页面核对。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 13:59 UTC；论文预印本。论文：<a href="https://arxiv.org/abs/2610.21910" target="_blank" rel="noopener noreferrer">arXiv 2610.21910</a>。</p>
+<p>CoWorld Reasoner 把 VWM 变成 agent 可选择的视觉推理工具，而不是固定的 novel-view pipeline。Harness 暴露 view change、interpolation、continuation、intervention 等操作，VLM 根据任务决定是否想象、选什么操作、构造请求、解释生成证据；随后 VLM–VWM harness co-evolution 根据执行反馈修改工具、技能和执行代码，但保持模型权重不变。</p>
+<p>作者在空间智能、时序/因果推理、感知推理共 7 个 benchmark 上报告优于同 backbone 直接推理，最强版本在 MMSI 和 ERQA 上分别有 11.8% 与 13.0% 相对提升，并在 5 个 benchmark 上胜过 5 个 evolving baselines。创新点是把“世界模型调用策略”本身作为可学习/可修改的 agent 层，连接视觉想象与 self-evolution。局限是所有关键结果仍是作者报告，VWM 质量、harness 规则与 token/调用成本耦合，尚未证明生成证据比直接视觉输入更可靠；代码、工具权重和模型权重未确认公开。</p>
+<p><strong>是否值得深入阅读</strong>：值得，优先级略低于 CoDA，因为它更偏 agent harness。<strong>轻量验证</strong>：固定一个 VLM 和一个公开 VWM，只做 MMSI/ERQA 各 20–50 题；对比固定四工具、VLM 自选工具、随机工具三组，记录正确率、幻觉视觉证据率、平均调用次数和 token 成本。重点检查 co-evolution 是否真的提高“何时不调用 VWM”的校准，而非只增加尝试次数。</p>
+<h2 id="7-anvil-scaling-embodied-spatial-intelligence-through-knowledge-recirculationp1">7. Anvil: Scaling Embodied Spatial Intelligence through Knowledge Recirculation｜P1</h2>
+<p><strong>作者与机构</strong>：Weilin Ruan、Bohan Zhou、Jinghao Li、Yangkai Wei、Wenqian Li、Peiran Dong、Yingjie Xu、Leyi Wu、Haojian Huang、Binghui Xie、Han Yang、Kaiwen Zhou、Yinchuan Li、Ying-Cong Chen、James Cheng；作者团队来自香港科技大学等空间智能研究团队。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 13:47 UTC；论文预印本。论文：<a href="https://arxiv.org/abs/2610.21882" target="_blank" rel="noopener noreferrer">arXiv 2610.21882</a>。</p>
+<p>Anvil 把 Ground–Relation–Act 11 种原生输出形式放进同一个 scene/entity contract：Anvil-Gen 做跨阶段一致性校验和失败驱动回收，Anvil-Ben 做场景对齐的训练/评测，Anvil-MOPD 用 specialist distillation 训练 9B student；semantic-first-fault routing 把教师监督投向学生最早的决定性错误。数据规模为 5.8M source-grounded records、160K images，580K 空间记录留作 held-out。</p>
+<p>作者报告 Anvil-MOPD 在 7 个公开 benchmark 上平均超过 Qwen3.5-9B 9.29 个百分点、超过 RynnBrain-8B 11.03 个百分点，VABench-Point 达 80.67%。但第三方深读指出，去掉 VABench-Point 后平均优势缩小到 4.45 个百分点，RefSpatial 仍低于基座；论文自身也没有物理机器人执行结果。它的真正价值不是“又一个 9B 空间模型”，而是把数据、验证、错误路由和 action-relevant spatial supervision 置于一个可审计的数据合同中。</p>
+<p><strong>是否值得深入阅读</strong>：值得，尤其适合研究空间监督如何接到操作。<strong>轻量验证</strong>：抽 2–3 个 Ground→Relation→Act 链，保持图像和实体 ID 不变，只比较 flat distillation、first-fault routing、无链接数据；报告最早错误定位率、后续阶段错误传播和 held-out scene 泛化。代码、数据、checkpoint 的官方直链在本轮未从 arXiv 页面确认，不能把作者/二级摘要中的“可用”当作已验证开放。</p>
+<h2 id="8-fast-vla-you-only-think-once-for-robot-manipulationp1">8. Fast-VLA: You Only Think Once for Robot Manipulation｜P1</h2>
+<p><strong>作者与机构</strong>：Kehong Gong、Guanli Hou、Xiaoxu Zheng、Qi Wang、Mingxi Xu、Anbang Zhai、Xiaoyu He、Mingyuan Zhang、Michael Bi Mi；Huawei Technologies、Huawei Central Research Institute。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15 07:05 UTC；论文预印本，配套代码/权重已公开。论文：<a href="https://arxiv.org/abs/2610.21389" target="_blank" rel="noopener noreferrer">arXiv 2610.21389</a>；<a href="https://garfield-kh.github.io/FastVLA/" target="_blank" rel="noopener noreferrer">项目页</a>；<a href="https://github.com/Garfield-kh/FastVLA" target="_blank" rel="noopener noreferrer">Apache-2.0 GitHub</a>；<a href="https://huggingface.co/kehong/FastVLA-weights" target="_blank" rel="noopener noreferrer">Hugging Face checkpoints</a>。</p>
+<p>Fast-VLA 观察到任务语义变化慢于机器人状态变化，因此每回合只用冻结 4B VLM 读一次指令与初始多视角图像，保存 34 层 KV task memory；控制闭环只运行轻量 actor，读取当前视觉、本体状态和固定任务记忆。作者报告 RoboTwin 2.0 Clean/Randomized 为 92.46%/92.40%，LIBERO/LIBERO-Plus 为 95.95%/79.11%；同硬件下摊销推理相对 Faster-WAM、DM0.5、Fast-WAM 提速 10.9–17.1×，在线驻留内存 1.22 GiB。</p>
+<p>创新点是把“慢语义、快控制”变成可部署的显式接口，而不是依赖每个 action chunk 重新调用大 VLM；代码仓库包含训练、策略服务器、RoboTwin/LIBERO 评测客户端及 <code>fastvla-robotwin</code>/<code>fastvla-libero</code> 两个 checkpoint，Apache-2.0。局限是初始视野承担大量任务理解，memory swap 消融显示换 episode 后成功率会跌到个位数；目前没有真实机器人结果，也没有第三方复现。大算力替代是只跑公开 checkpoint 的 latency/success smoke，而不是重训 4B VLM。</p>
+<p><strong>是否值得深入阅读</strong>：值得，适合做实时 WAM/VLA 的基线。<strong>轻量验证</strong>：同一 checkpoint 比较每 chunk refresh、每 4 chunk refresh、每 episode refresh；加入初始视野遮挡和中途任务偏好变化，测成功率、VLM calls/episode、端到端 latency 与错误恢复，防止把固定任务记忆误当成通用在线理解。</p>
+<h2 id="9-libero-perm-benchmarking-personalized-robotic-manipulationp1">9. LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation｜P1</h2>
+<p><strong>作者与机构</strong>：Zhixu Li、Keqian Tang、Litian Gong、Jingyu Yao、Wenqian Zhang、Tianze Xu、Zehao Wang、Yuping Wang、Junge Zhang、Jiachen Li；UC Riverside、Yale、Georgia Tech、University of Michigan、University of Toronto。<strong>发布时间与性质</strong>：arXiv v1，2026-10-15；NeurIPS 2026 Evaluations and Datasets Track。论文：<a href="https://arxiv.org/abs/2610.22372" target="_blank" rel="noopener noreferrer">arXiv 2610.22372</a>；<a href="https://libero-perm.github.io/" target="_blank" rel="noopener noreferrer">项目页/代码/数据</a>。</p>
+<p>LIBERO-PeRM 把“任务做成”与“按用户想要的方式做”拆开，提供 312 个任务、3 个 preference levels、37 个单项/18 个配对偏好、40.8K 带/不带偏好的 demonstrations。它评测零样本偏好跟随、示范学习效率、跨布局/任务泛化、偏好组合和冲突；SR 衡量任务成功，SA 只在任务成功时衡量偏好满足。</p>
+<p>作者发现当前 VLA 的零样本个性化较弱，SFT 可学习偏好；混合训练比顺序适配更能保留无偏好性能，但可能损伤 motion-preference，偏好泛化、分解和冲突处理仍难。创新点是把 human-to-robot alignment 从“语言条件”变成有独立度量的可控变量。局限是偏好必须可用语言表达并能在 LIBERO 仿真中实例化，尚未覆盖真实用户长期偏好或多主体协商。</p>
+<p><strong>是否值得深入阅读</strong>：值得，作为今天的数据/人机对齐补充。<strong>轻量验证</strong>：用公开基座跑 20 个 single preference 与 10 个 conflict task，分别报告 SR、SA、无偏好保持率；再比较 prompt-only、LoRA、少量 demonstration 三种适配。项目页给出数据、代码和复现脚本，当前仍是作者报告，没有第三方验证。</p>
+<h2 id="10-predict-before-you-modify-learning-improvement-dynamics-for-self-evolving-agentsp2">10. Predict Before You Modify: Learning Improvement Dynamics for Self-Evolving Agents｜P2</h2>
+<p><strong>作者与机构</strong>：Zixuan Xie、Chang Xu、Yuhua Jiang、Li Zhao；Microsoft Research Asia 等机器学习团队。<strong>发布时间与性质</strong>：arXiv v2 于 2026-10-15 14:34 UTC（v1 为 9 月 26 日）；论文修订，未同行评审。论文：<a href="https://arxiv.org/abs/2610.13991" target="_blank" rel="noopener noreferrer">arXiv 2610.13991</a>。</p>
+<p>它在 HyperAgents 风格的“修改→评测→继承”循环前增加一个可编辑 Improvement Dynamics Model（IDM）：先预测候选修改在任务级别的结果，必要时先修订，再用实际评测反过来更新 IDM。作者在多语种 coding、paper review、robotics reward design、奥数评分四个领域报告，相比 HyperAgents 最高平均性能提升 46%，在匹配 token budget 和 held-out tasks 上仍有优势。</p>
+<p>创新点是把 self-evolution 从盲目试错变成“先预测修改效果”，并把预测误差当成下一轮学习信号；与 CoWorld 的 harness co-evolution 互补，前者改进的是修改选择和收益预测，后者改进的是工具/技能接口。局限是机器人部分是 reward design，不是物理机器人闭环；没有公开权重/完整训练代码的确认，也没有成本—收益在大规模真实环境中的独立审计。</p>
+<p><strong>是否值得深入阅读</strong>：作为 Agent/self-evolution 代表值得，但优先级低于 CoWorld。<strong>轻量验证</strong>：在一个 5–10 个任务的小型机器人 reward-design toy loop 中固定 token budget，比较随机修改、只看 aggregate score、IDM 预测三组；同时报告预测校准、每次成功修改成本、held-out 任务迁移，不要只报最终分数。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫过 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国团队的官方 research/news/project/model 入口；同时查了 GitHub、Hugging Face、arXiv recent pages 和 broader web 关键词。<strong>除 NEURA Robotics 的 Neuron AI 外，未发现窗口内足以进入 Top Papers 的重大新增官方模型、论文、公开权重或数据发布。</strong></p>
+<p><strong>窗口内确认的官方新增：NEURA Robotics Neuron AI。</strong> NEURA 于 10 月 14 日发布官方新闻，称 Neuron AI 是面向 Physical AI 的 Perception-Language-Action foundation model，把 3D vision、触觉/力觉、音频、robot state、语言和 memory 合并，训练来源包括真实机器人、仿真扩增和人类示范，覆盖五种 NEURA 机器人形态，计划在 NVIDIA GTC Berlin 展示 4NE1 的 11 分钟自主洗衣流程。官方链接：<a href="https://neura-robotics.com/neura-robotics-introduces-neuron-ai/" target="_blank" rel="noopener noreferrer">Neuron AI 发布</a>。证据性质是公司官方发布，尚无论文、参数、权重、API、代码、公开 benchmark 或第三方验证；独立报道也确认目前不能据此判断性能优于其他 robot foundation models。因此它应作为“重要但未验证”的观察项，而不是和 Fast-VLA、LTM 的公开复现证据混写。</p>
+<p>World Labs 的 Atlas、Generalist 的 GEN-1.5、Physical Intelligence 的 Pi API beta、Google Gemini Robotics、NVIDIA Cosmos/GR00T、Skild S1/Physical Self-Play、FieldAI FFM、Anthropic 的 robotics/agent reports、Meta Muse 及 TRI 相关入口本轮均未出现新的窗口内证据；它们保留在长期追踪表中，不重复展开。Spatial Intelligence 仍然是一级主线：ORBIA、Anvil、CoWorld Reasoner 与 LIBERO-PeRM 分别覆盖 3D 持久性、场景对齐空间监督、VWM 驱动的空间想象和人类偏好对齐。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射</th>
+<th>近期趋势</th>
+<th>仍未解决的 gap</th>
+<th>可形成的论文机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>隐变量动力学与适配</td>
+<td>T2-z</td>
+<td>世界模型从离线预测转向测试时环境识别</td>
+<td>隐变量是否有因果含义；单轨迹适配是否跨本体</td>
+<td>“nearby-action / action-shuffle” 环境隐变量因果审计</td>
+</tr>
+<tr>
+<td>持久空间世界</td>
+<td>ORBIA、Anvil</td>
+<td>从单帧/短视频质量转向回访、尺度、实体一致性</td>
+<td>长时探索误差累积；接口公平；真实交互闭环</td>
+<td>ORBIA × robot policy 的一致性—成功率联合 benchmark</td>
+</tr>
+<tr>
+<td>WAM 统一接口</td>
+<td>P³-WAM、LTM</td>
+<td>视频、动作、结构化 3D 手/事件 memory 共训</td>
+<td>人手到机器人本体、单目深度、closed-loop correction</td>
+<td>action-conditioned video + embodiment adapter 的跨本体测试</td>
+</tr>
+<tr>
+<td>数据引擎与策略共进化</td>
+<td>CoDA</td>
+<td>失败驱动场景生成、密集势函数、共享记忆</td>
+<td>VLM critic 误诊、循环成本、真实世界验证</td>
+<td>诊断置信度与生成预算的可审计 co-evolution protocol</td>
+</tr>
+<tr>
+<td>实时 VLA</td>
+<td>Fast-VLA</td>
+<td>慢语义一次编码、快 actor 持续闭环</td>
+<td>初始视野依赖、中途目标变化、真实机器人 latency</td>
+<td>one-prefill vs refresh schedule 的统一 Pareto 评测</td>
+</tr>
+<tr>
+<td>视频世界模型与 Agent</td>
+<td>CoWorld Reasoner、Predict Before You Modify</td>
+<td>模型权重冻结，工具/技能/修改策略自演化</td>
+<td>生成证据是否可信；自演化是否只是更多尝试</td>
+<td>VWM call calibration + cost-aware self-evolution benchmark</td>
+</tr>
+<tr>
+<td>人机/跨本体对齐</td>
+<td>LIBERO-PeRM、Neuron AI（官方观察）</td>
+<td>从 task success 转向 preference satisfaction、多感官记忆</td>
+<td>偏好冲突、长期用户模型、真实触觉/音频</td>
+<td>preference × embodiment × memory 的三轴评测</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li><strong>先做 T2-z 的因果最小实验</strong>：单物体推、抓、放三种动作，隐藏摩擦/质量各两档；20 条校准轨迹足够比较 <code>no-adapt / correct-adapt / shuffled-adapt</code>，同时报告视频误差、动作成功、latent linear probe 和 nearby-action gap。</li>
+<li><strong>用 ORBIA 做一周内可完成的世界模型审计</strong>：20 个案例、3 个短轨迹协议、一个公开视频模型；重点不是总分，而是“生成内容第一次出现后，第二次回访是否仍在同一位置”和“回到原位时是否保持尺度”。</li>
+<li><strong>把 P³-WAM/LTM 接到同一小型控制器</strong>：P³-WAM 负责未来视频与结构化人手轨迹，LTM 负责过程 memory；用 action shuffle、遮挡、事件删除三种反事实，检查 latent 是否保留对控制真正有用的变化。</li>
+<li><strong>复现 CoDA 的诊断闭环而不重训大模型</strong>：冻结 π0.5 或小型 diffusion policy，只在两个 LIBERO-Pro family 上跑 5 轮；把 VLM critic 换成规则 + 小 VLM，比较随机场景、scalar feedback、failure diagnosis 三组，记录每个成功修复的环境因素。</li>
+<li><strong>Fast-VLA 做部署前基线</strong>：直接下载 Apache-2.0 checkpoint，在单张 16–24 GB GPU 上测一次/每四 chunk/每 chunk refresh；加入中途遮挡和 instruction change，检验 10.9–17.1× 加速是否以恢复能力为代价。</li>
+<li><strong>CoWorld/Predict 做成本校准</strong>：将每个 visual operation 或修改候选的成本加入目标，画 accuracy–tool calls–tokens 三维曲线；只有当准确率提升在固定 token budget 下仍成立，才算 self-evolution 的有效增益。</li>
+<li><strong>LIBERO-PeRM 做对齐 sanity check</strong>：优先报告 SR 与 SA 的分离、无偏好保持率、冲突偏好下的选择解释；不要把“完成任务”当成“满足用户”。</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>证据层级</th>
+<th>代码/权重/数据</th>
+<th>第三方验证</th>
+<th>当前判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T2-z</td>
+<td>arXiv 作者报告</td>
+<td>代码/权重/训练数据未确认</td>
+<td>无</td>
+<td>高研究价值，复现门槛中高</td>
+</tr>
+<tr>
+<td>ORBIA</td>
+<td>arXiv + 官方项目页</td>
+<td>代码与数据公开；无模型权重要求</td>
+<td>无独立复现</td>
+<td>今日最可直接复查的 Spatial benchmark</td>
+</tr>
+<tr>
+<td>P³-WAM</td>
+<td>arXiv + 项目页</td>
+<td>代码 forthcoming；权重未确认；视频公开</td>
+<td>无</td>
+<td>结构创新强，闭环证据不足</td>
+</tr>
+<tr>
+<td>LTM</td>
+<td>arXiv + GitHub</td>
+<td>Apache-2.0 代码；外部数据/cache 可下载；最终训练权重不在仓库</td>
+<td>无</td>
+<td>可做单卡 inference/cache 验证，完整训练昂贵</td>
+</tr>
+<tr>
+<td>CoDA</td>
+<td>arXiv + PLAN Lab 项目页</td>
+<td>页面写 code coming soon；权重/数据未确认</td>
+<td>无</td>
+<td>失败驱动 co-evolution 值得小规模复现</td>
+</tr>
+<tr>
+<td>CoWorld Reasoner</td>
+<td>arXiv</td>
+<td>代码/工具/VWM 权重未确认</td>
+<td>无</td>
+<td>Agentic harness 证据为作者报告</td>
+</tr>
+<tr>
+<td>Anvil</td>
+<td>arXiv</td>
+<td>官方直链在本轮未确认；不可把二级摘要当已开放</td>
+<td>无</td>
+<td>数据合同和 first-fault routing 值得审计</td>
+</tr>
+<tr>
+<td>Fast-VLA</td>
+<td>arXiv + GitHub + HF</td>
+<td>Apache-2.0 代码与两个 checkpoint 公开</td>
+<td>无</td>
+<td>今日最适合做实时基线</td>
+</tr>
+<tr>
+<td>LIBERO-PeRM</td>
+<td>arXiv + NeurIPS Evals/Datasets 项目页</td>
+<td>demonstrations、任务定义、代码、复现脚本公开</td>
+<td>无</td>
+<td>人机偏好对齐的公开 benchmark</td>
+</tr>
+<tr>
+<td>Predict Before You Modify</td>
+<td>arXiv v2</td>
+<td>代码/权重未确认</td>
+<td>无</td>
+<td>self-evolution 方法证据，机器人闭环仍缺</td>
+</tr>
+<tr>
+<td>Neuron AI</td>
+<td>官方公司发布</td>
+<td>无论文、权重、代码、API、公开 benchmark</td>
+<td>无</td>
+<td>重要官方观察项，不能当已验证模型</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Retrieval Failure 与 Selection</strong>：本轮 arXiv cs.RO/cs.CV/cs.AI/cs.LG 新批次、主要官方入口、GitHub/Hugging Face 和 broader-web 交叉检查均已执行，未发现明确的窗口内重大检索失败。ORBIA 是上一期候选池漏检后的回补，已按 retrieval-failure backfill 标明；TS-WAM、VaM、Spark-0、3DVerifierBench、LIBERO-PeRM、LTM 等进入候选池，其中未全部展开属于 selection，不是“没有检索到”。上一期条目没有新证据的则保持去重。</p>
+<p>今天先读 T2-z → ORBIA → P³-WAM；验证上先做 ORBIA 20-case 一致性审计和 Fast-VLA 一次/多次 refresh latency 对照，再决定是否投入 CoDA 或 T2-z 的小规模训练。</p>
+<p>本轮官方入口、论文与项目页均以检索时可见内容为准；官方宣传、作者报告、代码/权重状态和第三方验证已在各条目中分开标注。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-16/"><span>← 上一期 · 2026-10-16</span><strong>What Matters for World Modeling in VLAs · PAWA · StateCraft</strong></a><a class="newer" href="../2026-10-18/"><span>下一期 → · 2026-10-18</span><strong>GeoState · Spark-0 · 3DCodeVerse</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

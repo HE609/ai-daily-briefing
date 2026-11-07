@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-29｜ScIntBench · LabWorld · RynnWorld-Latent · Yunhe</title><meta name="description" content="空间生成开始用实际交互验收，视频世界模型开始明确区分状态、渲染和动作接口，Agent 的改进对象进一步从提示词扩展到执行代码与模型权重。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-29/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-29｜ScIntBench · LabWorld · RynnWorld-Latent"><meta property="og:description" content="空间生成开始用实际交互验收，视频世界模型开始明确区分状态、渲染和动作接口，Agent 的改进对象进一步从提示词扩展到执行代码与模型权重。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-29/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>ScIntBench · LabWorld · RynnWorld-Latent</h1><p class="article-deck">空间生成开始用实际交互验收，视频世界模型开始明确区分状态、渲染和动作接口，Agent 的改进对象进一步从提示词扩展到执行代码与模型权重。</p><div class="article-meta"><time datetime="2026-10-29">2026 / 10 / 29</time><span>约 23 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-scintbench-physical-interaction-plausibility-in-3d-scene-generationp0">1. ScIntBench: Physical Interaction Plausibility in 3D Scene Generation｜P0</a><a class="toc-level-2" href="#2-labworld-learning-interactive-4d-worlds-for-scientific-experimentationp0">2. LabWorld: Learning Interactive 4D Worlds for Scientific Experimentation｜P0</a><a class="toc-level-2" href="#3-sceneevolve-learning-to-code-the-worldp1">3. SceneEvolve: Learning to Code the World｜P1</a><a class="toc-level-2" href="#4-boxworld-let-world-engines-control-and-video-generators-renderp1">4. BoxWorld: Let World Engines Control and Video Generators Render｜P1</a><a class="toc-level-2" href="#5-rynnworld-latent-a-cross-embodiment-world-model-conditioned-on-universal-latent-actionsp1">5. RynnWorld-Latent: A Cross-Embodiment World Model Conditioned on Universal Latent Actions｜P1</a><a class="toc-level-2" href="#6-tapestry-a-single-backbone-for-video-generation-and-robot-controlp1">6. TAPESTRY: A Single Backbone for Video Generation and Robot Control｜P1</a><a class="toc-level-2" href="#7-gameverse-a-minute-scale-gameplay-dataset-for-long-horizon-interactive-world-modelingp1">7. GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling｜P1</a><a class="toc-level-2" href="#8-swim-learning-what-matters-from-behaviors-for-jepa-world-modelsp1">8. SWIM: Learning What Matters from Behaviors for JEPA World Models｜P1</a><a class="toc-level-2" href="#9-coharl-co-evolving-agent-policies-and-executable-harnesses-with-reinforcement-learningp1">9. CoHARL: Co-Evolving Agent Policies and Executable Harnesses with Reinforcement Learning｜P1</a><a class="toc-level-2" href="#10-liquid-ai-lfm3%E7%AB%AF%E4%BE%A7%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%89%A9%E5%B1%95p1">10. Liquid AI LFM3：端侧多模态模型与机器人扩展｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-29.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-29</div><article class="prose"><p>本期主检索窗口为<strong>北京时间 2026-10-26 08:57—2026-10-29 08:57</strong>，资源核验延伸至成稿。今天最值得关注的变化是：<strong>空间生成开始用实际交互验收，视频世界模型开始明确区分状态、渲染和动作接口，Agent 的改进对象进一步从提示词扩展到执行代码与模型权重。</strong>这是本报对多项工作的综合判断，各论文的实验仍需分别审视。</p>
+<p>本期展开 <strong>9 篇窗口内论文与 1 项官方模型发布</strong>。这些论文主要来自 10 月 27 日提交、28 日公告的批次；上一期分类入口停在 27 日，未把它们纳入候选，连同漏扫的 LFM3，明确记为 <strong>Retrieval Failure 回补</strong>，不包装成 29 日首发。LabWorld 另有 28 日新公开仓库。Genie 4、Echo-3、OSWAM、Hy-Nomas 等已报道项目无本轮核实的实质新能力证据，不重复展开。当前可访问的论文列表截至 28 日，尚不能声称完整覆盖 29 日公告批次。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>ScIntBench → LabWorld → RynnWorld-Latent → TAPESTRY → SceneEvolve</strong>。</p>
+<ul>
+<li><strong>ScIntBench：</strong>先建立“生成场景能否被操作”的验收标准，再判断漂亮重建和世界生成的价值。</li>
+<li><strong>LabWorld：</strong>看视频中的实验过程怎样变成带事件约束的显式 4D 状态，尤其关注视觉拟合与交互正确性的冲突。</li>
+<li><strong>RynnWorld-Latent：</strong>把跨本体潜在动作、原生机器人控制和合成数据收益三层证据分开读。</li>
+<li><strong>TAPESTRY：</strong>理解视频预训练怎样直接服务动作预测，以及一步推理成立所依赖的训练参数化。</li>
+<li><strong>SceneEvolve：</strong>看冻结模型、固定动作接口下，演化执行程序能提供多少可迁移的空间重建收益。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-scintbench-physical-interaction-plausibility-in-3d-scene-generationp0">1. ScIntBench: Physical Interaction Plausibility in 3D Scene Generation｜P0</h2>
+<p><strong>Wendi Ying、Daochang Liu、Leonid Sigal、Ajmal Saeed Mian；西澳大学、UBC。</strong> 10 月 27 日 14:36 UTC 提交，28 日公告；当前为预印本，未核实同行评审录用。<a href="https://arxiv.org/abs/2610.37326" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://scintbench.github.io" target="_blank" rel="noopener noreferrer">项目页</a>。研究问题非常直接：生成的房间能否支持推物、开门和表面探测，已有的语义与静态物理分数能否预测这些行为。</p>
+<p>它是一套<strong>评测协议</strong>，不提出新的模型训练目标。系统保留资产的原生刚体、碰撞体、质量、摩擦和关节配置，执行预设操作，分别测量交互是否受支持、任务进度/成功、交互后结构完整性和动态合理性。评测覆盖 12 种生成系统、10 类房间；30 个场景描述形成 2,436 个方法—交互组合，其中 1,534 个缺少对象或必要物理机制，902 个进入实际执行。动态合理性部分还使用多模态模型评分，不能全部当作物理引擎真值。</p>
+<p><strong>作者报告：</strong>7/12 个系统无法完成任何规定交互；一个静态物理表现近乎完美的系统交互成功率只有 <strong>11.54%</strong>，最佳系统也只有 <strong>36.92%</strong>。这些是固定任务、资产转换与执行协议下的结果，包含“缺少关节/碰撞等必要能力”的失败，不能统称策略控制失败，也不意味着所有可能的动作均不可执行。未发现独立复现。</p>
+<p><strong>值得精读。</strong>它把 ATISS、Holodeck 等场景生成路线的评估延伸到干预后的可用性，为 real-to-sim 和生成式仿真提供了更具体的研究目标。局限在于资产转换、操作器和评分器都可能影响排名，且尚无真机迁移收益证明。项目页的 Code 链接仍是占位符，完整评测包与场景数据未核实可下载。轻量验证可先选 10 个场景、三种固定操作，分别记录缺少能力、执行失败与物理异常；用同一资产在两个引擎复核，检查排名是否稳定。</p>
+<h2 id="2-labworld-learning-interactive-4d-worlds-for-scientific-experimentationp0">2. LabWorld: Learning Interactive 4D Worlds for Scientific Experimentation｜P0</h2>
+<p><strong>Suozhi Huang、Kelsey Fu、Binxu Li 等；Princeton、Stanford，及芝加哥大学、NYU 等合作团队。</strong> 10 月 27 日 03:52 UTC 提交；预印本，28 日公开代码仓库。<a href="https://arxiv.org/abs/2610.36592" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/hsz0403/labworld" target="_blank" rel="noopener noreferrer">作者仓库</a>。它把单目实验录像转换为可编辑的资产、公制场景、物体轨迹、关节状态和过程事件，服务于实验回放、检查及未来的具身科研系统。</p>
+<p>方法由 Agent 整理对象与事件，SAM3 提供可见掩码，MapAnything 提供几何线索，再对整段轨迹联合优化。优化目标结合<strong>视觉/几何观测、时间平滑、事件关系与物理约束</strong>；移液过程要求接近、进入、停留、退出的时序结构，而不只要求工具靠近容器。它与 FoundationPose、Do as I Do 的位姿/动作重建及 ReKep 式关系约束形成关联，贡献在于把实验程序中的事件落实为可检查的 4D 场景状态。</p>
+<p><strong>作者报告：</strong>移液平均 Mask IoU <strong>0.501</strong>，较最强基线高 0.033；涡旋混匀的归一化 PCK-AUC <strong>0.638</strong>，高 0.035。五段移液消融中，加入事件约束使规定几何检查从 <strong>5/35 升为 35/35</strong>，同时 Mask IoU 从无约束的 0.572 降到 0.508。后者恰好说明两个评价目标会冲突。35/35 是模型规定的约束满足率，不能解释成隐蔽接触、移液体积或真实物理状态全部恢复正确；SAM3 也同时参与观测与掩码评测。</p>
+<p><strong>很值得读方法和消融。</strong>质量、摩擦、柔顺性、流体及遮挡下的细节仍未完成系统辨识，尚无下游机器人训练收益。MIT 代码仓库提供交互实验室和历史 V6.1 求解器，但明确缺少源视频、观测缓存、规范资产包及完整终稿复现链；浏览器演示与论文实验也属不同版本。轻量验证可用 3—5 段自录的插入/退出视频，固定几何与观测，对比有无事件约束；同时测图像误差、独立标注的 3D 关系和事件误检率。</p>
+<h2 id="3-sceneevolve-learning-to-code-the-worldp1">3. SceneEvolve: Learning to Code the World｜P1</h2>
+<p><strong>Haoyu Yao、Chenguo Lin、Ruize Du、Yadong Mu；北京大学。</strong> 完整标题为 Learning to Code the World: Harness Evolution for Compositional 3D Reconstruction，10 月 27 日 11:15 UTC 提交；预印本。<a href="https://arxiv.org/abs/2610.37046" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://haoyu-agent.github.io/SceneEvolve" target="_blank" rel="noopener noreferrer">项目页</a>｜<a href="https://github.com/haoyu-agent/SceneEvolve_Code" target="_blank" rel="noopener noreferrer">代码</a>。目标是让较小模型从单张图片生成可编辑、可组合的 Blender 场景程序。</p>
+<p>SceneAct 提供几何原语、层次组合和语义空间关系；SceneHarness-RSI 让强教师根据执行轨迹、渲染结果和开发集指标修改共享执行程序。学生权重、动作语义及执行后端固定；优化对象是 <strong>harness</strong>，没有学生梯度训练。论文以 GPT-6-Astra 提案、Qwen3.8-27B 执行，30 轮、每轮两个提案；100 个开发场景、40 个域内测试场景、20 个 ARKitScenes 域外场景按物理场景隔离。它把 Meta-Harness 类程序演化引入空间重建。</p>
+<p><strong>作者报告：</strong>相对相同 Qwen 基座，平均 DINOv2 相似度 <strong>0.198→0.392</strong>，每场景时间 <strong>1,510.7→800.2 秒</strong>。摘要中的“质量提升 32.3%”在正文对应相对 GPT-5.6-Sol-none 的<strong>平均 SSIM 相对增幅</strong>；47% 的时间下降则相对 Qwen 自身基线。800.2 秒仍慢于 Sol-none 的 369.8 秒，不能把两个比较对象混在一起。上述渲染指标尚未验证关节、碰撞或真实几何正确性。</p>
+<p><strong>值得精读其固定接口与留出设计。</strong>开发集保留规则只保证已记录分数单调，不能保证泛化持续上升；搜索成本也需计入。MIT 仓库已有接口、演化、评测代码，但数据清单是路径占位示例，未见完整论文划分、最终获胜 harness 和全部轨迹；默认提案器还使用 Codex CLI，与论文 API-only 描述需进一步对齐。轻量实验用 10 个开发场景、10 个留出场景、三轮搜索，保持模型调用和渲染预算一致；冻结获胜程序后，用未参与搜索的视角与交互验收检查迁移。</p>
+<h2 id="4-boxworld-let-world-engines-control-and-video-generators-renderp1">4. BoxWorld: Let World Engines Control and Video Generators Render｜P1</h2>
+<p><strong>Zike Wu、Ahmed Hatem、Chintan Trivedi 等；UBC、Huawei Canada、Vector Institute。</strong> 10 月 26 日 22:36 UTC 提交，即北京时间 27 日 06:36；预印本。<a href="https://arxiv.org/abs/2610.36371" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://boxworld-web.github.io" target="_blank" rel="noopener noreferrer">项目页</a>。它研究如何让用户指定的规则、对象状态和条件事件持续控制交互视频。</p>
+<p>编码 Agent 从规则生成 Box World Engine，负责状态更新；接口只传布局框、持久属性和动态状态。生成器通过区域掩码交叉注意力把对象状态注入视频，以因果历史维持连贯。训练分为开放域对象 grounding、游戏片段状态变化学习、以及在自生成历史上的 Self-Forcing 式分布匹配蒸馏；后两阶段使用 LoRA。该机制把 Genie 类交互生成与显式状态机连接起来，也让“规则执行正确”与“视频呈现正确”有了分开的验收点。</p>
+<p><strong>作者报告：</strong>PairedStateBench 含 87 个案例、16 类场景和 37 组分支对；同初态、不同操作的成对通过率 <strong>97.3%</strong>，任务通过率 <strong>83.9%</strong>，生成吞吐 <strong>20.7 FPS</strong>。论文采用 832×480、四步生成；FPS 不能直接当作包含 Agent 编程和输入处理的端到端响应率。比较模型的控制接口也不同，开放的 LingBot-v2 仅为相机控制版本，结果证明的是完整系统在这套协议上的优势。</p>
+<p><strong>值得读状态接口和分支评测。</strong>引擎预先决定结果，因而其规则正确性是前提；细粒度几何、关节和密集接触超出轻量接口的当前能力。项目 GitHub 标注 coming soon，代码、权重和完整 benchmark 未核实落地。轻量替代实验可用现成渲染器接入“钥匙—门—充电”三个状态机，测应触发、应抑制与重访后的状态一致性，再决定是否值得训练专用视频适配器。</p>
+<h2 id="5-rynnworld-latent-a-cross-embodiment-world-model-conditioned-on-universal-latent-actionsp1">5. RynnWorld-Latent: A Cross-Embodiment World Model Conditioned on Universal Latent Actions｜P1</h2>
+<p><strong>Haoyu Zhao、Yinzhou Tang、Zixuan Wang 等；阿里达摩院、香港具身智能实验室、CUHK、湖畔实验室。</strong> 10 月 27 日 07:54 UTC 提交；预印本。<a href="https://arxiv.org/abs/2610.36791" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/alibaba-damo-academy/RynnWorld-Latent" target="_blank" rel="noopener noreferrer">代码</a>｜<a href="https://huggingface.co/Alibaba-DAMO-Academy/RynnWorld-Latent" target="_blank" rel="noopener noreferrer">权重入口</a>。它与已报道的 RynnVLA-Latent 属于不同研究对象：这里学习可控的视频动力学和数据生成，后者学习动作策略。</p>
+<p>RynnLAM 从视觉变化提取 3D grounded 潜在动作，作为人类、机器人与仿真视频的共享条件。视频 Transformer 使用全局动作 token 和恒等初始化的局部注入路径，通过视频去噪目标学习未来；目标机器人再用原生控制数据后训练。下游有两条路线：原生动作驱动数字遥操作；或者编辑首帧、沿用源潜在动作，再配合重定向伪动作合成训练数据。它延续 DreamDojo 的跨本体学习思路，并增加了可检查的动作条件与数据生成接口。</p>
+<p><strong>作者报告：</strong>加入合成中训练后，π0 在 LIBERO-Plus <strong>53.6→79.4</strong>，π0.5 则 <strong>84.4→84.8</strong>，收益强烈依赖基座。真机每任务 35 次，π0.5 的 Plate-Placement <strong>82.86→91.43%</strong>、Steak-Serving <strong>40→54.29%</strong>；纯合成数字遥操作训练在四项任务均低于真实数据训练。增加数据和训练计算尚未分开控制；潜在动作与视频的相关性也不足以建立因果控制或真实动力学正确性。</p>
+<p><strong>值得读，但需先固定版本。</strong>论文记为 <strong>23 个数据集、553.5M 帧</strong>，当前 README 仍为 <strong>32 个数据集、&gt;265M 帧</strong>；HF 权重历史停在 <strong>10 月 5 日</strong>，不能称作本次新权重。Apache-2.0 代码包含训练/推理与小样例，基座权重另有访问条件；RynnLAM 训练、全量语料及下游完整评测链未齐。轻量验证先固定公开 checkpoint，在同首帧下替换/打乱动作，测目标运动与相机变化；再以等训练步数、等样本数比较真实数据、重复真实数据和生成数据。</p>
+<h2 id="6-tapestry-a-single-backbone-for-video-generation-and-robot-controlp1">6. TAPESTRY: A Single Backbone for Video Generation and Robot Control｜P1</h2>
+<p><strong>Jeremy A. Collins、Seungjae Lee、Rachanon Wachakorn 等；Georgia Tech、University of Maryland、Toyota Research Institute。</strong> 10 月 27 日 08:23 UTC 提交；arXiv 注明 CoRL 2026 录用，项目页仍写 under review，本轮未另核会议录用列表。<a href="https://arxiv.org/abs/2610.36823" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://tapestry-wam.github.io" target="_blank" rel="noopener noreferrer">项目页</a>。它研究如何让视频扩散预训练直接支持低成本的动作推理。</p>
+<p>动作先线性投影成单个视频 patch 大小的 token，复用视频模型的 patchify 层和 Transformer。训练混合<strong>视频扩散、联合视频—动作扩散、仅动作扩散</strong>三种目标；联合分支使用非对称注意力，动作分支条件是干净的图像 latent。测试时只对 16 个动作 token 做一步 DDIM，无需生成未来视频。它与 Cosmos Policy、DreamZero 的联合世界—动作路线紧密相关，重点在动作如何进入已有视频输入空间。</p>
+<p><strong>作者报告：</strong>在“LIBERO-90 提供动作标签、留出任务提供无动作视频”的迁移协议中均值 <strong>76%</strong>，Cosmos Policy/DreamZero 均 70%，从零训练 58%；不能直接并入常规全监督 LIBERO 排名。真机域内 <strong>28/30</strong>，域外完整成功 <strong>10/15</strong>，样本仍少。RTX 5090 上 16 步动作块 <strong>84 ms、9GB 显存</strong>；约 44 倍比较对象是作者优化后的 DreamZero，同机但整个算法计算量不同。</p>
+<p><strong>值得精读训练目标与限制。</strong>一步输出依赖零终端 SNR 的 v-prediction 参数化，接近条件均值；多峰动作和跨本体动作头仍待研究，论文在 Wan rectified-flow 上直接替换目标的初步实验不稳定。完整训练使用 32 张 H200，项目 Code 链接当前为占位符，未核实专属权重和训练数据发布。轻量替代可在小视频扩散模型上，只比较共享 patch 输入与新动作头，保持数据和去噪次数一致，再测一步/多步的动作多样性、成功率及真实延迟。</p>
+<h2 id="7-gameverse-a-minute-scale-gameplay-dataset-for-long-horizon-interactive-world-modelingp1">7. GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling｜P1</h2>
+<p><strong>Kang He、Wenshuo Peng、Chuanhao Li 等；Alaya Lab、上海创智学院、武汉大学、清华大学。</strong> 10 月 27 日 13:53 UTC 提交，作者注明 NeurIPS 2026 录用；最终精炼数据与投稿版本不同。<a href="https://arxiv.org/abs/2610.37257" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/kangverse/GameVerse" target="_blank" rel="noopener noreferrer">代码与发布说明</a>｜<a href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noopener noreferrer">数据</a>。问题是长时交互视频缺少连续场景、稳定相机条件和按事件对齐的语义监督。</p>
+<p>数据包含 <strong>69,678 段、1,655.05 小时、349.63M 编码帧</strong>，其中 40,752 段约两分钟，共 1,358.43 小时。管线结合场景切分、质量筛选、ViPE 位姿估计及静态场景/局部结构/动态事件/Agent 动作四级描述。HY-World 同骨干微调用于检验数据收益；LTX 分支用 60% 图生视频、20% 视频续写、20% 文生视频目标。后者实际使用 12—15 秒子片段、64 GPU 训练，不能据此单独证明两分钟训练窗口的因果作用。</p>
+<p><strong>作者报告：</strong>HY-World 微调后，在 103 个相同输入的 60 秒生成评测中，WorldScore 的 3D 一致性 <strong>66.94→73.42</strong>，参考图 CLIP 相似度首次低于 0.6 的时间 <strong>30.4→37.9 秒</strong>。CLIP 阈值受视角变化影响，不能当作世界记忆寿命；位姿审核是两种估计器对齐后的一致性，并非对真实引擎位姿的精度。片段长度、描述结构、额外数据量的贡献尚未分开。</p>
+<p><strong>值得读数据契约与局限。</strong>GitHub 的 10 月 27 日 News 写数据已上传，但 HF 文件提交历史为 <strong>8 月 27 日</strong>：本期新增是论文/公告证据，不能计为全新数据首发。实际开放约 13.8GB 元数据、相机/描述归档和两项数据工具，<strong>不分发视频 MP4</strong>；README 承认五个 pose 文件缺失、部分两分钟描述尚未覆盖全程，许可也需按组件核查。轻量验证先抽 100 条检查时间戳、来源可恢复性、pose/描述覆盖，再以等总帧数比较短片段与连续长片段；无需先复制整套数据构建算力。</p>
+<h2 id="8-swim-learning-what-matters-from-behaviors-for-jepa-world-modelsp1">8. SWIM: Learning What Matters from Behaviors for JEPA World Models｜P1</h2>
+<p><strong>Jiaming Hu、Shi Bo 等；Boston University、Unity Technologies。</strong> 10 月 27 日 05:28 UTC 提交；预印本，未核同行评审录用。<a href="https://arxiv.org/abs/2610.36662" target="_blank" rel="noopener noreferrer">论文</a>。它关心一个经常被忽略的问题：模拟器给出的状态变量很多，统一权重可能重复计算同一信息，也可能让无关坐标主导世界模型的潜在距离。</p>
+<p>SWIM 先训练带门控的逆动力学模型，用当前状态与未来位移预测记录动作；训练结合动作似然、匹配/错配位移判别和正则化。学到的相对权重定义状态距离，再用 SCALE 将 JEPA 潜在距离与该距离对齐。训练需要状态与动作，部署仍只从图像进行 CEM/iCEM 规划，逆动力学模型不增加规划时计算。与 LeWM、DINO-WM 相比，它主要改变状态监督的度量，而不另建更大的预测器。</p>
+<p><strong>作者报告：</strong>五项 OGBench 操作任务、五个训练 seed、两个规划器；默认配置相对统一权重平均提升 <strong>0.9—1.0 个百分点</strong>。按任务挑选超参数后的 CEM 表格增幅为 1—6 点，两种口径不能混用。加入 26 个无关状态变量的实验显示门控能抑制干扰，但不能证明权重识别了因果物理因素。行为数据未覆盖的变量、训练时没有提供的状态，方法也无法自动补足。</p>
+<p><strong>适合精读后做小实验。</strong>本轮未确认与论文绑定的专属代码、checkpoint 和评测日志，不能混用其他同名 SWIM 项目。轻量验证用 Cube 与 Scene、250—1,000 条离线轨迹，比较统一权重、行为权重、打乱动作学得的权重；先固定超参数与规划预算，至少三 seed，再决定是否扩到真机或更大表征。</p>
+<h2 id="9-coharl-co-evolving-agent-policies-and-executable-harnesses-with-reinforcement-learningp1">9. CoHARL: Co-Evolving Agent Policies and Executable Harnesses with Reinforcement Learning｜P1</h2>
+<p><strong>Jianwen Chen、Peng Xia、Kaide Zeng 等；UNC Chapel Hill、RIKEN、Cisco。</strong> 10 月 27 日 01:25 UTC 提交；预印本。<a href="https://arxiv.org/abs/2610.36469" target="_blank" rel="noopener noreferrer">论文</a>。它研究模型学会新行为后，负责工具解析、反馈和回合控制的执行程序是否也应继续调整。</p>
+<p>方法维护多个可执行 harness，共享一个 Qwen3.5-35B-A3B 策略。提案器读取成功/失败轨迹及历史准确率—成本档案修改代码，调度器用不同版本采样训练轨迹，策略通过组相对 RL 更新。任务目标和动作格式受约束，SWE 训练还含过程 shaping，最终评测使用严格任务解决。它与 SceneEvolve 的冻结模型程序搜索、Meta-Harness 的纯执行程序搜索构成清楚的对照：适配权重和适配接口是两个独立研究变量。</p>
+<p><strong>作者报告：</strong>110 项 SWE-rebench，三次尝试取平均解决率 <strong>27.6%</strong>，相对 Meta-Harness <strong>+6.4pp</strong>、纯 RL <strong>+7.3pp</strong>；这不是 pass@3。SWE-bench Verified 单次尝试 <strong>59.8%</strong>，单独训练的 Terminal-Bench 代理 <strong>36.8%</strong>。30 步消融匹配训练预算，但搜索次数并不完全一致；主实验验证另增加约 10% 开销，提案器推理额外计费，不能称总计算完全相同。</p>
+<p><strong>值得读联合适配和成本归因。</strong>目前是一种策略模型、单次训练，缺少完整置信区间和统一总算力比较，也没有把最终权重放在共同 harness 下拆分收益。本轮未核实专属公开代码、权重和完整轨迹。轻量验证可在 20 个开发任务、30 个留出任务上，做冻结模型/小 LoRA 与固定/演化 harness 的四格对照，统一真实执行次数、token 和提案成本；每次变更后冻结版本评测，检查增益来自哪一层。</p>
+<h2 id="10-liquid-ai-lfm3端侧多模态模型与机器人扩展p1">10. Liquid AI LFM3：端侧多模态模型与机器人扩展｜P1</h2>
+<p><strong>Liquid AI 团队；10 月 27 日官方发布。</strong> 性质为官方模型/研究博客及开放权重，未见本次配套同行评审论文。<a href="https://www.liquid.ai/blog/lfm3" target="_blank" rel="noopener noreferrer">官方发布</a>｜<a href="https://huggingface.co/collections/LiquidAI/lfm3" target="_blank" rel="noopener noreferrer">模型集合</a>｜<a href="https://huggingface.co/LiquidAI/LFM3-VL-2B" target="_blank" rel="noopener noreferrer">VL 权重</a>。它的重要性在于让小模型覆盖工具编排、视觉导航与低层动作三种机器人接口；这是非 arXiv 入口发现的重要回补。</p>
+<p>基础模型采用短卷积、滑窗注意力与全局注意力的混合架构；机器人扩展中，工具编排使用 LoRA 学习指点、深度测量、规划调用及结果检查；VLA 则以八个 action-query token 经小 MLP 输出八步连续动作，整网微调。它分别联系 SayCan/Code as Policies 与 OpenVLA-OFT/StarVLA-α。机器人扩展的完整训练损失、数据划分及消融披露有限。</p>
+<p><strong>官方报告：</strong>VLA 在四套 LIBERO 均值 <strong>96.2%</strong>、RoboCasa-GR1 <strong>45.7%</strong>，训练涉及 15 种本体、170 MI325X GPU-hours；Jetson AGX Orin、TensorRT FP16 下动作块低于 <strong>50ms</strong>。这些数字没有给出足够细的样本量、误差条和同设置复现。导航的 R2R/RxR 53%/43% 与工具编排的抗扰恢复也属于各自不同协议，不能合成一个统一机器人能力分数。</p>
+<p><strong>值得读开放基座和端侧接口；机器人结论先作官方证据。</strong>VL 实际权重上传可追溯到 10 月 27 日，后续主要为文档/配置更新；模型使用 LFM Open License v1.0。已核通用 VL 权重与推理代码，<strong>未在官方集合确认机器人 VLA checkpoint、完整机器人训练数据和评测 harness</strong>，不能把基座开放等同机器人配方完整开放。轻量验证可用公开 VL 加同一组固定感知/规划工具，先做 20 个指令编排任务；训练小动作头时保持数据、工具和控制频率一致，分别测感知错误、动作错误及冷/热启动延迟。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮把空间智能、3D/4D、real-to-sim 和生成式仿真作为独立主线，扫描了 <strong>42 个论文/官方/项目入口</strong>，并以 broader web 对 World Model、Physical AI、Embodied Foundation Model、Human-to-Robot、Agent/Self-Evolution 等主题交叉兜底。arXiv 四分类列表共 3,887 条记录、3,080 个去重 ID；严格提交窗口 API 返回 951 条，标题主题初筛 396 条。这些是覆盖统计，不是“951 篇重要新作”，也不证明 29 日新批次已全部可检索。</p>
+<p><strong>主要官方入口已扫描：</strong>World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、TRI；高校覆盖 Stanford、Berkeley、MIT、CMU、Princeton；中国入口包括上海 AI 实验室、清华 AIR、北大 EPIC、阿里达摩院、腾讯混元、字节 Seed、智元、云深处、蚂蚁灵波和智源。除本期 LFM3 及已报道发布外，<strong>在本轮可核实入口未发现其他足以进入 Top Papers 的重大新增公开模型或权重证据</strong>；以下官方和基准动态进入观察池。</p>
+<ul>
+<li><strong>Machenta：</strong>Imperial 10 月 27 日官方报道模拟预训练、一次示范即时学习的机器人基础模型方向。当前主要是公司/融资与演示发布，未给标准成功率、完整技术报告或可下载模型，不把融资金额当作研究验证。<a href="https://www.imperial.ac.uk/news/articles/2026/imperial-ai-spinout-machenta-raises-40-million-to-make-robots-instant-learners/" target="_blank" rel="noopener noreferrer">大学官方报道</a></li>
+<li><strong>AGIBOT GO-3 Nano Preview：</strong>RoboDojo 当前模拟榜单显示 <strong>61.90 分、56.42% 成功率</strong>，标注由 AGIBOT 贡献；它是外部基准网站上的提交成绩，尚不能确认由基准方独立重跑，也未核实完整技术/模型发布与榜单历史时间。作为重要候选保留。<a href="https://robodojo-benchmark.com/leaderboard?bench=sim" target="_blank" rel="noopener noreferrer">基准榜单</a></li>
+<li><strong>Nebius × Positronic Physical AI Competition：</strong>官方公告日期为 <strong>10 月 26 日</strong>，媒体 28 日报道不改变该日期。先仿真、前十进入真机；这是评测基础设施新增，尚无最终竞赛结果。<a href="https://positronic.ro/nebius-positronic-physical-ai-competition" target="_blank" rel="noopener noreferrer">主办方公告</a></li>
+<li><strong>NVIDIA GR00T 工程更新：</strong>10 月 28 日 21:46 UTC 的官方提交增加动作 padding 与 VL padding 的严格屏蔽选项，以及 N1.7 单 GPU 训练计时。两个屏蔽选项为保持旧权重行为而默认关闭；严格动作屏蔽还限制部分 TensorRT 路径，不能理解为更新代码就自动改善旧模型。它是窗口内代码证据，尚无相应新权重或任务成功率增益验证。<a href="https://github.com/NVIDIA/Isaac-GR00T/commit/c56f54128d92f743889b7e4cecfc1ceafd88739e" target="_blank" rel="noopener noreferrer">动作屏蔽提交</a>｜<a href="https://github.com/NVIDIA/Isaac-GR00T/commit/53bc7541dcebce254f90d527d67a9b7851f28ca1" target="_blank" rel="noopener noreferrer">VL 屏蔽提交</a></li>
+<li><strong>Anthropic：</strong>28 日 AI for Science 扩展至 20 家基金会、研究机构与团队，属于研究支持范围扩大；27 日科研 Agent 与专家判断报告已经报道，本轮没有新能力实验据此重列。<a href="https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions" target="_blank" rel="noopener noreferrer">官方公告</a></li>
+<li><strong>云深处：</strong>28 日中文官网汇总 DR-WM、DR-VLA、DR-Agent、DR-APO、DR-Benchmark；同组研究 24 日已有对外汇总，不能整体算作五项新研究。MIT 28 日软体肠镜机器人新闻、Robotiq 28 日触觉活动也已入候选，分别因偏器械机制和技术证据尚不足而未展开。<a href="https://www.deeprobotics.cn/news/detail/30.html" target="_blank" rel="noopener noreferrer">云深处官方汇总</a>｜<a href="https://news.mit.edu/2026/soft-robot-could-help-doctors-diagnose-treat-small-intestine-disorders-1028" target="_blank" rel="noopener noreferrer">MIT 官方报道</a></li>
+</ul>
+<p><strong>检索缺口：</strong>TRI、Stanford AI Blog、SpAItial 部分请求受限；Stanford 已补查 Robotics Center，Princeton 改由可访问的网页结果核对。Meta 列表明显偏旧，Seed/智源/达摩院/混元部分动态页正文不足；这些入口不能据“未读到更新”判为确定无更新。相应缺口保留为 Retrieval Failure 风险，不用 Selection 掩盖。Hy-Nomas 的最新提交主要把文档链接改到 arXiv，未作为新能力或新权重重复报道。</p>
+<p><strong>已经进入候选但本期未展开的 Selection：</strong><a href="https://arxiv.org/abs/2610.36011" target="_blank" rel="noopener noreferrer">E0.5</a> 的几何原生 WAM、<a href="https://arxiv.org/abs/2610.37518" target="_blank" rel="noopener noreferrer">World Dreamer v5-lite</a> 的多机器人共享空间状态、<a href="https://arxiv.org/abs/2610.37666" target="_blank" rel="noopener noreferrer">ThinkWorld</a> 的动力学思维链、<a href="https://arxiv.org/abs/2610.36925" target="_blank" rel="noopener noreferrer">Dwell</a> 的 VLM 潜在想象、<a href="https://arxiv.org/abs/2610.36826" target="_blank" rel="noopener noreferrer">RuHarness</a> 的评判准则共演化，以及 Best-of-N WAM、MLE-World 等。它们已完成题目/摘要或全文筛查；本期优先选择可形成互补问题链的十项，不把未展开说成未发现。E0.5 论文给出的 homepage 当前落到 Phoenix 项目，专属资源对应关系尚需澄清。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图沿用 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>。下表的趋势、gap 和研究机会是本报归纳，尚未验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可编辑空间与过程</td>
+<td>LabWorld、SceneEvolve：视频/图片转对象、关系、事件和程序</td>
+<td>渲染相似、事件约束满足与真实隐状态仍可能不一致</td>
+<td>独立几何/事件真值下的重建与反事实交互验收</td>
+</tr>
+<tr>
+<td>持久世界与渲染</td>
+<td>BoxWorld、GameVerse：显式状态接口、连续长片与事件监督</td>
+<td>状态来自引擎还是模型；相机变化会干扰“记忆”指标</td>
+<td>规则、状态记忆、渲染器三者的分离归因</td>
+</tr>
+<tr>
+<td>跨本体动作接口</td>
+<td>RynnWorld-Latent、TAPESTRY：共享潜在动作或视频 patch 输入</td>
+<td>表征收益、增加数据、控制后端与计算预算纠缠</td>
+<td>同数据/同预算的动作接口与可执行一致性实验</td>
+</tr>
+<tr>
+<td>任务相关预测</td>
+<td>SWIM：行为决定状态度量，再塑造 JEPA 距离</td>
+<td>行为相关性与任务/因果重要性不等价</td>
+<td>在目标变化和隐参数变化下审计学到的状态权重</td>
+</tr>
+<tr>
+<td>自改进执行系统</td>
+<td>SceneEvolve、CoHARL、RuHarness：程序、权重和反馈分别适配</td>
+<td>开发集过拟合、归因与完整搜索成本仍不清楚</td>
+<td>固定外部验收的权重×harness×评价器实验</td>
+</tr>
+<tr>
+<td>开放部署与验收</td>
+<td>LFM3、ScIntBench、PhAIL：小模型、资产交互与真机评价</td>
+<td>基座开放不等于机器人完整配方开放，仿真排名未必迁移</td>
+<td>可追溯发布清单与同接口、同频率的部署评测</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会 A：从视觉合格到交互合格的失败预测。</strong> 取 10—20 个生成/重建场景，按相同脚本推、开、放，再在第二引擎复核；用静态分数预测交互失败，并分开缺能力与物理异常。若跨生成器、跨引擎仍能改善失败识别，可继续；若排序主要由转换器的默认物理参数决定，应先修评测契约。</li>
+<li><strong>机会 B：事件约束的收益与错误传播。</strong> 在 3—5 段自录操作中比较正确事件、删除事件、错序事件及仅视觉优化；测试集使用独立标注，报告遮挡程度和误约束。只有约束在正确时帮助恢复状态、错误时能被识别/拒绝，才支持可推广的事件驱动重建。</li>
+<li><strong>机会 C：动作接口究竟保留了什么。</strong> 用同一小规模轨迹集比较潜在动作、原生动作和 shuffled-action 条件；固定训练步数，再做等量真实/合成数据对照。若收益只随额外样本或额外训练增加，应将贡献表述为数据增强，而不能归于跨本体接口本身。</li>
+<li><strong>机会 D：自演化的完整成本与留出迁移。</strong> 冻结一组外部成功检查，做模型权重更新×harness 演化四格实验；记录提案、验证、失败重试和部署开销。若仅开发集上涨，或冻结通用 harness 后权重收益消失，应停止扩大训练，先定位选择过拟合与接口依赖。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>除下表明确注明外，本期数字均为作者/官方报告，本轮没有下载大模型、执行论文实验或独立重跑榜单。P0/P1 是阅读优先级。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>论文 / 评审状态</th>
+<th>代码、权重、数据与当前可复现边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ScIntBench</td>
+<td>预印本</td>
+<td>项目页可读；代码链接占位，完整场景与执行包未核实</td>
+</tr>
+<tr>
+<td>LabWorld</td>
+<td>预印本</td>
+<td>MIT 初始代码/交互场景；历史求解器、缓存与终稿实验链不完整</td>
+</tr>
+<tr>
+<td>SceneEvolve</td>
+<td>预印本</td>
+<td>MIT 演化与场景接口；划分示例为占位，最终 harness/全轨迹未见</td>
+</tr>
+<tr>
+<td>BoxWorld</td>
+<td>预印本</td>
+<td>GitHub coming soon；权重与 PairedStateBench 完整包未核实</td>
+</tr>
+<tr>
+<td>RynnWorld-Latent</td>
+<td>预印本</td>
+<td>Apache 源码/小样例、旧 HF 权重；论文/README 数据口径不一致，许可分组件</td>
+</tr>
+<tr>
+<td>TAPESTRY</td>
+<td>arXiv 注明 CoRL 录用，项目页仍 under review</td>
+<td>Code 为占位；专属权重、训练数据与运行链未核实</td>
+</tr>
+<tr>
+<td>GameVerse</td>
+<td>作者注明 NeurIPS 录用，最终数据后期精炼</td>
+<td>元数据/标注及工具已核；原视频需依来源恢复，部分标注不完整，训练 checkpoint 未核实</td>
+</tr>
+<tr>
+<td>SWIM</td>
+<td>预印本</td>
+<td>详细协议可读；未确认专属代码、权重和运行日志</td>
+</tr>
+<tr>
+<td>CoHARL</td>
+<td>预印本</td>
+<td>方法/配置可读；专属代码、策略权重、完整搜索轨迹未核实</td>
+</tr>
+<tr>
+<td>LFM3</td>
+<td>官方发布 / 模型卡</td>
+<td>通用多模态权重与推理代码已核；机器人扩展 checkpoint/数据/评测链未确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天先读 <strong>ScIntBench 的失败分类与 LabWorld 的事件消融</strong>，把场景验收标准定清楚。若只做一个小实验，优先完成“10 个场景×三种固定交互”的审计，并把视觉分数、必要物理能力和实际执行结果分别记录。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-28/"><span>← 上一期 · 2026-10-28</span><strong>Genie 4 · EmbodiedLab · GenSfM</strong></a><a class="newer" href="../2026-10-30/"><span>下一期 → · 2026-10-30</span><strong>ImagiRep / GEARS · Best-of-N / HeadroomBench · ThinkWorld</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

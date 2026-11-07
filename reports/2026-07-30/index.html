@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-07-30｜🚨 今日重点（2-3 条最值得关注的新发布） · 🧠 顶级研究组新发布 · 🌌 生成模型 / 新范式 · Yunhe</title><meta name="description" content="2. 腾讯混元 + HKUST 提出 MeanFlowNFT：把&quot;前向过程 RL&quot;首次接到平均速度生成器 arXiv 2607.15273（cs.CV / cs.LG）。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-07-30/"><meta property="og:type" content="article"><meta property="og:title" content="2026-07-30｜🚨 今日重点（2-3 条最值得关注的新发布） · 🧠 顶级研究组新发布 · 🌌 生成模型 / 新范式"><meta property="og:description" content="2. 腾讯混元 + HKUST 提出 MeanFlowNFT：把&quot;前向过程 RL&quot;首次接到平均速度生成器 arXiv 2607.15273（cs.CV / cs.LG）。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-07-30/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>🚨 今日重点（2-3 条最值得关注的新发布） · 🧠 顶级研究组新发布 · 🌌 生成模型 / 新范式</h1><p class="article-deck">2. 腾讯混元 + HKUST 提出 MeanFlowNFT：把&quot;前向过程 RL&quot;首次接到平均速度生成器 arXiv 2607.15273（cs.CV / cs.LG）。</p><div class="article-meta"><time datetime="2026-07-30">2026 / 07 / 30</time><span>约 9 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span><span class="tag">具身智能</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E9%87%8D%E7%82%B92-3-%E6%9D%A1%E6%9C%80%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E7%9A%84%E6%96%B0%E5%8F%91%E5%B8%83">🚨 今日重点（2-3 条最值得关注的新发布）</a><a class="toc-level-2" href="#%E9%A1%B6%E7%BA%A7%E7%A0%94%E7%A9%B6%E7%BB%84%E6%96%B0%E5%8F%91%E5%B8%83">🧠 顶级研究组新发布</a><a class="toc-level-2" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E6%96%B0%E8%8C%83%E5%BC%8F">🌌 生成模型 / 新范式</a><a class="toc-level-2" href="#%E5%A4%9A%E6%A8%A1%E6%80%81-vlm">🖼 多模态 / VLM</a><a class="toc-level-2" href="#%E5%85%B7%E8%BA%AB-vla-%E6%9C%BA%E5%99%A8%E4%BA%BA">🦾 具身 / VLA / 机器人</a><a class="toc-level-2" href="#agent-%E5%A4%A7%E6%A8%A1%E5%9E%8B">🤖 Agent / 大模型</a><a class="toc-level-2" href="#ai-for-science">🧬 AI for Science</a><a class="toc-level-2" href="#%E6%8A%95%E8%9E%8D%E8%B5%84-%E8%A1%8C%E4%B8%9A">💰 投融资 / 行业</a><a class="toc-level-2" href="#%E5%80%BC%E5%BE%97%E6%94%B6%E8%97%8F%E7%9A%84%E8%BF%87%E5%8E%BB-72-%E5%B0%8F%E6%97%B6%E6%8F%90%E7%A4%BA">📈 值得收藏的&quot;过去 72 小时&quot;提示</a><a class="toc-level-2" href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E">⚠️ 免责声明</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-07-30.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-07-30</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<blockquote>
+<p>报告范围：2026-07-27 ~ 2026-07-30（过去 72 小时内的新发布 / 新动态）
+强调可核验的 3 日内内容；arXiv 数据基于 cs.AI / cs.CV / cs.LG / cs.RO 的最近 7 日内窗口（包含 07-28 与 07-29 新提交批次）。</p>
+</blockquote>
+<hr>
+<h2 id="今日重点2-3-条最值得关注的新发布">🚨 今日重点（2-3 条最值得关注的新发布）</h2>
+<ol>
+<li>
+<p><strong>NVIDIA × Stanford × UT Austin 发布 RoboTTT：把测试时训练（TTT）塞进机器人策略，视觉运动上下文扩到 8K 时间步</strong><br>
+   arXiv 2607.15275（cs.RO / cs.AI / cs.LG）。把"测试时训练"嵌入 VLA 基础模型后，可在 5 分钟十阶段的装配任务上首次实现闭环完成，整体任务成功率比单步上下文基线 +87%。Jim Fan 团队官方项目页 research.nvidia.com/labs/gear/robottt/。来源：arXiv / X（@DrJimFan）。</p>
+</li>
+<li>
+<p><strong>腾讯混元 + HKUST 提出 MeanFlowNFT：把"前向过程 RL"首次接到平均速度生成器</strong><br>
+   arXiv 2607.15273（cs.CV / cs.LG）。在 Wan 2.1 上仅 4 步采样达到 VBench 84.33，超越 50 步的 LongCat-Video RL（82.57），并证明继承 DiffusionNFT 的严格策略改进保证。来源：arXiv / 公众号（机器之心同步转载）。</p>
+</li>
+<li>
+<p><strong>中国人民大学 + 蚂蚁集团开源 SearchOS-V1：把开放域搜索做成可纠错的多智能体系统</strong><br>
+   arXiv 2607.15257（cs.AI / cs.IR）。在 WideSearch 与 GISA 基准上全面领先单智能体与多智能体基线，提出"显式持久状态 + 搜索工具中间件 + 复用技能系统"的三件套。来源：arXiv / 知乎热议。</p>
+</li>
+</ol>
+<hr>
+<h2 id="顶级研究组新发布">🧠 顶级研究组新发布</h2>
+<ol>
+<li>
+<p><strong>MIT × Minimax "共失效天花板"理论后续：Vector Policy Optimization（VPO）</strong><br>
+   arXiv 2606.27288（Josef Chen），本周持续在公众号 / 知乎被反复解读。结论：标量 reward（GRPO）会压扁采样多样性，而把 reward 视作 Dirichlet 分布采样的向量可覆盖 Pareto 前沿，在 Maze、MuSiQue、EUREQA、ToolRL 上 best@k 全面超过 GRPO。来源：arXiv / 公众号 / 知乎。</p>
+</li>
+<li>
+<p><strong>Meta × FAIR 团队 V-JEPA 2.1 衍生工作持续落地：LeWorldModel（LeWM）实装端到端像素世界模型</strong><br>
+   LeCun 团队本月在"自主机器智能"路线图上放出 LeWM，强调"在像素空间做端到端稳定训练"，并称规划速度可比传统像素级世界模型快 48 倍。配套同步放出的还有 Rectified LpJEPA（用整流分布匹配将 L0 sparsity 压到 0.0098–0.69，仍保持 82–85% 的 Acc1）。来源：arXiv / 公众号 / X（@ylecun）。</p>
+</li>
+<li>
+<p><strong>DeepMind Genie 3 后续：GDC 2026 上 DeepMind 公开承认"模型崩溃"，但坚称是早期研究阶段</strong><br>
+   来自 3DM Game 与 gamefile.news 的报道：Genie 3 在 GDC 实机演示中"第一分钟流畅，之后基本崩盘"，DeepMind 把原因归于"早期研究模型 + 物理一致性仍是开放问题"。来源：游戏媒体 / 科技媒体 / Reddit r/accelerate。</p>
+</li>
+<li>
+<p><strong>Apple ML Research 提交 SciDiagramEdit：从 arXiv 论文修订里学"自然语言改图"</strong><br>
+   arXiv 2607.15272（cs.CL / cs.AI），KAUST × Microsoft Research × NTU 合作。创新点：把"作者自然修订"作为指令驱动矢量图编辑的训练信号；并提出"技能进化"的智能体学习框架。来源：arXiv / 公众号（深蓝 AI）。</p>
+</li>
+<li>
+<p><strong>NVIDIA × University of Washington "Online Neural Space-Time Memory"</strong><br>
+   arXiv 2607.15271（cs.CV / cs.GR / cs.LG），提出解耦"记忆更新"与"记忆应用"的频率，跨视图注意力管理形变；在动态人体和分钟级在线记忆上取得实时 SOTA。来源：arXiv。</p>
+</li>
+</ol>
+<hr>
+<h2 id="生成模型-新范式">🌌 生成模型 / 新范式</h2>
+<ol>
+<li><strong>MeanFlowNFT（腾讯混元 + HKUST）</strong> —— 上面已展开。来源：arXiv。</li>
+<li><strong>PRD-MARL × AutoSynthesis</strong>（arXiv 2607.15247，米兰理工 × 慕尼黑大学 × MIT CSAIL）：端到端多智能体元分析系统，筛选 28 项研究、与专家元分析的 Hedges' g 高度一致，PRISMA 报告自动生成。来源：arXiv。</li>
+<li><strong>T²MLR：把循环塞进 Transformer 中间层就能做潜在推理</strong>（arXiv 2607.15178，普林斯顿）：把前一个 token 的中间层表示融合到当前 token 较早层，1.7B 模型在数学推理上明显提升；不需从头预训练，可改造现成模型。来源：arXiv。</li>
+<li><strong>Mask-Aware Policy Gradients for MDLMs</strong>（UT Austin，COLM 2026 接收）：把掩码扩散语言模型生成形式化为两阶段 MDP，GSM8K 87.1% / MBPP 53.4% 取得 SOTA。来源：arXiv。</li>
+</ol>
+<hr>
+<h2 id="多模态-vlm">🖼 多模态 / VLM</h2>
+<ol>
+<li><strong>SceneBind：跨视觉、音频、语言的全模态场景表征</strong>（华盛顿大学 × UTDallas × HUFS，arXiv 2607.15265）：把每个场景同时表示成"全局语义嵌入 + 对象中心语义空间槽"，零样本迁移到视听定位。来源：arXiv。</li>
+<li><strong>HoloGeo：用证据驱动推理压住 VLM 的"地标偏差"</strong>（NUS × 牛津 × 山东科大，arXiv 2607.15255）：自建 LandmarkBias-3K 基准 + BF-30k 训练集，在 IM2GPS3K、YFCC4k、LandmarkBias-3K 上同时领先。来源：arXiv。</li>
+<li><strong>MAGiSt3R：单目 RGB 视频的多智能体前馈 3D 重建</strong>（博洛尼亚大学 × 港大 × 东南大学 × 莫纳什，arXiv 2607.15211）：在 10 FPS 下完成重建 + 相机跟踪，姿态图优化抑制漂移。来源：arXiv。</li>
+<li><strong>多模态大语言模型的"科学可视化素养"基准</strong>（圣母大学 arXiv 2607.15176）：在 8 种技术、11 类任务的 49 题上测试 6 个 MLLM，Gemini 是闭源最强，开源仍低于人类基线。来源：arXiv / 公众号（PaperWeekly）。</li>
+</ol>
+<hr>
+<h2 id="具身-vla-机器人">🦾 具身 / VLA / 机器人</h2>
+<ol>
+<li><strong>RoboTTT（NVIDIA × Stanford × UT Austin）</strong> —— 上面已展开，8K 时间步上下文是关键扩展轴。来源：arXiv / X。</li>
+<li><strong>AHEAD：基于意图预测的实时 VR 遥操作系统</strong>（Georgia Tech × Neuromeka × INRIA × 牛津，IROS2026 接收）：Top-1 意图预测 76%，相比基线让机器人反应延迟减少 0.6s（物体）/ 1.4s（插槽）。来源：arXiv。</li>
+<li><strong>HDR：分层去噪让视频模型做"多步视觉推理"</strong>（北大 × HKUST × 北航 × 福州大学 × 木卡机器人，arXiv 2607.15278）：成功率 34.22→60.29，推理速度比双向扩散快 54.2 倍，2% 训练数据保留 82.9% 性能。来源：arXiv。</li>
+<li><strong>1X NEO 新一代灵巧手（量产版）</strong>（1X Technologies）：7 月 9 日发布 25 自由度腱绳驱动 + 高分辨率触觉 + IP68 可水洗灵巧手；据 The Robot Report / Forbes，1X 已开启 NEO 全规模量产；Hugging Face 同步公开操作数据集片段。来源：科技媒体 / X。</li>
+</ol>
+<hr>
+<h2 id="agent-大模型">🤖 Agent / 大模型</h2>
+<ol>
+<li><strong>SearchOS-V1（人大高瓴 + 蚂蚁）</strong> —— 已展开，核心是把搜索进度从"隐式"转成"显式持久状态"。来源：arXiv。</li>
+<li><strong>AutoSynthesis：自动化元分析的多智能体系统</strong>（米兰理工 × 慕尼黑大学 × MIT CSAIL）—— 上面已展开。来源：arXiv。</li>
+<li><strong>Plover：以计划为中心的 GUI 智能体</strong>（UC Davis × Bosch Research North America，arXiv 2607.15193）：把"任务计划 + 重新规划"外化为可编辑工件，6 人形成性研究 + 故障案例修复评估，证明 GUI 故障在结构上多数可被人在循环里修。来源：arXiv。</li>
+<li><strong>当语言安全但行动致命：PRISM 在隐藏状态里捕捉"物理危险"</strong>（清华 × NTU，arXiv 2607.15218）：在 SafeAgentBench 上 86.2–87.7% 准确率，在新发布的 PhysicalSafetyBench-1K 上 99.6% 准确率 / 0.7% FPR。来源：arXiv。</li>
+<li><strong>Tokenmaxxing 退潮：2026 Q2 8 大趋势报告</strong>（腾讯新闻企鹅智库，本周再被业内广泛引用）：通用 Agent 成 AI OS、Multi-Agent 与自进化 AI 接管复核、CPU/内存/网络重夺算力中心、就业安全认知"缴械"四类系统性风险浮现。来源：公众号 / X / LinkedIn。</li>
+</ol>
+<hr>
+<h2 id="ai-for-science">🧬 AI for Science</h2>
+<ol>
+<li><strong>MCF-Net：用基础模型 + 运动条件多视图融合定位心肌梗死</strong>（牛津 × NUS，arXiv 2607.15268）：节段级 F1 72.4% / 准确率 84.9%。来源：arXiv。</li>
+<li><strong>EHRFormer × 蛋白质语言模型协同的结构-功能预测</strong>（arXiv 2607.15258 同期工作）：多家实验室用蛋白质语言模型+冷冻电镜密度图预测，CVPR 2026 接收。来源：arXiv / 公众号。</li>
+<li><strong>MIT VPO 与"有效反馈算力"理论</strong>（哈工大五月底发布、本周再被知乎热议）：复杂任务中有效反馈算力只占 10%，剩下 90% 被读历史 + 试错吞掉。来源：公众号 / 知乎 / X。</li>
+</ol>
+<hr>
+<h2 id="投融资-行业">💰 投融资 / 行业</h2>
+<ol>
+<li><strong>AMD 2026 Q1 数据中心业务收入 ~58 亿美元，同比 +57%</strong>；服务器 CPU 收入 +50%+；把 2030 年服务器 CPU 市场规模预测翻倍到 1200 亿美元，明确归因于 Agent 带来的 CPU 调度需求。来源：科技媒体（Tom's Hardware 转载 / 知乎）。</li>
+<li><strong>OpenAI Q2 财报披露 2026 年 2 月完成的 1100 亿美元融资仍是史上最大单轮</strong>；AI 独角兽总数 308 家，平均 4.7 年达到 10 亿美元估值。来源：科技媒体（搜狐智库报告）/ X。</li>
+<li><strong>Kimi Agent Swarm 引入"多智能体并行"生产范式，延迟最高降低 4.5 倍</strong>；同期 Anthropic 在 6 月报告中将"Recursively Self-Improving AI"列为长期路线。来源：公众号 / X。</li>
+</ol>
+<hr>
+<h2 id="值得收藏的过去-72-小时提示">📈 值得收藏的"过去 72 小时"提示</h2>
+<ul>
+<li>2026-07-28 NeurIPS 2026 比赛赛道公布（NeurIPS.cc 官方公告）</li>
+<li>2026-07-28 Apple 起诉 OpenAI 及其前硬件高管 Tang Tan、io 设备部门（Radical Data Science AI News Briefs 整理）</li>
+<li>2026-07-13 Stanford 数字经济研究院联合 16 位诺贝尔奖得主与一线经济学家发表"AI 经济学"联合声明（Stanford Digital Economy Lab，已被反复引用）</li>
+<li>2026-07-23 Kirkland &amp; Ellis："AI Blitz 让我们的 Real Assets 业务变成抢手货"（一线律所观察）</li>
+<li>2026-07-26 苹果股价创新高、市值重回 4 万亿（科技媒体）</li>
+</ul>
+<hr>
+<h2 id="免责声明">⚠️ 免责声明</h2>
+<ul>
+<li>本报告由 AI 检索 + 人工整理生成，仅供研究参考；</li>
+<li>涉及公司 / 模型的描述均来自公开报道，可能与最新事实存在偏差；</li>
+<li>不构成任何投资建议。</li>
+</ul></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-07-29/"><span>← 上一期 · 2026-07-29</span><strong>AI 研究观察 · 2026-07-29</strong></a><a class="newer" href="../2026-08-01/"><span>下一期 → · 2026-08-01</span><strong>🚨 今日重点 · 顶级研究组新发布（3-5 条，3 天内） · 生成模型 / 新范式</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

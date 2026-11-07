@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-27｜Hy-Nomas · Video World Models Need Predictable Latents · SceneAgent · Yunhe</title><meta name="description" content="今天最重要的新增是 Hy-Nomas 技术报告落地：已有方法与人工评测可读，且官方结果明确显示其空间记忆仍落后于 Genie 3。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-27/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-27｜Hy-Nomas · Video World Models Need Predictable Latents · SceneAgent"><meta property="og:description" content="今天最重要的新增是 Hy-Nomas 技术报告落地：已有方法与人工评测可读，且官方结果明确显示其空间记忆仍落后于 Genie 3。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-27/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Hy-Nomas · Video World Models Need Predictable Latents · SceneAgent</h1><p class="article-deck">今天最重要的新增是 Hy-Nomas 技术报告落地：已有方法与人工评测可读，且官方结果明确显示其空间记忆仍落后于 Genie 3。</p><div class="article-meta"><time datetime="2026-10-27">2026 / 10 / 27</time><span>约 21 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">Agent</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-hy-nomas-towards-free-form-interactive-world-generationp0">1. Hy-Nomas: Towards Free-form Interactive World Generation｜P0</a><a class="toc-level-2" href="#2-video-world-models-need-predictable-latentsp0">2. Video World Models Need Predictable Latents｜P0</a><a class="toc-level-2" href="#3-sceneagent-an-agentic-pipeline-from-3d-and-4d-captures-to-simulation-environmentsp0">3. SceneAgent: An Agentic Pipeline from 3D and 4D Captures to Simulation Environments｜P0</a><a class="toc-level-2" href="#4-rynnvla-latent-scaling-robotic-manipulation-foundation-models-with-3d-grounded-latent-actionsp0">4. RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions｜P0</a><a class="toc-level-2" href="#5-mix-forcing-causal-pre-training-via-mixture-attention-for-interactive-world-modelsp1">5. Mix Forcing: Causal Pre-Training via Mixture Attention for Interactive World Models｜P1</a><a class="toc-level-2" href="#6-more-memory-better-videos-vmem-benchp1">6. More Memory, Better Videos? / VMem-Bench｜P1</a><a class="toc-level-2" href="#7-physevolve-verifier-grounded-self-evolution-for-physical-reasoning-with-executable-worldsp1">7. PhysEvolve: Verifier-grounded Self-evolution for Physical Reasoning with Executable Worlds｜P1</a><a class="toc-level-2" href="#8-vista-active-exploration-for-self-improvement-in-embodied-agentsp1">8. VISTA: Active Exploration for Self-Improvement in Embodied Agents｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-27.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-27</div><article class="prose"><p>主检索窗口为北京时间 <strong>10 月 24 日 10:09—10 月 27 日 10:09</strong>，来源核验延伸至本轮结束。并行覆盖 arXiv Robotics / AI / CV / ML、官方研究与发布页、GitHub / Hugging Face，以及独立的 Spatial Intelligence、VLA / WAM / RL、Agent / self-evolution 检索线，并完成 broader web 重大遗漏检查。列表页仍显示 10 月 26 日批次，API 则返回窗口内 612 条记录，标题初筛得到 178 个相关候选；这些数字表示检索覆盖，不表示入选数。昨日八项重点不机械重述。</p>
+<p><strong>今天最重要的新增是 Hy-Nomas 技术报告落地：已有方法与人工评测可读，且官方结果明确显示其空间记忆仍落后于 Genie 3。</strong> 本期保留 8 项：1 项有新报告的回访、3 篇晚于上期完成的新论文，以及 4 篇窗口内的 Retrieval Failure 回补——Predictable Latents、SceneAgent、RynnVLA-Latent、Mix Forcing。后四篇此前未进入候选池，不能归因于筛选。整体判断是：可预测表征、指令生效时窗、记忆有效性和可执行验证，正成为比单一生成质量更有区分度的研究问题。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>Hy-Nomas 技术报告 → Predictable Latents → SceneAgent → RynnVLA-Latent → VMem-Bench</strong>。</p>
+<ul>
+<li><strong>Hy-Nomas</strong>：先看新公开的动作时窗设计与空间记忆负结果，修正此前只有演示的判断。</li>
+<li><strong>Predictable Latents</strong>：等重建质量、等训练预算的对照，直接回答世界模型应该使用怎样的潜在空间。</li>
+<li><strong>SceneAgent</strong>：把空间重建推进到交互仿真，同时暴露几何指标、数据规模与真机收益之间的差异。</li>
+<li><strong>RynnVLA-Latent</strong>：考察几何约束的潜在动作是否比直接拼接异构控制更适合跨本体预训练。</li>
+<li><strong>VMem-Bench</strong>：用受控负结果检查“记得更多”是否真的有利于当前世界状态。</li>
+</ul>
+<p>P0 表示今天优先精读，P1 表示值得专题跟进；优先级不表示已独立复现。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-hy-nomas-towards-free-form-interactive-world-generationp0">1. Hy-Nomas: Towards Free-form Interactive World Generation｜P0</h2>
+<p><strong>腾讯混元视觉生成团队，官方技术报告。</strong> 本次新增是 <strong>10 月 26 日 22:27</strong> 的报告文件提交，代码和权重更早已公开；未核实同行评审。报告由“待发布”变为可查，因此本期回访。<a href="https://github.com/Tencent-Hunyuan/Hy-Nomas/blob/bb53b54dcfdb6c69201fb6be731f23d65c84ae8b/Hy_Nomas_Tech_Report.pdf" target="_blank" rel="noopener noreferrer">技术报告固定版本</a>、<a href="https://github.com/Tencent-Hunyuan/Hy-Nomas" target="_blank" rel="noopener noreferrer">官方代码</a>、<a href="https://huggingface.co/tencent/Hy-Nomas" target="_blank" rel="noopener noreferrer">模型</a>、<a href="https://huggingface.co/datasets/tencent/Hy-Nomas-Bench" target="_blank" rel="noopener noreferrer">评测集</a>。它研究多轮文字干预与连续相机控制如何共存，并保留先前动作造成的后果。</p>
+<p>8B 视频骨干从 HunyuanVideo 1.5 适配而来。关键是 <strong>action-aware causal attention</strong>：环境描述可以跨段持续可见，具体动作文字只在所属段及对应时间窗内生效，减少旧动作重复执行和动作顺序错位。训练使用 flow matching，经因果课程、相机条件、高质量退火、使用生成历史的 Segment Forcing，再进行少步蒸馏；Prompt Enhancer 根据用户输入、对话和历史视频生成结构化提示。新报告还给出非蒸馏模型训练 LoRA、合入蒸馏模型的适配流程。</p>
+<p><strong>官方结果：</strong>280 个案例分为文字 60、相机 100、交替控制 60、空间记忆 60。文字遵循的人工两两比较中，对 HappyOyster-Directing / LingBot-World v2 的胜率为 <strong>65.0% / 75.0%</strong>；空间记忆对 Genie 3 则为 <strong>胜 13.3%、平 56.7%、负 30.0%</strong>。这些是作者组织的人工偏好比较，不能写成任务成功率。基线交互接口不同，部分使用 Hy-Nomas 生成的首帧初始化，LingBot 还经过接口适配，比较条件应随结果一起阅读。</p>
+<p><strong>价值与边界：</strong>相比仅加因果遮罩，报告把“描述持续存在”与“动作限时生效”落实到数据和注意力契约，值得精读；相比 Genie 3、LingBot，统一控制接口的优势与空间记忆短板已能分别评估。现有证据仍是视频交互，没有机器人闭环收益或独立能力复现。官方的单 RTX 4090 示例报告 100 秒、1280×704 输出峰值显存 <strong>20.53 GiB</strong>；24 FPS 是输出规格，不能据此宣称实时生成。报告写蒸馏到 4 NFEs，当前 README 描述 8 步推理，复现需固定配置，避免混用口径。</p>
+<p><strong>资源与轻量验证：</strong>代码、模型和 benchmark 为 Apache-2.0；已核实基础 AR、蒸馏、INT8、PE、解码器及两类 LoRA 文件，未下载运行。权重历史未显示本次报告对应的新权重替换。先选 12 个离开—重访案例，交叉改变物体状态与提示中的外观描述，分别测身份、布局、过期状态回流和端到端延迟；再用少量样本 LoRA 检查视觉适配是否损伤相机控制。报告已有风格 LoRA 相机比较胜 19%、负 37% 的退化，值得作为适配验收项。</p>
+<h2 id="2-video-world-models-need-predictable-latentsp0">2. Video World Models Need Predictable Latents｜P0</h2>
+<p><strong>Mattia Scardecchia、Sherry Yang，New York University。</strong> v1 为北京时间 <strong>10 月 26 日 08:50</strong>；预印本与代码发布，未核实同行评审。本项为上期检索遗漏回补。<a href="https://arxiv.org/abs/2610.34663" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.34663v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/mattia-scardecchia/predictable-latents" target="_blank" rel="noopener noreferrer">代码</a>。问题是：只为重建图像训练的自编码器，是否把过多难以预测、又与动态无关的细节留给世界模型？</p>
+<p>方法给自编码器加入潜在未来预测或逆动力学等时间目标，并让解码器读取上一帧，使潜在变量优先承载变化，静态细节由过去观察补充。随后冻结编码器，在其潜在空间训练动作条件扩散模型。作者分别控制自编码器重建误差和训练预算，避免把丢失细节造成的“更容易预测”误当收益。它连接了 JEPA / 潜在规划的可预测性目标与可渲染视频世界模型；与 CADRE 的压缩、时延问题互补。</p>
+<p><strong>作者结果：</strong>在 Bridge V2 与 AutoEval 的设置中，困难条件下像素/感知误差降低约 <strong>15–24%</strong>，可用约五分之一采样步数匹配基线生成质量；达到指定感知质量所需的世界模型训练量可减少逾 7 倍。这些不是全工程端到端成本同比例下降。WorldGym 中，2 步采样的仿真—真实策略成绩 Pearson 相关从基线 <strong>0.21 到 0.67</strong>。但该策略评估仅用一个训练种子、3 个策略、17 个任务，VLM 裁判在 48 条真人标注轨迹上判对 42 条，六个错误均把失败判为成功。</p>
+<p><strong>值得优先精读，但结论有范围。</strong> 实验主要是机器人操作与仅空间压缩的 2D 自编码器，尚未证明在一般游戏、导航或时间压缩 tokenizer 上同样成立；强时间正则也可能损伤 FID/FVD。MIT 代码包含训练、分析、WorldGym 接口和 CPU 合成实验；已有 AutoEval 数据包，未核实训练完成的论文模型权重。轻量验证可先跑 CPU 合成实验，再用千条低分辨率片段做“过去条件解码 × 时间目标”的 2×2 对照，同时报告重建、长滚动、动作打乱敏感性。只有可预测性和动作区分能力同时改善，才继续扩大训练。</p>
+<h2 id="3-sceneagent-an-agentic-pipeline-from-3d-and-4d-captures-to-simulation-environmentsp0">3. SceneAgent: An Agentic Pipeline from 3D and 4D Captures to Simulation Environments｜P0</h2>
+<p><strong>Luke Hollis、Tianxing Fan、Heng Yang，Harvard Computational Robotics Group。</strong> v1 为北京时间 <strong>10 月 26 日 10:45</strong>；预印本与官方项目展示，未核实同行评审，为上期检索遗漏回补。<a href="https://arxiv.org/abs/2610.34745" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.34745v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://computationalrobotics.seas.harvard.edu/SceneAgent/" target="_blank" rel="noopener noreferrer">项目页</a>。研究对象是将 3DGS、摄影测量、LiDAR、生成场景及动态视频转换为可交互的仿真环境。</p>
+<p>它用 Agent 调度分割、对象重建、物理属性估计、部件分解、关节与可变形模拟，再根据仿真器里的可视检查修复中间结果；对动态视频拟合可执行模拟程序。随后生成对象变体 digital sisters 和脚本演示供策略学习。这里主要是工具编排与执行反馈，缺少一个统一端到端训练目标；策略适配另外使用 π0.5 LoRA。相对 WorldMirror 的轨迹回放契约，它覆盖更广的采集格式与动态资产，但两者都需要留出交互验证。</p>
+<p><strong>作者结果：</strong>一个 GraspClutter6D 堆叠场景中，最佳配置的 1 cm F1 为 <strong>60.75%，SimFoundry 为 6.9%</strong>；三个 4DCodeBench 合成案例中，Gemini 4 Argon 的平均动态 IoU 从 <strong>0.86% 到 99.09%</strong>。初步真机茄子入篮实验，分阶段多任务/适配设置达到 <strong>44/50，88%</strong>。这些指标来自不同设置，不能互相替代。单纯增加同类仿真演示也未单调增益：40 条演示为 24/50，而 4,000 条为 6/50；不能把最终 88% 归因于数据量本身。</p>
+<p><strong>价值在空间资产进入学习闭环，短板在物理校准和评测规模。</strong> 重建每配置只转一次，主要两个静态场景、三个合成动态场景，真机集中在 pick-and-place；质量采样种子不是独立构建种子，质量/摩擦等也未对真实接触标定。代码、处理后场景和对象包仍为 coming soon，不能写成可完整复现。轻量验证先选一个刚体场景和一个动态案例，重复构建三次，固定建模视频，再用未见的推、拉、碰撞动作检验；分开测几何、接触轨迹和策略收益。若只提高外观/轮廓，不应升格为物理数字孪生。</p>
+<h2 id="4-rynnvla-latent-scaling-robotic-manipulation-foundation-models-with-3d-grounded-latent-actionsp0">4. RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions｜P0</h2>
+<p><strong>Haoyu Zhao、Xingyue Zhao、Zhian Su、Bohan Hou 等；阿里达摩院、香港具身智能实验室、CUHK、湖畔实验室等。</strong> v1 为北京时间 <strong>10 月 25 日 23:05</strong>；预印本，未核实同行评审，为上期检索遗漏回补。<a href="https://arxiv.org/abs/2610.34356" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.34356v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/alibaba-damo-academy/RynnVLA-Latent" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://huggingface.co/collections/Alibaba-DAMO-Academy/rynnvla-latent" target="_blank" rel="noopener noreferrer">模型集合</a>。新的是论文，RynnLAM / 2B / 4B 权重分别早在 10 月 8—9 日已上传。它与昨日 RynnUnify 分开记：此处重点是无原生动作视频的预训练接口。</p>
+<p>RynnLAM 通过残差未来特征预测、相机补偿 3D flow、对比式 warping 和相机运动解耦，学习连续潜在动作。作者将其用于 <strong>30.1K 小时、25 个来源</strong>的人类/机器人/仿真视频，得到 <strong>745.52M 个潜在动作描述符</strong>，不是同样数量的独立轨迹。VLA 用 flow matching 学习潜在动作 chunk，再加入本体状态、把输出投影对齐到真实控制。相对 LAPA 的纯视觉潜在动作，它加入几何约束；相对统一原生动作向量，它把跨本体共享监督与最后的执行接口分开。</p>
+<p><strong>作者结果：</strong>4B 模型为 LIBERO <strong>98.8%</strong>、LIBERO-Plus <strong>84.7%</strong>、五个 VLABench track 平均 <strong>51.9%</strong>。RoboTwin 2.0 Native 表 6 为 clean 88.7%、randomized 88.4%、平均 <strong>88.6%</strong>，但引言/结论另写 88.3%，本报保留这一内部不一致，按表 6 引用。约 1,000 小时受控子集下，4B 潜在动作方案 LIBERO-Plus 为 84.2%，两种显式动作对齐为 83.5% / 83.6%，差距远小于跨论文汇总排名给人的印象；显式对齐在 LIBERO 本身还更好。</p>
+<p><strong>值得精读其接口和消融，暂不把几何伪标签当作可识别的物理动作。</strong> 深度、相机和 flow 估计误差仍在，部署也需要目标机器人动作示范。Apache-2.0 代码与 RynnLAM.pt、Stage-1 的 2B/4B safetensors 文件已核实；公开 Stage-1 权重产生潜在动作，不能直接当论文最终闭环策略评测。全量潜在语料、最终 Stage-2 评测权重未核齐。轻量验证先冻结 RynnLAM，在同物体、不同相机/本体的视频上做原生动作线性探针与相机干预，再以相同示范量比较小规模 Stage-2 适配；仓库的合成 smoke 数据只验证管线。</p>
+<h2 id="5-mix-forcing-causal-pre-training-via-mixture-attention-for-interactive-world-modelsp1">5. Mix Forcing: Causal Pre-Training via Mixture Attention for Interactive World Models｜P1</h2>
+<p><strong>Zelin Gao、Hao Ouyang、Jiapeng Zhu 等，HKUST 与 Robbyant。</strong> v1 为北京时间 <strong>10 月 24 日 18:31</strong>；新方法预印本，未核实同行评审，为上期检索遗漏回补。<a href="https://arxiv.org/abs/2610.33589" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.33589v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://zelingao98.github.io/mixforcing/" target="_blank" rel="noopener noreferrer">项目页</a>。项目将其列为 LingBot-World-Infinity 的核心方法；这不意味着现有 LingBot 权重在今天首次发布。</p>
+<p>它针对双向视频扩散模型直接做 teacher forcing 后视觉先验退化的问题，用 Mixture-of-Bidirectional-and-Autoregressive attention 同时优化因果下一 chunk 预测与双向生成。chunk-wise cross-attention 只提供共享环境描述与当前局部指令，阻断未来指令泄漏，再用 consistency distillation 和 DMD 得到四步模型。相比仅在后训练阶段修复自回归漂移，它把因果初始化放到预训练阶段；与 Hy-Nomas 相通的是指令和历史的信息可见性设计。</p>
+<p><strong>作者结果：</strong>内部 InBench 综合质量为 <strong>75.1</strong>，事件准确率 <strong>94.4</strong>，另有公开 SANA-WM-Bench 比较和一小时滚动演示。该分数是内部组合指标，不是通用世界建模准确率；一小时样例也没有建立对所有场景不退化的保证。训练数据为 100K clips、974 小时。论文计算配置尚有冲突：正文写三阶段 256 H20，附录分别写 512 H200 / 512 H20，故不据此给确定总算力成本。</p>
+<p><strong>方法值得读，逐实验复现尚需核对。</strong> 官方链接指向已有 <a href="https://github.com/robbyant/lingbot-world-v2" target="_blank" rel="noopener noreferrer">LingBot-World v2 代码和模型</a>，许可为 CC BY-NC-SA 4.0；该资源已有 7 月/9 月发布记录，尚未核实与新论文各实验一一绑定的训练配方和 checkpoint。代码公开不等于一小时质量已被第三方验证。轻量替代是在小骨干、固定片段和四步后训练预算下比较 TF-only 与混合训练，测 1—5 分钟的指令生效时窗、旧动作重播、相机回环和延迟，再决定是否扩大训练。</p>
+<h2 id="6-more-memory-better-videos-vmem-benchp1">6. More Memory, Better Videos? / VMem-Bench｜P1</h2>
+<p><strong>Yuzhuo Chen、Huafeng Shi、Xinyu Wang 等；USTC、KlingAI Research、清华、HKUST、香港城市大学。</strong> v1 为北京时间 <strong>10 月 26 日 16:13</strong>；新预印本与 benchmark，未核实同行评审。<a href="https://arxiv.org/abs/2610.35001" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35001v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/Suchenl/VMem-Bench" target="_blank" rel="noopener noreferrer">代码</a>、<a href="https://huggingface.co/datasets/Suchenl/VMem-Bench" target="_blank" rel="noopener noreferrer">数据</a>。数据仓库更早已存在，不能把 10 月 27 日推荐页当数据首发时间。它研究历史检索是否会把过期外观、应当离场的实体一起带回当前视频。</p>
+<p>Track-A 在 <strong>92 部真实影片、16,548 段</strong>上只评估参考选择，隔离生成器影响；Track-B 用共享 FLUX.2 + Wan2.2 管线，在 <strong>30 个故事、每条件 2,824 段</strong>上比较四种检索、无记忆和带 gold-ID 的 last-seen 诊断控制。它是受控测量，不提出新的训练损失。与 WorldMem、LongLive-RAG、MemFlow 等相比，新增价值在同时检查召回、当前应在场的正确性和过期状态，而不只看身份一致性。</p>
+<p><strong>作者结果：</strong>检索把实体召回从 <strong>0.559 提至 0.628–0.693</strong>，同时把精确率从 <strong>0.977 降到 0.915–0.938</strong>，禁止实体保持缺席的比例从 <strong>0.968 降到 0.845–0.898</strong>。62 个相同长间隔角色返回事件中，无记忆的在场率在去掉提示外观信息后由 98.4% 降到 56.5%，说明提示本身可以伪装成记忆收益。这里的在场率也不是身份完全正确率。</p>
+<p><strong>值得精读评测协议。</strong> 主比较每故事/条件仅一次生成，历史会逐步分叉，不能把系统差异解释成替换单张参考图的因果效应；绝对分数依赖 VLM 裁判，作者的第二裁判与八故事后端检查属于内部敏感性分析。Apache-2.0 代码、CC BY 4.0 自建 gold/prompts 已公开；源影片与模型需另取，原始主实验生成视频和逐段评分包未包含在代码仓库。轻量验证先做十个包含换装、物体移动、离场的短故事，在固定历史下逐一替换参考，联合测召回、过期状态率及禁入实体率。</p>
+<h2 id="7-physevolve-verifier-grounded-self-evolution-for-physical-reasoning-with-executable-worldsp1">7. PhysEvolve: Verifier-grounded Self-evolution for Physical Reasoning with Executable Worlds｜P1</h2>
+<p><strong>Jinyuan Hu、Yilei Jiang、Chen Tang 等，CUHK MMLab。</strong> v1 为北京时间 <strong>10 月 26 日 14:50</strong>；新预印本与项目页，未核实同行评审。<a href="https://arxiv.org/abs/2610.34921" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.34921v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://yelonhu.github.io/physevolve-page/" target="_blank" rel="noopener noreferrer">项目页</a>。研究问题是：只有实际发生的视频，如何产生可靠的反事实物理监督，又如何防止模型利用近似奖励投机？</p>
+<p>同一个 Qwen3-VL-8B 分别充当世界程序提议者与求解者。固定执行器验证 PhysDSL 程序、冻结世界，运行基线和移除某物体的匹配分支，从执行状态生成离散答案问题；GRPO 联合更新两种角色，课程按能力边界调整物理问题家族。相对 Tempo-Zero 的可执行世界课程，这里尤其强调物理干预分支与精确选项验证。它训练的是视觉物理推理，尚非机器人动作策略。</p>
+<p><strong>作者结果：</strong>PhysBench Throwing <strong>+8.8 个百分点</strong>，ContPhy 的 Counterfactual Removal / Goal-Pit 为 <strong>+7.4 / +24.4 个百分点</strong>；整体 PhysBench、CausalPhys、ContPhy 增益分别只有约 <strong>+0.55 / +0.56 / +2.46 个百分点</strong>。不可把精选子项提升写成全基准跃升。报告为 4 GPU、100 步，每配置一次训练；关闭反事实分支的对照同时改变任务家族与实际曝光量，因此不能把全部差值只归因于单一模块。</p>
+<p><strong>值得跟进验证器设计，暂不足以支持广义自主物理发现。</strong> 世界语言、初始程序池和执行器限制了可探索范围，跨域收益仍需多种子与独立复现。项目页可访问，但其 <a href="https://github.com/yelonhu/PhysEvolve" target="_blank" rel="noopener noreferrer">官方代码链接</a> 本轮返回 404，未确认可用代码、配套权重和训练数据。轻量验证可先生成 200 个固定世界，对照“仅事实轨迹”与“匹配移除分支”的监督，冻结同一个求解器测答案一致性、验证器漏洞及几何留出集，再决定是否做完整在线 GRPO。</p>
+<h2 id="8-vista-active-exploration-for-self-improvement-in-embodied-agentsp1">8. VISTA: Active Exploration for Self-Improvement in Embodied Agents｜P1</h2>
+<p><strong>Zhang Zhang、Shengjun Zhang、Simin Huang 等，清华大学与 NUS。</strong> v1 为北京时间 <strong>10 月 26 日 17:00</strong>；新预印本与代码发布，未核实同行评审。<a href="https://arxiv.org/abs/2610.35051" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2610.35051v1" target="_blank" rel="noopener noreferrer">全文</a>、<a href="https://github.com/AgenticEI/VISTA" target="_blank" rel="noopener noreferrer">代码</a>。它研究机器人系统能否主动进入仿真诊断失败，再修改执行代码和记忆，而不只阅读已有日志反思。</p>
+<p>底层模型参数保持固定，Meta-agent 维护包含候选谱系与证据的 harness DAG，主动做环境探测、修改感知/验证/恢复/控制逻辑，再冻结候选进行自治评测和保优选择。优化对象是执行框架，目标来自任务成功反馈，没有新增底层策略梯度训练。相比 Reflexion 式事后反思与通用 Agent 演化，VISTA 增加了具身主动测试及可执行控制接口。</p>
+<p><strong>作者结果：</strong>任务分别开发和选择 harness 后，LIBERO-Pro 八设置均值从 <strong>17.5% 到 95.0%</strong>，RoboCasa Composite Unseen 从 <strong>4.7% 到 13.3%</strong>，RoboTwin 从 <strong>48.5% 到 74.0%</strong>。这是组合系统成绩，不能解释成同一 VLA 权重获得等幅泛化。主动/被动消融仅四个 LIBERO-Goal 任务，两轮累计每任务平均 Meta tokens 约 <strong>91.6M / 137.7M</strong>；“不用训练权重”仍可能付出很高的搜索与推理成本。</p>
+<p><strong>值得读失败诊断与代码改动，通用性仍待检验。</strong> 当前只有仿真验证，各任务分别演化，并可调用原生运动规划与抓放等能力；与纯 VLA 的行动接口和预算不相同。Apache-2.0 源码已核实，但当前发布覆盖 LIBERO-Pro T/S，RoboCasa / RoboTwin 集成待补，论文演化后的 harness 与完整记录也未随源代码发布。轻量验证可选三任务、两轮开发，固定 rollout 与 token 上限，对比静态反思和主动探测，并在新布局、对象及一个未参与开发的任务上冻结评测。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>窗口内确认的重大非 arXiv 新证据为 Hy-Nomas 技术报告及工程集成。</strong> 报告新增方法、人工评测和 LoRA 适配结果，已进入重点条目；WanGP、SGLang、ComfyUI、Reactor 的社区支持属于部署进展，不能自动当作第三方能力验证。Mundo 的官方仓库在上期完成后未见新增提交，本期不重述；Hy-Nomas 的 HF 历史也未显示报告上线时更换主权重。</p>
+<p>公司入口已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind / Robotics、NVIDIA Robotics / Cosmos / GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute。高校与中国团队覆盖 Stanford、Berkeley、MIT、CMU、Princeton、Harvard，以及腾讯、阿里达摩院、Robbyant、Kling、上海 AI 实验室、清华 AIR、北大 EPIC、智元，并对字节 Seed、智源及相关中港团队做站点搜索补查。除已列论文/项目和 Hy-Nomas 新报告外，可访问入口未核实到足以新增展开的重大模型、权重或数据发布。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">PI</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">DeepMind</a>、<a href="https://nvidianews.nvidia.com/news" target="_blank" rel="noopener noreferrer">NVIDIA</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a>。</p>
+<p><strong>覆盖缺口仍需保留：</strong>Stanford 与 TRI 页面发生 TLS 错误，Princeton 返回 403，腾讯 3D 首页动态内容为空，Meta 列表返回较旧内容；上海 AI 实验室与清华 AIR 的失效子路径已回主页并补查搜索。尝试访问和站点搜索不等于完整验证，不能以“未入选”掩盖这些检索缺口。</p>
+<p>最终筛选前，用 broader web 交叉核对了 Spatial Intelligence、World Model、Physical AI、Robot / Embodied Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent / Self-Evolution 与主要机构，随后查项目和文件历史。另有 <a href="https://arxiv.org/abs/2610.33565" target="_blank" rel="noopener noreferrer">WorldFailBench</a>、<a href="https://arxiv.org/abs/2610.34593" target="_blank" rel="noopener noreferrer">What Does World Modeling Actually Improve in Robot Action Learning?</a> 已入候选并读全文，保留为评测专题；PhysCreator、DUET4D、EXE、HuGe、Continual Learning Exam 等也进入候选，未全部展开属于 <strong>Selection</strong>。前述四项回补与受限入口属于 <strong>Retrieval Failure / coverage gap</strong>，两者分别记录。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图沿用 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>。下表的趋势、gap 与机会是本报综合判断，尚未验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>状态与记忆</td>
+<td>Hy-Nomas、VMem-Bench；描述、动作时窗与历史有效性分开建模</td>
+<td>旧视觉证据和新状态冲突时，怎样更新或失效记忆</td>
+<td>状态改变后的重访评测与可编辑记忆，联合测身份和过期状态</td>
+</tr>
+<tr>
+<td>可预测表征</td>
+<td>Predictable Latents；过去条件解码减少动态预测负担</td>
+<td>易预测是否仍保留接触、小物体和控制关键变量</td>
+<td>在等重建、等容量下测可预测性与动作可用性的权衡</td>
+</tr>
+<tr>
+<td>因果生成训练</td>
+<td>Mix Forcing、Hy-Nomas；预训练与生成历史课程衔接</td>
+<td>时间因果、指令执行与物理因果尚未贯通</td>
+<td>指令窗口、历史干预和真实动作结果的分层验收</td>
+</tr>
+<tr>
+<td>空间到交互仿真</td>
+<td>SceneAgent；多种采集输入经工具和执行反馈转成可模拟资产</td>
+<td>可视重建合格是否预测未见交互和策略收益</td>
+<td>用留出动作测物理校准，分开几何、接触与迁移收益</td>
+</tr>
+<tr>
+<td>跨本体数据接口</td>
+<td>RynnVLA-Latent；几何约束潜在动作连接异构视频</td>
+<td>相机伪标签和本体信息是否仍混入动作表示</td>
+<td>相机干预、动作等价性和少示范适配的受控比较</td>
+</tr>
+<tr>
+<td>可验证自演化</td>
+<td>PhysEvolve；执行器生成匹配反事实与答案</td>
+<td>验证器正确性、任务覆盖和训练曝光相互混杂</td>
+<td>固定世界和曝光量，研究分支验证对留出物理规律的增益</td>
+</tr>
+<tr>
+<td>Agent 执行与归因</td>
+<td>VISTA；主动试验、版本谱系、冻结评测</td>
+<td>搜索预算、控制工具和任务专用代码的贡献难分</td>
+<td>同预算、同接口下比较主动诊断与反思的迁移能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天的共同趋势是把系统能力落实到可干预的接口。已有证据支持进一步做受控比较，尚不足以认定更多记忆、更长视频、更大合成数据量或更多演化轮次必然带来更可靠的行动。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>表征与动态的 2×2 实验：</strong>固定千条片段、相同 latent 容量和世界模型，交叉有无过去条件解码、有无时间目标，运行三个种子。继续信号是长滚动和动作打乱区分度同时改善；若只牺牲重建换来低预测误差，应停止扩大规模。</li>
+<li><strong>会过期的空间记忆：</strong>在 12 个重访场景中安排移物、开关状态改变和外观变化，再分别提供完整/剥离外观的提示。比较无记忆、旧图检索与状态更新记忆；若只提高召回，却增加旧状态和禁入实体，应调整记忆更新机制。</li>
+<li><strong>从“像”到“可交互”：</strong>两个捕获场景、每场景五类留出动作、三次独立构建。只有几何改善能预测接触轨迹和留出动作成功，才继续策略训练；出现视觉合格而接触错误时，优先改物理参数校准。</li>
+<li><strong>潜在动作的相机反事实：</strong>用同物体运动、不同视角，以及仅相机运动的视频对，固定探针与目标机器人示范数。继续信号是动作可预测性保留、相机敏感性下降，并能提高少示范适配；单一 LIBERO 分数不足以验收。</li>
+<li><strong>同预算演化比较：</strong>三任务、两轮开发、固定 token / rollout 和控制接口，比较被动反思、主动探测、匹配物理分支。冻结候选后评估未参与开发的任务与验证器漏洞；如果收益依赖任务特制代码或评测漏洞，就不宣称持续自学习。</li>
+</ul>
+<p>这些是建议开展的小实验，本轮未实际运行模型或仿真，也未下载大模型权重。</p>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本期重点均为官方技术报告或预印本，<strong>未核实同行评审接收，也未找到独立团队对其核心能力的完整复现</strong>。作者的多裁判、消融和重复采样属于内部验证；社区部署集成属于工程证据。公开文件已逐项查验入口，仍不等于运行成功。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实公开资源</th>
+<th>复现仍需补齐或固定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hy-Nomas</td>
+<td>新技术报告；训练/推理代码、模型组件、LoRA、280-case benchmark</td>
+<td>PE 与生成预算、4 NFE / 8 步配置、人工评测过程、独立量化</td>
+</tr>
+<tr>
+<td>Predictable Latents</td>
+<td>MIT 训练/评测/分析代码、CPU toy、AutoEval 包</td>
+<td>论文训练权重未核实；策略裁判与训练种子稳定性</td>
+</tr>
+<tr>
+<td>SceneAgent</td>
+<td>全文、官方演示、方法和初步真机表格</td>
+<td>专属代码、场景与对象包待发布，真实物理标定</td>
+</tr>
+<tr>
+<td>RynnVLA-Latent</td>
+<td>Apache-2.0 代码、RynnLAM 与 Stage-1 2B/4B 文件</td>
+<td>完整预训练语料、最终 Stage-2 权重、88.6 / 88.3 口径</td>
+</tr>
+<tr>
+<td>Mix Forcing</td>
+<td>论文；关联 LingBot v2 推理代码/多规格权重</td>
+<td>新论文与既有资源的绑定、训练实现和算力口径；许可为非商用</td>
+</tr>
+<tr>
+<td>VMem-Bench</td>
+<td>代码、gold/prompts、适配器、共享生成器入口</td>
+<td>源影片/模型另取；主实验视频与逐段评分包未随仓库提供</td>
+</tr>
+<tr>
+<td>PhysEvolve</td>
+<td>论文、项目页、实验设置</td>
+<td>官方代码链接本轮 404，配套权重/训练集未确认</td>
+</tr>
+<tr>
+<td>VISTA</td>
+<td>Apache-2.0 代码、LIBERO-Pro T/S、初始 harness</td>
+<td>其余环境集成、演化后任务代码和原始实验记录未齐</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>今天先读 Hy-Nomas 的第 3、5、7 节，再读 Predictable Latents 的两组受控实验。若只做一个验证，优先测“状态改变后重访”：它能同时检验指令后果、记忆失效和生成历史依赖。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-26/"><span>← 上一期 · 2026-10-26</span><strong>UniAction · RynnUnify · WorldMirror</strong></a><a class="newer" href="../2026-10-28/"><span>下一期 → · 2026-10-28</span><strong>Genie 4 · EmbodiedLab · GenSfM</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

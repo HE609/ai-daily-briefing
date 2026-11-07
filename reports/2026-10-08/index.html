@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-08｜AIM · PEARS · QF3 · Yunhe</title><meta name="description" content="本轮检索窗口为 2026-10-05 09:00 至 2026-10-08 09:00（Asia/Shanghai，严格 72 小时；同时用过去 24 小时的 arXiv/官方更新时间做交叉核对）。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-08/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-08｜AIM · PEARS · QF3"><meta property="og:description" content="本轮检索窗口为 2026-10-05 09:00 至 2026-10-08 09:00（Asia/Shanghai，严格 72 小时；同时用过去 24 小时的 arXiv/官方更新时间做交叉核对）。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-08/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><link rel="stylesheet" href="../../assets/katex/katex.min.css"><script defer src="../../assets/katex/katex.min.js"></script><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>AIM · PEARS · QF3</h1><p class="article-deck">本轮检索窗口为 2026-10-05 09:00 至 2026-10-08 09:00（Asia/Shanghai，严格 72 小时；同时用过去 24 小时的 arXiv/官方更新时间做交叉核对）。</p><div class="article-meta"><time datetime="2026-10-08">2026 / 10 / 08</time><span>约 18 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-worldsonus-bringing-sound-to-worldsp1">1. WorldSonus: Bringing Sound to Worlds｜P1</a><a class="toc-level-2" href="#2-aim-adaptive-interaction-modeling-networks-for-real-to-sim-soft-body-simulationp0">2. AIM: Adaptive Interaction Modeling Networks for Real-to-Sim Soft-Body Simulation｜P0</a><a class="toc-level-2" href="#3-pears-physical-prior-guided-efficient-adaptation-via-failure-reasoning-and-diffusion-steering-for-tactile-manipulationp1">3. PEARS: Physical-Prior-Guided Efficient Adaptation via Failure Reasoning and Diffusion Steering for Tactile Manipulation｜P1</a><a class="toc-level-2" href="#4-qf3-fast-flow-rl-with-filtered-q-gradientsp1">4. QF3: Fast Flow RL with Filtered Q-Gradients｜P1</a><a class="toc-level-2" href="#5-scienceclaw-benchmarking-continual-self-evolution-of-ai-for-science-agentsp0">5. ScienceClaw: Benchmarking Continual Self-Evolution of AI-for-Science Agents｜P0</a><a class="toc-level-2" href="#6-claude-haiku-55p1">6. Claude Haiku 5.5｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-08.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-08</div><article class="prose"><p>本轮检索窗口为 2026-10-05 09:00 至 2026-10-08 09:00（Asia/Shanghai，严格 72 小时；同时用过去 24 小时的 arXiv/官方更新时间做交叉核对）。候选池并行覆盖 arXiv cs.RO/cs.CV/cs.AI/cs.LG、frontier lab/company 官方入口、GitHub/Hugging Face/项目页、Spatial Intelligence/3D-4D/real-to-sim、VLA/WAM/RL，以及 Agent/self-evolution。与 10 月 7 日晨报去重时，DepthWorld、OpenWAM、Physics Exam 等没有新版本、代码/权重、基准或第三方验证，因此不重复；本期新增判断是：窗口内最有价值的进展并非单一更大的视频模型，而是把世界状态、物理交互、在线适应和可回放的程序更新变成可检验接口。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → AIM</strong>：先看 real-to-sim 中“关系随形变更新、全局状态保持一致”的动力学接口，适合建立可验证的物理世界状态基线。</p>
+<p><strong>B → PEARS</strong>：再看冻结流策略外接物理先验、触觉和力位控制的低交互适应，连接 world model 的预测与真实接触。</p>
+<p><strong>C → QF3</strong>：随后读 flow policy 的离线数据复用与 Q 梯度过滤；它给“策略如何在有限交互下继续变强”提供了清晰的 RL 机制。</p>
+<p><strong>D → WorldSonus</strong>：补上生成世界的声音、空间和交互控制，检查视觉 world model 是否正在扩展成多感官环境模型。</p>
+<p><strong>E → ScienceClaw</strong>：最后读 replay-gated 的程序级自进化，把“经验变成可回滚能力”的评测协议迁移到机器人技能和 verifier。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-worldsonus-bringing-sound-to-worldsp1">1. WorldSonus: Bringing Sound to Worlds｜P1</h2>
+<p><strong>作者与机构、发布时间、性质。</strong> Pengjun Fang、Jingyi Fa、Kam Man Wu 等 12 位作者，来自香港科技大学、Noiz AI、MetaX、上海交通大学等；arXiv:2610.08760，2026-10-06 UTC 提交，是 CC BY-NC-SA 4.0 的研究预印本，尚非同行评审。论文与项目页见 <a href="https://arxiv.org/abs/2610.08760" target="_blank" rel="noopener noreferrer">arXiv</a> 和 <a href="https://noizai.github.io/WorldSonus/" target="_blank" rel="noopener noreferrer">WorldSonus 项目页</a>。</p>
+<p>它解决的是生成式世界“能看、能动，但没有与视角和事件同步的声音”的问题。模型把外部视频 world model 当作上游，只读取已经生成的视觉流，不要求访问上游动作空间或内部结构；因此更像可插拔的空间音频层，而不是完整的 world-action model。</p>
+<p>核心是流式因果自回归 Transformer 加 rectified-flow 音频头：每 100 ms 输出一块 48 kHz 立体声，环形 KV cache 让历史内存有界；两种时间尺度的视觉条件分别负责长程语义和帧级定位；训练时用冻结的 Synchformer 做 ShiftNCE 时间对齐，真实立体声和 FOA 环绕声解码提供左右声道的空间监督；提示词可以在 chunk 边界中途切换。训练目标是因果条件概率与 ShiftNCE 时间对齐损失的组合。</p>
+<p>作者报告在单张 H100 上每 100 ms 音频块耗时 41.2 ms（RTF 0.41），5 秒清晰立体声 VGGSound 的 VGGish-FAD 为 1.73，30 秒交互视频为 2.03，并在开放域视频到音频和交互基准上达到或超过所比较的双向模型；这些都是作者实验结果，当前没有第三方复现。局限是音频因果表示、有限的高质量立体声数据和长期会话稳定性，且还没有证明声音能改善机器人规划或接触判断。相对 LingBot-World 2.0、GameGen-X 等视觉/交互 world model，它补的是“空间化、可中途修改的听觉状态”。值得深入阅读，尤其适合做多感官 world state；代码、权重和训练集未在本轮确认公开，项目页主要提供论文、演示和说明。</p>
+<p>轻量验证：用一个冻结的视频生成器或公开视频流，先只实现 100 ms chunk 的 causal V2A 小模型；做“左/右声源互换、提示词中途切换、遮挡后声源保持”三组反事实测试，同时报告首块延迟、累计漂移和 stereo balance，不要把 41.2 ms 直接当成完整端到端交互延迟。</p>
+<h2 id="2-aim-adaptive-interaction-modeling-networks-for-real-to-sim-soft-body-simulationp0">2. AIM: Adaptive Interaction Modeling Networks for Real-to-Sim Soft-Body Simulation｜P0</h2>
+<p><strong>作者与机构、发布时间、性质。</strong> Tiancheng Yang、Dingshuo Chen、Tianle Chen、Zhaocheng Liu、Qiang Liu，主要来自中国科学院自动化研究所 NLPR/MAIS 与中国科学院大学，Zhaocheng Liu 为独立研究者；2026-10-05 UTC 提交，arXiv 预印本，论文链接：<a href="https://arxiv.org/abs/2610.07116" target="_blank" rel="noopener noreferrer">AIM</a>。</p>
+<p>AIM 针对布料、薄片和食物等软体对象的 real-to-sim：仅按当前空间邻域连边会漏掉折叠后仍有结构耦合的远距离粒子，误差在自回归 rollout 中累积；按单个场景拟合的模拟器又难以换物体、换动作、换场景。</p>
+<p>它把动力学拆成可解释的局部—全局交互。候选边是“当前空间邻域 ∪ 上一步保留的高置信关系”，用运动历史、几何和最近控制点推断边的关系嵌入与权重；同时通过 geometry-conditioned global token 协调对象级响应。统一的 kinematic control-point 接口表达不同操控器和动作，不需要 action-category 标签；训练用多步自回归监督，让模型在自己的预测状态上继续学习，而不是只拟合一步真值。</p>
+<p>在 PhysTwin 和 PGND 上，作者报告相对 PhysTwin 的未来预测跟踪误差下降 20.0%，相对 PGND、六类对象的长期粒子误差下降 22.8%，并展示跨动作、对象、场景，以及从机器人交互到人类操作的 zero-shot transfer。这些是作者报告，尚无第三方验证；它和 PhysTwin、PGND、SoMA 的关系是把固定局部图推进为带历史记忆的自适应结构，而不是把视觉重建本身做得更精细。局限是 learned simulator 仍然依赖粒子标注、控制点定义和数据分布，论文没有给出真实机器人闭环成功率；本轮也没有确认公开权重或完整训练代码。值得精读，因为它把“几何一致性”直接落到 action-conditioned transition 上。</p>
+<p>轻量验证：在公开或自建的布料粒子模拟器上固定控制点，做四个小实验：静态邻域、保留边、自适应边、自适应边+global token；用同一动作序列报告 1/10/30 步 rollout MDE、折叠后远距离粒子的一致性，以及 robot→human 控制轨迹迁移。先验证关系保留是否真的减少长程漂移，再考虑大规模 real-to-sim。</p>
+<h2 id="3-pears-physical-prior-guided-efficient-adaptation-via-failure-reasoning-and-diffusion-steering-for-tactile-manipulationp1">3. PEARS: Physical-Prior-Guided Efficient Adaptation via Failure Reasoning and Diffusion Steering for Tactile Manipulation｜P1</h2>
+<p><strong>作者与机构、发布时间、性质。</strong> Kun Song、Yiming Wang、Yilin Chen、Tianyi Ding、Jiaxin Tian、Tianqi Gong、Daolin Ma、Jia Pan，来自香港大学、上海交通大学、Xense Robotics、宾夕法尼亚大学；2026-10-06 UTC 提交，arXiv 研究预印本，论文与演示见 <a href="https://arxiv.org/abs/2610.08784" target="_blank" rel="noopener noreferrer">arXiv</a> 和 <a href="https://song-kun.github.io/pears/" target="_blank" rel="noopener noreferrer">项目页</a>。项目页标注代码仍在整理/under review。</p>
+<p>研究问题是：预训练策略在部署中遇到接触力、定位或时序偏差时，如何用少量昂贵甚至有破坏性的交互恢复性能。PEARS 不更新基础 flow-matching policy，而是在其外部放置两个互补环节：PFR 用 VLM 中的物理先验、视觉结果和触觉历史判断“力太小/太大、位置错误还是运动错误”，更新下一回合的接触力边界；tactile-conditioned diffusion-steering RL 调整流策略的 latent noise，修正自由空间轨迹与接触时刻；stage-aware hybrid force-position controller 负责把边界落实到接触轴。</p>
+<p>作者报告在三项仿真接触任务上比最强逐任务基线高 12.4–37.4 个百分点，达到目标成功率所需交互回合最多减少 53.2%；实机白板擦除 19/20、移液吸取 18/20。结果是作者/官方页面报告，任务数量和试验预算仍小，VLM 的失败归因可能成为新瓶颈，也没有独立实验室复现。它与 Residual RL、触觉策略适应和 force-position control 的关系，是把“失败解释”转成边界调节，把策略更新约束在冻结基础模型周围；值得深入阅读，尤其适合作为 WAM/VLA 后训练的低成本适应基线。</p>
+<p>可复现性：论文、项目页和视频公开，完整代码/权重/数据包未确认；非同行评审。轻量验证：先在二维推拉/擦除接触模拟中冻结一个小 flow policy，比较“只做 latent steering”“只改力边界”“两者联合”，记录达到 80% 成功率的回合数、失败类别混淆矩阵和接触峰值；然后再迁移到真实触觉设备。</p>
+<h2 id="4-qf3-fast-flow-rl-with-filtered-q-gradientsp1">4. QF3: Fast Flow RL with Filtered Q-Gradients｜P1</h2>
+<p><strong>作者与机构、发布时间、性质。</strong> Chung Min Kim、Brent Yi、David McAllister、Hongsuk Choi、Himanshu Gaurav Singh、Jinkun Cao、Ken Goldberg、Pieter Abbeel、Carmelo Sferrazza、Angjoo Kanazawa，团队信息指向 UC Berkeley 与 Amazon FAR；2026-10-06 UTC 提交，是 arXiv 预印本，含项目页 <a href="https://qf3-rl.github.io/" target="_blank" rel="noopener noreferrer">QF3</a> 与 <a href="https://arxiv.org/abs/2610.08789" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>QF3 处理 flow policy 的一个实际矛盾：flow matching 能从示范学会动作，但在线 RL 的 critic 梯度可能把策略推离 replay buffer，进入 critic 不可靠的区域。它用一条 one-step flow prediction 估计最终动作，再按动作维度检查预测是否仍接近 replay action，只让可靠维度接收 Q-gradient；未通过过滤的维度保持 flow-matching 目标。这相当于一个在动作维度上的局部信赖域，而不是把整个动作向量粗暴裁剪。</p>
+<p>作者报告这是首个从零训练 humanoid locomotion flow policy 并 zero-shot 迁移硬件的 off-policy flow RL 方法；在配合高吞吐 replay 训练配方时，humanoid locomotion/motion tracking 相比 FPO++ 达到约 10× wall-clock speedup，并在 ABC-Sim 和 RoboMimic 上微调预训练 manipulation policy。当前指标全是作者报告，10× 是特定任务与整套训练配方的结果，不应归因于过滤器单一组件；项目页没有确认公开 checkpoint 或完整复现实验包。</p>
+<p>它和 FPO++、FlowRL、QSM 的关系是从 on-policy flow RL 转向 replay reuse 与局部 Q 指导；对 WAM/VLA 的意义在于可以把昂贵的 rollout 变成更有效的后训练，而不是替代 world model。值得读机制和 ablation，尤其是 Direct-Q 崩溃与 action-space clipping 的对照。轻量验证：先在 2D toy flow 或小型 Robomimic 上做同一 replay buffer 的 Flow Matching、Direct Q、QF3 三组，固定 actor/critic 学习率，报告 critic 外推距离、每维过滤比例、成功率和 wall-clock；再做三种随机种子。</p>
+<h2 id="5-scienceclaw-benchmarking-continual-self-evolution-of-ai-for-science-agentsp0">5. ScienceClaw: Benchmarking Continual Self-Evolution of AI-for-Science Agents｜P0</h2>
+<p><strong>作者与机构、发布时间、性质。</strong> Mingda Zhang、Wenjin Liu、Tiesunlong Shen、Zikai Xiao、Zhenghong Lin、Qing Xu、Erik Cambria、Xiaoying Tang、Haoran Luo，来自香港中文大学（深圳）、南洋理工大学、Duke-NUS、浙江大学、中国法学相关机构等；2026-10-06 UTC 提交，arXiv 预印本，论文见 <a href="https://arxiv.org/abs/2610.08691" target="_blank" rel="noopener noreferrer">ScienceClaw</a>，代码已在 <a href="https://github.com/beita6969/ScienceClaw" target="_blank" rel="noopener noreferrer">GitHub</a> 公开，ScienceClaw-Eval 数据入口在仓库中指向 Hugging Face。</p>
+<p>它问的是一个常被“反思记忆”掩盖的问题：一次执行中修好的 workflow，能不能在干净回放、独立学科和后续任务上真正成为持久能力，而不是只留在上下文里。ScienceClaw 固定基础模型参数，只更新可版本化的 Skills（策略/分解/恢复）和带 type、shape、unit、provenance 合约的 Operators。候选修复必须先在源任务 reset replay 重现，再在独立验证任务上严格改进；否则保留 incumbent，并且每次更新可回滚。</p>
+<p>作者报告 ScienceClaw-Eval 覆盖 23 个自然与社会科学学科；七轮进化中平均 OOD 增益 +16.45%，OOD macro success 从 77.72% 升到 91.30%，98.23% 实例通过全部科学硬约束，161 个候选中 70 个被提升，平均遗忘 0.13 个百分点。GitHub 还给出约 19 GB 的完整 profile 权重需求和可接入 OpenAI-compatible endpoint 的运行方式。上述数字来自作者仓库/论文，尚无第三方验证；任务主要是 AI-for-Science，不能直接等价于机器人技能的真实安全性。</p>
+<p>它相对 Reflexion、ReasoningBank、技能库和工具演化工作的独特处，是把“回放、独立验证、成本预算、保留与迁移”写成程序级 gate，而不是由 LLM judge 单次投票。值得精读并迁移到 embodied agent：机器人中可把 Skill 绑定到动作前置条件，把 Operator 绑定到可执行轨迹和碰撞/接触 verifier。轻量验证：先用三个确定性工具任务（数据变换、规划、仿真控制）构造失败→修复→reset replay→独立任务，比较无 gate、只回放、回放+独立验证三种设置的成功率、负迁移和回滚正确性；再接入 LIBERO 或 RoboTwin 的有序中间状态。</p>
+<h2 id="6-claude-haiku-55p1">6. Claude Haiku 5.5｜P1</h2>
+<p><strong>性质与发布时间。</strong> Anthropic 于 2026-10-07 发布 Claude Haiku 5.5，这是官方模型发布与平台更新，不是论文或同行评审工作；官方页面为 <a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener noreferrer">Claude Haiku 5.5</a>。模型 ID 为 <code>claude-haiku-5-5</code>，现已在 Claude Platform、AWS、Google Cloud、Microsoft Azure 可用。</p>
+<p>它解决的是高频、低延迟 agent 子任务的成本和吞吐：摘要、压缩、分类、数据库查询、浏览器/电脑操作，以及给更大模型做 coding subagent。官方报告的对比包括 OSWorld 2.1 离线子集 72.4%、Humanity’s Last Exam 无工具 45.9%/有工具 57.4%、Terminal-Bench 4.0 39.2%；价格页显示输入/输出为每百万 token <span class="arithmatex">\(0.10/\)</span>0.50（≤100k prompt），并同步降低 Sonnet 5.5 cache-read 价格。指标、客户案例与安全结论均为 Anthropic 自测或客户早期反馈，非独立第三方验证；模型权重不公开，SDK 的 computer-use/browser-use 仍标为 beta。</p>
+<p>它不是 world model，但会直接改变 Agent 基础设施的分层：让“大模型规划 + 便宜快速子代理 + 浏览器/工具执行”更容易做高频闭环。限制是 OSWorld 等基准的真实部署相关性、闭源评测可审计性和 API 依赖。值得作为工程侧精读，尤其关注成本—延迟曲线，而不是把官方 benchmark 当成机器人能力证据。轻量验证：在固定 10 个浏览器/终端长任务上，对 Haiku 5.5、一个本地小模型和更大模型做相同工具权限、相同重试上限的 A/B，记录每成功任务 token 成本、端到端延迟、工具错误率和需要升级到大模型的比例。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>空间智能在本轮作为与 VLA/WAM 平行的检索主线，覆盖 3D/4D world generation、persistent spatial state、real-to-sim、交互视频、音频空间化和多智能体 world model。WorldSonus 和 AIM 进入主条目；Artemis（几何约束、多智能体驾驶 world model，arXiv:2610.07031）因 10 月 4 日提交、早于严格窗口而列为边界候选；ACG-WAM（动作条件几何 JEPA，10 月 3 日提交）虽有公开 Apache-2.0 代码，但同样不满足本轮严格时间窗，且没有本期新版本或第三方结果，暂不重复。</p>
+<p>本轮已扫描主要官方发布入口，除 Anthropic 的 Claude Haiku 5.5 外，未发现足以进入 Top Papers 的重大新增。扫描范围包括 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国机器人/空间智能团队的 research/news/project/model 页面；World Labs 当前可见的 Atlas/Marble 条目仍是 9 月及更早发布。官方更新和 arXiv 论文分开记录，没有把公司宣传、会议活动或融资新闻冒充模型/权重发布。</p>
+<p>候选池还检索到 ResearchTrails（arXiv:2610.07184，Git commit 轨迹数据集）、D-OPCD（arXiv:2610.07250，文本到图像 agent 经验蒸馏）和 RELACE（arXiv:2610.07349，长程 Agent action credit）；它们分别因为更偏 AI-for-Science 数据/图像生成或通用 Agent RL，被放入 P2 观察清单，而非本期 Top。它们没有被“筛选标准”用来掩盖检索失败：这些条目已进入候选池，未入选是相关性与证据强度排序的结果。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射</th>
+<th>近期趋势</th>
+<th>未解决 gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可预测世界状态</td>
+<td>AIM 的自适应粒子关系与 global context；上期 DepthWorld 的 RGB+depth</td>
+<td>从像素预测转向 action-conditioned 几何/动力学状态</td>
+<td>长期 rollout 的守恒、接触、因果和真实闭环验证仍不足</td>
+</tr>
+<tr>
+<td>多感官世界模型</td>
+<td>WorldSonus 的 causal stereo audio、动态提示和空间对齐</td>
+<td>视觉 world model 开始接入声音和持久会话</td>
+<td>音频是否改善规划/动作选择尚未被严格证明</td>
+</tr>
+<tr>
+<td>VLA/策略后训练</td>
+<td>PEARS 的物理先验+触觉 steering；QF3 的 replay-based flow RL</td>
+<td>冻结大模型，外接小适应器、信赖域和力控</td>
+<td>失败归因、critic 外推和跨本体稳定性缺乏统一基准</td>
+</tr>
+<tr>
+<td>程序与 Agent 自进化</td>
+<td>ScienceClaw 的 replay-gated Skill–Operator</td>
+<td>从上下文反思转向可验证、可回滚的程序更新</td>
+<td>机器人技能的安全 verifier、负迁移和长期记忆仍未闭环</td>
+</tr>
+<tr>
+<td>工程可复现性</td>
+<td>ScienceClaw 有代码；PEARS/WorldSonus 有项目页；其余多为预印本</td>
+<td>论文、代码、模型、数据逐渐拆开发布</td>
+<td>仍缺少小显存 smoke test、固定 seeds 和第三方实机报告</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li><strong>几何—力—动作统一的轻量 WAM。</strong> 以公开的 RoboTwin/DROID 片段为输入，把 AIM 的关系保留思想或 ACG-WAM 的几何辅助目标接到小型 flow policy，再用 PEARS 的力边界作为接触 verifier；主要指标用中间位姿、接触顺序、后接触稳定性和 counterfactual action，而不是只看最终成功。</li>
+<li><strong>空间音频作为世界状态观测。</strong> 在 WorldSonus 的 causal 音频层上加入“声源左右/遮挡/接触事件”标签，测试有无音频时的导航、抓取和异常恢复；最小实验只需公开视频、合成双耳音和一个冻结策略。</li>
+<li><strong>Replay-gated embodied self-evolution。</strong> 把 ScienceClaw 的 <code>R_src ∧ H_val ∧ Q_val(new)&gt;Q_val(old)</code> gate 迁移到机器人技能，候选更新必须在源任务回放和独立场景都提升，并保留回滚点；先在 3 个仿真任务做 7 轮，量化遗忘和负迁移。</li>
+<li><strong>统一后训练预算。</strong> 在同一 replay/interaction budget 下比较 QF3、PEARS 式 latent steering、普通 residual RL；报告每次真实交互的成功增益、计算成本、接触峰值和跨对象迁移，避免把训练吞吐误写成样本效率。</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<ul>
+<li><strong>论文性质：</strong> AIM、PEARS、QF3、WorldSonus、ScienceClaw 均为 2026-10-05/06 提交的 arXiv 预印本；本轮没有把它们写成同行评审结论。ScienceClaw 的代码已公开；PEARS 有项目页但代码仍标记 under review；WorldSonus 有项目页和演示入口；AIM/QF3 的完整权重与可直接运行的训练包未在本轮确认。</li>
+<li><strong>官方模型性质：</strong> Claude Haiku 5.5 是 Anthropic 官方发布，API/云平台可用但权重闭源；其 benchmark 和价格是官方报告，客户引用属于早期反馈，不等于第三方复现。</li>
+<li><strong>结果边界：</strong> 所有成功率、FAD、误差下降、速度提升和 OOD 增益都标为作者/官方报告；本轮没有可靠独立复现实验。WorldSonus 的 41.2 ms 是单 H100 模型块延迟，QF3 的约 10× 是特定任务与整套吞吐配方，PEARS 的 95%/90% 来自两个 20 次实机测试任务，ScienceClaw 的 19 GB 是完整 profile 安装规模。</li>
+<li><strong>检索与筛选边界：</strong> arXiv、官方 lab/company、GitHub/Hugging Face、空间智能/real-to-sim、VLA/WAM/RL、Agent/self-evolution 和 broader-web 兜底均已执行；窗口外的 ACG-WAM、Artemis、ProactiveVLA、LEAP 不作为本期新增主条目。若下一期出现权重、代码、版本、基准或第三方验证，再重新提升它们的优先级。</li>
+</ul>
+<p>今天先读 AIM 的关系自适应和 PEARS 的失败后适应，再用 QF3 的小规模 replay 实验检查策略后训练预算；如果时间只够一个工程验证，优先做“几何/力辅助是否改善有序中间状态”的三组消融。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-07/"><span>← 上一期 · 2026-10-07</span><strong>OpenWAM · DepthWorld: 3D World Model for Robot Manipulation · World Models’ Last Exam in Physics</strong></a><a class="newer" href="../2026-10-09/"><span>下一期 → · 2026-10-09</span><strong>Long-WAM · RoboJEPA · Video Prediction Policy 2</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

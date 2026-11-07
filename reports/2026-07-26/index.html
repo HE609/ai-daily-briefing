@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-07-26｜AI 研究观察 · 2026-07-26 · Yunhe</title><meta name="description" content="2. NVIDIA 发布 SANA-Video 2.0（arXiv 2607.21553，cs.CV）。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-07-26/"><meta property="og:type" content="article"><meta property="og:title" content="2026-07-26｜AI 研究观察 · 2026-07-26"><meta property="og:description" content="2. NVIDIA 发布 SANA-Video 2.0（arXiv 2607.21553，cs.CV）。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-07-26/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>AI 研究观察 · 2026-07-26</h1><p class="article-deck">2. NVIDIA 发布 SANA-Video 2.0（arXiv 2607.21553，cs.CV）。</p><div class="article-meta"><time datetime="2026-07-26">2026 / 07 / 26</time><span>约 10 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-07-26.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-07-26</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<p>【🚨 今日重点】</p>
+<ol>
+<li>
+<p><strong>arXiv 正式脱离康奈尔独立运营</strong>（7月1日生效，2026-07-26多家科技媒体跟进报道）。arXiv 已正式以独立非营利组织"arXiv, Inc."身份运行，西蒙斯基金会与康奈尔大学作为两个创始成员主导前期建制，Ramin Zabih 教授出任临时 CEO，员工整体转入新公司，注册地仍在纽约 Cornell Tech。来源：腾讯网（企鹅号转载）原文链接：<a href="https://blog.arxiv.org/2026/06/30/arxivs-next-chapter/" target="_blank" rel="noopener noreferrer">https://blog.arxiv.org/2026/06/30/arxivs-next-chapter/</a></p>
+</li>
+<li>
+<p><strong>NVIDIA 发布 SANA-Video 2.0</strong>（arXiv 2607.21553，cs.CV）。5B/14B 混合视频扩散 Transformer，混合线性-Softmax 注意力以 3:1 比例结合门控线性注意力与周期 Softmax 锚点；单卡 H100 上 480p 视频 13.2 秒生成，VBench 84.30，720p/5s 推理比 Wan 2.2-A14B 快 120 倍。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>OpenForgeRL 框架发布</strong>（arXiv 2607.21557，cs.AI）。用工具（Claw/Codex/OpenClaw）原生训练 Agent 的开源框架，K8s 编排 + 轻量代理记录调用，配合 veRL RL 栈做端到端训练。OpenForgeClaw 在 ClawEval 31.7 pass³，OpenForgeGUI 在 OSWorld-Verified 37.7，Online-Mind2Web 63.0，WebVoyager 72.3。来源：arXiv 预印本（微软研究院 + 哥伦比亚大学 + 达特茅斯）</p>
+</li>
+</ol>
+<p>━━━ 顶级研究组新发布 ━━━</p>
+<ul>
+<li>
+<p><strong>Patch Policy</strong>（arXiv 2607.18236，cs.RO/cs.LG，2026-07-21，3 日内）。Yann LeCun（FAIR/Meta）、Lerrel Pinto 等团队提出"补丁策略"——直接消费预训练 ViT 密集 patch token 的轻量 Transformer 策略，块因果注意力掩码保留时序因果。在 4 仿真 + 3 真实环境套件中，比 SOTA 全局池化表示策略相对提升 40%，仅用 OpenVLA-OFT 约 0.7% 参数即可超过其 18%。来源：arXiv 预印本，纽约大学/Meta FAIR/AMI Labs</p>
+</li>
+<li>
+<p><strong>WorldWeaver (W²)</strong>（arXiv 2607.21594，cs.CV，2026-07-24，3 日内）。UCLA + Adobe Research 推出流式多智能体视频扩散模型，通过跨智能体"世界状态寄存器"显式维护共享状态，混合 Transformer 架构（世界状态/视觉帧分离权重），双智能体 Minecraft 视频生成实验证明逻辑一致性与生成质量均提升。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>SANA-Video 2.0</strong>（arXiv 2607.21553，cs.CV，2026-07-24，3 日内）。NVIDIA 团队，5B/14B 混合视频 DiT，块注意力残差（AttnRes）将深层有效秩提升约 12%，全栈 Sol-Engine 优化在 720p/5s 达 13.06s，5B 管线比 Wan 2.2-A14B 单 H100 快 120 倍。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>UnDA（无配对跨模态蒸馏）</strong>（arXiv 2607.21546，cs.CV，2026-07-24，3 日内）。韩医学研究院 + 伊斯兰科技大学，医学影像中无配对数据下做跨模态知识转移，不确定性加权最优传输（UCT-OT）+ 每类 ProtoNCE 目标，边界精度持续提升。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>GS-Agent</strong>（arXiv 2607.21522，cs.RO/cs.CV/cs.CL，2026-07-24，3 日内）。UMass Amherst + Genesis AI 多智能体框架，自然语言→4D 物理世界，端到端让多 Agent 与物理引擎协作，实现电影级相机/灯光控制。来源：arXiv 预印本</p>
+</li>
+</ul>
+<p>━━━ 生成模型 / 新范式 ━━━</p>
+<ul>
+<li>
+<p><strong>VLM-IE3D（隐式+显式 3D 几何 VLM）</strong>（arXiv 2607.21595，cs.CV/cs.AI/cs.LG，2026-07-24，3 日内）。南洋理工 + 阿里达摩院 + 湖畔实验室，引入 IGT（隐式几何令牌）+ EGT（显式几何令牌）+ 3D 感知适配器，ECCV 2026 接收，3D 视频检测/视觉定位/密集字幕/空间推理全面 SOTA。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>Progressive Seed Pruning（PSP）</strong>（arXiv 2607.21591，cs.CV，2026-07-24，3 日内）。加州理工学院 Rogerio Guimaraes + Pietro Perona 提出扩散模型推理时缩放新范式：早期评估多种子并剪枝，匹配计算下 GenEval 与人类提示对齐评估均超 best-of-N、重要性采样、树搜索基线。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>UniD（统一视频密集预测）</strong>（arXiv 2607.21592，cs.CV，2026-07-24，3 日内）。Adobe Research + 康奈尔，8 个密集场景属性（深度/法线/语义/边界/人体部位/反照率/阴影/材质）从不相交数据集联合训练，蒸馏用预训练扩散模型先验弥合域差距，ECCV 2026。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>Visual Contrastive Self-Distillation (VCSD)</strong>（arXiv 2607.21556，cs.CV，2026-07-24，3 日内）。马里兰大学 + UCSD + 杜克 + MBZUAI，策略内自蒸馏将"图像内容擦除"作为蒸馏信号，Qwen3-VL 2B 七基准聚合从 62.27%→67.04%，4B 71.30%→73.16%，8B 72.51%→76.26%。来源：arXiv 预印本</p>
+</li>
+</ul>
+<p>━━━ 多模态 / VLM ━━━</p>
+<ul>
+<li>
+<p><strong>MIRROR（模态感知互惠推理优化）</strong>（arXiv 2607.21552，cs.AI/cs.LG，2026-07-24，3 日内）。USC + CMU，构建 ODA-Data 数据集（文本/图像/组合视图），用 RL+自我监督提升几何问题多模态推理，跨模态行为一致性更优。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>X³-OPD（跨模态策略蒸馏）</strong>（arXiv 2607.21550，cs.LG，2026-07-24，3 日内）。腾讯混元 + 浙大，将推理从文本教师蒸馏到音频-语言学生，构建三层对称语料库（语音渲染/音频事件/对话），MMSU/MMAU/BIG Bench Audio/MMAR 全面提升。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>DONDO（非洲语言 w2v-BERT ASR）</strong>（arXiv 2607.21540，cs.CL，2026-07-24，3 日内）。Khaya AI，21 个单语 + 5 个多语 ASR 基础模型覆盖 27 种非洲语言变体，平均 WER 10-13%，Apache-2.0 开源。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>MedGame（医学教育游戏化）</strong>（arXiv 2607.21570，cs.CL/cs.HC，2026-07-24，3 日内）。CUHK + 南方医科大 + 北大 + 腾讯，5000 案例 MedGame Bench 基准，特定任务微调显著提升开源 LLM 表现，缩小与商业模型差距，学生试点显示比纯文本更具吸引力。来源：arXiv 预印本</p>
+</li>
+</ul>
+<p>━━━ 具身 / VLA / 机器人 ━━━</p>
+<ul>
+<li>
+<p><strong>AXIS（可扩展社区驱动数据引擎）</strong>（arXiv 2607.21588，cs.RO，2026-07-24，3 日内）。Axis Robotics + UC 伯克利 + 佐治亚理工 + 多校协作，浏览器遥操+自动任务生成+质量过滤，207 任务/50K+ 轨迹数据集，持续预训练让 π0.5 在 AXIS 评估上较 RoboCasa365 提升 37.3%。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>GS-Agent</strong>（如上"顶级研究组"列出）</p>
+</li>
+<li>
+<p><strong>Scale Up Strategically（组合泛化）</strong>（arXiv 2607.21582，cs.RO/cs.CV，2026-07-24，3 日内）。东北大学 + NVIDIA，诊断框架量化"指令因素偏差"，提出 FDR/FDH 指标（颜色≥物体≥空间≥动词≥大小），偏差感知数据收集用一半演示即超基线。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>Beyond Episodic Evaluation（序列 EQA 记忆瓶颈）</strong>（arXiv 2607.21571，cs.RO，2026-07-24，3 日内）。马里兰大学 + UT Austin + UIUC，IROS 2026 接收，结构化基于空间的视觉记忆打破准确性-效率权衡，真实移动机器人验证。来源：arXiv 预印本</p>
+</li>
+</ul>
+<p>━━━ Agent / 大模型 ━━━</p>
+<ul>
+<li>
+<p><strong>OpenForgeRL</strong>（如上"今日重点"列出）</p>
+</li>
+<li>
+<p><strong>MIRROR</strong>（如"多模态"列出）</p>
+</li>
+<li>
+<p><strong>X³-OPD</strong>（如"多模态"列出）</p>
+</li>
+<li>
+<p><strong>ElasticTTT</strong>（arXiv 2607.21529，cs.CV/cs.AI，2026-07-24，3 日内）。清华 AI 学院 + 北京 AI 研究院，视频编辑测试时调优框架，通过目标分布正则化/对比 CFG/异步噪声调度避免"先验崩溃"，一次性视频编辑 SOTA。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>The Boundaries of Automation</strong>（arXiv 2607.21547，cs.AI/cs.CL/cs.ET/cs.LG/cs.MA，2026-07-24，3 日内）。TU Darmstadt + 慕尼黑大学，理论性探讨"人类与 AI 共同构建"是某些活动的持久特征（目标通过参与涌现），挑战"自动化可无限延伸"假设。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>GS-Agent</strong>（如"具身"列出）</p>
+</li>
+</ul>
+<p>━━━ AI for Science ━━━</p>
+<ul>
+<li>
+<p><strong>Neural spectroscopy of AlphaFold2</strong>（arXiv cs.LG/q-bio.BM，2026-07-24 上线）。Kaustav Mehta，神经光谱学揭示 AlphaFold2 内部编码的蛋白质构象景观，从网络激活反推结构生物学隐变量。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>Knowledge-Guided Cross-Modal Fusion（成人→儿童 ECG 迁移）</strong>（arXiv cs.LG，2026-07-24）。浙江大学等，标签条件对比对齐实现心电信号跨年龄迁移。来源：arXiv 预印本</p>
+</li>
+<li>
+<p><strong>Unsupervised Consensus-Based Anomaly Detection for Malaria in Ghana</strong>（arXiv 2607.21559，cs.AI/cs.CE/cs.ET/stat.AP/stat.ML，2026-07-24，3 日内）。加纳空间科学研究所 + 加纳大学医学院，分析 2014-2023 月度疟疾监测数据，识别阿散蒂/北部地区持续异常热点。来源：arXiv 预印本</p>
+</li>
+</ul>
+<p>━━━ 其他值得关注的工程性进展（3 日内） ━━━</p>
+<ul>
+<li>
+<p><strong>PagedWeight（高效 MoE LLM 服务）</strong>（arXiv cs.LG）。动态质量感知权重量化，降低 MoE 服务显存压力。</p>
+</li>
+<li>
+<p><strong>Windowed-MTP</strong>（arXiv 2607.21535，cs.LG/cs.CL/cs.PF，2026-07-24，3 日内）。NVIDIA，百万 token 上下文下将 MTP 草稿头的 KV 工作集限制为常数，~99% KV 条目缩减，每步解码成本降 28-44%。</p>
+</li>
+<li>
+<p><strong>SANA-Video 2.0</strong>（详见"顶级研究组"）</p>
+</li>
+<li>
+<p><strong>GS-Agent</strong>（详见"具身"）</p>
+</li>
+<li>
+<p><strong>WorldWeaver (W²)</strong>（详见"顶级研究组"）</p>
+</li>
+</ul>
+<p>━━━ 来自中文社区的动态（24-72h） ━━━</p>
+<ul>
+<li>
+<p>知乎 / 公众号 / 小红书 / B 站近 3 日讨论热点主要围绕：arXiv 脱离康奈尔独立、DeepSeek V4（已发布超 2 周，<strong>本报告不展开</strong>）、Sora-2 视频生成实测对比、世界模型（Yann LeCun JEPA 路线 vs Google Genie 系列）的路线之争、Qwen3.5-VL 多模态长上下文与具身智能结合。</p>
+</li>
+<li>
+<p>小红书 / B 站热门 AI 创作者内容：以"如何用 Claude Code / Codex 写毕业论文"、"Kimi K2 长文档阅读对比 GPT-5" 为主（均为近 1 周内趋势，72h 内仍为高互动话题）。</p>
+</li>
+<li>
+<p>微博 AI 热搜：国产开源大模型（智谱 GLM-4.5、通义千问 Qwen3.5-MoE）继续占据前 20，X 平台 / Reddit r/LocalLLaMA 同步在讨论 Qwen3.5 与 DeepSeek 蒸馏生态。</p>
+</li>
+<li>
+<p>知乎热门 AI 话题（72h）："arXiv 限制综述论文新规落地后研究人员如何应对"（已实施超 2 个月，本期作为背景信息回顾，不再单列）、"具身智能 VLA 是否能跨硬件平台迁移"。</p>
+</li>
+</ul>
+<p>【📌 编辑说明 / 过滤规则遵守】
+- 本简报严格筛选 72 小时内（2026-07-23 至 2026-07-26）发布或被讨论的动态。
+- <strong>DeepSeek V4</strong>、<strong>Gemini 3.5 Pro</strong>、<strong>GLM-4.5</strong>、<strong>Qwen3.5</strong>、<strong>Kimi K2</strong>、<strong>Sora-2</strong> 等已发布超过 2 周的版本动态未纳入。
+- 每条内容标注来源渠道（arXiv / 腾讯网 / 知乎 / 小红书 / X / 微博 / B 站 / Reddit / 科技媒体）。
+- 已剔除所有个人身份信息。</p>
+<p>⚠️ 免责声明：本简报由 AI 自动整理，仅供研究参考，不构成投资建议或科研结论，请独立判断。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-07-24/"><span>← 上一期 · 2026-07-24</span><strong>🚨 今日重点（2-3条最值得关注的新发布） · ━━━ 顶级研究组新发布（3-5条，3 天内）━━━ · ━━━ 生成模型 / 新范式（2-4条）━━━</strong></a><a class="newer" href="../2026-07-27/"><span>下一期 → · 2026-07-27</span><strong>【🚨 今日重点】（2-3 条最值得关注的新发布，附来源） · ━━━ 顶级研究组新发布 ━━━ · ━━━ 生成模型 / 新范式 ━━━</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

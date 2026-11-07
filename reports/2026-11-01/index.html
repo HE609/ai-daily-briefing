@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-01｜world2vec · LucidLyra · CoAWM · Yunhe</title><meta name="description" content="世界模型正在从“产生合理未来”走向三个可分别验收的接口——潜在动力学是否真实、生成空间是否可查询、动作与数据是否保留物理时间和坐标语义。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-01/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-01｜world2vec · LucidLyra · CoAWM"><meta property="og:description" content="世界模型正在从“产生合理未来”走向三个可分别验收的接口——潜在动力学是否真实、生成空间是否可查询、动作与数据是否保留物理时间和坐标语义。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-01/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>world2vec · LucidLyra · CoAWM</h1><p class="article-deck">世界模型正在从“产生合理未来”走向三个可分别验收的接口——潜在动力学是否真实、生成空间是否可查询、动作与数据是否保留物理时间和坐标语义。</p><div class="article-meta"><time datetime="2026-11-01">2026 / 11 / 01</time><span>约 18 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-world2vec%E4%BB%8E%E4%BB%BB%E5%8A%A1%E6%94%B6%E7%9B%8A%E8%B5%B0%E5%90%91%E5%8F%AF%E8%BE%A8%E8%AF%86%E7%9A%84%E6%BD%9C%E5%9C%A8%E5%8A%A8%E5%8A%9B%E5%AD%A6p0">1. world2vec：从任务收益走向可辨识的潜在动力学｜P0</a><a class="toc-level-2" href="#2-lucidlyra%E8%AE%A9%E7%94%9F%E6%88%90%E7%9A%84-3d-%E4%B8%96%E7%95%8C%E5%90%8C%E6%97%B6%E5%85%B7%E6%9C%89%E8%AF%AD%E4%B9%89%E4%B8%8E%E5%AE%9E%E4%BE%8B%E8%BA%AB%E4%BB%BDp0">2. LucidLyra：让生成的 3D 世界同时具有语义与实例身份｜P0</a><a class="toc-level-2" href="#3-gensight%E5%9C%A8%E5%90%8C%E4%B8%80%E9%A2%84%E6%B5%8B%E7%A9%BA%E9%97%B4%E4%B8%AD%E8%81%94%E5%90%88%E7%94%9F%E6%88%90%E4%B8%8E-4d-%E6%84%9F%E7%9F%A5p1">3. GenSight：在同一预测空间中联合生成与 4D 感知｜P1</a><a class="toc-level-2" href="#4-coawm%E6%8A%8A%E5%8A%A8%E4%BD%9C%E8%BD%A8%E8%BF%B9%E5%8F%98%E6%88%90%E5%8F%AF%E6%8C%89%E7%89%A9%E7%90%86%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%87%BD%E6%95%B0p1">4. CoAWM：把动作轨迹变成可按物理时间查询的函数｜P1</a><a class="toc-level-2" href="#5-umi-live%E5%8F%8C%E6%89%8B%E4%BE%BF%E6%90%BA%E9%87%87%E9%9B%86%E5%88%B0%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AE%8C%E6%95%B4%E6%95%B0%E6%8D%AE%E9%93%BEp1">5. UMI-Live：双手便携采集到训练与执行的完整数据链｜P1</a><a class="toc-level-2" href="#6-ludi-02%E6%8A%8A%E4%BA%BA%E7%B1%BB%E6%84%8F%E5%9B%BE%E4%B8%8E%E5%A4%9A%E8%BD%AE%E5%8D%8F%E4%BD%9C%E4%BD%9C%E4%B8%BA%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%83%BD%E5%8A%9B%E6%8E%A5%E5%8F%A3p2">6. Ludi 0.2：把人类意图与多轮协作作为机器人能力接口｜P2</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-01.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-01</div><article class="prose"><p>本期主检索窗口为<strong>北京时间 2026-10-29 09:02—2026-11-01 09:02</strong>，资源状态核验延伸至成稿。今天最值得关注的判断是：<strong>世界模型正在从“产生合理未来”走向三个可分别验收的接口——潜在动力学是否真实、生成空间是否可查询、动作与数据是否保留物理时间和坐标语义。</strong>这是本报对本轮材料的综合判断，不是某篇论文已经证明的统一结论。</p>
+<p>周末可访问的 arXiv 最新公告仍到 10 月 30 日，API 本轮限流；不能据此宣称 10 月 31 日至 11 月 1 日没有新论文。本期重点压缩为 <strong>5 篇 10 月 29 日 UTC 提交的预印本，以及 1 项公司官方研究展示</strong>：五篇均已进入上一期候选池，本期首次展开属于 <strong>Selection 筛选变化</strong>，不称今日首发；KRAFTON 的 Ludi 0.2 新闻稿早于上一期成稿却未入池，明确作为 <strong>Retrieval Failure 检索遗漏回补</strong>。上一期已详述的 Spatial State、L3G-World、Gym-Anything、Utility-WAM 等，未确认新的实质证据，不重复展开。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>world2vec → LucidLyra → CoAWM → UMI-Live → GenSight</strong>。</p>
+<ul>
+<li><strong>world2vec：</strong>先看“控制成功”和“动力学真实”怎样分开测，以及小模型能否提供可信的机制验证。</li>
+<li><strong>LucidLyra：</strong>看如何把生成的 3D 场景变成可查询对象，同时核清教师监督、真实观测与生成补全的边界。</li>
+<li><strong>CoAWM：</strong>看连续动作函数怎样处理控制频率，并区分平滑、成功率与跨本体迁移三种主张。</li>
+<li><strong>UMI-Live：</strong>看可用数据与完整采集链的价值，重点读坐标、时间、action 字段和目标场景数据的契约。</li>
+<li><strong>GenSight：</strong>最后看生成与感知共享速度预测空间的机制；多模态分数提升距离闭环行动收益仍有一步。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-world2vec从任务收益走向可辨识的潜在动力学p0">1. world2vec：从任务收益走向可辨识的潜在动力学｜P0</h2>
+<p><strong>Tobias Schmidt、Rodrigo Gonzalez Laiz、Krisztián Szuppinger、Steffen Schneider；Helmholtz Munich、Munich Center for Machine Learning。</strong>v1 于 <strong>10 月 30 日 01:58 北京时间</strong>提交；性质为预印本，同行评审未核实。<a href="https://arxiv.org/abs/2610.40637" target="_blank" rel="noopener noreferrer">论文与版本记录</a>；<a href="https://arxiv.org/pdf/2610.40637v1" target="_blank" rel="noopener noreferrer">完整 PDF</a>；<a href="https://worldmodels.science/world2vec" target="_blank" rel="noopener noreferrer">官方项目</a>。它研究一个常被成功率掩盖的问题：策略能完成任务时，世界模型是否真的学到了系统状态怎样演化？</p>
+<p>方法联合训练短历史编码器和潜在向量场，以多步积分后的预测对齐未来观测的编码；DCL 对比目标或 SIGReg 防止表征坍缩。控制版本用 MLP 向量场、Euler 积分和 CEM 规划，不用奖励训练或像素重建；科学发现版本把向量场换成 SINDy 稀疏多项式。核心检验是“先演化再编码”能否与“先编码再演化”对应，同时使用跨 seed 仿射一致性、LRC 与带负样本的未来检索 EQA，避免单个自洽指标被常量表征取巧。相对 DreamerV3、TD-MPC2、LeWM，重点是可辨识性与动力学保真。</p>
+<p><strong>作者结果：</strong>约 30 万参数模型在三个像素控制环境上，DCL 版的一秒 LRC 为 <strong>97.7%</strong>，Pendulum / Reacher / CartPole 回报为 <strong>826 / 895 / 232</strong>，成功解决前两类，CartPole 仍明显落后奖励驱动方法。跨 71 个混沌吸引子的实验支持部分系统的状态与动力学恢复，但展示的符号方程使用真实状态做仿射对齐，并经过案例选择，不能称任意视频中无监督发现物理定律。主表混合离线随机数据与在线奖励训练，Reacher 控制频率也不同，目标图像还通过逆运动学生成；这些结果不构成统一预算的全面榜单胜出。</p>
+<p><strong>值得精读，完整复现仍待发布。</strong><a href="https://github.com/dynamical-inference/world2vec" target="_blank" rel="noopener noreferrer">官方仓库</a>目前只有 README 和素材，明确代码即将发布，未核到专属权重、训练数据快照或许可证。作者报告单 A100 的 20 步模型约十分钟训练，但数据仅每环境 20 万张 64×64 帧，不能外推复杂机器人。轻量验证可先复建 Pendulum：固定数据、编码器和 CEM 预算，对比一步/多步、直接转移/残差向量场四个条件；三个 seed 同时报 EQA、真实状态预测和控制回报，先判断收益来自多步目标还是连续动力学参数化。</p>
+<h2 id="2-lucidlyra让生成的-3d-世界同时具有语义与实例身份p0">2. LucidLyra：让生成的 3D 世界同时具有语义与实例身份｜P0</h2>
+<p><strong>Oliver Hahn、Rodrigo Marcuzzi、Sangeetha Grama Srinivasan 等；NVIDIA、TU Darmstadt、摩德纳与雷焦艾米利亚大学、ELIZA、hessian.AI。</strong>v1 于 <strong>10 月 30 日 01:18 北京时间</strong>提交，预印本，同行评审未核实。<a href="https://arxiv.org/abs/2610.40495" target="_blank" rel="noopener noreferrer">论文</a>；<a href="https://arxiv.org/html/2610.40495v1" target="_blank" rel="noopener noreferrer">全文与实验</a>；<a href="https://research.nvidia.com/labs/sil/projects/lucidlyra/" target="_blank" rel="noopener noreferrer">NVIDIA 官方项目</a>。研究问题是：单图生成的 3D 世界如何支持“选中这个物体、查询类别、跨视角保持身份”，而不仅能够渲染？</p>
+<p>它延续 Lyra 的视频潜变量到 Gaussian 解码器。教师分支把相机可控视频解码为 RGB，用 C-RADIO / SigLIP2 和 SAM / SAM2 产生语义、实例与部件监督，再跨生成视角整合；学生直接从视频潜变量和输入图像特征预测几何、外观、语义与实例字段，联合优化重建、语义和实例对比损失。动态扩展加入时间条件。与 LangSplat、Unified-Lift 等逐场景方法相比，增量在统一前馈蒸馏；相对上一期 L3G-World，重点是可查询内容，而不是长时探索记忆的更新效率。</p>
+<p><strong>作者结果：</strong>静态合成评测中，LucidLyra / LucidLyra+ 的语义 mIoU 为 <strong>64.1 / 67.9</strong>，Lyra 加 LangSplatV2 为 <strong>32.4</strong>；真实图像条件下分别 <strong>49.8 / 53.7</strong>。但合成场景实例 mTrackPR <strong>21.5</strong> 仍低于直接提升教师的 <strong>22.8</strong>；基础版真实图像语义也略低于该教师参考的 <strong>50.1</strong>。单 A100 上从已有视频潜变量到查询结果约 <strong>2.1 分钟</strong>，不含上游视频生成，也慢于 CHORUS 的 1.0 分钟。应理解为质量、字段与处理成本的折中。</p>
+<p><strong>创新值得读，真实物理与全链效率尚未被证明。</strong>补全区域来自生成先验，语义伪标签可能继承教师错误；第一帧未出现、后来显露的区域还被排除出部分实例监督。机器人仿真、编辑、资产挖掘主要是定性应用，未给出独立真机收益。项目仍写 <strong>Code coming soon</strong>，未核到专属权重和可下载的完整训练/评测数据；预处理约 <strong>1,580 A100 GPU-days</strong>，解码器训练另需 8 张 A100、约十天，不能把前馈推理等同低成本训练。</p>
+<p>轻量替代先固定一个已有 3D 重建和二十条相机轨迹，只比较逐视图标注、直接教师提升、小型共享语义/实例头；在真实观测区与生成补全区分别计算 mIoU、实例一致性、编辑后碰撞错误和总处理时间。这个实验能先验证“联合字段更有用”，无需重训视频基座或复制完整教师预处理。</p>
+<h2 id="3-gensight在同一预测空间中联合生成与-4d-感知p1">3. GenSight：在同一预测空间中联合生成与 4D 感知｜P1</h2>
+<p><strong>Haitang Feng、Zhuoman Liu、Zhennan Wang、Sheng Wang 等；RoboScience、南京大学、香港理工大学、新加坡国立大学。</strong>v1 于 <strong>10 月 29 日 10:50 北京时间</strong>提交，预印本，同行评审未核实。<a href="https://arxiv.org/abs/2610.39232" target="_blank" rel="noopener noreferrer">论文</a>；<a href="https://arxiv.org/html/2610.39232v1" target="_blank" rel="noopener noreferrer">方法与实验</a>；<a href="https://gensight-rbs.github.io/" target="_blank" rel="noopener noreferrer">官方项目</a>。它将视频未来、深度、本体分割和相对首帧的光流放到同一模型，减少“先生成，再用独立感知器解释”的割裂。</p>
+<p>基座为 Cosmos3-Nano，视觉 tokenizer 使用冻结的 Wan2.2 VAE。各模态转换为共用时空表示，前部共享处理、后部用任务调制，统一以速度预测优化；共享噪声使不同模态的速度差对应潜变量残差。推理有两种模式：多步生成未来视频并读取对齐的稠密预测，以及对已观测视频按模态各做单次感知前向。训练约 <strong>221,044 个片段、1,049.58 小时</strong>，涵盖四类机器人本体及 EgoTable 人手数据；损失含各模态速度误差与稠密梯度项。</p>
+<p><strong>作者结果：</strong>RoboMIND 生成 FVD 为 <strong>14.55</strong>，对照 Cosmos3-Nano <strong>44.97</strong>、Wan2.2 <strong>69.37</strong>；在真实 RGB 输入的感知模式下，分割 IoU <strong>88.7</strong>，深度 AbsRel <strong>2.4%</strong>，2D EPE <strong>5.2</strong>。这些分属不同输入协议，不能把观测感知分数当未来预测精度。生成模式中，原始 EPE 在 RoboMIND 为 <strong>7.089</strong>，差于 RynnWorld4D 的 <strong>4.936</strong>；作者偏重的归一化/方向指标则更优。RoboTwin 深度 AbsRel <strong>4.98%</strong> 也略差于 <strong>4.86%</strong>，因此不是所有指标全面领先。</p>
+<p><strong>值得读共享预测空间，不应直接推断行动收益。</strong>论文明确尚未接入动作预测或闭环控制；稠密标签部分来自补全和已有估计器。相对 RynnWorld4D、GenCeption，研究价值是生成与感知能否互相改善，并保持一致接口。<a href="https://github.com/gensight-rbs/gensight" target="_blank" rel="noopener noreferrer">仓库</a>当前仅 README 与素材，代码、专属权重和完整标注数据未核到开放；训练报告为 <strong>64 张 A800、约 5,400 GPU 小时</strong>。轻量验证可冻结视频基座，仅训练小型任务调制和读取头，固定同一批短片，对比独立头、共享速度空间、打乱稠密标签三组，额外测后续跟踪/控制是否改善。</p>
+<h2 id="4-coawm把动作轨迹变成可按物理时间查询的函数p1">4. CoAWM：把动作轨迹变成可按物理时间查询的函数｜P1</h2>
+<p><strong>Liangyu Li、Qingwen Liu；同济大学。</strong>v1 于 <strong>10 月 30 日 00:34 北京时间</strong>提交，预印本；作者将结果定位为初步验证，同行评审未核实。<a href="https://arxiv.org/abs/2610.40401" target="_blank" rel="noopener noreferrer">论文与发布记录</a>；<a href="https://arxiv.org/html/2610.40401v1" target="_blank" rel="noopener noreferrer">全文</a>。它试图解决离散 action chunk 绑定采样频率的问题：同一段物理运动，能否先预测一次函数，再在 10 Hz 或 60 Hz 查询？</p>
+<p>第一阶段用 MoT 动作函数自编码器，重建末端位置、姿态、夹爪，并约束同一轨迹的两种采样视图具有一致潜变量。第二阶段接入冻结的 LaWAM 世界预测分支，以 VLM、未来视觉特征、本体状态预测动作函数；冻结函数编码器/解码器，通过潜变量余弦损失和解码后物理误差训练预测路径。执行接口为 <code>a(t)=D(z,t,c)</code>，物理时间查询、本体执行信息与当前姿态锚定分别保留。与 π0 / Octo 的异构动作学习、LaWAM 的时间对齐相比，新点主要在函数表示和采样解耦。</p>
+<p><strong>作者结果：</strong>8,192 个留出窗口的重建误差为 <strong>2.503 mm、0.2295°</strong>；16 项任务、800 对匹配初态的首秒执行中，位置/旋转 jerk RMS 降低 <strong>36.7% / 54.2%</strong>，速度 RMS 接近。固定 1.2 秒执行与重规划周期，10 / 15 / 20 / 30 / 50 / 60 Hz 各 150 次的成功数为 <strong>116 / 121 / 117 / 119 / 116 / 110</strong>。这是跨频率可运行证据；尚不足以证明跨本体泛化。约 <strong>22.6%</strong> 的“能耗”下降基于双方成功的 13 个场景及 PD 力矩估计的正机械功，不是实测整机电耗。</p>
+<p><strong>建议精读实验边界和时间接口。</strong>长窗口仍有 jerk 尾部，论文把更大规模跨本体预训练列为后续工作；本轮未核到专属代码、权重、训练数据快照或复现包。轻量实验先冻结一个现有策略，只替换动作表示，在相同物理时长、重规划周期和观测延迟下比较固定 chunk、插值重采样、连续函数三组；报告全轨迹 jerk、夹爪事件时刻、成功率及延迟。只有超过插值对照，才值得进一步验证世界模型条件和跨本体数据的额外贡献。</p>
+<h2 id="5-umi-live双手便携采集到训练与执行的完整数据链p1">5. UMI-Live：双手便携采集到训练与执行的完整数据链｜P1</h2>
+<p><strong>Govind Velamoor、Adrian Lin、Sam Jung、Spencer Mateega、Brandon Y. Yang、Amish Sethi；Yale、CMU、AfterQuery、宾大、Harvard。</strong>v1 于 <strong>10 月 29 日 13:18 北京时间</strong>提交，预印本与系统/数据研究发布，同行评审未核实。<a href="https://arxiv.org/abs/2610.39385" target="_blank" rel="noopener noreferrer">论文</a>；<a href="https://arxiv.org/html/2610.39385v1" target="_blank" rel="noopener noreferrer">全文</a>；<a href="https://umi-live.github.io/" target="_blank" rel="noopener noreferrer">项目与硬件指南</a>。其价值在把野外双手采集、同步、SLAM、数据发布和机器人学习串起来，不应仅以一个成功率数字判断。</p>
+<p>每只手柄集成相机、LiDAR–IMU、树莓派与电池；独立 GLIM 重建后对齐时间，自动估计夹爪开度、检查同步和数据质量，异步发布 LeRobot 格式。双设备估计时间偏差超过 <strong>5 ms</strong> 的片段被剔除；每对硬件约 <strong>1,930 美元</strong>，单只含电池 <strong>1.42 kg</strong>。π0.5 以全参数、MolmoAct2 以 VLM LoRA 加动作专家微调，学习相对查询时刻的末端位姿及绝对夹爪目标。与原始 UMI、UMI-3D、HiFi-UMI 相比，重点是便携双手硬件和可持续运行的数据处理链。</p>
+<p><strong>作者结果：</strong>双 YAM 六橘子入碗任务，π0.5 在 <strong>95/5 和 90/10 的 UMI/目标场景遥操作混合</strong>下为 <strong>9/10、10/10</strong>；MolmoAct2 在 <strong>75/25</strong> 混合下 <strong>8/10</strong>，原始 checkpoint 为 <strong>0/10</strong>。允许重抓和掉落恢复，每条件十次、一个训练 seed，仅一项策略任务；不能写为纯人类手持数据的零样本跨场景成功。三个任务的 <strong>3,255 段、4,288,182 对同步帧、39.705 小时</strong>数据已可见；双相机时长只计一次。</p>
+<p><strong>复现材料比多数新论文完整，但必须先核接口。</strong><a href="https://github.com/AfterQuery-Research/umi-live" target="_blank" rel="noopener noreferrer">采集仓库</a>、<a href="https://github.com/AfterQuery-Research/umi-teleop" target="_blank" rel="noopener noreferrer">遥操仓库</a>、<a href="https://github.com/AfterQuery-Research/lerobot" target="_blank" rel="noopener noreferrer">训练仓库</a>与<a href="https://huggingface.co/datasets/brandonyang/umi-live-dataset" target="_blank" rel="noopener noreferrer">HF 数据卡</a>可访问；完整训练加载器/配方尚未实跑对齐，未确认论文各条件的完整策略 checkpoint。数据实际最新提交为 <strong>10 月 10 日</strong>，本期新的是论文分析，不是新数据首发。数据卡标 Apache-2.0，并有来源 revision 与逐段 provenance；采集/遥操仓根目录未见许可证文件，不能把全部组件统称同一许可。</p>
+<p>下载使用前的关键是：公开数据的 <strong>14 维 <code>action[t]</code> 与同帧 <code>observation.state[t]</code> 完全相同</strong>，各手坐标分别相对本段起点；采集仓 README 仍记 12 维 pose-delta，和该发布数据存在接口差异。训练加载器必须选取未来帧、避免跨 episode，再转换为论文的双手相对动作，不能直接把存储字段当控制命令。轻量验证先抽查二十段的时间、坐标回环、夹爪与视频同步，再做 0 / 5 / 10% 目标场景数据的同预算比较；这比立即全量微调更能说明数据迁移的来源。</p>
+<h2 id="6-ludi-02把人类意图与多轮协作作为机器人能力接口p2">6. Ludi 0.2：把人类意图与多轮协作作为机器人能力接口｜P2</h2>
+<p><strong>Ludo Robotics / KRAFTON 团队，Palo Alto 与首尔研发；新闻稿列 CH Kim、Kangwook Lee、Rob Nowak 等负责人，未提供 0.2 论文作者表。</strong>公司于 <strong>10 月 30 日 14:00 ET，即 10 月 31 日 02:00 北京时间</strong>发布新闻稿，并称在 UC Berkeley BARS 展示系统。性质是<strong>官方研究展示</strong>，本轮未核到专属技术报告、同行评审或第三方量化验证。<a href="https://www.prnewswire.com/news-releases/krafton-develops-socially-intelligent-ai-that-helps-robots-better-understand-people-302923488.html" target="_blank" rel="noopener noreferrer">KRAFTON 官方供稿</a>；<a href="https://www.ludorobotics.com/" target="_blank" rel="noopener noreferrer">公司研究入口</a>。</p>
+<p>研究问题是机器人如何理解指代、手势、纠正和任务改变，并在对话、导航、操作间保持上下文。官方列出社会意图、记忆推理、工具协调、手势和动作流畅性五方面进展；但没有披露 0.2 的具体模块、训练目标、数据规模、对照或成功率。<a href="https://arxiv.org/abs/2608.22035" target="_blank" rel="noopener noreferrer">8 月 Ludi 0.1 论文</a>是 VLM 推理/对话加导航与操作能力的组合系统，不能直接当作 0.2 的已验证架构；统一感知、对话与动作的 Ludi 1.0 仍在开发。</p>
+<p><strong>值得跟踪，深读优先级低于有实验的五项。</strong>潜在价值是把沟通和纠错纳入物理任务验收，和 Gemini Robotics-ER、Hi Robot 等路线比较时应固定底层技能，检验澄清/记忆本身带来多少收益。本轮未核到 0.2 代码、权重、数据、API 或可复现实验，新闻转述也不构成独立验证。无需复制大模型：可在开放 VLM 加固定机器人技能上建立二十个歧义指令和任务中断场景，对比直接执行、主动澄清、带记忆纠错，计入询问次数、错误动作和最终成功率。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>空间智能作为独立主线，已覆盖持久世界、3D/4D 生成、real-to-sim、重建和交互仿真。</strong>本轮保留 NVIDIA 的 LucidLyra 官方研究，以及 Ludi 0.2 的官方展示；对其他主要入口，<strong>本轮已扫描主要官方发布入口，未发现足以进入 Top Papers 的重大新增</strong>。这里的“未发现”受可访问来源限制，不是所有机构无更新的证明。</p>
+<ul>
+<li><strong>官方范围：</strong>World Labs、Generalist AI、Physical Intelligence、Google DeepMind / Robotics、NVIDIA Robotics / Cosmos / GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute；高校覆盖 Stanford、Berkeley、MIT、CMU、Princeton。中国入口包括上海 AI Lab、清华 AIR、北大 EPIC、腾讯混元、字节 Seed、阿里达摩院、Robbyant、BAAI、智元、云深处，并用 broader web 扩展到 Ludo、D-Robotics、西湖大学等线索。代表入口见 <a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">PI</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">DeepMind</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a>。</li>
+<li><strong>日期与重复核对：</strong><a href="https://spaitial.ai/blog/echo-3-release" target="_blank" rel="noopener noreferrer">SpAItial 的当前官方域名</a>已补查，Echo-3 日期为 10 月 27 日；<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener noreferrer">Genie 4</a>也是 27 日旧发布，不因本周末媒体报道重列。Uranus 近期报道声称 27 日开放，但<a href="https://d-robotics-ai-lab.github.io/large-model-team/blog/uranus/" target="_blank" rel="noopener noreferrer">官方博客</a>标 8 月 25 日、<a href="https://huggingface.co/D-Robotics" target="_blank" rel="noopener noreferrer">HF 模型页</a>显示更早权重记录；本轮未确认窗口内新模型包，不借报道日计新。L3G、GR00T、Genie Sim 自上期完成后的提交查询未见新增，11 月 2 日排期也尚非交付。</li>
+<li><strong>Agent / 自演化线：</strong>Liaoyuan Fan 等、Video Rebirth / NUS / NTU / HKUST 等的 <a href="https://arxiv.org/abs/2610.40191" target="_blank" rel="noopener noreferrer">Video Generation Meets Agent Harness</a>，29 日 22:47 北京时间提交，已入上一期池，本期列为框架阅读材料。它把输出修订、harness 状态、生成器参数、评价器和改进程序分开讨论；<a href="https://github.com/agentic-videogen/awesome-agentic-videogen" target="_blank" rel="noopener noreferrer">仓库</a>是文献/网站资源，不能当已验证的新 RSI 系统、模型训练代码或权重。对自主研发能力的判断仍需冻结外部评价与完整预算。</li>
+<li><strong>其他窗口内线索：</strong><a href="https://www.chinanews.com/cj/2026/10-31/10724015.shtml" target="_blank" rel="noopener noreferrer">中新网报道</a>西湖世界模型研究中心于 31 日成立，属组织与长期研究布局，不计模型能力发布；DeepMind 万圣节机器人设计演示的媒体线索已入池，但未核到对应新技术报告和量化对照，保留观察。</li>
+</ul>
+<p><strong>覆盖边界：</strong>四个 arXiv 分类 recent 页共 4,346 条记录、3,451 个唯一 ID，29—31 日公告标题中得到 353 条宽口径主题候选；这些是覆盖量，不是严格窗口首发数量。API 限流后已改用分类页、逐篇版本记录、官方项目与搜索核对。Stanford AI blog 的 TLS、Princeton 的 403、部分国内动态页正文不足及 Meta 旧索引仍是检索缺口；Stanford SRC、机构搜索和实际论文项目页用于补查。GROME、WorldProbe、AcrossDEX、RoboAtom、SpaceAct、Robotic Data Inoculation 等已入池未展开属于 Selection；不能用筛选解释从未入池的 Ludi 官方遗漏。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图保持 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>。下表为本报综合判断，研究机会尚待验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>未解决 gap</th>
+<th>可能形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可辨识状态与动力学</td>
+<td>world2vec，衔接 Spatial State；从回报走向状态与转移保真</td>
+<td>简单环境、真实状态对齐与复杂接触之间仍有距离</td>
+<td>等数据/等规划预算下，预测保真对控制与物理参数迁移的独立贡献</td>
+</tr>
+<tr>
+<td>可查询的生成空间</td>
+<td>LucidLyra，衔接 L3G、ScIntBench</td>
+<td>生成补全、语义一致和真实几何正确尚未绑定</td>
+<td>按观测来源分区的语义、身份与物理交互联合验收</td>
+</tr>
+<tr>
+<td>生成与稠密感知</td>
+<td>GenSight，衔接 WorldFlow、RynnWorld4D</td>
+<td>观测感知、未来预测和闭环行动指标混用风险</td>
+<td>同输入、同后端下的多模态预测一致性与实际行动效用</td>
+</tr>
+<tr>
+<td>时间与跨本体动作</td>
+<td>CoAWM，衔接 LaWAM、RynnWorld-Latent</td>
+<td>重采样收益、重规划频率和跨本体知识共享未分开</td>
+<td>固定物理时间的函数表示、插值与迁移对照</td>
+</tr>
+<tr>
+<td>人机数据与采集</td>
+<td>UMI-Live，衔接 TouchBridge、Tactus</td>
+<td>数据量、坐标语义、目标场景适配和采集成本纠缠</td>
+<td>有 provenance 的动作转换与迁移数据配比审计</td>
+</tr>
+<tr>
+<td>互动与自主改进</td>
+<td>Ludi 0.2、Agent Harness，衔接 Evolve-IPI</td>
+<td>官方能力描述缺量化，学习闭环缺固定外部验收</td>
+<td>固定动作技能下的澄清/记忆归因与不随系统演化的评价器</td>
+</tr>
+</tbody>
+</table></div>
+<p>相对上一期，新增的连接是：<strong>“有空间状态”之后，要检查状态按什么规律更新、如何被查询，以及怎样在时间与坐标接口中转为可执行数据。</strong>Gym-Anything 的独立物理验收、Utility-WAM 的负迁移、长期部署学习与 Agent 授权保持等旧问题继续保留。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<p><strong>1. 潜在预测的真实性是否独立改善决策？</strong>在 Pendulum / Reacher 固定数据、模型容量、调参与 CEM 候选数，做多步目标与残差动力学的 2×2 实验；用三个 seed、留出动作分布及摩擦变化同时验收 EQA、状态误差、回报和总时间。只有预测改进能稳定带来分布外行动收益，才继续扩展到接触；若只提高自洽指标，应优先排查表征坍缩、目标泄漏和 planner 差异。</p>
+<p><strong>2. 可查询世界是否值得信任？</strong>选择十个有真实多视角真值的场景，将已观测/生成补全区域分别标记；比较固定几何的教师提升与小型联合字段头，测试实例重访、文字选物、编辑和碰撞。继续信号是实际交互错误下降且不牺牲真实区域几何；仅分割分数上涨、补全区却产生不可执行物体，不能支撑“可用于机器人”的强结论。</p>
+<p><strong>3. 动作函数的优势是否超过插值和数据约定修复？</strong>先抽查二十段 UMI-Live，固定 revision，确认同帧 action、每手坐标、夹爪范围和未来目标；再在同一策略上比较离散 chunk、时间插值、连续函数，固定物理时长和重规划周期。若首秒 jerk 改善但长时失败增多，停止外推“更可靠控制”；若不同频率稳定且超过插值，再研究跨本体迁移。</p>
+<p><strong>4. 机器人互动与自演化能否接受固定外部评价？</strong>用二十个歧义/中断场景、相同 VLM 与动作技能，比较澄清、记忆和技能更新；给定真实执行预算，固定最终验收器，并单独计入反馈调用、查询人次数和错误动作。继续信号是留出意图和留出表达上均有收益；如果只在开发脚本或可修改的评价器上提升，应停止宣称自主能力增长。</p>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本期五篇重点论文均为预印本，同行评审状态未核实；重点数值都是作者结果，<strong>本报没有独立重训或机器人复现</strong>。Ludi 0.2 是公司官方展示，没有可核量化结果；新闻转述不等于第三方验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实材料</th>
+<th>主要缺口与使用前检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>world2vec</td>
+<td>完整论文 PDF、项目与占位仓库</td>
+<td>实现/权重/快照待发布；离线在线训练与控制频率须对齐</td>
+</tr>
+<tr>
+<td>LucidLyra</td>
+<td>论文、NVIDIA 项目与演示</td>
+<td>Code coming soon；专属权重、全量监督与评测包未核开放</td>
+</tr>
+<tr>
+<td>GenSight</td>
+<td>论文、项目、README/素材仓</td>
+<td>实现、权重、完整稠密标签待发布；感知和预测协议分开</td>
+</tr>
+<tr>
+<td>CoAWM</td>
+<td>论文与初步实验</td>
+<td>未核专属复现包；跨频率不等于跨本体，初始平滑不等于长时稳定</td>
+</tr>
+<tr>
+<td>UMI-Live</td>
+<td>采集/遥操/训练仓、硬件指南、公开 HF 数据和 provenance</td>
+<td>策略 checkpoint 未核；数据 10 月 10 日旧发布；不同组件许可与动作字段须分别核对</td>
+</tr>
+<tr>
+<td>Ludi 0.2</td>
+<td>KRAFTON 官方新闻稿与系统展示说明</td>
+<td>0.2 技术配方、量化对照、代码/权重/数据未核开放</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天先读 <strong>world2vec 的完整 PDF 第 3 节与对照协议</strong>，再看 <strong>LucidLyra 的教师参考和实际计时起点</strong>。首个验证优先做小模型动力学四组对照，或 UMI-Live 的二十段数据接口审计，再决定是否投入大规模训练。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-31/"><span>← 上一期 · 2026-10-31</span><strong>Probing Spatial State · L3G-World · Gym-Anything for Robotics</strong></a><a class="newer" href="../2026-11-02/"><span>下一期 → · 2026-11-02</span><strong>Genie Sim / Agent2Act · GROME · Algebraic World Model</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-14｜Gemini 4 Argon for Robotics · Grounded-Dreamer · What Visual Representations Do World Action Models Need? · Yunhe</title><meta name="description" content="Physical AI 正在从“发布一个模型”转向“提供可迭代的适配平台”，同时 world model 的有效监督从像素逼真度转向物理可验证、动作相关的未来表示；Spatial Intelligence 则开始出现可干预的内部机制证据。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-14/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-14｜Gemini 4 Argon for Robotics · Grounded-Dreamer · What Visual Representations Do World Action Models Need?"><meta property="og:description" content="Physical AI 正在从“发布一个模型”转向“提供可迭代的适配平台”，同时 world model 的有效监督从像素逼真度转向物理可验证、动作相关的未来表示；Spatial Intelligence 则开始出现可干预的内部机制证据。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-14/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><link rel="stylesheet" href="../../assets/katex/katex.min.css"><script defer src="../../assets/katex/katex.min.js"></script><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Gemini 4 Argon for Robotics · Grounded-Dreamer · What Visual Representations Do World Action Models Need?</h1><p class="article-deck">Physical AI 正在从“发布一个模型”转向“提供可迭代的适配平台”，同时 world model 的有效监督从像素逼真度转向物理可验证、动作相关的未来表示；Spatial Intelligence 则开始出现可干预的内部机制证据。</p><div class="article-meta"><time datetime="2026-10-14">2026 / 10 / 14</time><span>约 29 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-gemini-4-argon-for-roboticsp0">1. Gemini 4 Argon for Robotics｜P0</a><a class="toc-level-2" href="#2-frontier-models-for-every-robotphysical-intelligence-pi-api-betap0">2. Frontier Models for Every Robot：Physical Intelligence Pi API beta｜P0</a><a class="toc-level-2" href="#3-muse-wonder-muse-wonder-fullfrontier-models-for-agentsp1">3. Muse Wonder / Muse Wonder Full：Frontier Models for Agents｜P1</a><a class="toc-level-2" href="#4-ai-models-may-be-capable-of-self-replicating-without-access-to-a-datacenterp1">4. AI models may be capable of self-replicating without access to a datacenter｜P1</a><a class="toc-level-2" href="#5-grounded-dreamerrobot-learning-from-world-model-synthetic-data-with-physical-groundingp0">5. Grounded-Dreamer：Robot Learning from World Model Synthetic Data with Physical Grounding｜P0</a><a class="toc-level-2" href="#6-what-visual-representations-do-world-action-models-needrepresentation-recipe-r%C2%B2-wamp0">6. What Visual Representations Do World Action Models Need?（Representation Recipe / R²-WAM）｜P0</a><a class="toc-level-2" href="#7-s-spaceexploring-spatial-workspace-in-multimodal-language-modelsp0">7. S-Space：Exploring Spatial Workspace in Multimodal Language Models｜P0</a><a class="toc-level-2" href="#8-magma-benchevaluating-long-horizon-embodied-agents-under-dynamic-tasks-and-execution-failuresp1">8. MAGMA-Bench：Evaluating Long-Horizon Embodied Agents under Dynamic Tasks and Execution Failures｜P1</a><a class="toc-level-2" href="#9-lapt-scalescaling-embodied-policies-with-latent-action-pre-training-on-human-videosp1">9. LAPT-Scale：Scaling Embodied Policies with Latent Action Pre-Training on Human Videos｜P1</a><a class="toc-level-2" href="#10-physforgematerial-controllable-3d-reconstruction-with-separable-componentsp1">10. PhysForge：Material-Controllable 3D Reconstruction with Separable Components｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-14.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-14</div><article class="prose"><p>本期检索窗口为 <strong>2026-10-11 09:04—2026-10-14 09:04（Asia/Shanghai）</strong>，覆盖 arXiv cs.RO/cs.CV/cs.AI/cs.LG 最新批次、实验室与公司的官方 research/news/model 页面、GitHub/Hugging Face、Spatial Intelligence/3D-4D/real-to-sim、WAM/VLA/Robot Learning，以及 Agent/self-evolution。arXiv 当前可访问的最新 <code>new</code> 批次是 <strong>2026-10-12（周一）</strong>；部分条目的 v1 submission history 是 10 月 9 日，但它们在 10 月 12 日批次中首次进入可见候选池，因此在正文中标为“批次边界项”，不会把提交时间写成 10 月 12 日。</p>
+<p>相对上一期，本期去重跳过没有新证据的 Splat2Act、SmolWAM、Artisan、Noise Space Learning、HorizonNav 和 MC-EvoBench；没有把旧项目的重复抓取伪装成新增。今天最重要的判断是：<strong>Physical AI 正在从“发布一个模型”转向“提供可迭代的适配平台”，同时 world model 的有效监督从像素逼真度转向物理可验证、动作相关的未来表示；Spatial Intelligence 则开始出现可干预的内部机制证据。</strong></p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → Gemini 4 Argon for Robotics</strong>：先看一个官方 frontier system 如何把物理推理、代码生成、视频到仿真到真实机器人串成闭环；它代表能力与产品化上限，但证据仍主要是官方报告。</p>
+<p><strong>B → Grounded-Dreamer</strong>：再看如何用 world model 产生视觉真实的轨迹，并用仿真 replay 过滤物理错误，这是“视觉想象 → 动作标签”的关键接口。</p>
+<p><strong>C → What Visual Representations Do World Action Models Need?（Representation Recipe / R²-WAM）</strong>：用受控实验拆开表征选择、集成机制和特征组合，直接回答 WAM 的视觉表示该怎么选。</p>
+<p><strong>D → S-Space</strong>：从 benchmark 结果下沉到内部机制，检查 MLLM 是否真的形成了可读、可干预的空间坐标工作区。</p>
+<p><strong>E → MAGMA-Bench</strong>：最后用动态任务、执行失败和任务中断检验 agent 是否能把上述能力维持到长时程、多机器人执行中。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-gemini-4-argon-for-roboticsp0">1. Gemini 4 Argon for Robotics｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Google DeepMind / Google Developers，主要公开作者为 Kanishka Rao；Google 官方总发布由 Koray Kavukcuoglu 等署名，发布时间 <strong>2026-10-13</strong>。这是官方模型发布与开发者技术文章，不是同行评审论文；官方机器人入口为 <a href="https://developers.googleblog.com/gemini-4-argon-for-robotics/" target="_blank" rel="noopener noreferrer">Gemini 4 Argon for Robotics</a>，通用发布见 <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" target="_blank" rel="noopener noreferrer">Google DeepMind 官方公告</a>。</p>
+<p><strong>研究问题与方法。</strong> Argon 将视觉语义推理、物理理解、代码生成和 agentic 调度放到同一个可调用模型中，目标不是单一 VLA，而是让模型从机器人视频或草图构建 MuJoCo 数字孪生、在仿真中练习、闭环检查，再把策略送到真实机器人。开发者文章展示了四类模块：MuJoCo 练习与零样本控制、Real2Sim 重建、物理后验标注/进度估计、仿真驱动的硬件自改进；还展示了对 Gemini Omni 视频 world model 的时间戳动作提示和迭代 steering。训练数据、参数规模、动作头和具体损失函数没有公开。</p>
+<p><strong>结果与证据。</strong> Google 报告 Argon 在 Embodied Reasoning（ERQA）上达到 <strong>87%</strong>，并称超过其他 frontier model；官方示例包括从人类 cornhole 视频建立仿真并迁移到 Apptronik Apollo，连续命中 7 次，以及从单张桌面图生成 4,500+ 个带域随机化的仿真 episode，使真实 Success Rate 从 <strong>56% 提升到 75%</strong>、完成时间从 35 s 降至 24 s。所有数字均是 Google 官方报告，尚无公开第三方复现；机器人视频是 demonstration evidence，不等同于公开 benchmark protocol。</p>
+<p><strong>创新、局限与关系。</strong> 它把 Gemini Robotics、Genie/Omni 视频生成和 Real2Sim 工程流程接到一个通用 agent 接口上，代表“world model 作为可调用工具和训练场”的路线。局限是闭源、训练目标未知、官方 prompt 与 demo 选择可能影响结果，且 87% ERQA 与真实长时程控制之间仍有 gap。它与上一期 World Labs R2S2R 的方向一致，但 Argon 更强调通用 reasoning/code agent；与 Grounded-Dreamer 的差别是后者给出可审计的 world-model 轨迹 replay 过滤。</p>
+<p><strong>可复现性与轻量验证。</strong> 模型权重未发布，API/AI Studio/Antigravity 可用；可先用 API 复现一个低风险 MuJoCo 任务：输入视频或 RGB-D 观测，要求输出场景 XML、动作 primitive 与每一步验证日志，再与手写数字孪生和 Qwen/开源 VLM baseline 比较。重点记录 Real2Sim 几何误差、接触事件误差、闭环恢复次数，而不是只看最终成功。</p>
+<h2 id="2-frontier-models-for-every-robotphysical-intelligence-pi-api-betap0">2. Frontier Models for Every Robot：Physical Intelligence Pi API beta｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Physical Intelligence（π 团队）官方博客，发布时间 <strong>2026-10-13</strong>；这是官方产品/研究基础设施发布，不是论文。链接：<a href="https://www.pi.website/blog/api-beta" target="_blank" rel="noopener noreferrer">Pi API beta 官方公告</a>。</p>
+<p><strong>研究问题与方法。</strong> Pi 试图解决机器人 foundation model 适配的工程瓶颈：用户上传自己的 demonstration，Physical Intelligence 托管 fine-tuning 计算和数据管线，再通过 hosted gateway 让机器人调用微调后的模型。官方明确把流程定义为“上传数据 → fine-tune π 模型 → 部署 → 用失败决定下一轮数据”，并称底层模型会持续更新。公开文本提到 π0、π0.5 及“最新模型”，没有披露当前 API 对应的确切 checkpoint、训练目标、参数规模或 action head。</p>
+<p><strong>结果与证据。</strong> 官方给出早期合作案例：Almond 的 Axol 双臂机器人在约四天的迭代后执行零件去毛刺；Actor 的轮式装载机在商业部署中完成装载；同时承认部分云端部署遇到网络连接问题。上述均为公司和合作方的官方叙述，没有公开统一测试集、置信区间或第三方独立评测。</p>
+<p><strong>创新、局限与关系。</strong> 重要变化是从“研究者自己搭训练系统”转向“模型即服务 + 机器人数据闭环”，它可能改变数据规模和失败回流速度。代价是闭源权重、托管推理、版本漂移和数据隐私；如果 API 更新底层模型，实验可比性会变差。它与 Gemini 4 Argon 的通用 physical reasoning 互补：Pi 更像面向真实部署的 adaptation substrate，而不是公开的空间推理模型。</p>
+<p><strong>可复现性与轻量验证。</strong> API 为 beta/申请制，权重、训练数据和本地推理均未公开。可行的小实验是用 20–50 条同一机械臂 demonstration，固定 10 条 held-out 任务，比较 API fine-tune、OpenPI/π0 开源复现和 LoRA baseline 的数据效率、失败类型和版本稳定性；务必记录网络延迟和每轮模型版本。</p>
+<h2 id="3-muse-wonder-muse-wonder-fullfrontier-models-for-agentsp1">3. Muse Wonder / Muse Wonder Full：Frontier Models for Agents｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Meta AI Research，发布时间 <strong>2026-10-12</strong>；官方研究页为 <a href="https://research.meta.ai/blog/muse-wonder" target="_blank" rel="noopener noreferrer">Muse Wonder</a>，产品页为 <a href="https://dev.meta.ai/models/muse-wonder" target="_blank" rel="noopener noreferrer">Muse Wonder model card</a>。这是官方模型发布与研究说明，不是同行评审论文。</p>
+<p><strong>研究问题与方法。</strong> Meta 将两个模型定位为长时程 personal/professional agent：<strong>Active Memory</strong> 跨对话保留并检索相关上下文，<strong>Active Focus</strong> 在任务卡住时尝试替代路径、恢复错误、请求澄清并在重要动作前确认。官方称模型经过预训练与 RL 的规模化训练，在 Prometheus 数据中心训练；架构、参数、训练混合和 memory 写入/检索损失没有公开。</p>
+<p><strong>结果与证据。</strong> Meta 以 Harvey LAB、FocusBench、SWE-Marathon 和 coding 评估声称 state-of-the-art；Muse Wonder 可经 Meta Model API/Muse Code 使用，Muse Wonder Full 仅对 Muse Code 订阅者开放。第三方模型目录显示 Wonder 约 1M context、API 价格 <span class="arithmatex">\(4/\)</span>20 每百万输入/输出 token，Artificial Analysis 的 max-effort 指标列出 Wonder 52、Wonder Full 56；这些是第三方读榜结果，不是机器人或物理任务验证。Meta 的完整 safety report 仍“即将发布”。</p>
+<p><strong>创新、局限与关系。</strong> 它将 memory、持续执行和工具调用作为模型产品的一等能力，和 MAGMA-Bench 的“执行中保持状态并应对扰动”直接相关，但它不是 embodied model。局限是闭源、官方 benchmark 细节不完整，独立第三方只验证了有限的文本/代码指标，无法据此推断真实世界 agent 可靠性。</p>
+<p><strong>可复现性与轻量验证。</strong> 只有 API/产品访问，没有权重。可用 20 个多轮任务做 memory ablation：无跨会话记忆、仅检索摘要、帧/文档混合记忆；记录任务完成率、恢复次数、错误操作率和 token 成本，并把结果与开源长时程 agent 对比。</p>
+<h2 id="4-ai-models-may-be-capable-of-self-replicating-without-access-to-a-datacenterp1">4. AI models may be capable of self-replicating without access to a datacenter｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> William Zhou、Daniel Freeman，Anthropic Frontier Red Team，官方研究报告 <strong>2026-10-12</strong>；链接：<a href="https://www.anthropic.com/research/self-replicating-ai" target="_blank" rel="noopener noreferrer">Anthropic 官方报告</a>。这是安全研究/红队报告，不是同行评审论文。</p>
+<p><strong>研究问题与方法。</strong> 报告把自主复制拆成目标发现、初始访问、建立推理服务、继续传播四阶段，重点测量小模型在异构硬件上搭建推理服务和串联传播的能力。实验使用 Memento harness（每轮 1.5 h、总计 6 h），在 15 台廉价 Android TV 盒子上分布式运行 Gemma4-26B-A4B，并在隔离的 8/17 节点 redroid/GCP 网络中测试复制链；同时测试代际 notes 是否能让 Qwen3.5-9B 适应新硬件。</p>
+<p><strong>结果与证据。</strong> Anthropic 报告 9B 模型能在 9 种硬件中的 8 种建立 Llama3.1-8B 推理；GLM-5.2 在简化隔离环境中 5 次试验有 4 次传播到 8/8 节点、另一次到 7/8。Gemma4-26B-A4B 在 15 台电视盒上约 0.39 token/s；Qwen3.5-9B 的推理部署成功率随继承 notes 的代际从 45% 上升到 61–84%。作者明确承认忽略真实漏洞利用、使用未认证 ADB 等简化条件，因此这是能力预警，不是“野外 AI 蠕虫已经出现”。</p>
+<p><strong>创新、局限与研究价值。</strong> 新意在于把“模型能写 exploit”转成完整的 inference-setup 和 propagation 组合能力，并把代际经验传递纳入评估。局限是 threat model、网络拓扑和提示词都被人为简化，不能外推真实 R0；模型、数据和 harness 不是完整可复现开源包，页面主要提供嵌入式图表与实验细节。它与 Meta 的 Active Memory、MAGMA 的 failure memory 共同指向“经验是否可传播”的安全问题。</p>
+<p><strong>轻量验证。</strong> 只在本地无网络容器中做 mock-device 评估：为 6 种 CPU/内存配置写假的 serving API，测小模型是否能选择正确的量化/并行方案、识别失败并把 notes 传给下一代；不要连接真实设备、扫描公网或复刻传播步骤。指标是 setup success、回退次数、继承 notes 的增益和误报。</p>
+<h2 id="5-grounded-dreamerrobot-learning-from-world-model-synthetic-data-with-physical-groundingp0">5. Grounded-Dreamer：Robot Learning from World Model Synthetic Data with Physical Grounding｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Feng Jiang、Shu Chen、Yuanfei Wang、Yuan Li、Zhenhao Shen、Jiaqi Liang、Yang Chen、Lei Wei、Chen Xie、Ruihai Wu；机构为 <strong>Peking University、Hong Kong University of Science and Technology (Guangzhou)、Lightwheel</strong>。论文 <a href="https://arxiv.org/abs/2610.13164" target="_blank" rel="noopener noreferrer">arXiv:2610.13164</a>，项目页 <a href="https://fffstrong.github.io/Grounded-Dreamer/" target="_blank" rel="noopener noreferrer">Grounded-Dreamer</a>。v1 提交时间为 10 月 9 日，但在 10 月 12 日 arXiv 最新批次中出现，属于本期明确标注的批次边界项；项目页显示代码 <strong>Coming soon</strong>。</p>
+<p><strong>研究问题与方法。</strong> 从少量真实初始图像重建任务相关物体和相机几何，在仿真中收集物理有效轨迹；用 interaction-aware masking 微调 Cosmos Predict 2.5 world model，再用 inverse dynamics model 将生成视频映射为动作；把生成轨迹 replay 回重建仿真，只保留成功完成任务的样本，最后仅用通过验证的合成轨迹训练 π0.5 和 Diffusion Policy。核心目标是把视觉逼真度与动作/接触可行性分开验证。</p>
+<p><strong>结果与证据。</strong> 项目页给出 7 个 Franka 真实任务、每任务 50 条 GD 轨迹、20 次评估。π0.5 仅用 GD 数据的平均成功率为 <strong>55.0%</strong>，高于 Sim-only 的 8.6%，低于 Real-only 的 63.6%；5 条真实轨迹 + 50 条 GD 轨迹的 Co-training 达 <strong>65.7%</strong>。Diffusion Policy 的 GD-only 平均为 42.9%，Co-training 为 52.9%。作者还报告经过环境、纹理和光照变化后，verified GD 数据在七项任务上均优于未验证 real-only 低数据设置。所有数字为作者/项目页报告，尚无第三方复现。</p>
+<p><strong>创新、局限与关系。</strong> 它把“视频 world model 会不会幻觉”转化为可执行的 simulator replay gate，是 World Labs R2S2R、Splat2Act 和 DreamTrue 之间缺失的证据接口。局限是重建、world-model fine-tuning 和 replay 仍需较大算力；仿真参数错误可能把真实有用轨迹错误过滤掉；代码、数据和权重尚未公开。</p>
+<p><strong>轻量验证。</strong> 选一个 Franka 抓取/按键任务，用小型 latent video model 或现成视频模型生成 50–150 条轨迹；分别比较“看起来成功”的视频、replay 成功和真实执行成功，做 replay gate 的 precision/recall；先不训练完整 π0.5，只训练一个小 diffusion policy，验证过滤是否减少接触失败。</p>
+<h2 id="6-what-visual-representations-do-world-action-models-needrepresentation-recipe-r²-wamp0">6. What Visual Representations Do World Action Models Need?（Representation Recipe / R²-WAM）｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Kai Liu、Jiangran Lyu、Tingyu Deng、Yixin Zheng、Jingtian Wan、Wenbo Cui、Mi Yan、Yizhou Zhou、Haoran Li、Dongbin Zhao、Zhizheng Zhang、He Wang；机构为 <strong>Institute of Automation, Chinese Academy of Sciences、Galbot、Peking University、University of Science and Technology of China</strong>。论文 <a href="https://arxiv.org/abs/2610.13024" target="_blank" rel="noopener noreferrer">arXiv:2610.13024</a>，项目页 <a href="https://kailiu18.github.io/R-2WAM.github.io/" target="_blank" rel="noopener noreferrer">R²-WAM</a>。这是预印本；不要与另一篇“Repair-and-Reject Post-Training for WAMs”混淆。</p>
+<p><strong>研究问题与方法。</strong> 论文在固定 WAM 框架和训练协议下比较 <strong>13 个视觉 encoder、5 种集成机制和多个 feature 组合</strong>，回答“选什么表示、怎么集成、是否越多越好”。结论方案是 DINOv3（通用视觉自监督）+ UniTok（多目标表征）+ V-JEPA 2.1（视频预测）通过 channel-wise concatenation，并预测 future features；作者还做 action sensitivity 和三 seed 的均值/标准差分析。</p>
+<p><strong>结果与证据。</strong> 项目页报告：VAE-only 总体成功率 74.7%，DINOv3 单源 84.0%（+9.3 pp）；13 个来源的 channel-wise 集成均值 81.5%，比下一种机制高 5.1 pp；三源 R²-WAM 在 LIBERO-Plus 达 87.3%；RoboCasa GR1 Tabletop <strong>84.7%</strong>（较 VAE-only +5.9 pp），RoboTwin 2.0 <strong>92.8%</strong>（+2.2 pp）。真实 Galbot G1 四任务、每模型每任务 20 次：air-fryer 50→60%、pick-and-place 70→80%、sweeping 48.3→66.7% debris collection、cup pushing 65→75%。这些是作者/项目页报告，公开的第三方 Pith 页面是 AI review 而非独立重跑。</p>
+<p><strong>创新、局限与关系。</strong> 贡献不是新 backbone，而是把 WAM 表征选择变成可复用的 controlled recipe，提醒研究者先加入强通用表示，再谨慎增加专用表示。局限是训练代码和模型权重未确认公开；真实机器人样本仍小，LIBERO-Plus 扰动是合成的；最佳组合的额外收益小于第一步加入 DINOv3 的收益。</p>
+<p><strong>轻量验证。</strong> 在一个现有 WAM 上冻结 DINOv3/UniTok/V-JEPA encoder，只改 feature adapter；跑 3 个 seed、10 个 LIBERO-Plus 任务和 4 个真实/仿真接触任务，报告 action sensitivity、nearby-action counterfactual、显存和延迟。最小预算约 1–2 张 24 GB GPU，不需要预训练 WAM。</p>
+<h2 id="7-s-spaceexploring-spatial-workspace-in-multimodal-language-modelsp0">7. S-Space：Exploring Spatial Workspace in Multimodal Language Models｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Zhiyuan Shi、Xiang Li、Xingzhuo Guo、Shangchen Miao、Weiliang Chen、Qiyu Dai、Jinshan Ren、Jiangran Lyu、Fangfu Liu、Mingsheng Long、Jialong Wu；公开项目归属 <strong>MirroS / MirroS-Lab</strong>，论文页未在摘要中统一列出全部高校隶属。论文 <a href="https://arxiv.org/abs/2610.13527" target="_blank" rel="noopener noreferrer">arXiv:2610.13527</a>，代码仓库 <a href="https://github.com/MirroS-Lab/S-Space" target="_blank" rel="noopener noreferrer">MirroS-Lab/S-Space</a>（Apache-2.0）。</p>
+<p><strong>研究问题与方法。</strong> 作者在 MLLM 中发现一个三维线性子空间，object-token 表征沿水平、垂直、距离轴编码连续坐标。方法用空间答案分数对 object-token activation 求导定位轴，再做 readout、跨 prompt/多视角测试和 causal intervention；模型在非空间问题中仍可读出该空间，说明它不是某个 prompt 的临时产物。关键结论是：模型能形成空间表示，但在 viewpoint change 所需的坐标变换上出现瓶颈。</p>
+<p><strong>结果与证据。</strong> 论文/项目报告了可读性、跨 prompt、多视角和因果编辑；公开仓库提供预训练 axes、Molmo2-ER/MolmoAct2/Qwen3.5-4B/Qwen3.6-27B 的配置，以及 COCO、SpatialTunnel、EmbSpatial、CV-Bench、HStar、SpinBench 的准备和复现实验脚本。二手摘要曾报告 SpinBench 从 native reasoning 约 60.96% 提升到 94.52%，但该数字应暂记为二手报道，不能当作独立复现结果。</p>
+<p><strong>创新、局限与关系。</strong> 它把 Spatial Intelligence 从“在空间 benchmark 上得分”推进到“定位、读出、干预内部坐标工作区”，可与 VLA 的未来状态表示和 R²-WAM 的 action-sensitive feature 直接对接。局限是目前主要证明 MLLM 内部表征，不等于可执行的 3D action grounding；坐标轴的跨模型稳定性、真实机器人闭环收益和训练数据因果性仍待验证。</p>
+<p><strong>轻量验证。</strong> 按仓库脚本在 Qwen3.5-4B 或 Molmo2 上跑 axis construction 与 SpinBench；加入显式 3D viewpoint rotation，再将 readout 坐标喂给一个小型抓取/指向策略。验证三件事：空间干预是否只改变空间答案、旋转是否修复 viewpoint gap、表示收益是否传到动作成功而不是只提升 QA。</p>
+<h2 id="8-magma-benchevaluating-long-horizon-embodied-agents-under-dynamic-tasks-and-execution-failuresp1">8. MAGMA-Bench：Evaluating Long-Horizon Embodied Agents under Dynamic Tasks and Execution Failures｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Loan Bernat、Matthieu Grard、Ariane Herbulot、Florent Lamiraux，来自 <strong>LAAS-GEPETTO / LAAS-RAP（CNRS）</strong>。论文 <a href="https://arxiv.org/abs/2610.13534" target="_blank" rel="noopener noreferrer">arXiv:2610.13534</a>，项目页 <a href="https://magma-rob.github.io/" target="_blank" rel="noopener noreferrer">MAGMA</a>。论文为预印本；项目提供可运行 benchmark 与数据生成框架。</p>
+<p><strong>研究问题与方法。</strong> MAGMA-Bench 把长时程、多机器人、异构能力和在线扰动放到一个 architecture-agnostic 协议中：任务会发生执行失败、任务中断、mission update，agent 通过结构化 skill-level interface 与低层感知/控制解耦。配套 MAGMA-GEN 从 agent 自己的轨迹和错误状态中收集样本，教练式 correction 必须经过仿真执行验证后才进入监督数据；作者明确说明 GEN 不做在线 RL 更新。</p>
+<p><strong>结果与证据。</strong> 论文报告即使最强测试模型在 clean episode 上也会失败，加入在线扰动后成功率进一步下降；监督适配能显著提升小模型，但长 horizon 和多机器人任务仍明显困难。公开版本包含 <strong>261,646 条 task-level training examples</strong>、expert-trace generation pipeline；项目页当前标记 MAGMA-BENCH v1.0.0、MAGMA-GEN stable v2。摘要没有给出单一总分，因此不把“显著失败”改写成未经证实的具体百分比。</p>
+<p><strong>创新、局限与关系。</strong> 它补上了 MC-EvoBench 一类经验自改进 benchmark 缺少的执行中失败、任务变化和异构机器人协调，适合研究 persistent memory、failure attribution 和 verifier。局限是 skill-level abstraction 可能掩盖感知/动作层失败，frontier model 结果会受 planner prompt 和 simulator 影响；仍需真实机器人或跨 simulator 验证。</p>
+<p><strong>轻量验证。</strong> 下载 v1.0.0，在本地用一个 7B planner 和一个 frontier API 跑 10 个短场景；对每个场景分别加入 failure、interrupt、mission update，记录状态追踪、恢复动作、无效调用和成本。先固定 skill interface，再逐步放开视觉输入，能把“记忆失败”与“控制失败”分开。</p>
+<h2 id="9-lapt-scalescaling-embodied-policies-with-latent-action-pre-training-on-human-videosp1">9. LAPT-Scale：Scaling Embodied Policies with Latent Action Pre-Training on Human Videos｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Zhiyuan Xiang、Peidong Liu、Mingyang Li、Jiawei Li、Wenhow Li、Wenbo Ding、Xiang Deng；论文 <a href="https://arxiv.org/abs/2610.13732" target="_blank" rel="noopener noreferrer">arXiv:2610.13732</a>，标注 <strong>CoRL 2026 accepted</strong>；在 10 月 12 日 arXiv 批次中出现，v1 submission history 为 10 月 9 日，属于批次边界项。</p>
+<p><strong>研究问题与方法。</strong> LAPT-Scale-LAM 在人类 egocentric video 中学习连续 latent action 来解释帧间变化，再通过 target-robot embodiment alignment 和 task-specific post-training 训练 VLA。它不用离散 VQ latent，而结合 perceptual、semantic、optical-flow 对齐，试图把 23.3K 小时人类视频变成隐式 action supervision。</p>
+<p><strong>结果与证据。</strong> 作者报告随着标注人类视频从 1K 增至 5K 小时，真实机器人成功率从 <strong>63.3% 提升到 85.0%</strong>，并在未见视觉条件上泛化；这些是作者实验结果，尚未看到公开第三方重跑。论文未在可访问页面确认代码、数据或权重公开，23.3K 小时原始视频本身也不太可能直接开放。</p>
+<p><strong>创新、局限与关系。</strong> 这是 human-to-robot alignment 的规模化路线，与 HARP-VLA、latent action pretraining 和 Pi API 的数据闭环相邻；连续 latent 对细粒度接触有潜在优势。局限是 latent action 的可辨识性、跨 embodiment 语义是否稳定，以及 85% 是否依赖大量私有预处理和大算力。</p>
+<p><strong>轻量验证。</strong> 不复制 23.3K 小时规模；选 50–200 小时公开视频，训练一个小 LAM，比较 pixel-only、optical-flow-only 和 perceptual+flow 三种监督，再在 CALVIN/LIBERO 的 2–3 个任务上做冻结 encoder + 小 action head。报告跨 embodiment 的 latent consistency、动作成功和预训练成本曲线。</p>
+<h2 id="10-physforgematerial-controllable-3d-reconstruction-with-separable-componentsp1">10. PhysForge：Material-Controllable 3D Reconstruction with Separable Components｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Yuchen Wang、Yanqi Bao、Zheng Gu、Zhengqing Chen、Jieqi Shi、Jing Huo；机构为 <strong>Nanjing University、Horizon Robotics、Shenzhen University</strong>。论文 <a href="https://arxiv.org/abs/2610.13681" target="_blank" rel="noopener noreferrer">arXiv:2610.13681</a>，项目页 <a href="https://masterwanna.github.io/PhysForge.html" target="_blank" rel="noopener noreferrer">PhysForge</a>。v1 为 10 月 9 日，随 10 月 12 日批次公开；预印本，项目页标记 GitHub to be released。</p>
+<p><strong>研究问题与方法。</strong> PhysForge 关注 3D world generation 中“看起来对”与“材料反应对”的差距。PhysFit 用 material-conditioned video diffusion dynamics 估计可控材料属性，windowed fitting 聚焦能揭示材料的交互片段，Hallucinated Forcing 分离视频模型幻觉运动；PhysComp 将复杂交互分解为对象和语义部件，独立估计物理参数后组合进 joint simulation。</p>
+<p><strong>结果与证据。</strong> 在 PhysAssets 和 Google Scanned Objects 上，项目页报告 common/uncommon materials 的 CLIP 与 physical controllability 均优于比较方法；PhysForge 的 CLIP 为 0.258/0.264，physical controllability 为 4.6/4.0（5 分制 VLM 评分）。这是作者/项目页结果，尚无第三方物理引擎复核；用户研究和 component ablation 已报告但原始数据未公开。</p>
+<p><strong>创新、局限与关系。</strong> 它把 Spatial Intelligence 的对象重建进一步推进到材料与组件级可交互 world，和 Grounded-Dreamer 的“动作 replay 过滤”互补。局限是 VLM 评分不能替代真实接触力、摩擦和弹性测量；代码/权重/数据未公开，物理参数的可辨识性仍是主要风险。</p>
+<p><strong>轻量验证。</strong> 选刚体、软垫、可变形物三类对象，在 MuJoCo/Isaac Sim 中固定质量、摩擦和刚度的 ground truth，比较 PhysForge 输出与简单 material classifier + system identification baseline；把同一生成资产放进两个物理引擎，报告接触轨迹和参数误差。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描主要官方发布入口：<strong>World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR/Meta AI、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国团队</strong>；同时交叉检查 GitHub/Hugging Face 与 broader web。窗口内确认的重大官方新增是 Gemini 4 Argon、Pi API beta、Muse Wonder/Muse Wonder Full 和 Anthropic 自复制评估。</p>
+<ul>
+<li><strong>World Labs：</strong> <a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">Research &amp; Insights</a> 当前可见最新空间智能条目仍是 9 月 1 日 Atlas 和 7 月 28 日 R2S2R；本窗口没有新的 Atlas/Marble/权重发布。</li>
+<li><strong>Generalist AI：</strong> 官方 blog 入口当前访问受限，未找到可核验的窗口内新模型/代码；因此不把搜索摘要当作发布证据。</li>
+<li><strong>NVIDIA：</strong> <a href="https://developer.nvidia.com/isaac/gr00t" target="_blank" rel="noopener noreferrer">GR00T 页面</a>和 Cosmos/机器人入口在窗口内主要显示既有模型和即将举行的 GTC 活动；没有确认新的 Cosmos/GR00T 权重或 benchmark release。</li>
+<li><strong>Figure、Skild、1X、Field AI、TRI：</strong> 可访问页面的最近重要条目分别早于本窗口（如 Figure Helix 2.5、Skild Physical Self-Play、1X World Model Lab）；没有足以进入 Top Papers 的窗口内新增。Figure 的 Index 数据集仍值得长期跟踪，但本期不重复。</li>
+<li><strong>Meta/Anthropic/Google/Physical Intelligence：</strong> 本期分别有 Muse Wonder、self-replication red-team report、Gemini 4 Argon 和 Pi API beta，已在重点条目中按官方/第三方证据拆开。</li>
+<li><strong>Nature Will Natura-1：</strong> 10 月 13 日 <a href="https://www.prnewswire.com/news-releases/physical-ai-lab-nature-will-unveils-natura-1-as-first-general-foundational-model-for-the-physical-world-302906608.html" target="_blank" rel="noopener noreferrer">PRNewswire 发布</a>声称 50B physical general foundation model、1M 小时 egocentric data 和 dexterous hand zero-shot；目前仅有新闻稿，没有论文、代码、权重或独立评测，因此保留为候选观察项，不纳入 Top Papers。</li>
+</ul>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射</th>
+<th>近期趋势</th>
+<th>仍未解决的 gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理可验证的 world model</td>
+<td>Gemini Argon、Grounded-Dreamer、PhysForge</td>
+<td>从视频逼真度转向接触、材料、replay 与 Real2Sim</td>
+<td>仿真参数误差、生成轨迹的 false positive/negative、跨引擎一致性</td>
+</tr>
+<tr>
+<td>WAM/VLA 的未来表示</td>
+<td>R²-WAM、LAPT-Scale</td>
+<td>从 RGB future rollout 转向 future feature、latent action 和通用视觉 encoder</td>
+<td>表征提升是否真正改善 action sensitivity；跨 robot/任务的可迁移性</td>
+</tr>
+<tr>
+<td>Spatial Intelligence 内部机制</td>
+<td>S-Space、Argon 的空间推理</td>
+<td>从“空间 benchmark”走向可读、可干预的坐标工作区</td>
+<td>viewpoint transform、语言坐标到 3D action 的闭环 grounding</td>
+</tr>
+<tr>
+<td>长时程 agent 与自进化</td>
+<td>Muse Active Memory/Focus、MAGMA-Bench、Anthropic Memento</td>
+<td>记忆、失败恢复、经验继承成为系统级模块</td>
+<td>verifier 是否可靠、memory 是否引入污染、能力提升是否可重复而非 reward hacking</td>
+</tr>
+<tr>
+<td>Physical AI 基础设施</td>
+<td>Pi API beta</td>
+<td>模型 fine-tune、部署、失败回流平台化</td>
+<td>版本漂移、隐私、网络延迟、托管模型的可审计性与独立评测</td>
+</tr>
+</tbody>
+</table></div>
+<p>最近趋势可以概括为四条：一是 <strong>模型服务平台化</strong>，二是 <strong>动作相关的未来表征替代纯像素预测</strong>，三是 <strong>world model 输出必须经过物理验证</strong>，四是 <strong>agent 的 memory/failure loop 开始成为 benchmark 一等公民</strong>。</p>
+<p>仍有三个明显研究缺口。第一，官方 frontier 结果和论文结果之间缺少统一、可复核的第三方 protocol；第二，真实机器人结果常只有少量任务和 trial，无法区分“表征提升”与“场景/数据选择”；第三，Spatial Intelligence 的内部坐标表示尚未稳定地转成跨视角、跨本体的接触动作。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li><strong>Replay-Certified World Model Data。</strong> 以 Grounded-Dreamer 为起点，为每条生成轨迹同时保存视频成功、仿真 replay 成功、接触事件误差和 uncertainty；在一个 Franka 任务上比较无过滤、视觉过滤、物理 replay 三种策略。</li>
+<li><strong>S-Space-to-Action。</strong> 将 S-Space 的坐标 readout 和 viewpoint rotation 接到一个小型空间指向/抓取 policy，直接测“空间 QA 提升是否传到 action success”。</li>
+<li><strong>Causal WAM Representation Audit。</strong> 复现 R²-WAM 的单源 DINOv3 gain，再对 current/future feature、nearby action 和 contact-state 做干预；若性能只在静态场景上提升，说明表征没有真正编码 action consequence。</li>
+<li><strong>Failure-Aware Agent Map。</strong> 在 MAGMA-Bench 中固定 planner，逐步加入摘要记忆、轨迹记忆、可验证 correction，画出 horizon × perturbation × compute 曲线，而不是只报告平均成功率。</li>
+<li><strong>Managed API Audit。</strong> 对 Pi API 做多轮相同数据、不同版本的 fine-tune，记录数据效率、延迟、模型漂移和失败类型；与本地 OpenPI/LoRA baseline 做同一 held-out protocol。</li>
+</ol>
+<p>这些实验都可以在 1–2 张 24 GB GPU、公开仿真环境和少量真实机器人试验上完成；不需要复刻 23.3K 小时人类视频、50B 模型或 4,500 episode 的官方规模。</p>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>证据性质</th>
+<th>代码/权重/数据</th>
+<th>第三方验证</th>
+<th>当前判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 4 Argon</td>
+<td>Google 官方模型/开发者报告</td>
+<td>API 可用；权重、训练数据、动作头未知</td>
+<td>未见独立机器人复现</td>
+<td>能力和产品化重要，结果保守引用</td>
+</tr>
+<tr>
+<td>Pi API beta</td>
+<td>Physical Intelligence 官方产品发布</td>
+<td>hosted fine-tune/inference；无权重</td>
+<td>合作方案例，非独立 benchmark</td>
+<td>基础设施重大新增</td>
+</tr>
+<tr>
+<td>Muse Wonder</td>
+<td>Meta 官方研究/产品发布</td>
+<td>API/Muse Code；闭源</td>
+<td>有第三方模型榜分数，未验证长时程真实任务</td>
+<td>Agent 平台重要，安全报告待补</td>
+</tr>
+<tr>
+<td>Anthropic self-replication</td>
+<td>官方 Frontier Red Team 报告</td>
+<td>实验细节和嵌入式图表公开；完整 harness/数据未见</td>
+<td>非同行评审、无外部复现</td>
+<td>风险信号，不是现实世界蠕虫证明</td>
+</tr>
+<tr>
+<td>Grounded-Dreamer</td>
+<td>arXiv 预印本 + 项目页</td>
+<td>代码 Coming soon；数据/权重未公开</td>
+<td>无独立复现</td>
+<td>物理 replay 机制值得优先复现</td>
+</tr>
+<tr>
+<td>R²-WAM Representation Recipe</td>
+<td>arXiv 预印本 + 项目页</td>
+<td>论文/网站源码公开；训练代码/权重未确认</td>
+<td>Pith 为 AI review，不是重跑</td>
+<td>控制实验强，真实样本仍小</td>
+</tr>
+<tr>
+<td>S-Space</td>
+<td>arXiv + GitHub Apache-2.0</td>
+<td>axes、脚本、配置和数据准备公开</td>
+<td>尚无第三方重跑</td>
+<td>本期最可复现的机制研究</td>
+</tr>
+<tr>
+<td>MAGMA-Bench</td>
+<td>arXiv + 官方 benchmark</td>
+<td>v1.0.0 benchmark、261,646 examples、GEN pipeline</td>
+<td>可自行运行，跨模型结果待扩展</td>
+<td>适合作为统一长时程评测基线</td>
+</tr>
+<tr>
+<td>LAPT-Scale</td>
+<td>CoRL 2026 accepted + arXiv</td>
+<td>23.3K 小时视频与权重未确认公开</td>
+<td>无独立复现</td>
+<td>人类视频到 robot action 的规模方向</td>
+</tr>
+<tr>
+<td>PhysForge</td>
+<td>arXiv + 项目页</td>
+<td>GitHub to be released；物理资产数据未公开</td>
+<td>无第三方物理引擎复核</td>
+<td>Spatial/physical asset 方向，先做小规模 ablation</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期没有把 <strong>Retrieval Failure</strong> 混同于 <strong>Selection</strong>：arXiv API 没有作为唯一入口，改用 cs.RO/cs.CV/cs.AI/cs.LG 的最新批次页和逐篇 abs；Generalist AI 等官方入口访问受限的地方已明确标注，并通过其他可访问入口交叉核对。没有进入正文的旧项目，是因为本期未发现新版本、代码/权重、基准结果或第三方验证，而不是因为检索失败。</p>
+<p>今天先读 <strong>Gemini 4 Argon → Grounded-Dreamer → R²-WAM → S-Space</strong>，然后在 MAGMA-Bench 做一个包含执行失败和任务中断的最小实验；如果只做一个低成本验证，优先测 replay filter 是否真的提高合成轨迹的真实接触成功率。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-13/"><span>← 上一期 · 2026-10-13</span><strong>Splat2Act · SmolWAM · Artisan</strong></a><a class="newer" href="../2026-10-15/"><span>下一期 → · 2026-10-15</span><strong>Thinker-WM · WAVE-0 · WorldOracle</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

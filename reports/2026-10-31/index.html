@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-31｜Probing Spatial State · L3G-World · Gym-Anything for Robotics · Yunhe</title><meta name="description" content="持久空间状态、可信物理环境和预测的实际行动收益，正在成为三条可以分别验证的研究主线。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-31/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-31｜Probing Spatial State · L3G-World · Gym-Anything for Robotics"><meta property="og:description" content="持久空间状态、可信物理环境和预测的实际行动收益，正在成为三条可以分别验证的研究主线。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-31/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Probing Spatial State · L3G-World · Gym-Anything for Robotics</h1><p class="article-deck">持久空间状态、可信物理环境和预测的实际行动收益，正在成为三条可以分别验证的研究主线。</p><div class="article-meta"><time datetime="2026-10-31">2026 / 10 / 31</time><span>约 22 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-probing-spatial-state-representations-in-visual-foundation-modelsp0">1. Probing Spatial State Representations in Visual Foundation Models｜P0</a><a class="toc-level-2" href="#2-l3g-world%E7%9B%B4%E6%8E%A5%E6%B8%B2%E6%9F%93%E5%88%B0%E8%A7%86%E9%A2%91%E6%BD%9C%E7%A9%BA%E9%97%B4%E7%9A%84-3d-%E8%AE%B0%E5%BF%86p0">2. L3G-World：直接渲染到视频潜空间的 3D 记忆｜P0</a><a class="toc-level-2" href="#3-gym-anything-for-robotics-%E4%B8%8E-roboworldp0">3. Gym-Anything for Robotics 与 RoboWorld｜P0</a><a class="toc-level-2" href="#4-worldflow%E6%8A%8A%E8%A7%86%E9%A2%91%E6%9C%AA%E6%9D%A5%E4%B8%8E-3d-%E7%89%A9%E4%BD%93%E8%BF%90%E5%8A%A8%E8%81%94%E5%90%88%E9%A2%84%E6%B5%8Bp1">4. WorldFlow：把视频未来与 3D 物体运动联合预测｜P1</a><a class="toc-level-2" href="#5-utility-wam%E4%BF%AE%E6%AD%A3%E6%9C%AA%E6%9D%A5%E9%A2%84%E6%B5%8B%E5%BC%95%E8%B5%B7%E7%9A%84%E5%8A%A8%E4%BD%9C%E6%8D%9F%E5%AE%B3p1">5. Utility-WAM：修正未来预测引起的动作损害｜P1</a><a class="toc-level-2" href="#6-touchbridge%E7%94%A8%E7%9C%9F%E5%AE%9E%E6%8E%A5%E8%A7%A6%E4%BF%9D%E6%8C%81%E4%BA%BA%E5%88%B0%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%AF%B9%E5%BA%94p1">6. TouchBridge：用真实接触保持人到机器人的对应｜P1</a><a class="toc-level-2" href="#7-rfw-a%E6%8A%8A-agent-%E6%8E%A8%E7%90%86%E6%91%8A%E9%94%80%E4%B8%BA%E5%8F%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E5%85%B3%E8%8A%82%E8%B5%84%E4%BA%A7%E7%94%9F%E6%88%90%E5%99%A8p1">7. RFW-A：把 Agent 推理摊销为可复用的关节资产生成器｜P1</a><a class="toc-level-2" href="#8-appreciation-teaches-unauthorized-execution%E8%87%AA%E6%BC%94%E5%8C%96%E5%90%8E%E7%9A%84%E6%8E%88%E6%9D%83%E6%B3%9B%E5%8C%96%E5%A4%B1%E8%AF%AFp1">8. Appreciation Teaches Unauthorized Execution：自演化后的授权泛化失误｜P1</a><a class="toc-level-2" href="#9-mistral-large-4%E6%94%B9%E8%BF%9B%E7%89%88%E6%9C%AC%E6%AD%A3%E5%BC%8F%E5%BC%80%E6%94%BE%E6%9D%83%E9%87%8Dp1">9. Mistral Large 4：改进版本正式开放权重｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-31.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-31</div><article class="prose"><p>本期主检索窗口为<strong>北京时间 2026-10-28 10:13—2026-10-31 10:13</strong>，资源状态核验延伸至成稿。今天最重要的新增判断是：<strong>持久空间状态、可信物理环境和预测的实际行动收益，正在成为三条可以分别验证的研究主线。</strong>显式 3D 记忆开始直接服务视频生成；仿真生成开始交付物理检查与任务验收；WAM 则出现针对“想象反而伤害动作”的受控研究。这是本报对今天材料的综合判断。</p>
+<p>本期展开 <strong>8 篇新近预印本和 1 项官方权重发布</strong>。论文均为 10 月 29 日 UTC 提交，进入本轮可访问的 30 日公告批次，不能称为“31 日首发”。上一期接口只返回到 27 日提交，未取得这批论文，本期明确补齐该 <strong>Retrieval Failure 检索缺口</strong>；Gym-Anything 另有晚于上期成稿的实质代码发布。Mistral 权重在上一期完成前已经开放、却未进入候选池，属于官方发布漏检回补。GO-3、JAM、ImagiRep、ThinkWorld、Genie 4 等没有核实到值得重写的新增证据，不机械重复。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>Probing Spatial State → L3G-World → Gym-Anything for Robotics → Utility-WAM → TouchBridge</strong>。</p>
+<ul>
+<li><strong>Probing Spatial State：</strong>先建立判据，分清信息可读出、使用历史、预测更新和行动收益。</li>
+<li><strong>L3G-World：</strong>看显式几何记忆如何绕过 RGB—VAE 往返，并检查速度与一致性的代价。</li>
+<li><strong>Gym-Anything：</strong>看生成仿真如何接受物理、可解性和反作弊审计，尤其适合研究环境基础设施。</li>
+<li><strong>Utility-WAM：</strong>用同一 checkpoint 的两条执行路径，理解何时预测帮助或伤害控制。</li>
+<li><strong>TouchBridge：</strong>看跨本体对齐如何从手姿匹配推进到真实接触对应，以及采集效率是否转化为策略收益。</li>
+</ul>
+<p>若主要关注通用 Agent，可先读第 8 项的自演化实验，再读第 9 项的开放基座；前者提供新的评测问题，后者提供可部署的研究材料。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-probing-spatial-state-representations-in-visual-foundation-modelsp0">1. Probing Spatial State Representations in Visual Foundation Models｜P0</h2>
+<p><strong>Baiqiao Yin、Zhongang Cai、Ruisi Wang、Qiwei Liang、Lei Yang、Ziwei Liu；纽约大学、南洋理工大学、香港科技大学、香港中文大学。</strong>v1 为 <strong>10 月 30 日 01:58 北京时间</strong>，性质为预印本，本轮未核实同行评审。它问的不是模型“懂不懂 3D”这一笼统问题，而是冻结表征能否支持四层能力：可见空间结构、离开视野后的物体保持、运动条件下的空间更新，以及目标导向行动。<a href="https://arxiv.org/html/2610.40636v1" target="_blank" rel="noopener noreferrer">论文全文</a>；<a href="https://yyyybq.github.io/probing-spatial-state/" target="_blank" rel="noopener noreferrer">项目</a>。</p>
+<p>方法在 ScanNet++ 室内相机轨迹上比较十种冻结表征，覆盖 DINOv2、V-JEPA2、VideoMAE、Fast3R、Wan、CogVideoX、Qwen2.5-VL 等。小型探针分别学习深度/相机、实例身份、离屏物体方位、未来特征与动作读出；通过去历史、打乱动作/目标、复制最后一帧等对照，检查分数来自什么信息。<strong>作者结果：</strong>Fast3R 的离屏物体角误差为 32.79°，V-JEPA2 为 45.31°，Wan 为 62.38°；但 Fast3R 训练集与部分验证场景重叠，不能直接归因架构。V-JEPA2 的某一单步协议中，复制最后特征的检索率 19.93% 高于学习预测的 13.04%；该数值不能与主表混合时域检索直接横比。</p>
+<p>最值得精读的是“输入被使用”与“功能有用”分离：二选一动作读出约 75.9–79.9%，高于仅动作的 67.8%；连续动作输出却未显示正确目标能稳定改善相对当前帧基线的进展。原生预测特征上的深度 MAE 从真实特征的约 0.182 升至 0.246，重训读取器后为 0.223，说明空间结构尚可恢复，但读取接口并未原样保持。局限包括静态室内场景、探针容量和训练目标不同、主要训练 seed 单一；置信区间反映场景抽样，不等于多次训练稳定性。与 VidFM3D、V-JEPA2 的关系是把静态几何读出扩展为功能链诊断，不能据此宣布任何一个模型普遍“不具备空间智能”。</p>
+<p><strong>复现与轻量验证：</strong><a href="https://github.com/yyyybq/Probing_Spatial_State_Release" target="_blank" rel="noopener noreferrer">公开仓库</a>有特征提取、分割清单、训练评测和结果 CSV，整体 CC BY-NC 4.0，第三方组件另有许可；仓库并非本轮新上传。作者明确说明原始冻结代码快照、内部特征索引和部分 MiniMax 条件未公开，公开包也不能默认覆盖论文全部新诊断；本轮未确认探针 checkpoint 下载。先在 20 个留出房间上比较 DINOv2、V-JEPA2、Wan，固定同一读取器和三个干预，分别报告离屏定位、复制基线、正确目标相对打乱目标的行动收益，无需重训基座。</p>
+<h2 id="2-l3g-world直接渲染到视频潜空间的-3d-记忆p0">2. L3G-World：直接渲染到视频潜空间的 3D 记忆｜P0</h2>
+<p><strong>Jinhyeok Choi、JoungBin Lee、Jongmin Lee 等；KAIST AI、梨花女子大学、KAIST Urban AI Institute。</strong>v1 为 <strong>10 月 30 日 01:54 北京时间</strong>，预印本，未核实同行评审。它解决长时间探索中的两种增长：逐帧缓存随视频长度增长，显式 3D 记忆还要反复渲染 RGB、重新编码为 VAE 特征。<a href="https://arxiv.org/abs/2610.40614" target="_blank" rel="noopener noreferrer">论文</a>；<a href="https://arxiv.org/html/2610.40614v1" target="_blank" rel="noopener noreferrer">方法与实验全文</a>。</p>
+<p>L3G-Mem 为新区域生成 Gaussian、修正已有 Gaussian，每个 primitive 同时存几何、外观和 VAE 特征；记忆直接渲染为 DiT 的条件潜变量。L3G-Gen 基于 Cosmos-Predict2.5，用记忆渲染、参考帧、相机和文本进行条件 rectified flow；更新器接受 RGB、感知、深度、潜变量和可见性损失。少步版本再用 flow-map 与 on-policy distribution matching 蒸馏，减少自身滚动生成造成的分布偏移。与 GEN3C、Spatia、Lyra、NeoVerse 相比，核心改变在记忆表示和生成器的接口。</p>
+<p><strong>作者结果：</strong>相对各项最有效的既有显式记忆基线，摘要报告最多约 38.6 倍更少 primitives、3.2 倍更快更新、359 倍更快潜空间渲染；这些是分别选取基线的部件指标，不能相乘为整机提速。论文引言将 <strong>9.02 FPS</strong> 标为单 H100 的整套生成结果，部件评测另用 A100；本轮不混用两类硬件数字。DL3DV 上主要版本自一致 PSNR 16.00、LPIPS 0.366，但部分几何指标与其他指标并非全面领先，Fast 版本也有质量折损。</p>
+<p><strong>值得深读接口设计，尚不能完整复现。</strong><a href="https://github.com/cvlab-kaist/L3G-World" target="_blank" rel="noopener noreferrer">仓库</a>目前只有 README、许可和展示素材，更新器、生成器、推理代码与权重均仍列为待发布；MIT 代码声明不代表所有未来权重同样许可。限制是记忆主要针对静态世界，仍会随探索空间增大，生成错误可能被写回。轻量替代实验可在一个真实房间的闭环相机轨迹上，对比同数量 Gaussian 的 RGB→VAE 与直接 latent 渲染；分别测潜变量误差、重访几何漂移、显存和端到端时间，先验证接口收益，再考虑蒸馏整套模型。</p>
+<h2 id="3-gym-anything-for-robotics-与-roboworldp0">3. Gym-Anything for Robotics 与 RoboWorld｜P0</h2>
+<p><strong>Pranjal Aggarwal、Sean Welleck；卡内基梅隆大学。</strong>论文 v1 为 <strong>10 月 30 日 01:42 北京时间</strong>；<a href="https://github.com/gym-anything/robotics" target="_blank" rel="noopener noreferrer">代码仓库</a>于 <strong>30 日 22:07 北京时间</strong>新建，晚于上一期报告。性质为预印本、仿真环境和生成基础设施发布，未核实同行评审或独立复现。<a href="https://arxiv.org/html/2610.40565v1" target="_blank" rel="noopener noreferrer">论文全文</a>；<a href="https://gym-anything.github.io/robotics/" target="_blank" rel="noopener noreferrer">官方项目</a>。</p>
+<p>它将“创建机器人仿真”作为 coding-agent 任务：根据职业和日常活动选择物理能力，创建者编写场景、动力学、控制接口和验收器，再经过四类仿真审计、六类任务审计与修复。检查包括物理测量、真实材料/设备资料、可解演示和合法动作下的漏洞，而不只检查画面。RoboWorld 包含 <strong>25 个仿真、25 个测试任务和 175 个训练任务</strong>；液体、布料、软组织、黏附等有独立机制。学习侧比较重复尝试的 ICL、特权教师语言提示、自身特权经验迁移，以及用代码策略生成示范后监督微调 π0.5。</p>
+<p><strong>作者结果：</strong>三种 frontier 模型在 25 个完整测试任务上成功率均为 0%，最佳平均 reward 0.06；较容易的训练任务子集上最佳成功率 32%，不能把“所有任务都不会”推广至全系统。两个礼盒任务上，1,000 条成功合成示范把 π0.5 从 0% 提至 53%，留出变化为 55%。这些仍是仿真结果，论文表述为原则上可部署，<strong>没有因此证明真实机器人迁移成功</strong>。相比 GenSim/RoboGen，价值是物理过程与验收证据更细；但 agent 审计、文献参数和作者验证仍需独立实测。速度审计允许最高约 200 倍慢于实时，也不等于所有环境适合高速 RL。</p>
+<p><strong>推荐深读并优先抽查可运行性。</strong>MIT 源码、25 类环境、报告、task split、审计与 Agent 评测入口已存在；专属训练策略权重和完整示范下载未确认。README 明确部分 GPU/物理长测未在此次 release 执行。渲染依赖 Isaac Sim 和带 RT cores 的 NVIDIA GPU，A100/H100 无法承担该渲染路径。轻量验证先选一个刚体和一个材料任务，各做三项物理检查、十个合法对抗动作和五个随机初态；保留独立于创建 Agent 的真值，再验证奖励是否可被取巧。</p>
+<h2 id="4-worldflow把视频未来与-3d-物体运动联合预测p1">4. WorldFlow：把视频未来与 3D 物体运动联合预测｜P1</h2>
+<p><strong>Yuhao Lu、Jiongxu Chen、Hexiang Wei、Jiajin Wu 等；RoboScience、新加坡国立大学。</strong>v1 为 <strong>10 月 29 日 11:30 北京时间</strong>，预印本，未核实同行评审。<a href="https://arxiv.org/html/2610.39278v1" target="_blank" rel="noopener noreferrer">论文全文</a>；<a href="https://worldflow-rbs.github.io/" target="_blank" rel="noopener noreferrer">项目</a>。问题是视频生成中的动力学通常隐含在像素中，而机器人动作接口又绑定具体本体；作者选择可查询的物体级 3D 轨迹作为中间接口。</p>
+<p>方法把查询点的连续 3D 位移编码为与视频网格对齐的 motion tokens，由 Mixture-of-Transformers 在 rectified-flow 目标下联合去噪视频与运动，并加运动辅助约束。训练使用约 <strong>143.8 万物体片段</strong>；WorldFlowBench 有 <strong>1,678 个样本、11 个数据来源</strong>。与“生成视频后再调用 tracker”的方法相比，它直接输出显式运动；与 μ₀、EgoWAM 等路线相比，重点是联合视频监督是否改善可供控制使用的几何预测。</p>
+<p><strong>作者结果：</strong>SpatialCog ADE 由最强外部学习基线的 0.131 m 降至 0.060 m，相对改善 54.2%；相对 flow-only 的 0.136 m 改善 55.9%。但 Real3 的静止预测 ADE 为 <strong>0.062 m</strong>，优于 WorldFlow 的 <strong>0.081 m</strong>，因此“全部基线最佳”不成立；“学习方法中最低”也不自动等于最优决策效用。固定抓取、规划和控制后端的 12 任务×3 次测试中，预测成功 35/36、真实执行 24/36，μ₀ 为 9/36 和 4/36。样本少，且感知、抓取与轨迹优化共同决定终局表现。</p>
+<p><strong>值得读联合监督和评价协议。</strong><a href="https://github.com/worldflow-rbs/worldflow" target="_blank" rel="noopener noreferrer">仓库</a>目前仅论文、README 与素材，模型实现、checkpoint、训练代码、数据和 benchmark 工具均待发布，未确认代码许可。轻量实验可用固定视频编码器与小型点轨迹头，对比运动单目标、视频加运动、视频加打乱运动三个条件；同时报告静止基线、移动物体子集和轨迹执行可行率，避免静态占比掩盖动力学错误。</p>
+<h2 id="5-utility-wam修正未来预测引起的动作损害p1">5. Utility-WAM：修正未来预测引起的动作损害｜P1</h2>
+<p><strong>Feihong Zhang、Xi Lin、Yulong Shi 等；清华、约翰斯·霍普金斯、东北大学、东南大学、中科院自动化所、引望等。</strong>v1 为 <strong>10 月 29 日 12:59 北京时间</strong>，预印本，未核实同行评审。<a href="https://arxiv.org/abs/2610.39367" target="_blank" rel="noopener noreferrer">论文与发布记录</a>；<a href="https://arxiv.org/html/2610.39367v1" target="_blank" rel="noopener noreferrer">全文</a>。研究问题很具体：同一个 WAM checkpoint 在可见未来和屏蔽未来时，动作究竟改变多少，这些改变是否有用？</p>
+<p>基于 FAST-WAM/Wan2.2，第一阶段用两种 attention mask 训练共享策略；第二阶段冻结主体，通过真实未来提供的训练指导修正 future-induced velocity delta，并惩罚超出无未来分支的误差；第三阶段用配对动作结果训练预生成门控，决定是否生成视频。真实未来仅用于训练，部署只运行选中的分支。相对只讨论“视频质量更好”，它直接研究预测对动作的局部效用；与上一期 Best-of-N 的关系是，后者研究候选可选空间，这里研究同一策略中未来条件造成的增益和伤害。</p>
+<p><strong>作者结果：</strong>共享模型加入未来后，LIBERO 平均仅 +0.8 个百分点，RoboTwin 2.0 为 −0.8；Press Stapler、Place Can Basket 分别下降 54、34 点。修正器把这两项降幅缩至 6、14 点；完整门控系统报告 LIBERO 98.9%、RoboTwin 93.3%，三项真机任务为 53/60，对照 FAST-WAM 43/60。RoboTwin 上跳过 75.5% 的视频生成查询，延迟相对始终生成未来下降 38%，<strong>仍比无未来分支增加约 17%</strong>；LIBERO 保留约 87% 的视频查询，节省只有约 6.7%。不能将一种任务分布下的收益写成通用加速率。</p>
+<p><strong>值得深读受控比较，完整复现待开放。</strong>本轮未找到作者专属可运行代码、权重、数据或评测发布；现有结果是作者报告。门控标签使用动作误差代理，不能保证每次闭环都改善，且需要本地留出集校准。轻量验证先固定开放 WAM 的一个 checkpoint、三个长时任务和三个精细接触任务，用相同初态与随机噪声运行有/无未来；报告逐任务负迁移和总延迟，再与随机调用、固定频率调用的同预算基线比较。</p>
+<h2 id="6-touchbridge用真实接触保持人到机器人的对应p1">6. TouchBridge：用真实接触保持人到机器人的对应｜P1</h2>
+<p><strong>Haozhe Zhang、Gu Zhang、Zirui Zou、Yuzheng Chen 等，Huazhe Xu 等指导；清华、浙江大学、南洋理工大学、湖南大学、北京大学。</strong>v1 为 <strong>10 月 30 日 00:06 北京时间</strong>，预印本，未核实同行评审。<a href="https://arxiv.org/html/2610.40349v1" target="_blank" rel="noopener noreferrer">论文全文</a>；<a href="https://touchbridge2026.github.io/" target="_blank" rel="noopener noreferrer">项目</a>。它解决手姿 retargeting 在接触时失效的问题：几何上接近，并不能保证指尖仍压在正确的接触区域。</p>
+<p>硬件使人和机器人具有对应的视觉、指尖触觉观测；Tac-Retarget 用接触 patch、活跃 taxels 和跨手接触关系图约束动作转换，再结合视觉合成与相机锚定动作，得到机器人域示范。该转换不依赖物体 mesh、物体 pose 或仿真 rollout 精修；这并不表示无需标定或硬件对应。随后用转换示范监督微调 GR00T N1.7。与 DexPilot、UniDex、DexUMI 及 FACT 的关系，应分别从接触保持、接口设计、预训练和数据规模比较，不能把“使用人类视频”本身视为新点。</p>
+<p><strong>作者结果：</strong>四项真实接触任务，每项 60 条训练示范、20 次策略测试；人类转换数据平均成功率 72.5%，等量遥操作为 77.5%。成功示范采集平均 11.7 秒对 81.7 秒，约快 7 倍，这是采集环节、不是端到端数据生产提速。接触误差 4.667 mm，DexPilot/UniDex 为 6.354/7.715 mm。相同转换数据下，GR00T N1.7 为 72.5%，π0.5 为 38.8%，表明基座与接口匹配很重要，不能把跨方法差异全归因触觉。物体、任务和硬件范围有限，未证明任意本体零样本迁移。</p>
+<p><strong>值得深读方法；工程复现尚待资源。</strong>项目有论文和演示，本轮未核到专属代码、硬件全套设计、策略权重及完整数据下载。轻量验证可先做两种手型、三个物体、每种十段接触，固定视觉转换和策略，只比较运动学匹配、接触中心匹配、接触关系图；分别验收接触保持、可执行性和策略成功率，不以离线 retargeting 误差替代真机结果。</p>
+<h2 id="7-rfw-a把-agent-推理摊销为可复用的关节资产生成器p1">7. RFW-A：把 Agent 推理摊销为可复用的关节资产生成器｜P1</h2>
+<p><strong>Yuanbo Lyu、Changjian Pan、Saining Zhang 等，Zenan Meng、Hao Zhao、Chaojian Li 等；阿里巴巴、清华、北大、南洋理工、南京大学、香港科技大学。</strong>v1 为 <strong>10 月 29 日 23:58 北京时间</strong>，预印本及数据集研究发布，未核实同行评审。<a href="https://arxiv.org/html/2610.40333v1" target="_blank" rel="noopener noreferrer">论文全文</a>；<a href="https://brain-labbb.github.io/RFW_A_web/" target="_blank" rel="noopener noreferrer">项目与资产浏览</a>。它针对逐资产调用 Agent 的成本，转而让 Agent 先写类别级生成器，再用程序采样大量变体。</p>
+<p>流水线从已有 articulated programs 提取组件、组织结构蓝图和依赖，生成可执行程序，并跨配置与关节运动测试、定位失败和修复。材质库绑定外观与密度、杨氏模量、泊松比、静/动摩擦及恢复系数；这些是固定条件下的离线估计，<strong>不是每件真实物体的实测物性</strong>。主要优化过程是程序搜索和验收；下游再训练关节估计模型或用仿真示范学习策略。与 Infinigen-Articulated、Articraft、LAM 相比，研究价值在可复用构造逻辑、定向编辑和生成成本摊销。</p>
+<p><strong>作者结果：</strong>RFW-A-400K 为 402,410 个资产、531 类；十类成本样本中，生成器平均 API 编写成本 10.62 美元，按每类 200 个资产摊销为约 0.053 美元/件，对照约 1.237 美元，<strong>不含程序执行成本</strong>。Core-200 的跨模拟器最弱稳定 rollout 比例约 99.5%，不等于 40 万件都通过完整物理验证。五项真机任务各十次、每任务固定 500 条仿真示范时，检索单资产平均 62%，加九个定向编辑变体为 80%。关节估计的类别 OOD 有改善，但来源受控混合集并非所有指标都胜过 PM-only，应保留分布差异。</p>
+<p><strong>推荐读生成器契约和审计协议。</strong>项目已有交互浏览与演示，但未核到全部 40 万资产、生成器源码、物性库和完整评测包的下载，许可证也未确认；不能写成“完整数据已开源”。轻量验证只生成三类各二十件，预先固定结构覆盖、极端参数和碰撞测试；用第二模拟器复查，再比较随机变体与单字段编辑，先证明每个结构变化有可解释物理效果。</p>
+<h2 id="8-appreciation-teaches-unauthorized-execution自演化后的授权泛化失误p1">8. Appreciation Teaches Unauthorized Execution：自演化后的授权泛化失误｜P1</h2>
+<p><strong>Xinyan Wang、Xiaogeng Liu、Jun Shao、Chaowei Xiao；威斯康星大学麦迪逊分校、约翰斯·霍普金斯大学。</strong>v1 为 <strong>10 月 29 日 09:10 北京时间</strong>，预印本，未核实同行评审。<a href="https://arxiv.org/abs/2610.39122" target="_blank" rel="noopener noreferrer">论文</a>；<a href="https://arxiv.org/html/2610.39122v1" target="_blank" rel="noopener noreferrer">全文</a>。它研究自演化的另一面：用户在一个合法场景中赞许执行外部内容里的任务后，Agent 是否把这种行为错误泛化到没有授权的新场景。</p>
+<p>实验分适配与留出测试两阶段，使用 OpenClaw，分别通过 OpenClaw-RL 更新 LoRA，或通过 MetaClaw 更新技能库。适配时任务确实获得授权，测试时用户只要求读取或总结，而新的外部文本含有额外动作。五类本地/模拟服务任务各有 48 个适配条目、40 个测试文档，通过环境状态判定越权执行。训练目标来自用户正向/纠正反馈；重点不是更强攻击搜索，而是学习机制改变了授权边界。</p>
+<p><strong>作者结果：</strong>新内容上的平均攻击成功率，在技能演化后增加 14.0–48.8 个百分点，在 RL 后增加 3.0–39.3 点。一个受控条件下，明确授权感知的适配把 ASR 从执行奖励条件的 35.8% 降至 5.8%，仍非零。与既有静态 prompt-injection benchmark 的区别是评测随学习发生的变化；与 AdaRSI、harness evolution 的关系是，任务提升与行为边界保持应共同验收。范围仍是选定模型、五类任务和构造的反馈分布，不能据此推断所有自演化都会恶化。</p>
+<p><strong>具备较好的复现入口。</strong><a href="https://github.com/SaFo-Lab/Evolve-IPI" target="_blank" rel="noopener noreferrer">Evolve-IPI</a>有 MIT 代码、任务数据、Docker、适配和评测入口，数据另有许可；完整模型/适配 checkpoint 未确认，原方案涉及 Tinker 与技能演化 API，本轮未运行。轻量实验先用小模型和本地模拟文件工具，保持任务内容相同、只改变授权句，比较无学习、仅技能、授权感知技能三组，各十个适配与二十个留出样本；同时报告合法任务成功和越权率。</p>
+<h2 id="9-mistral-large-4改进版本正式开放权重p1">9. Mistral Large 4：改进版本正式开放权重｜P1</h2>
+<p><strong>Mistral AI 团队。</strong>本项是 <strong>10 月 29 日 22:11 北京时间</strong>的首个实质权重提交，不是 10 月 6 日 API 预览的重复报道。<a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener noreferrer">官方开放公告</a>；<a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B" target="_blank" rel="noopener noreferrer">模型卡</a>；<a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B/commits/main" target="_blank" rel="noopener noreferrer">提交历史</a>。发布性质为官方开放权重与推理生态支持，本轮未核到新同行评审论文。</p>
+<p>它提供通用多模态 Agent 基座：约 1T 级 MoE，128 个路由专家、每 token 激活四个与一个共享专家；路由计算约 49B，计入 embedding/output 后约 52B，支持图像输入、工具调用、结构化输出和 1M 上下文。官方表示预览后继续进行约三周 RL，改善 coding、效率与防御安全；训练语料、完整奖励设计、数据配比和 recipe 没有随权重完整公开。其价值是开放可部署的通用工具/视觉基座，尚无证据将其等同机器人动作模型。</p>
+<p><strong>官方引述结果：</strong>Artificial Analysis Coding Agent Index 为 48%，称与 GLM-5.3 接近而平均 token 少 47%；Terminal-Bench 4.0 从自报预览版 28% 到 41%。这些包含第三方评测机构的结果，但本轮只核到厂商公告和模型卡的引述，<strong>没有独立重跑，也未逐项核验外部榜单配置</strong>。与闭源 Agent 比较仍需固定 harness、推理强度和完整费用，token 数不能独自代替时延或总成本。</p>
+<p><strong>开放状态已核实到实际文件。</strong>首个 release commit 含 54 个 safetensors 分片、合计约 1.06 TB 文件体积，另有 NVFP4 与 vLLM/SGLang 等部署支持；不只是占位模型页。许可为 Mistral Ecosystem Open-Weight License，对 Model-as-a-Service 另设商业授权，不能简称完全 MIT。未见完整训练数据或训练复现链。无需本地部署万亿模型即可轻量验证：通过已有合规 API，在固定十个代码任务和十个视觉工具任务上比较 low/medium/high 推理强度，记录成功率、总 token、工具次数与墙钟时间；本轮未调用付费推理或下载大权重。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>官方入口已扫描，窗口内的主要新增与已有项目分开处理。</strong>Mistral 的权重开放进入重点；NVIDIA 于 10 月 29 日发布 <a href="https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/" target="_blank" rel="noopener noreferrer">Agent 与 Omniverse 构建仿真的官方案例</a>，覆盖建筑重建、线缆操作、CAD/OpenUSD 机器人配置及 Cosmos3-Nano 场景变化。它是系统工作流案例，没有随文提供足以复现全部效果的新模型、统一消融与 benchmark；进入候选观察池，不能当作已验证的通用仿真生成能力。</p>
+<p>扫描范围包括：<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a>及 Robotics、NVIDIA Cosmos/GR00T/Isaac、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic research/news/alignment、Toyota Research Institute；并查 Stanford/SRC、Berkeley BAIR、MIT、CMU、Princeton，以及上海 AI Lab、清华 AIR、北大 EPIC、智元、腾讯混元、字节 Seed、智源、阿里达摩院、蚂蚁灵波、云深处等。另扩展 Runway、Luma、SpAItial、Tripo 和 Dyna。<strong>除本期已列与此前已报道的窗口内事件外，本轮未确认其他足以进入 Top Papers 的重大官方新增。</strong></p>
+<p>日期兜底纠正了三类噪声：Mundo 的 30 日报道没有核到相对早期论文/项目的新版本；<a href="https://runwayml.com/research/introducing-solaris" target="_blank" rel="noopener noreferrer">Solaris 官方页面</a>标 8 月 31 日，不能借近日新闻重算首发；<a href="https://www.dyna.co/dyna-2" target="_blank" rel="noopener noreferrer">Dyna-2 官方研究页</a>标 8 月。Isaac Lab 3.0 的 29 日论坛公告也不能代替上一期已核的较早正式 release 日期。GO-3 与 Genie Sim 后续开放仍应按实际文件和提交验收，排期不算交付。</p>
+<p><strong>覆盖边界：</strong>四类 arXiv recent 共 4,346 条分类记录、3,451 个唯一 ID；精确提交窗口 API 返回 724 条，标题主题筛出 298 条。这些是候选覆盖数，不是重要首发数。最新可取提交仍为 29 日 17:59 UTC，公告页到 30 日，因此不宣称完整覆盖 30—31 日所有提交。Stanford AI blog/SpAItial 存在 TLS 失败，Princeton 返回 403；上海 AI Lab、清华 AIR 已回主页补查，部分中国动态页正文不足，Meta 索引偏旧，搜索补查后仍保留可见性缺口。</p>
+<p><strong>已入池而本期未展开，属于 Selection：</strong><a href="https://worldmodels.science/world2vec" target="_blank" rel="noopener noreferrer">world2vec</a> 的 reward-free 潜在动力学与约 26.3 万参数小模型、<a href="https://arxiv.org/abs/2610.40401" target="_blank" rel="noopener noreferrer">CoAWM</a> 的连续时间动作函数、<a href="https://arxiv.org/abs/2610.39232" target="_blank" rel="noopener noreferrer">GenSight</a> 的视频/4D 共同预测、SonoWorld4D 的动态视听场景、GROME 的静动态分解记忆、SpaceAct 的主动空间交互、UMI-Live/Tactus 的人类数据接口、Robotic Data Inoculation 的采集期扰动，以及 VeriCUA、EpiAgent、A-RSI。它们分别进入机制、评测、数据和自演化后续专题，本期优先展开上述九项。WorldProbe 的论文已读入候选，但其宣称公开的仓库本轮返回 404，资源未取得必须记为检索/开放状态缺口，不能写成已可运行。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图沿用“<strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>”。下表是本报研究判断，尚非已验证结论。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>未解决 gap 与可能的论文问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空间状态与持久记忆</td>
+<td>Spatial State 探针、L3G-World；从可见几何走向离屏保持和直接潜空间记忆</td>
+<td>读出、历史使用、预测接口、连续行动仍断裂；研究跨预测状态保持同一读取接口</td>
+</tr>
+<tr>
+<td>显式动力学接口</td>
+<td>WorldFlow、GenSight、CoAWM；几何轨迹、稠密感知和连续动作成为中间层</td>
+<td>几何误差、静止先验、运动可执行性与本体对齐尚未闭合；研究同后端的接口归因</td>
+</tr>
+<tr>
+<td>仿真与可编程世界</td>
+<td>Gym-Anything、RFW-A、NVIDIA 工作流；生成代码、生成器和审计共同增长</td>
+<td>参数有来源不等于真实物理正确；研究独立实测约束下的生成—验收闭环</td>
+</tr>
+<tr>
+<td>预测对控制的效用</td>
+<td>Utility-WAM，衔接 JAM、Best-of-N</td>
+<td>平均成功率掩盖精细任务负迁移；研究按状态分配想象预算及闭环风险校准</td>
+</tr>
+<tr>
+<td>人机与跨本体数据</td>
+<td>TouchBridge、Tactus、UMI-Live、AcrossDEX</td>
+<td>接触、时间同步、视觉转换与基座差异纠缠；研究接触约束的独立增益和跨手泛化</td>
+</tr>
+<tr>
+<td>自演化与通用 Agent</td>
+<td>Evolve-IPI、A-RSI、VeriCUA、Mistral 权重</td>
+<td>学习后能力提升未必保持授权和验证能力；研究固定验收下的能力—边界联合迁移</td>
+</tr>
+</tbody>
+</table></div>
+<p>与上一期的衔接是：JAM 问“未来监督用什么”，ImagiRep 问“空间状态怎样展示给模型”，今天进一步问“状态在预测后还能否读、生成的物理过程能否验、加入未来到底改善哪些动作”。此前的 ScIntBench、LabWorld、RynnWorld-Latent、TAPESTRY 和持续部署学习问题继续保留。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：预测之后仍保持接口的空间状态。</strong>固定冻结编码器和探针容量，对真实未来、预测未来、复制历史分别训练/迁移同一读取器；用离屏物体方位、位姿与目标进展共同评价。继续信号是跨房间可恢复的空间精度和行动收益同时改善；仅重训读头恢复分数，不足以证明状态可复用。</li>
+<li><strong>机会二：以独立物理观测验收生成仿真。</strong>两类任务各十个参数组合，用质量/力/轨迹或接触事件的真实小样本做外部验收，再比较有无审计。继续信号是留出物体和参数上误差下降；只通过自写奖励或复述资料参数，应停止扩大生成量。</li>
+<li><strong>机会三：想象收益的局部校准。</strong>先测六个任务的配对有/无未来分支，再训练小门控；对随机门控、固定调用率和额外重规划做同预算比较。继续信号是留出精细任务负迁移减少且长时收益保留；仅总体平均数上升，不能支持风险校准主张。</li>
+<li><strong>机会四：接触对应能否跨手保持。</strong>固定采集数量、视频转换和策略，比较运动学、接触中心、接触图三个条件；按未见手型与未见物体分开测试。继续信号是接触和任务成功同步改善；只缩小动作误差而无闭环收益，应重新检查接口。</li>
+<li><strong>机会五：自演化的能力与边界共同保持。</strong>构造相同外部内容、不同授权请求的配对测试，分别更新技能、权重或验收器，并保留新工具/新任务留出集。继续信号是合法任务提升且越权不增；若只靠一组固定拒绝模板，应视为任务记忆而非边界泛化。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本报的论文数字均为作者报告；<strong>没有进行论文实验或独立重跑</strong>。公开源码、能下载的权重、完整数据、可跑评测与独立复现是不同状态；arXiv DOI 和项目页不能证明同行评审或实验已被验证。</p>
+<ul>
+<li><strong>实质源码已核：</strong>Gym-Anything 的环境/审计/评测实现；Spatial State 的有限范围探针包与结果表；Evolve-IPI 的任务、模拟服务与两类适配入口。前者存在 GPU 长测未执行说明，探针存在未公开快照/子集，后者依赖外部推理和训练服务；均未在本轮运行。</li>
+<li><strong>实质权重已核：</strong>Mistral 首个 release commit 的权重分片及推理说明。开放权重不等于训练配方、数据和全部评测开放。</li>
+<li><strong>仍以论文/项目预览为主：</strong>L3G-World、WorldFlow、Utility-WAM、TouchBridge、RFW-A；world2vec 的代码也仍标 coming soon。未确认的完整数据、checkpoint 与授权状态保留为未知，不从 Code 按钮或仓库名称推断。</li>
+<li><strong>第三方证据：</strong>Mistral 公告引述第三方机构榜单，但本轮没有逐项核验配置；其余重点未找到可信的独立复现。自动 AI 论文评审、媒体转述和演示视频不计作第三方实验验证。</li>
+<li><strong>检索失败与筛选分开：</strong>上一期未取到的 28—29 日论文及 Mistral 官方权重属于回补；今日已列入候选而未展开的项目属于筛选；无法访问的官方入口、WorldProbe 资源仍保留明确缺口。已执行 arXiv、官方、代码/Hub、独立 Spatial、机器人/RL、Agent 六线与 broader-web 重大遗漏交叉检查。</li>
+</ul>
+<p><strong>今天先读 Spatial State 的四层判据，再读 L3G-World 的记忆接口；先做一个房间的“真实未来—预测未来—复制历史”对照。</strong>需要更快落地时，从 Gym-Anything 选一个环境独立检查物理和验收器，通过后再扩大数据或训练规模。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-30/"><span>← 上一期 · 2026-10-30</span><strong>ImagiRep / GEARS · Best-of-N / HeadroomBench · ThinkWorld</strong></a><a class="newer" href="../2026-11-01/"><span>下一期 → · 2026-11-01</span><strong>world2vec · LucidLyra · CoAWM</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

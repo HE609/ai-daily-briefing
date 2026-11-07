@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-06｜Rho-1 · PointWAM · FastOPD · Yunhe</title><meta name="description" content="研究前沿正在从“生成看起来合理的 RGB 视频”转向三个可检验接口：可执行动作、可测量的 3D/碰撞几何、以及能被部署与持续改进的策略。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-06/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-06｜Rho-1 · PointWAM · FastOPD"><meta property="og:description" content="研究前沿正在从“生成看起来合理的 RGB 视频”转向三个可检验接口：可执行动作、可测量的 3D/碰撞几何、以及能被部署与持续改进的策略。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-06/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Rho-1 · PointWAM · FastOPD</h1><p class="article-deck">研究前沿正在从“生成看起来合理的 RGB 视频”转向三个可检验接口：可执行动作、可测量的 3D/碰撞几何、以及能被部署与持续改进的策略。</p><div class="article-meta"><time datetime="2026-10-06">2026 / 10 / 06</time><span>约 20 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-rho-1-collapsing-the-multimodal-stackp0">1. Rho-1: Collapsing the multimodal stack｜P0</a><a class="toc-level-2" href="#2-pointwam-3d-world-action-modeling-for-dexterous-robotic-manipulationp0">2. PointWAM: 3D World Action Modeling for Dexterous Robotic Manipulation｜P0</a><a class="toc-level-2" href="#3-xgenact-geometry-enhanced-world-action-models-through-cross-task-generationp0">3. XGenAct: Geometry-Enhanced World Action Models through Cross-Task Generation｜P0</a><a class="toc-level-2" href="#4-fastopd-on-policy-distillation-for-lightweight-vla-deploymentp0">4. FastOPD: On-Policy Distillation for Lightweight VLA Deployment｜P0</a><a class="toc-level-2" href="#5-mobiagent-dual-loop-recursive-policy-self-improvement-for-long-horizon-mobile-manipulationp1">5. MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation｜P1</a><a class="toc-level-2" href="#6-i2cd-direct-image-to-convex-decomposition-for-simulation-ready-collision-geometryp1">6. I2CD: Direct Image-to-Convex Decomposition for Simulation-Ready Collision Geometry｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-06.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-06</div><article class="prose"><p>本期检索窗口为 2026-10-03 09:00 至 2026-10-06 09:00（Asia/Shanghai），并把 arXiv 在 10 月 5 日公告批次出现的 10 月 2 日提交稿作为窗口内“公开公告”处理；正文同时保留 arXiv v1 的原始提交时间，避免把提交日和公开公告日混为一谈。相较 10 月 5 日，Bonsai World 与 Praxis-1 没有新的权重、代码、基准或第三方证据，因此不重复列入重点。</p>
+<p>今天最重要的判断是：研究前沿正在从“生成看起来合理的 RGB 视频”转向三个可检验接口：可执行动作、可测量的 3D/碰撞几何、以及能被部署与持续改进的策略。Reka 的 Rho-1 把世界语言动作模型直接做成官方研究预览；PointWAM、XGenAct 和 I2CD 则分别从点轨迹、多任务几何视频和仿真就绪碰撞形状补齐空间接口。与此同时，FastOPD 和 MobiAgent 说明部署效率与闭环自进化已经成为独立的研究问题。多数指标仍是作者或公司报告，公开权重和第三方复现明显滞后。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → Rho-1</strong>：先看单模型如何把视频生成、状态记忆和机器人动作放进同一上下文，判断 WLA 是否已经超出“VLM + 外挂世界模型”的组合。</p>
+<p><strong>B → PointWAM</strong>：再看显式场景与手部 3D 轨迹是否真的比 RGB latent 更能支撑跨本体和接触控制；它有公开代码，最适合做小规模复核。</p>
+<p><strong>C → FastOPD</strong>：随后读部署蒸馏的单状态流映射与自一致性目标，直接对应低 NFE/低延迟验证。</p>
+<p><strong>D → XGenAct</strong>：再看把深度、法向、功能分割编码成同一视频空间，是否能把空间监督稳定传给动作头。</p>
+<p><strong>E → MobiAgent</strong>：最后读双循环技能库和失败回收，重点检查“成功完成”与“中间状态可交接”是否被严格区分。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-rho-1-collapsing-the-multimodal-stackp0">1. Rho-1: Collapsing the multimodal stack｜P0</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> 作者为 Reka AI 团队；官方发布时间为 2026-10-05，属于公司官方研究预览，不是同行评审论文。官方页面称其为 19B、从零训练的 omni-reasoning model，并明确将其定位为可理解、生成、模拟和执行的统一模型。<a href="https://reka.ai/news/rho-1-collapsing-the-multimodal-stack" target="_blank" rel="noopener noreferrer">官方发布</a></p>
+<p>它解决的问题是：当前多模态智能体通常把语言规划、视频生成、视觉定位和机器人控制拆成多个模型，模型间交接增加延迟，也让预测未来和输出动作脱节。Rho-1 把文本、图像、视频、动作和本体感知放入同一上下文；离散 token 采用 next-token prediction，连续图像/视频/动作采用 flow matching。每个 Transformer block 里有 understanding stream 与 generation stream，两者共享 attention 和 KV cache；Reka 还用 Inverse Dynamics Model 从无动作标注的视频中恢复隐式控制信号，使互联网视频可以参与动作预训练。</p>
+<p><strong>结果与证据。</strong> 以下均为官方报告：基础模型视频生成中位速度约为 0.79× 实时；蒸馏版本把 99 步去噪降为 8 步，官方演示称 5.3 秒视频约 1 秒生成；LIBERO 演示同时展示未来腕部画面和七维动作输出。页面没有给出可与 π0.5、OpenVLA 或 WAM 统一比较的成功率表，也没有第三方验证。<a href="https://reka.ai/news/rho-1-collapsing-the-multimodal-stack" target="_blank" rel="noopener noreferrer">官方技术说明</a></p>
+<p>创新点在于将“世界状态”落实为共享 KV cache，让模型可以继续读取自己生成的场景、修改场景并输出动作；它把 world model、language model 和 action model 的接口统一了。局限也很清楚：官方把它称为 functional proof-of-concept，长时漂移、时序 grounding、编辑稳定性和原生视频分辨率仍是风险；本次扫描没有找到公开权重、公开 API、训练数据或可复现实验脚本，无法把官方演示升级为可验证的 WLA 结果。与 Dreamer、视频 WAM 和 VLA 的关系是：Rho-1 把预测未来与动作解码放在同一网络，而不是通过外部 planner 查询辅助世界模型。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P0。</strong> 复现不应从 19B 模型开始。轻量验证可以用一个开源视频 latent backbone、一个小型 flow action head 和 IDM 伪动作标签，做“共享状态双流”与“独立视频模型 + 外接 policy”的对照；在 10 个 LIBERO 或 RoboTwin 任务上同时测未来帧的一致性、动作成功率、跨指令分叉后的状态保持和端到端延迟。</p>
+<h2 id="2-pointwam-3d-world-action-modeling-for-dexterous-robotic-manipulationp0">2. PointWAM: 3D World Action Modeling for Dexterous Robotic Manipulation｜P0</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> Chunghyun Park、Beomjun Kim、Seungcheol Park、Heeseung Kwon、Yashu Shukla、Seunghoon Sim、Jinwoo Shin、Minsu Cho，来自 POSTECH、KAIST、Hanyang University 与 RLWRLD。该稿在 2026-10-05 arXiv 公告批次出现，v1 提交时间为 2026-10-02；属于 arXiv 预印本，作者同时给出项目页和代码仓库。<a href="https://arxiv.org/abs/2610.02840" target="_blank" rel="noopener noreferrer">论文与项目页</a> · <a href="https://github.com/xiaooai/PointWAM" target="_blank" rel="noopener noreferrer">代码仓库</a></p>
+<p>研究问题是 RGB 帧或 latent 未来预测没有显式表达接触几何，且人类视频与机器人动作的本体不同。PointWAM 把世界分成 scene 与 hands，在共享时空坐标系中预测所有观测场景点和手部关键点的 3D 轨迹，再用 action retargeter 转成机器人动作。论文的主模型冻结 Mosaic3D 与文本编码器，使用 EgoDex + VITRA 共约 1.15M episodes 做人类视频预训练，再在 DexJoCo 959 条示范上微调；场景流、手部流和动作误差共同训练，训练设置报告为 4 张 B200 预训练 34 小时、微调 19 小时。</p>
+<p><strong>结果与证据。</strong> 作者报告平均 DexJoCo 成功率从无预训练的 12.1% 提升到 69.0%，场景轨迹监督相对只预测手部再增加 10.9 个百分点，并在十个 DexJoCo 任务上超过最强基线 11.7 个百分点；论文还报告真实机器人上优于强 VLA。消融显示去掉场景预测后参考模型从 64.4% 降到 53.5%，说明“观察 3D”与“预测场景如何动”不是同一件事。<a href="https://arxiv.org/html/2610.02840" target="_blank" rel="noopener noreferrer">实验与消融</a></p>
+<p>它与 PointWorld、PointACT 和 RGB WAM 的关系是把场景动态、手部动态和动作输出放进同一 3D 点轨迹接口；创新在于不需要提前选择任务物体或关键点。主要局限是点间距会丢失文字、透明表面和细接触，未来还需要把质量、摩擦等物理属性加入点状态；真实实验规模和跨本体验证仍有限。代码仓库公开了训练、评估、数据转换和预训练依赖，但没有确认已经发布最终论文 checkpoint，EgoDex/VITRA 的完整数据获取也需要单独核对。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P0。</strong> 轻量验证先跑仓库的 synthetic smoke training，再只取 2–3 个 DexJoCo 任务，冻结视觉编码器，对比 “hand-only / scene observation / scene trajectory” 三个条件。验证时必须记录抓取、接触、抬升、放置等有序中间状态，不把终点成功单独当作 world model 证据。</p>
+<h2 id="3-xgenact-geometry-enhanced-world-action-models-through-cross-task-generationp0">3. XGenAct: Geometry-Enhanced World Action Models through Cross-Task Generation｜P0</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> Tingting Du（University of Wisconsin–Madison）、Ziyao Wang、Guoheng Sun、Ang Li（University of Maryland, College Park）。该工作在 2026-10-05 arXiv 公告批次进入最新列表，v1 提交于 2026-10-02；属于 arXiv 预印本。<a href="https://arxiv.org/abs/2610.03516" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://arxiv.org/html/2610.03516" target="_blank" rel="noopener noreferrer">可读全文</a></p>
+<p>它针对现有 WAM 主要预测 RGB 与动作、空间监督被拆成很多专用 head 的问题。XGenAct 用 deterministic codecs 把 RGB、机器人动作、metric depth、surface normals 和 functional-role segmentation 都变成 RGB video，使用一个 video diffusion transformer、一个输出接口和一个共享目标；训练时按任务模板采样未来空间，避免每种模态都引入独立学习 head。</p>
+<p><strong>结果与证据。</strong> 作者报告在 held-out RLBench 上，结构化感知监督提升闭环成功率；五任务外部比较中达到 52%，强基线为 26%。直接生成的深度 AbsRel 约 0.28–0.33，而“先生成 RGB 再交给冻结感知专家”的路线约 0.41–0.43；分割 mIoU 约 0.42–0.49，对比 0.22–0.24。论文正文还报告生成深度可以回投成与真实场景对齐的点云，且动作执行后的仿真状态与想象未来相符。<a href="https://arxiv.org/html/2610.03516" target="_blank" rel="noopener noreferrer">方法、结果与复现声明</a></p>
+<p>创新点是把空间监督变成 WAM 原生可生成的“视频空间”，把动作、几何和语义放在同一个时间预测问题里；它比 PointWAM 更接近视频 WAM 的工程路径，比 RGB-only WAM 更容易检查几何一致性。局限是最优训练菜单依赖任务，评测主要集中在 RLBench/仿真，且论文虽然承诺公开完整代码、checkpoint、配置与随机种子，本次扫描尚未找到已上线仓库或权重，当前结果仍是作者报告。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P0。</strong> 轻量替代实验可以选一个小视频 backbone，在 3 个 RLBench 任务上只加入 depth + action 两条 codec 流；比较 RGB-only、RGB+depth、RGB+depth+normal 三组的未来几何误差、执行动作误差和中间接触成功率，并做 imagined-versus-executed 配对检查。</p>
+<h2 id="4-fastopd-on-policy-distillation-for-lightweight-vla-deploymentp0">4. FastOPD: On-Policy Distillation for Lightweight VLA Deployment｜P0</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> Yoojin Oh、Jeongsol Kim、Yeonwoo Seo、Jangho Park、Seonghyun Jin、Sunwoo Park、Youngmin Kim、Youngjun Jun、Kyumin Choi、Jong Chul Ye，主要来自 KAIST，Kyumin Choi 来自 Sungkyunkwan University。该工作在 2026-10-05 arXiv 公告批次出现，v1 提交于 2026-10-02；属于 arXiv 预印本。<a href="https://arxiv.org/abs/2610.02832" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://arxiv.org/html/2610.02832" target="_blank" rel="noopener noreferrer">可读全文</a></p>
+<p>它解决的是大 VLA/WAM 的采样与显存成本。FastOPD 不在学生生成轨迹的每个去噪时刻反复调用教师，而是让学生在自己的状态上接受一次 teacher velocity supervision，再用 self-consistency 把局部速度传播到有限区间的 shortcut transition。论文把实践目标写成 L_OPFD = E[||vθ − vφ||²]，即在学生自己访问到的状态上匹配教师速度场；学生采用轻量 action expert，目标是同时压缩模型容量和推理步数。</p>
+<p><strong>结果与证据。</strong> 作者报告 LIBERO 上两步推理保留 π0.5 的 84% 性能，延迟下降 78.1%；以 LingBot-VLA 为教师时，RoboTwin 2.0 单步成功率比基础学生高 15.9 个百分点；还展示 WAM 适配和从 MolmoAct2 蒸馏出的真实机器人学生。它是少数同时触及 VLA、WAM 和单步/少步部署的窗口内工作。<a href="https://arxiv.org/html/2610.02832" target="_blank" rel="noopener noreferrer">作者实验</a></p>
+<p>与传统 knowledge distillation、DMD/CTM 和普通 on-policy distillation 的关系是：FastOPD 用 flow map 的单状态监督替换完整教师轨迹，理论上恢复理想 few-step teacher 的分布。局限是效果仍依赖教师质量、动作分布覆盖和学生架构；当前论文未给出公开权重或完整代码的可确认入口，真实机器人只覆盖特定教师与任务，不能直接推出“任何 WAM 都能单步”。这些因素对当前项目的 one-step 结论尤其关键。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P0。</strong> 最小验证是选一个可运行教师和小学生，在 LIBERO/RoboTwin 固定 3 个任务比较 1、2、4 步：记录教师调用次数、动作 chunk 的边际分布、视频/状态预测误差、成功率和显存峰值。若没有教师权重，先做 flow-map toy benchmark，验证单状态 velocity matching 是否真的优于全轨迹蒸馏，再进入机器人策略。</p>
+<h2 id="5-mobiagent-dual-loop-recursive-policy-self-improvement-for-long-horizon-mobile-manipulationp1">5. MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation｜P1</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> Chenzhi Liu、Yue Zhang、Jiehong Lin、Bo Wang、Xiaojuan Qi 来自 The University of Hong Kong，Jianan Wang 来自 Astribot，Zhongrui Wang 来自 Southern University of Science and Technology。该工作在 2026-10-05 arXiv 公告批次出现，v1 提交于 2026-10-02，并标注已被 CoRL 2026 接收；项目页和 GitHub 已公开。<a href="https://arxiv.org/abs/2610.03476" target="_blank" rel="noopener noreferrer">论文与项目页</a> · <a href="https://github.com/kaiknower/MobiAgent" target="_blank" rel="noopener noreferrer">代码仓库</a></p>
+<p>它把长时移动操作拆为部署内循环和训练外循环。内循环由 VLM receding-horizon planner 动态组合 atomic skills，Reflection Critic 检查子任务并触发恢复，skill-specific flow-matching experts 共享 VLM backbone；外循环由 VLM Data Curator 自动切片、验证和描述 rollout，Skill Generator 聚类成技能库，Skill Trainer 无人工标注地持续微调。研究问题从“能不能一次完成”转为“失败之后是否能自动回收成可复用技能”。</p>
+<p><strong>结果与证据。</strong> 作者报告 BEHAVIOR-1K 相比 π0.5-TA 高 22.5 个百分点；自动回收数据后，RoboCasa 成功率从 7.50% 提升到 27.50%，Astribot S1 从 32.5% 提升到 57.5%。这是作者报告，尚无独立第三方复核。<a href="https://arxiv.org/html/2610.03476" target="_blank" rel="noopener noreferrer">论文摘要与完整方法</a></p>
+<p>创新点是把执行、反思、技能发现和策略更新放在一个长期闭环中，和静态 plan-then-execute 框架不同。论文也明确披露失败模式：Reflection Critic 会因遮挡或时序误判完成；双臂技能交接会出现姿态不匹配；低级感知会把透明杯或垃圾桶边缘定位错。该工作与 LLM Agent/self-evolution 关系直接，但仍是机器人技能库自进化，而不是基础模型权重的无监督自改写。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P1。</strong> 代码可用于小规模复核：选 5 个 RoboCasa 长任务，比较静态技能库、内循环反思、内外循环回收三种设置；给每个任务定义抓取、移动、放置、交接四类中间谓词，并单独统计 critic false positive、技能切换失败和终点成功，防止“最后一帧看起来完成”掩盖长时错误。</p>
+<h2 id="6-i2cd-direct-image-to-convex-decomposition-for-simulation-ready-collision-geometryp1">6. I2CD: Direct Image-to-Convex Decomposition for Simulation-Ready Collision Geometry｜P1</h2>
+<p><strong>作者与机构、发布时间、发布性质。</strong> Qian Wang、Liam Merz Hoffmeister、Brian Scassellati、Daniel Rakita，Yale University Department of Computer Science。该稿在 2026-10-05 arXiv 公告批次出现，v1 提交于 2026-10-02；属于 arXiv 预印本。论文写明代码、模型与 benchmark 将发布，但本次扫描尚未找到已上线的官方仓库或权重。<a href="https://arxiv.org/abs/2610.03453" target="_blank" rel="noopener noreferrer">论文与全文</a> · <a href="https://arxiv.org/html/2610.03453" target="_blank" rel="noopener noreferrer">方法细节</a></p>
+<p>它解决 real-to-sim 的一个常被忽略的接口：图像到 3D 模型通常输出密集、非流形的视觉网格，而模拟器和规划器真正需要的是凸碰撞几何。I2CD 冻结 Hunyuan3D-2 的 image-conditioned diffusion transformer 与 shape decoder，只训练 38M 参数的 cross-attention convex-slot head，让 K 个 slot 直接输出 K 个凸多面体的半平面参数；使用 class-balanced BCE 加 convex-pair contrastive loss，约 10 GPU 小时内完成训练，单图约 0.5 秒输出。</p>
+<p><strong>结果与证据。</strong> 在 227 个 OmniObject3D/GSO 留出物体上，作者报告体积 IoU 最好且端到端快 6–37 倍；MuJoCo、PyBullet、Genesis 和 Isaac Sim 都直接使用其几何而无需后处理；xArm7 的 20 物体杂乱场景从规划就绪耗时 328 秒降到 11 秒，100 次抓放成功率为 85 对 90。结果均为作者报告，但评测覆盖了跨模拟器和实体机器人两个层面。<a href="https://arxiv.org/html/2610.03453" target="_blank" rel="noopener noreferrer">作者实验</a></p>
+<p>创新点是把预训练 3D 生成器的“形状特征”改造成物理引擎真正消费的输出，直接连接生成世界、碰撞检测和动作规划。局限是继承 Hunyuan3D-2 对细杆、透明件和形状幻觉的误差；表面 F-score 落后于最佳 pipeline，凸 slot 按邻近性而非语义分件；真实实验仍是单一桌面、准静态任务，接触丰富的推、滑、倾倒还没有验证。</p>
+<p><strong>是否值得深入阅读：值得，优先级 P1。</strong> 这是本期最可行的轻量复现实验：只训练 convex head，在 20–50 个物体上比较 class-balanced BCE、BCE+contrastive 和传统 V-HACD/CoACD；随后把同一几何原样送进两个物理引擎，验证碰撞形状、沉降姿态和规划轨迹，而不是只检查文件“能加载”。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国机器人团队的 research/news/project/model 入口；也交叉查了 GitHub、Hugging Face、项目页和 broader web 的 Spatial Intelligence、World Model、Physical AI、Real-to-Sim、3D/4D world generation、Human-to-Robot、Agent/Self-Evolution 关键词。</p>
+<ul>
+<li><strong>有窗口内重大官方新增：</strong> Reka Rho-1（10 月 5 日）是本轮唯一足够强、且不依赖 arXiv 的 frontier 新发布，已列入重点。官方把它定位为可模拟和可操控的 WLA，暂时没有公开权重或第三方验证。<a href="https://reka.ai/news/rho-1-collapsing-the-multimodal-stack" target="_blank" rel="noopener noreferrer">官方页</a></li>
+<li><strong>World Labs：</strong> 本轮没有窗口内新发布；官网最新可见仍是 9 月 1 日 Atlas 和 9 月 28 日加入 AMD 的公告，均已在上期边界记录中处理。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">官方研究入口</a></li>
+<li><strong>Google DeepMind/Robotics：</strong> 官网仍展示 Genie 3、SIMA 2 和 Gemini Robotics 等既有项目，本轮没有新的窗口级论文、权重或 benchmark 公告。<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">官方入口</a></li>
+<li><strong>Anthropic、NVIDIA、Figure、Physical Intelligence、Generalist、Skild、Field AI、1X、Meta FAIR、TRI 与高校入口：</strong> 本轮扫描未发现足以进入 Top Papers 的新增研究发布；Field AI 官网的 EDGE/Belief World Model 是既有产品叙述，不能当作窗口内新结果。<a href="https://www.fieldai.com/" target="_blank" rel="noopener noreferrer">Field AI 官方入口</a> · <a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic research</a></li>
+<li><strong>中国团队边界项：</strong> Motus2 的项目页仍标注 September 2026，虽然二次索引把 ShengShu 的 Motus2 描述为 10 月 5 日新闻，本轮没有找到同日可核验的官方新版本、权重或 benchmark，因此不把它算作严格窗口新增。<a href="https://motus-robotics.github.io/motus2/" target="_blank" rel="noopener noreferrer">Motus2 项目页</a></li>
+<li><strong>同窗口的高相关但未入 Top：</strong> WING 用人类第一视角视频的 interaction-centric spectral latent guidance，在 LIBERO、RoboTwin 2.0、RoboCasa-GR1 报告 99.20%、93.80%、57.7%；EyeRobot 2.0 用主动凝视替代腕部相机并报告超过 1000 次实体试验；SceneFactory-3D 提供 GPU 批量物理反事实交通仿真并公开代码。它们分别对应跨本体数据、主动视觉和物理安全评测，因本期 Top 已覆盖核心 WAM/WLA/部署链路，放入研究地图而不重复展开。<a href="https://arxiv.org/abs/2610.03607" target="_blank" rel="noopener noreferrer">WING</a> · <a href="https://arxiv.org/abs/2610.03710" target="_blank" rel="noopener noreferrer">EyeRobot 2.0</a> · <a href="https://arxiv.org/abs/2610.02874" target="_blank" rel="noopener noreferrer">SceneFactory-3D</a></li>
+</ul>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射</th>
+<th>近期趋势</th>
+<th>尚未解决的 gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>统一世界语言动作</td>
+<td>Rho-1</td>
+<td>文本、视频、动作、状态共享 token/attention</td>
+<td>无公开权重；缺少统一的动作成功率、长时漂移和第三方复现</td>
+</tr>
+<tr>
+<td>3D WAM / 接触建模</td>
+<td>PointWAM、XGenAct</td>
+<td>从 RGB future 转向点轨迹、深度、法向、功能语义</td>
+<td>几何预测仍不等于质量、摩擦、接触因果；跨本体动作接口未统一</td>
+</tr>
+<tr>
+<td>部署效率</td>
+<td>FastOPD</td>
+<td>flow map、少步/单步、教师到轻量学生</td>
+<td>教师依赖、分布外动作、WAM 的视频目标蒸馏仍缺少标准协议</td>
+</tr>
+<tr>
+<td>自进化机器人 Agent</td>
+<td>MobiAgent</td>
+<td>rollout 切片、技能聚类、反思、无人工回收</td>
+<td>critic false positive、技能交接姿态和安全回滚没有统一 benchmark</td>
+</tr>
+<tr>
+<td>物理空间与 real-to-sim</td>
+<td>I2CD、SceneFactory-3D</td>
+<td>直接输出仿真消费的碰撞形状和物理反事实</td>
+<td>视觉 fidelity 与物理 fidelity 仍脱节，接触丰富场景和不确定性不足</td>
+</tr>
+<tr>
+<td>人类到机器人对齐</td>
+<td>WING、PointWAM</td>
+<td>从人类视频提取交互 latent/3D 轨迹</td>
+<td>相机运动、时间尺度和本体差异仍会造成伪对齐</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天的趋势可以概括为：
+1. <strong>预测目标结构化。</strong> RGB 视频不再是唯一目标，深度、法向、分割、点轨迹和碰撞几何成为可监督的中间世界状态。
+2. <strong>世界模型与动作模型融合。</strong> Rho-1 走共享 token/状态路线，PointWAM/XGenAct 走显式空间预测路线，两者都在减少 planner 与 simulator 之间的接口损失。
+3. <strong>部署和自进化成为主战场。</strong> FastOPD 处理单次推理预算，MobiAgent 处理长期数据预算；下一步应把两者放入同一闭环，而不是分别报 latency 和 success。
+4. <strong>证据层级落后于叙事。</strong> 公司 demo、论文成功率、sim rollout 和真实机器人结果尚未形成统一可比的因果/物理评测协议。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<p><strong>机会 1：几何监督是否真正改善 action grounding？</strong> 在同一小型 video-WAM 上做 RGB-only、RGB+depth、RGB+depth+normal 三组训练，固定 action head 与采样步数，测 imagined-vs-executed 的几何误差、接触前后状态和任务成功率。若 depth 只提升像素指标而不提升有序接触成功，说明它是表征装饰而非 action grounding。</p>
+<p><strong>机会 2：WAM 蒸馏的目标应是视频、动作还是状态分布？</strong> 用 FastOPD 风格单状态 velocity matching，在一个小教师和学生上分别蒸馏 action-only、future-latent、future-latent+action 三种目标，记录教师调用数、NFE、动作 KL、未来状态误差和长时成功率。不要把“单步成功率上涨”直接称为世界模型蒸馏成功。</p>
+<p><strong>机会 3：为长时机器人任务建立交接状态协议。</strong> 借鉴 MobiAgent 的 skill library，但给每个 skill 增加可验证的 exit pose、物体状态、接触状态和下一个 skill 的 precondition；对比只判定终点成功的评测。这个协议能直接暴露 critic false positive 与 inter-skill pose mismatch。</p>
+<p><strong>机会 4：把 I2CD/SceneFactory 的物理检查接到 WAM。</strong> 让 WAM 生成的未来深度或碰撞几何进入两个不同模拟器，比较接触、沉降、碰撞和规划结果；若两个引擎的“可加载”结果不同，就记录物理不确定性，而不是只报告视觉相似度。</p>
+<p><strong>机会 5：低成本复现优先级。</strong> 第一周先跑 PointWAM 的 synthetic smoke 和 FastOPD 的 toy flow-map；第二步做 XGenAct 的 depth/action codec 消融；第三步再做 MobiAgent 的技能回收。Rho-1 只做架构对照和伪标签实验，不追逐未公开的 19B checkpoint。</p>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>证据状态</th>
+<th>代码 / 权重 / 数据</th>
+<th>第三方验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rho-1</td>
+<td>官方研究预览；非同行评审</td>
+<td>未找到公开权重、公开 API、训练数据或完整代码</td>
+<td>无；官方 demo 与指标均未独立复核</td>
+</tr>
+<tr>
+<td>PointWAM</td>
+<td>arXiv 预印本；作者报告；项目页</td>
+<td>GitHub 已公开；预训练依赖和训练命令可见；最终 checkpoint 与完整人类视频数据需核对</td>
+<td>无可靠第三方结果</td>
+</tr>
+<tr>
+<td>XGenAct</td>
+<td>arXiv 预印本；作者报告</td>
+<td>论文承诺 release code/checkpoints/configs，但本轮未找到已上线仓库或权重</td>
+<td>无</td>
+</tr>
+<tr>
+<td>FastOPD</td>
+<td>arXiv 预印本；作者报告</td>
+<td>项目页可访问性有限；未确认公开教师、学生权重或完整训练代码</td>
+<td>无</td>
+</tr>
+<tr>
+<td>MobiAgent</td>
+<td>arXiv 预印本；CoRL 2026 接收；作者报告</td>
+<td>GitHub 与项目页公开；真实机器人硬件、模型和数据仍有环境依赖</td>
+<td>无</td>
+</tr>
+<tr>
+<td>I2CD</td>
+<td>arXiv 预印本；作者报告</td>
+<td>论文写明 code/models/benchmark 将发布，当前未确认公开</td>
+<td>无</td>
+</tr>
+<tr>
+<td>SceneFactory-3D</td>
+<td>arXiv 预印本；作者报告</td>
+<td>GitHub 链接已在论文页给出，可作为物理反事实评测补充</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天先读 <strong>Rho-1 → PointWAM → FastOPD</strong>，然后用 PointWAM smoke training 和 FastOPD toy flow-map 做两条低成本验证；如果只能做一个实验，优先验证“显式场景轨迹监督是否改善接触后的有序状态”，因为这是当前从视频世界模型走向可执行动作最关键、也最容易被终点指标掩盖的缺口。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-05/"><span>← 上一期 · 2026-10-05</span><strong>Bonsai World · Praxis-1</strong></a><a class="newer" href="../2026-10-07/"><span>下一期 → · 2026-10-07</span><strong>OpenWAM · DepthWorld: 3D World Model for Robot Manipulation · World Models’ Last Exam in Physics</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

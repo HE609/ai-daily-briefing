@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-19｜LAW · ORD-WM · MAIA · Yunhe</title><meta name="description" content="研究热点正在从“更大、更会生成的视频或 VLA”转向三个可审计接口——语义进度如何驱动世界—动作闭环、3D 物体几何如何在多步预测中保持一致、失败和接触风险如何在动作执行前被预判。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-19/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-19｜LAW · ORD-WM · MAIA"><meta property="og:description" content="研究热点正在从“更大、更会生成的视频或 VLA”转向三个可审计接口——语义进度如何驱动世界—动作闭环、3D 物体几何如何在多步预测中保持一致、失败和接触风险如何在动作执行前被预判。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-19/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>LAW · ORD-WM · MAIA</h1><p class="article-deck">研究热点正在从“更大、更会生成的视频或 VLA”转向三个可审计接口——语义进度如何驱动世界—动作闭环、3D 物体几何如何在多步预测中保持一致、失败和接触风险如何在动作执行前被预判。</p><div class="article-meta"><time datetime="2026-10-19">2026 / 10 / 19</time><span>约 25 分钟阅读</span><div class="tags"><span class="tag">具身智能</span><span class="tag">空间智能</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-lawunifying-language-action-and-world-modeling-for-agentic-physical-intelligencep0">1. LAW：Unifying Language, Action, and World Modeling for Agentic Physical Intelligence｜P0</a><a class="toc-level-2" href="#2-maiaanticipating-interaction-anomalies-in-contact-rich-manipulation-via-multimodal-world-modelsp0">2. MAIA：Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models｜P0</a><a class="toc-level-2" href="#3-ord-wmlearning-object-centric-rigid-dynamics-for-3d-world-modeling-in-robotic-manipulationp0">3. ORD-WM：Learning Object-Centric Rigid Dynamics for 3D World Modeling in Robotic Manipulation｜P0</a><a class="toc-level-2" href="#4-scene-designerlearning-design-intelligence-for-agentic-3d-scene-generationp1">4. Scene-Designer：Learning Design Intelligence for Agentic 3D Scene Generation｜P1</a><a class="toc-level-2" href="#5-mambaactefficient-mamba-action-experts-for-flow-matching-vision-language-action-modelsp1">5. MambaAct：Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models｜P1</a><a class="toc-level-2" href="#6-nestedvlalearning-to-consolidate-and-generate-skills-for-vision-language-action-modelsp1">6. NestedVLA：Learning to Consolidate and Generate Skills for Vision-Language-Action Models｜P1</a><a class="toc-level-2" href="#7-ego2contactpredicting-touch-from-egocentric-human-video-for-contact-rich-robot-manipulationp1">7. Ego2Contact：Predicting Touch from Egocentric Human Video for Contact-Rich Robot Manipulation｜P1</a><a class="toc-level-2" href="#8-instagenta-recursively-self-improving-agent-operating-system-for-heterogeneous-robot-collaborationp1">8. InstAgent：A Recursively Self-Improving Agent Operating System for Heterogeneous Robot Collaboration｜P1</a><a class="toc-level-2" href="#9-lm2lmlanguage-models-learn-to-improve-language-modelsp1">9. LM2LM：Language Models Learn to Improve Language Models｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-19.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-19</div><article class="prose"><p>检索窗口为 <strong>2026-10-16 09:32—2026-10-19 09:32（Asia/Shanghai）</strong>；arXiv 以 cs.RO、cs.CV、cs.AI、cs.LG 的最新批次和版本历史为入口，另行检查官方 research/news/project 页面、GitHub、Hugging Face 及 broader web。与 2026-10-18 期相比，上一期已经展开的 VERID、GeoState、Spark-0、VaM、Mem4Act、3DCodeVerse、MLExpert、MPT 等没有新版本、代码/权重、基准结果或第三方验证，本期不机械重复；窗口内新版本或新证据才重新升档。</p>
+<p>今天最重要的判断是：研究热点正在从“更大、更会生成的视频或 VLA”转向三个可审计接口——<strong>语义进度如何驱动世界—动作闭环、3D 物体几何如何在多步预测中保持一致、失败和接触风险如何在动作执行前被预判</strong>。同时，效率、技能合并、跨本体触觉迁移和研究型自改进开始出现可公开复核的实现，但真实机器人规模、跨平台稳定性和第三方复现仍明显落后于作者报告。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → LAW：Unifying Language, Action, and World Modeling for Agentic Physical Intelligence。</strong> 先看它怎样把语义子任务进度变成 VLM、WAM 和执行监控之间的时间接口；这是当前最完整的 World-Language-Action 系统答案。</p>
+<p><strong>B → ORD-WM：Learning Object-Centric Rigid Dynamics for 3D World Modeling in Robotic Manipulation。</strong> 它把“世界模型看起来合理”改成可量化的对象几何和 SE(3) 一致性，最适合检验 Spatial Intelligence 是否真的进入控制。</p>
+<p><strong>C → MAIA：Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models。</strong> 它把接触异常从事后检测推进到动作前预判，并同时发布带帧级标签的 CRIA 数据集。</p>
+<p><strong>D → Scene-Designer：Learning Design Intelligence for Agentic 3D Scene Generation。</strong> 它让 3D 场景生成同时学习“设计”和“批评”，公开 8B 权重、代码和评测集，适合做低成本空间智能复核。</p>
+<p><strong>E → LM2LM：Language Models Learn to Improve Language Models。</strong> 它把 research world model 作为自改进的奖励代理，能帮助判断“自进化”究竟是在学研究判断，还是在追逐一个不可靠的评估器。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-lawunifying-language-action-and-world-modeling-for-agentic-physical-intelligencep0">1. LAW：Unifying Language, Action, and World Modeling for Agentic Physical Intelligence｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Jiajun Cao、Kai Tang、Bohua Zhang 等，State Key Laboratory of Multimedia Information Processing、北京大学计算机学院与北京人形机器人创新中心；arXiv:2610.23334，2026-10-16，预印本和开源项目，尚无同行评审结论。<a href="https://arxiv.org/abs/2610.23334" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://hey-cjj.github.io/LAW-project/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/hey-cjj/LAW" target="_blank" rel="noopener noreferrer">代码、权重与数据</a>。</p>
+<p>LAW 解决的是长时程操作中“语言计划、动作候选、执行进度彼此脱节”的问题。它用混合专家 VLM 分别承担剩余子任务规划、状态判断和值估计；WAM 生成候选动作块；异步状态评估决定继续当前子任务还是切换到下一阶段。WAM 侧的 Mixture-of-Transformer Experts 同时保留视频私有、动作私有和共享专家；VLM/WAM 各自维护双流分层记忆；子任务局部价值学习把失败轨迹中已经完成的前缀保留下来，而不是把整条失败轨迹都当作零价值。训练目标因此不只是动作回归，还包括视频—动作联合建模、语义子任务序列、完成状态与局部价值。</p>
+<p>作者报告在 50 个 RoboTwin 任务上平均成功率 94.21%；把 WAM 换成 OpenWAM-α 后为 95.56%，并在 RoboDojo 能力维度上领先不需要额外机器人预训练的方法。三个长时程真实机器人任务平均成功率为 65%，对比 π0.5 的 28.33% 和 Fast-WAM 的 25%。这些是作者的受控实验和作者复现的基线，不是第三方验证；论文没有把“更强的 VLM”单独归因成全部收益，组件消融显示混合专家、失败前缀监督和分层记忆都参与了提升。</p>
+<p>创新点是把“语义进度”作为 WLA 的中间时间尺度，明确区分连续状态评估、动作块评分和子任务级规划。局限是实时系统仍依赖长上下文和多模型协同，真实实验只有三个长任务，RoboTwin 的任务语义和相机/平台配置可能高估泛化；4 节点×8 GPU 的训练成本也限制独立复现。与 Fast-WAM、OpenWAM、π0.5 的关系是：LAW 主要增加闭环语义控制和价值融合，不是重新发明一个孤立的视频生成器。<strong>值得深入阅读：是，优先级最高。</strong></p>
+<p>可复现性方面，LAW 已公开四类 Hugging Face 权重、RoboTwin WAM/VLM 数据包和训练/验证脚本，但完整训练需要 Linux、CUDA 和 4 节点×8 GPU。轻量验证可直接用公开 checkpoint 在 10 个 RoboTwin 任务、每条件 20–50 个 episode 上比较“有/无语义分段、分层记忆或 value fusion”，记录子任务序列编辑距离、切换延迟、失败恢复率和总成功率；这能先验证机制是否成立，无需重训大模型。</p>
+<h2 id="2-maiaanticipating-interaction-anomalies-in-contact-rich-manipulation-via-multimodal-world-modelsp0">2. MAIA：Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Yi Qiao、Maolin Zheng、Haoran Sun、Lujia Dong、Wenzhao Lian，上海交通大学人工智能学院；v2 在 2026-10-16 更新，论文为预印本，配套 CRIA 数据集和项目页。<a href="https://arxiv.org/abs/2610.21686" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://joringell.github.io/project/MAIA/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>MAIA 针对接触丰富操作中“看见失败时已经来不及纠正”的问题。它训练视觉—动作—力的世界模型，预测计划动作未来的视觉潜变量与力/力矩反应，再由轻量异常头在预测窗口中给出异常概率。CRIA 是真实世界多模态数据集，包含 2,852 条轨迹、18 个任务、5 类接触操作，其中 1,817 条包含至少一个标注异常；标注粒度从 episode 级提升到异常 onset、持续和恢复的帧级。训练时冻结 VAE 和文本编码器，联合优化视频 transformer 与 action-force 路径，再训练异常头；新任务适配只更新 action-force 路径和异常头。</p>
+<p>作者报告在已见任务上的 balanced accuracy 为 0.765、在新任务上为 0.710，中位提前预警分别为 28.0 和 25.1 个时间步；用异常概率做动作选择后，真实机器人端到端成功率从 52.6% 提高到 61.5%，且无需重新训练底层操作策略。证据仍是单一机器人平台、固定力/力矩传感器和作者实验；论文没有第三方复现，也没有把“根因诊断”或自动恢复纳入系统。</p>
+<p>创新点是把接触异常定义为“计划动作的未来物理后果”而非事后分类，直接连接世界模型、风险感知和在线动作选择。与反应式 anomaly detection、RoboFAC 等相比，MAIA 的贡献在时间提前量和物理信号；局限是有限预测视野、固定历史窗口、跨本体/跨传感器迁移未知。<strong>值得深入阅读：是，尤其适合作为安全闭环和 world-model evaluation 的基线。</strong></p>
+<p>可复现性：论文公开 CRIA 的数据描述和训练细节，但在本轮核查中未确认公开完整下载、预训练权重或独立实现。轻量验证可取三个任务和一个力传感器配置，用小型时序 transformer 做“视觉-only、视觉+动作、视觉+动作+力”三路消融，按时间切分而非随机切分，报告 AUCPR、提前步数、误报率以及风险动作选择后的成功率；再用未见物体做跨类别检验。</p>
+<h2 id="3-ord-wmlearning-object-centric-rigid-dynamics-for-3d-world-modeling-in-robotic-manipulationp0">3. ORD-WM：Learning Object-Centric Rigid Dynamics for 3D World Modeling in Robotic Manipulation｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Yueyang Weng、Xiaopeng Zhang、Yuxi Ou 等，哈尔滨工业大学（深圳）；arXiv:2610.23156，2026-10-16，预印本和项目页。<a href="https://arxiv.org/abs/2610.23156" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://hitsz-wyy.github.io/ORD-WM/" target="_blank" rel="noopener noreferrer">项目页与代码入口</a>。</p>
+<p>ORD-WM 解决多步视觉/点云 rollout 中的形状漂移、物体身份混淆和刚体运动不一致。系统从多视角 RGB-D 通过物体分割和点云融合建立对象级 3D 状态，用带 signed-distance-field 监督的 vector-neuron VAE 编码几何，再用 action-conditioned dynamics 预测每个对象的 SE(3) 位姿增量。关键约束不是让模型自由生成下一个 latent，而是把预测的刚体变换解析地作用到当前对象 latent 上，把持久几何与姿态变化分开；随后用这些 rollout 做实时 MPC，只执行当前候选动作的第一步。</p>
+<p>作者报告在仿真和真实操作中都能得到更稳定的几何保持和闭环重规划，但当前摘要/项目页没有给出足够统一的跨任务数字，不能把演示视频当成成功率证据。论文是匿名预印本，代码链接处于匿名开放研究页，尚未确认公开 checkpoint、训练数据或第三方复现；这比“已有完整开源实现”更弱，应按方法可审计、结果待复核处理。</p>
+<p>它与视频 world model、dense scene flow 和 Gaussian 3D dynamics 的关系是：把 Spatial Intelligence 的评价从像素逼真度推进到 object identity、shape preservation 和 object-level SE(3) consistency。局限是依赖准确的对象分割、相对刚性的对象假设和目标状态成本函数；对布料、液体、遮挡严重或对象拓扑改变的场景仍未解决。<strong>值得深入阅读：是，作为 3D world model 的结构归纳偏置样例。</strong></p>
+<p>轻量验证可以在 LIBERO/MuJoCo 的两个刚体对象族上复现一个极小版本：比较自由 latent rollout、点级 flow 和 ORD 式 SE(3) 变换三路，统一使用 8–16 步 horizon；同时报告 Chamfer/体积漂移、姿态误差、对象 ID 保持率和 MPC 成功率。先做离线 rollout，再做少量真实推送任务，能把“几何一致性”与“控制收益”分开。</p>
+<h2 id="4-scene-designerlearning-design-intelligence-for-agentic-3d-scene-generationp1">4. Scene-Designer：Learning Design Intelligence for Agentic 3D Scene Generation｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Xuanyu Liu、Hongyan Feng、Miao Pan 等，浙江大学 OmniAI Laboratory 与 Universal Identification Technology（杭州）；arXiv:2610.23121，2026-10-16，预印本、代码、模型和评测集公开。<a href="https://arxiv.org/abs/2610.23121" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://zju-omniai.github.io/Scene-Designer/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/ZJU-OmniAI/Scene-Designer" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://huggingface.co/XuanyuLiu/Scene-Builder-Qwen3-VL-8B-Instruct" target="_blank" rel="noopener noreferrer">8B 权重</a> · <a href="https://huggingface.co/datasets/XuanyuLiu/Scene-OTC-Bench" target="_blank" rel="noopener noreferrer">评测集</a>。</p>
+<p>它解决自然语言 3D 室内场景生成中的三个问题：物理有效性、功能正确性和布局连贯性经常互相冲突；模型知道“怎么改”却不知道“改得好不好”；无效修正会带来大量试错。Scene-OTA-35K 提供 Observation–Thought–Action 轨迹，Scene-OTC-15K 提供 Observation–Thought–Critic 监督；先用监督微调得到 Scene-Builder，再用冻结 Critic 的 Scene-GRPO 学习两个局部奖励：同一父场景下的分支排序，以及子场景相对父场景的真实改进。</p>
+<p>作者报告在物理有效性、功能正确性和布局连贯性上优于通用模型，且测试时 Critic 指导仍能带来提升；公开 SFT 阶段 8B 权重、代码和 Scene-OTC-Bench，但 README 明确说明公开权重位于 Scene-GRPO 之前，完整 OTA/OTC 训练轨迹并未作为同等完整的数据包发布。它把“空间生成”从一次性采样改成设计—批评—修正闭环，与 ORD-WM 的区别是：前者优化可用 3D 场景的构造过程，后者优化机器人交互中的对象动力学。<strong>值得深入阅读：是，作为 Spatial Intelligence 独立主线，而非机器人论文的附属模块。</strong></p>
+<p>局限是 3D 引擎、资产库和几何服务带来的分布偏差，Critic 也可能学到与真实可用性不完全相同的代理指标；论文没有真实机器人闭环，也缺少第三方跨引擎验证。轻量验证可用公开 8B SFT 权重跑 20–50 个固定提示，分别关闭 Critic、只做 branch-ranking、只做 improvement reward，统计碰撞率、可行导航率、对象覆盖率、编辑次数和人工盲评；再把生成场景导入两个不同物理引擎做跨引擎复核。</p>
+<h2 id="5-mambaactefficient-mamba-action-experts-for-flow-matching-vision-language-action-modelsp1">5. MambaAct：Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Khuyen Pham、Tran Nguyen Le、Edoardo Fazzari、Cesare Stefanini，MBZUAI 与 Technical University of Denmark；arXiv:2610.22951，2026-10-16，预印本，代码和模型权重公开。<a href="https://arxiv.org/abs/2610.22951" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/giakhuyendihoc/MambaAct" target="_blank" rel="noopener noreferrer">代码、锁定依赖和结果</a>。</p>
+<p>MambaAct 针对 π0.5 flow-matching VLA 的重复去噪成本：保留 π0.5 的视觉—语言前缀，把反复调用的 311.5M 参数 Transformer action expert 换成 29.7M 参数 Mamba3 action expert；Context Compressor 把 VLM prefix 压到 64 个 token，再用 blockwise FiLM 在每个 Mamba block 中复用条件信号。训练目标仍是连续动作的 flow matching，不需要额外视频预训练或蒸馏，因此能单独检验“动作专家结构”这一效率轴。</p>
+<p>作者报告三次独立训练 seed 的 LIBERO 平均成功率为 97.80±0.43%，π0.5 为 96.72±0.14%；10 步去噪 latency 在 LIBERO 降低 64.8%，真实部署降低 58.8%，LIBERO-Plus 为 79.7% 对 78.7%。这些数字来自作者公开结果文件，README 同时提醒它们是训练 seed 变化而非置信区间；尚无第三方复现。<strong>值得深入阅读：是，适合先做可复现的系统工程验证。</strong></p>
+<p>局限是依赖 π0.5 视觉—语言骨干、真实机器人平台和 CUDA 环境，收益可能随 action horizon、采样步数、GPU/CPU 架构变化；小幅成功率提升还需要更多 evaluation seeds。代码和权重完整度高，适合轻量实验：固定同一 π0.5 prefix 和 50 trials/task，比较原 Transformer、MambaAct、减少采样步数三路的端到端 latency、峰值显存、success、动作平滑度和长时程失败率；不要只报告单次吞吐。</p>
+<h2 id="6-nestedvlalearning-to-consolidate-and-generate-skills-for-vision-language-action-modelsp1">6. NestedVLA：Learning to Consolidate and Generate Skills for Vision-Language-Action Models｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Guodong Du、Wanyu Lin，香港理工大学；arXiv:2610.23271，2026-10-16，NeurIPS 2026 论文版本/预印本，公开核心算法代码但不公开完整训练包。<a href="https://arxiv.org/abs/2610.23271" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/WanyuGroup/NeurIPS2026-NestedVLA" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>NestedVLA 解决独立技能微调后模型合并冲突、存储重复和多任务联合训练干扰。它不直接平均多个 VLA 的权重，而是把 action-expert 参数 delta 切成 patch token，由 task-conditioned nested hypernetwork 生成目标任务的 action-expert 更新；VLM 的任务残差单独压缩保存，冻结共享 base 后按任务实例化策略。训练目标是重构独立微调的参数增量，并通过 top-K mask、尺度标准化和任务条件学习减少冲突。</p>
+<p>作者在 MetaWorld、ManiSkill、CALVIN 报告相对最强模型合并基线平均提升 41 个百分点，在 ManiSkill 与逐任务 fine-tuning 相差不到 1 个百分点；这是作者实验，未见第三方验证。代码 README 明确写出当前只发布 tensor-level 算法 API，排除 benchmark 数据、机器人模拟器、训练 checkpoint 和实验 launch files，因此不能把“有代码”理解成端到端可复现。</p>
+<p>它与 LoRA/adapter merging、MergeVLA 和多任务联合训练的关系是把“参数聚合”改成“参数生成”。局限是任务 ID/任务条件依赖、模型结构与参数命名绑定，跨 backbone、连续任务和未知技能的扩展未知。<strong>值得深入阅读：是，尤其适合研究技能存储与 ICL/LoRA 边界。</strong>轻量验证只需三个小技能：用同一 π0.5 base 训练三个独立 delta，比较平均合并、top-K delta、Nested hypernetwork 的成功率、显存/磁盘占用和新任务插值；先在低维 action head 上验证，再决定是否扩展全模型。</p>
+<h2 id="7-ego2contactpredicting-touch-from-egocentric-human-video-for-contact-rich-robot-manipulationp1">7. Ego2Contact：Predicting Touch from Egocentric Human Video for Contact-Rich Robot Manipulation｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Qianqian Yang、Dayou Li、Bangya Liu 等，Carnegie Mellon University、Texas A&amp;M University、University of Wisconsin–Madison、University of Texas at Austin；arXiv:2610.22932，2026-10-16，预印本。<a href="https://arxiv.org/abs/2610.22932" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>Ego2Contact 解决视觉—触觉和人—机器人跨本体对齐问题：人类第一视角视频容易扩展，但没有触觉；人手和机器人手的外观、传感器布局和动作空间不同。方法在带触觉手套的人类交互视频上学习视觉—触觉先验，融合场景时间上下文和手部局部视觉特征，在 canonical 2D hand-grid 上以 conditional flow matching 预测双手触觉场；再用解剖区域对应把不同机器人触觉布局映射到统一网格，并将预测触觉作为仿真 RL 和真实 VLA 后训练的输入。</p>
+<p>作者报告在未见物体的人类数据和适配后的机器人数据上优于既有触觉预测器；在四个 Isaac Gym 接触任务中，预测触觉策略优于无触觉基线，并恢复部分真实触觉传感器的收益。论文没有给出足够统一的跨平台数字，也没有第三方验证或统一公开的机器人触觉数据包。它与 EgoTactile、TouchAnything 和 robot-native tactile policy 的关系是把触觉先验从人类数据迁移到机器人，而不是把人类视频直接当作动作标签。<strong>值得深入阅读：是，适合连接 human-to-robot、tactile grounding 和 data scaling。</strong></p>
+<p>轻量验证可在四个仿真任务上使用同一 PPO 配置，比较 no-touch、预测触觉、ground-truth touch 三路，并把机器人触觉布局留作未见条件；报告 tactile field 误差、link contact IoU、center-of-pressure、success 和推理开销，避免把视觉预测误差直接等同于控制收益。</p>
+<h2 id="8-instagenta-recursively-self-improving-agent-operating-system-for-heterogeneous-robot-collaborationp1">8. InstAgent：A Recursively Self-Improving Agent Operating System for Heterogeneous Robot Collaboration｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Haoyang Luo、Junhao Qin、Jingyan Cao 等，上海科技大学与 InstAdapt；arXiv:2610.23098，2026-10-16，预印本和项目页。<a href="https://arxiv.org/abs/2610.23098" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://instagent01.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>InstAgent 面向异构机器人长时程协作：它把能力分配、依赖关系、交接条件和恢复分支写入可执行行为树（BT），用 SMAR-T 共享多模态时空记忆检索任务相关观察，执行反馈触发 Collab-RSI，成功修订被保存为可重用 document–BT 对。和只写 verbal reflection 的 agent 不同，它保留执行顺序、角色绑定和 handoff checks；系统使用 ROS 2、技能 BT、协调器和执行监控形成闭环。</p>
+<p>作者在 20 个真实多机器人任务、三个高层模型上报告，相对于不保留跨任务程序经验的 BT 执行，反馈更新经验使三种模型的任务成功率提高 15–25 个百分点，并提升首次成功、减少恢复次数。证据来自作者实验，项目页和论文没有在本轮核查中确认公开完整代码、权重和数据；应把它视为系统设计与评估协议，而不是可直接下载的 foundation model。</p>
+<p>创新点是把 RSI 的对象从“记住一条教训”提升到“修订并验证协作程序”。局限是行为树质量仍依赖高层模型和技能接口，规模扩展、通信延迟、错误经验污染以及跨环境迁移尚未充分评估。<strong>值得深入阅读：是，尤其适合长时程任务的 ordered-state 和 experience provenance 审计。</strong>轻量验证可选 5 个异构协作任务、3 个高层模型，做 BT reset、verbal memory、validated subtree 三路对照，分别记录第一次尝试成功率、handoff 误触发、恢复次数、重试预算和可复用经验的跨任务迁移率。</p>
+<h2 id="9-lm2lmlanguage-models-learn-to-improve-language-modelsp1">9. LM2LM：Language Models Learn to Improve Language Models｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Minhua Lin、Zijun Wang、Zewen Liu 等，Pennsylvania State University、UC Santa Cruz、Emory University、UC Santa Barbara 与 Amazon；arXiv:2610.23344，2026-10-16，预印本。<a href="https://arxiv.org/abs/2610.23344" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>LM2LM 研究的是 agent/self-evolution 中最容易被忽略的“研究判断”：如何从实验记录中学会提出更可能有效的模型改动。它用 RL 训练提案策略，用冻结的 research world model（RWM）根据上下文实验记录预测 proposal gain 作为奖励；为避免 RWM 被策略分布外提案欺骗，周期性执行高分提案，把真实结果加入 RWM 上下文，形成“预测—真实实验—更新记录”的闭环。方法覆盖八个自回归与 diffusion LM 开发环境。</p>
+<p>作者报告在 held-out 真实执行任务上，Qwen3.8-27B 的改进能力超过给定 300 条实验记录的 GPT-6-sol，同时数据生成成本低 33%，并能泛化到训练未见的模型家族。这个结果尚无第三方验证；论文没有确认公开代码、权重或完整实验记录，因此 RWM 的校准、提案多样性和失败模式仍需独立审计。它与传统 AutoML、LLM 研究 agent 的关系是把“实验反馈”显式建模成研究 world model，而不只是让 agent 继续写更多代码。<strong>值得深入阅读：是，但必须把 RWM 误差和代理奖励投机作为主审查点。</strong></p>
+<p>轻量验证可用 100M 级小语言模型、20–50 条历史实验和 5–10 个可快速运行的训练旋钮，比较随机、LLM 直接提案、RWM 排序和 RWM+真实回填四路；固定训练预算，留出未见模型/数据集，报告 proposal top-k 命中率、校准误差、探索多样性和单位 GPU 小时收益，先验证“研究判断”而不是追求绝对分数。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>Spatial Intelligence 主线。</strong> 本轮把 3D/4D 场景生成、对象级动力学、真实—仿真闭环和可交互场景作为与 VLA/WAM 平行的一级入口，进入候选池的主要工作是 ORD-WM 和 Scene-Designer；TriFold、X-Splat、Scene-Designer 的 3D 表征/生成线索也已核对。没有把“出现 3D、Gaussian 或 video”自动等同于可用于机器人控制，而是分别记录几何保持、功能有效性和闭环动作证据。</p>
+<p><strong>Frontier 结果。</strong> 针对 World Model/VLA/机器人模型，本轮已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国团队的 research/news/project 页面。<strong>本轮已扫描主要官方发布入口，未发现足以进入 Top Papers 的 World Model/VLA/机器人模型、代码或权重重大发布。</strong> World Labs Atlas、Physical Intelligence Pi API beta、Meta Muse、Google VERID 等在上一期已有展开，本轮没有新版本或新验证，不重复展开。</p>
+<p>Agent 侧有一条窗口内新官方证据：Anthropic 2026-10-16 发布 self-assessment，官方报告在 1% false-positive rate 下可捕获较强分类器识别的 78% 潜在有害对话和 94% 高优先级对话，并称已用于发现其他方法漏检的 misuse；它是 agent 基础设施和安全评估发布，不是机器人或 world-model 能力证据。<a href="https://safeguards.anthropic.com/2026/self-assessment/" target="_blank" rel="noopener noreferrer">官方报告</a>。Google Research 2026-10-16 的 VERID/自主湿实验室文章仍是上一期已覆盖的官方发布，本期只保留扫描记录。<a href="https://www.research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/" target="_blank" rel="noopener noreferrer">官方文章</a></p>
+<p><strong>候选池中未升档的窗口内条目。</strong> BeJEPA（上海交大/上海创新院/联想，world-anchored humanoid behavior world model）报告 AMASS 全局位置误差相对 BFM-Zero 降低 61.7%；VLA-Fabric（香港科技大学广州）在四个物理多臂任务上比独立策略提升 16–40 个百分点；CoEvolve 将人形机器人协作写成可验证代码策略；Ego2Contact 已在第 7 项展开。它们进入了候选池，未全部列为 Top 级条目是 selection，而非 retrieval failure。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题层</th>
+<th>今日证据</th>
+<th>近期趋势</th>
+<th>仍未解决的 gap</th>
+<th>可形成的论文问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语言—世界—动作闭环</td>
+<td>LAW、InstAgent</td>
+<td>用语义进度/行为树连接规划、执行、记忆和恢复</td>
+<td>子任务边界是否可跨任务、跨本体稳定迁移</td>
+<td>进度状态的因果干预：边界、记忆和 value 各自贡献多少</td>
+</tr>
+<tr>
+<td>3D/4D Spatial Intelligence</td>
+<td>ORD-WM、Scene-Designer</td>
+<td>从像素逼真转向几何、功能与交互有效性</td>
+<td>动态物体、软体、遮挡和跨引擎一致性</td>
+<td>统一几何保持、功能可用性与动作后果的 world benchmark</td>
+</tr>
+<tr>
+<td>接触与安全 world model</td>
+<td>MAIA、Ego2Contact</td>
+<td>预测异常/触觉，再把预测用于动作选择</td>
+<td>跨传感器校准、根因诊断、自动恢复</td>
+<td>视觉—力—触觉预测的 calibrated risk-to-action benchmark</td>
+</tr>
+<tr>
+<td>VLA 效率与技能存储</td>
+<td>MambaAct、NestedVLA</td>
+<td>压缩反复调用的 action expert，生成而非合并 task delta</td>
+<td>多硬件、连续新技能、未见任务条件</td>
+<td>延迟、成功率、显存、技能容量的统一 Pareto 评测</td>
+</tr>
+<tr>
+<td>Human-to-robot / 跨本体对齐</td>
+<td>Ego2Contact、LAW 的异构数据</td>
+<td>用人类视频/触觉先验补机器人数据缺口</td>
+<td>形态、传感器、动作空间的可验证映射</td>
+<td>以接触事件为中间语言的人—机器人对齐协议</td>
+</tr>
+<tr>
+<td>Agent / Self-evolution</td>
+<td>LM2LM、InstAgent、Anthropic self-assessment</td>
+<td>评估器、记忆、程序和研究 world model 进入外循环</td>
+<td>evaluator hacking、经验污染、成本与泛化</td>
+<td>“真实回填 + 不确定性校准”是否能阻止自改进闭环坍缩</td>
+</tr>
+</tbody>
+</table></div>
+<p>近期趋势可以概括为：一是把<strong>进度、几何和接触</strong>从隐式表征变成可审计中间状态；二是把<strong>动作生成成本和技能存储</strong>当成一等系统指标；三是把失败经验从日志变成可验证程序或可回填的研究模型。最大 gap 仍是第三方复现、跨本体闭环、长时程任务中的不确定性校准，以及把“模型会预测”与“机器人因此更可靠”分离开来。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li><strong>LAW 进度干预。</strong> 用公开 checkpoint 在 10 个 RoboTwin 任务上固定 WAM，只切换语义子任务分段、异步状态评估、分层记忆和 value fusion；报告 subtask EM、切换延迟、失败前缀利用率与 success。若去掉某模块后只有长任务掉点，才能证明它解决的是时序接口而非普通容量。</li>
+<li><strong>ORD-WM 几何—控制因果链。</strong> 在两个刚体对象族上做 8–16 步离线 rollout，再用 MPC 真实推送；同时记录 Chamfer/体积漂移、SE(3) 误差、对象 ID 保持率和控制成功，避免只看视频质量。</li>
+<li><strong>MAIA 风险预测。</strong> CRIA 上做视觉-only、视觉+动作、视觉+动作+力三路，使用时间外推和未见物体 split；比较提前量、AUCPR、误报成本和风险动作选择后的成功率。</li>
+<li><strong>Scene-Designer 跨引擎。</strong> 用公开 8B SFT 权重和 OTC-Bench，比较无 Critic、branch-ranking、improvement reward；将生成场景导入两个物理引擎，加入导航/碰撞/可操作性自动检查。</li>
+<li><strong>MambaAct 实时性。</strong> 复用公开权重，在同一 GPU、同一 action horizon、同一 evaluation seed 下比较 Transformer expert、Mamba expert 和减少 denoising steps；报告端到端 latency、峰值显存、动作抖动和长任务失败，而不是只报告单步吞吐。</li>
+<li><strong>NestedVLA 技能容量。</strong> 三个独立技能 delta 做平均合并、top-K 合并和 hypernetwork 生成；测 success、磁盘/显存占用、未见技能插值及任务条件扰动。</li>
+<li><strong>Ego2Contact 传感器迁移。</strong> 保持训练的人类 canonical grid 不变，只改变机器人传感器布局；测 tactile field、contact IoU、CoP 与任务 success，验证跨布局而非只验证同一平台。</li>
+<li><strong>InstAgent 经验审计。</strong> 对 BT reset、纯 verbal memory、validated subtree 三路做 5 任务×3 模型对照，记录首次成功、恢复次数、handoff 错误和经验跨任务复用率。</li>
+<li><strong>LM2LM 小型闭环。</strong> 用小模型和 20–50 条实验记录复现 RWM 排序，再周期性真实执行 top-k 提案；加入未见模型、proposal diversity 和校准曲线，测试是否出现 surrogate over-optimization。</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>发布性质</th>
+<th>同行评审状态</th>
+<th>代码</th>
+<th>权重</th>
+<th>数据</th>
+<th>第三方验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAW</td>
+<td>arXiv 预印本 + 项目</td>
+<td>未确认</td>
+<td>GitHub 公开，含训练/验证脚本</td>
+<td>HF 四类 checkpoint</td>
+<td>RoboTwin WAM/VLM 数据公开</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>MAIA / CRIA</td>
+<td>arXiv v2 + 数据集描述</td>
+<td>未确认</td>
+<td>项目页；完整 repo 未确认</td>
+<td>未确认</td>
+<td>公开状态未完全确认</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>ORD-WM</td>
+<td>arXiv 预印本 + 匿名项目页</td>
+<td>未确认</td>
+<td>匿名代码入口，完整性待核查</td>
+<td>未确认</td>
+<td>未确认</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>Scene-Designer</td>
+<td>arXiv 预印本 + 开源项目</td>
+<td>未确认</td>
+<td>GitHub 公开</td>
+<td>HF 8B SFT 权重；非 GRPO 阶段</td>
+<td>OTC-Bench 公开；OTA/OTC 训练轨迹未完整公开</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>MambaAct</td>
+<td>arXiv 预印本 + reproducibility release</td>
+<td>未确认</td>
+<td>GitHub、锁定依赖、结果文件</td>
+<td>公开</td>
+<td>依赖 π0.5/基准数据</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>NestedVLA</td>
+<td>arXiv/NeurIPS 2026 版本</td>
+<td>会议版本，独立复核未见</td>
+<td>核心算法 API 公开</td>
+<td>未公开</td>
+<td>排除 benchmark 数据和训练包</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>Ego2Contact</td>
+<td>arXiv 预印本</td>
+<td>未确认</td>
+<td>项目/代码状态未确认</td>
+<td>未确认</td>
+<td>人类/机器人触觉数据未确认完整公开</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>InstAgent</td>
+<td>arXiv 预印本 + 项目页</td>
+<td>未确认</td>
+<td>完整 repo 未确认</td>
+<td>未确认</td>
+<td>未确认</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>LM2LM</td>
+<td>arXiv 预印本</td>
+<td>未确认</td>
+<td>未确认</td>
+<td>未确认</td>
+<td>实验记录未确认公开</td>
+<td>未见</td>
+</tr>
+<tr>
+<td>Anthropic self-assessment</td>
+<td>官方研究/安全报告</td>
+<td>非同行评审官方报告</td>
+<td>内部系统，未开源</td>
+<td>不适用</td>
+<td>不公开对话数据</td>
+<td>无独立复现</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期不要把作者报告的 benchmark 数字写成已证实的领域共识；尤其要区分“checkpoint inference”“公开代码”“完整训练数据”“真实机器人闭环”和“第三方复现”。LAW、MambaAct、Scene-Designer 具备最直接的低成本复核入口；MAIA、ORD-WM、Ego2Contact 的关键价值在于提出可测的中间状态，但其跨平台证据仍不足；LM2LM 和 InstAgent 的主要风险是评估器或经验库把局部收益误当成真正的能力提升。</p>
+<p>今天先读 LAW 的语义进度闭环，再用 ORD-WM/MAIA 各做一个最小离线验证；如果需要一条最容易落地的系统实验线，优先跑 MambaAct latency–success 曲线和 Scene-Designer 跨引擎可用性检查。</p>
+<p>可选下载版本：</p>
+<ul>
+<li><a href="https://he609.github.io/ai-daily-briefing/reports/2026-10-19/" target="_blank" rel="noopener noreferrer">Markdown 晨报</a></li>
+<li>Word 晨报（本地附件）</li>
+<li>PDF 晨报（本地附件）</li>
+</ul></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-18/"><span>← 上一期 · 2026-10-18</span><strong>GeoState · Spark-0 · 3DCodeVerse</strong></a><a class="newer" href="../2026-10-24/"><span>下一期 → · 2026-10-24</span><strong>Hy-Nomas · Agentic World Action Models · Rethinking Video Autoencoders for Interactive World Models</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-07-22｜AI 研究观察 · 2026-07-22 · Yunhe</title><meta name="description" content="2. 英伟达 Cosmos 3 全开源物理 AI 大模型（NVIDIA Cosmos Coalition 同步成立）——首代全模态（文本/图像/视频/环境音/动作）物理 AI 基础模型，混合 Transformer 架构，训练周期从数月压缩至数天…">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-07-22/"><meta property="og:type" content="article"><meta property="og:title" content="2026-07-22｜AI 研究观察 · 2026-07-22"><meta property="og:description" content="2. 英伟达 Cosmos 3 全开源物理 AI 大模型（NVIDIA Cosmos Coalition 同步成立）——首代全模态（文本/图像/视频/环境音/动作）物理 AI 基础模型，混合 Transformer 架构，训练周期从数月压缩至数天…"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-07-22/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>AI 研究观察 · 2026-07-22</h1><p class="article-deck">2. 英伟达 Cosmos 3 全开源物理 AI 大模型（NVIDIA Cosmos Coalition 同步成立）——首代全模态（文本/图像/视频/环境音/动作）物理 AI 基础模型，混合 Transformer 架构，训练周期从数月压缩至数天…</p><div class="article-meta"><time datetime="2026-07-22">2026 / 07 / 22</time><span>约 13 分钟阅读</span><div class="tags"><span class="tag">通用 AI</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-07-22.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-07-22</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<p>【🚨 今日重点】</p>
+<ol>
+<li>
+<p><strong>昆仑万维 WAIC 2026 官宣"世界模型元年"，Matrix-Game 3.5 核心架构正式开源</strong>——5B 参数 / 720p / 单卡 20FPS / 1 分钟记忆 / Patch 级几何对齐长期记忆，业内首个几何对齐 Patch Memory；同步发布 Mureka v9.5 + O3 音乐大模型，指令精准度 6.92→7.62。方汉："2026 是世界模型元年"。来源：腾讯新闻 / 公众号 / 智东西 / 网易 / CSDN</p>
+</li>
+<li>
+<p><strong>英伟达 Cosmos 3 全开源物理 AI 大模型（NVIDIA Cosmos Coalition 同步成立）</strong>——首代全模态（文本/图像/视频/环境音/动作）物理 AI 基础模型，混合 Transformer 架构，训练周期从数月压缩至数天，Artificial Analysis / Physics-IQ / PAI-Bench / R-Bench 四项第一。来源：NVIDIA 官方博客 / arXiv 2606.02800 / 36氪 / 搜狐 / IT之家</p>
+</li>
+<li>
+<p><strong>荣耀 Robot Phone（机器人手机）WAIC 2026 全渠道预约开启</strong>——行业首个伙伴型多模态智能体操作系统 Agentic OS，联合阿里千问共创终端大模型方案；机身内置四自由度云台机械结构，OpenClaw 开放平台让开发者用自然语言驱动云台物理动作。来源：中国经营报 / 中国日报 / WAIC 2026</p>
+</li>
+<li>
+<p><strong>OpenAI GPT-Red 自动化红队系统发布</strong>——用自博弈强化学习训练的攻击 Agent，大规模发现 GPT-5.6 提示词注入漏洞，AI 模型首次实现"互相训练"以提升安全。来源：OpenAI 官方 / Reddit r/aicuriosity / aibusiness.com</p>
+</li>
+<li>
+<p><strong>黎曼动力机器人 Riemann-1.0 具身世界动作模型首发</strong>——23.2 万小时多源具身数据 + 全因果世界动作建模架构 + 三阶段渐进式具身预训练框架，多个国际主流机器人 Benchmark + 真实机器人任务仿真与真机双 SOTA。来源：WAIC 2026 论坛 / 公众号</p>
+</li>
+</ol>
+<p>━━━ 顶级研究组新发布 ━━━</p>
+<ul>
+<li>
+<p><strong>中科院周志华院士 WAIC 主旨演讲《关于世界模型的讨论》</strong>：把世界模型划分为感知/理解/决策三层，指出决策层长期面临"多步推演复合误差平方级放大"与"样本复杂度过高"两大瓶颈；团队通过分布匹配将推演误差从平方级压至线性级，逆向运用贝尔曼方程将所需样本量降至根号 T 分之一。提出"学件"概念。来源：公众号 / 量子位</p>
+</li>
+<li>
+<p><strong>蚂蚁灵波 LingBot-VLA 2.0 跨本体 VLA "一脑 20 机"</strong>——支持 17 家厂商 20 种机器人构型、6 万小时数据、LingBot-Depth 空间感知 + DINO-Video 未来预测，RTX 4090 推理延迟 130ms 以内；同步发布 LingBot-World 2.0（小时级实时生成 + Agent 实时"陪玩"）；LingBot-Video 7 万小时具身数据开源。来源：量子位 / 机器之心</p>
+</li>
+<li>
+<p><strong>黎曼动力机器人创始人刘扬教授 + 清华交叉信息许华哲教授</strong>"具身世界模型 ChatGPT 时刻"对谈——世界模型 vs VLA 边界、机器人通用世界模型训练瓶颈、具身 Scaling Law、家庭机器人 PMF。来源：WAIC 2026 论坛</p>
+</li>
+<li>
+<p><strong>Reactor Technologies（同步亮相 WAIC 2026）</strong>——CEO Alberto Taiuti：世界模型从静态/高延迟/无状态媒体生成范式跃迁至有状态/实时交互/具备因果逻辑的新范式；"Reactor" 平台为世界模型原生设计的开发者基础设施，支持机器人/游戏/仿真高频交互。来源：WAIC 2026 论坛</p>
+</li>
+<li>
+<p><strong>港科广熊辉团队《Tactile-based Multimodal Fusion in Embodied Intelligence》触觉综述</strong>——联合灵心巧手 + 西交/复旦/北邮/南大，覆盖 2015-2026Q1 多模态触觉融合数据集/方法/传感器/评估四阶段 Pipeline。来源：ResearchGate / GitHub Wayne-coding/Multimodal-Tactile-Sensing-and-Fusion</p>
+</li>
+</ul>
+<p>━━━ 生成模型 / 新范式 ━━━</p>
+<ul>
+<li>
+<p><strong>昆仑万维 Matrix-Game 3.5 Patch 级长期记忆</strong>：从 Frame-level FOV Memory 升级为 Patch-level FOV Memory，将历史帧切分为带 3D 坐标的 Patch Memory（Depth+Pose Lift 至世界坐标系），推理时按当前相机视锥检索可见 Patch 并重投影到当前视角形成 Mosaic。来源：腾讯新闻 / 智东西</p>
+</li>
+<li>
+<p><strong>Matrix-Game 3.5 三方面系统级加速</strong>：①采样步数压缩至 3-step + 分块因果推理（Chunked Causal Inference）+ KV Cache + Patch/Predict Latent；②DiT 优化（FFN INT8 量化 + Memory Retrieval Optimization + Torch.compile）；③MG-LightVAE 对 Wan2.2 VAE Decoder 75% 结构化剪枝 → 单卡 720p 20FPS 实时流式。来源：智东西</p>
+</li>
+<li>
+<p><strong>Matrix-Game 3.5 三大自动化数据生产管线</strong>——UE5 自主探索 + 跨 3A 游戏（GTA V/荒野大镖客 2/赛博朋克 2077）自动控制 + 开放平台视频自动挖掘；已积累 500 万 + 视频切片 / 1 万 + 训练小时 / 1200 + 游戏场景；Pose+Depth+Camera 内参自动标注。来源：智东西</p>
+</li>
+<li>
+<p><strong>昆仑万维 Mureka v9.5 + O3 音乐大模型</strong>——MusiCoT 路线让旋律/编曲/情绪更自然（指令精准度 6.92→7.62），O3 通过 test-time scaling 持续推演+回看偏差+自我修正；Character 功能（一段声音+一张照片生成专属歌手角色）贯穿歌曲/MV 全链路。来源：腾讯新闻</p>
+</li>
+<li>
+<p><strong>英伟达 Cosmos 3 三层应用</strong>——①多模态图文大模型；②世界模型/视频基础模型（仿真物理环境、预判场景未来状态）；③世界动作模型（WAM）主干网络（辅助训练机器人完成专项任务）。Cosmos 3 Super/Nano 已发布，Edge 版即将上线。来源：NVIDIA Developer 博客</p>
+</li>
+</ul>
+<p>━━━ 多模态 / VLM ━━━</p>
+<ul>
+<li>
+<p><strong>GPT-Red 自动化红队模型（OpenAI）</strong>——通过自博弈 RL 训练，攻击 Agent 自动寻找 GPT-5.6 提示词注入漏洞；GPT-Red 会接收攻击目标、构造注入、观察目标反应、判断是否触发目标行为、根据失败原因修改攻击、重复直到成功或达到预算。本质是"自动化渗透测试 Agent + 提示词注入 Fuzzer + 安全对抗数据生成器"。来源：OpenAI 官方 / CSDN</p>
+</li>
+<li>
+<p><strong>OpenAI GPT-5.6 系列（Sol/Terra/Luna）持续扩展 Agent 工作流</strong>——GPT-5.6 Sol 已成为 OpenAI 研究员跨开发循环的默认模型，涵盖诊断/分析/原型/评估全流程；GPT-5.5-Cyber 完整版 + Codex Sec 安全平台 + Daybreak 计划同步扩展。来源：OpenAI 官方 / 威易网</p>
+</li>
+<li>
+<p><strong>荣耀 Agentic OS（伙伴型多模态智能体操作系统）</strong>——基础生命特征+专属认知记忆系统+清晰自我意识+调用工具执行的手和脚；"意图驱动"+"主动完成完整任务"；联合阿里千问共创终端大模型；"一主多专、三脑协同"智能体矩阵架构。来源：中国经营报</p>
+</li>
+<li>
+<p><strong>当虹科技 WAIC 2026 AI 多模态"四力"打通虚实边界</strong>——实时视频分析/视觉理解/多模态生成/跨模态推理。来源：WAIC 2026 公众号</p>
+</li>
+<li>
+<p><strong>万联易达产业智能体互联网</strong>——"无界/无休/自生长" AI-native 组织变革；2600 万具备数字化基础的生产性企业将拥有"企业经纪人智能体"，跨组织 7×24 自主协作。来源：WAIC 2026 / 界面新闻</p>
+</li>
+</ul>
+<p>━━━ 具身 / VLA / 机器人 ━━━</p>
+<ul>
+<li>
+<p><strong>黎曼动力机器人 Riemann-1.0 具身世界动作模型</strong>——基于 23.2 万小时多源具身交互数据训练，统一融合第一视角人类视频、UMI 示教、异构机器人轨迹；全因果世界动作建模架构 + 三阶段渐进式具身预训练框架；真机评测四大家居任务全面领先；同步提出"从理解世界到干预世界"的生成式行动基础设施。来源：WAIC 2026 论坛</p>
+</li>
+<li>
+<p><strong>蚂蚁灵波 LingBot-VLA 2.0（一脑 20 机）</strong>——支持 17 家厂商 20 种机器人构型；6 万小时数据 + LingBot-Depth 空间感知 + DINO-Video 未来预测；RTX 4090 推理 130ms 以内；与英伟达 GR00T N1.7、Physical Intelligence π0.5 在 GM-100 评测对比领先。来源：量子位</p>
+</li>
+<li>
+<p><strong>原力灵机 DM0.5 把 VLA 带进真实世界</strong>——Zero-Shot、长记忆、抗干扰；零样本真实世界 VLA 新标杆。来源：机器之心</p>
+</li>
+<li>
+<p><strong>大晓机器人发布"开悟世界模型 3.1"</strong>——平均推理延迟 125ms。来源：网易 / 凤凰网科技</p>
+</li>
+<li>
+<p><strong>北京人形机器人创新中心"具身天工"+"慧思开物"五大场景</strong>——商业服务/物流分拣/泛电子工业/能源巡检/计量检测，瞄准 Dirty/Dangerous/Dull "3D" 特种作业需求；与晓悟智能联合打造智能搬运解决方案。来源：WAIC 2026 / 北京号</p>
+</li>
+<li>
+<p><strong>国家地方共建人形机器人创新中心 × 华为</strong>联手打造全国首个具身智能实训场样板点（7/19 WAIC 公布）。来源：中新网</p>
+</li>
+<li>
+<p><strong>智元机器人 / 它石智航 / 优必选 / 傅利叶 / 达闼</strong>等 200+ 厂商在 WAIC 现场"智造坊"比拼柔性操控/视觉识别/力控能力。来源：新华社</p>
+</li>
+<li>
+<p><strong>小鹏汽车-W 港股大涨 7.6%</strong>——宣布 2027 年推出 IRON 人形机器人。来源：港股大模型日报</p>
+</li>
+<li>
+<p><strong>面壁智能 VLA 具身模型正式发布</strong>（与 Matrix-Game 3.5 一同 WAIC 亮相）。来源：WAIC 2026 公众号</p>
+</li>
+<li>
+<p><strong>灵光 App 世界模型体验升级</strong>——支持"施法战斗"，一张图生成互动游戏世界。来源：威易网</p>
+</li>
+<li>
+<p><strong>阶跃星辰将发布 AI 智能体手机</strong>——阶跃 Agent 操作系统亮相 WAIC，印奇："智能伙伴要更聪明、更普惠、更可信赖"。来源：i黑马 / 公众号</p>
+</li>
+<li>
+<p><strong>影石 11 周年官宣入局机器人</strong>。来源：i黑马</p>
+</li>
+<li>
+<p><strong>宇树科技冲刺 IPO</strong>（人形机器人第一股）。来源：财新网</p>
+</li>
+</ul>
+<p>━━━ Agent / 大模型 ━━━</p>
+<ul>
+<li>
+<p><strong>小红书 RED Skill 全量上线 + Vibe Coding 内测</strong>——内测 1 月已 7300 个 Skill，每月 4-5 万个 Vibe Coding 作品发布，Builder Hub 升级；超 16 万 AI 开发者活跃于小红书。来源：腾讯新闻 / 解放日报</p>
+</li>
+<li>
+<p><strong>OpenAI GPT-5.6 Sol 模型 + GPT-Red 自动化红队 + Codex Sec</strong> 共同搭建"安全+Agent"双轮护城河。来源：OpenAI 官方</p>
+</li>
+<li>
+<p><strong>千问发布高考志愿填报 Agent</strong>，全国考生免费咨询。来源：威易网</p>
+</li>
+<li>
+<p><strong>IDC 发布 2025 中国 AI 编程市场份额报告</strong>——阿里 Qoder 以 47.6% 市占率登顶，是第二到第五总和。来源：IDC / 公众号</p>
+</li>
+<li>
+<p><strong>迈富时暴涨 30.6%</strong>——"全栈 Token 工厂"战略落地。来源：港股大模型日报</p>
+</li>
+<li>
+<p><strong>GDEC 携手智源 SoulAgent</strong>——2026 全球数字经济大会主推智能体国际会议新范式。来源：威易网</p>
+</li>
+<li>
+<p><strong>百度 Create 2026</strong>——以"万物一体"为主题，2 场主论坛 + 20+ 专题论坛。来源：威易网</p>
+</li>
+<li>
+<p><strong>OpenClaw v2026.4.2 "The Lobster" 发布</strong>——CLI Agent 框架 Planner/Executor/Vault 架构，Vault 密钥隔离强化。来源：CSDN 技术社区</p>
+</li>
+<li>
+<p><strong>OpenClaw 推 7.5 亿美元 Agentic Partner Fund</strong>——培训"架构师大军"。来源：Google Cloud</p>
+</li>
+</ul>
+<p>━━━ AI for Science ━━━</p>
+<ul>
+<li>
+<p><strong>WAIC 2026 "镇馆之宝"对话式蛋白质研发智能体</strong>——天鹜科技"00 后"技术科学家谭扬：用户用对话即可完成蛋白质设计/预测/验证，研发周期缩短到 2-6 个月。来源：新华社</p>
+</li>
+<li>
+<p><strong>天鹜科技 / 分子之心</strong>——AI 蛋白质设计入选大会最高荣誉。来源：量子位</p>
+</li>
+<li>
+<p><strong>"魔芯科技 MoWorld 3D"</strong>——国家具身智能应用中试基地发布首个合作世界模型。来源：量子位</p>
+</li>
+<li>
+<p><strong>"AI 标记 25 万+ 篇可疑癌症论文"</strong>——潜在论文工厂活动被算法曝光。来源：ScienceDaily</p>
+</li>
+<li>
+<p><strong>Merck × Google Cloud 17.5 亿美元合作</strong>——AI 制药加速。来源：Google Cloud AI Trends 2026</p>
+</li>
+</ul>
+<p>━━━ AI 创业 / 投融资 / 产业 ━━━</p>
+<ul>
+<li>
+<p><strong>可灵单飞</strong>——快手被传分拆可灵，BAT 同台投资，估值 180 亿美元。来源：i黑马</p>
+</li>
+<li>
+<p><strong>蚂蚁集团入股薄荷健康</strong>。来源：i黑马</p>
+</li>
+<li>
+<p><strong>2026 上半年 460 亿砸向具身智能</strong>——国内具身智能/机器人投融资活跃，资金分配失衡。来源：投中网</p>
+</li>
+<li>
+<p><strong>英伟达 Cosmos Coalition 创始成员</strong>包括 Agile Robots、Black Forest Labs、Generalist、LTX、Runway、Skild AI，国内已应用：三星、LG、Doosan Robotics、Agile Robots、思灵机器人、理想汽车等。来源：NVIDIA / 36氪</p>
+</li>
+</ul>
+<p>━━━ 海外要闻（科技媒体 / Google News）━━━</p>
+<ul>
+<li>
+<p><strong>Grok 4.5 / GPT-5.6 / Muse Spark 1.1 7 月三连发</strong>触发大模型价格战。来源：kersai.com</p>
+</li>
+<li>
+<p><strong>DeepMind / Anthropic / OpenAI 三大巨头持续加码医疗、金融、制造业 Agent 部署</strong>。来源：Google Cloud AI Trends 2026</p>
+</li>
+<li>
+<p><strong>X 平台算法政治效应研究登 Nature</strong>——5000 名用户 7 周 RCT 证明"For You"算法推动政治观点显著右倾化。来源：Nature（2026 圣加仑大学研究）</p>
+</li>
+<li>
+<p><strong>Kevin Kelly WAIC 2026 访谈"未来已来"</strong>——"真正的新东西是 AI 正在渗透到文化中，人们正在使用它"；看好中国开源模型的 Token 成本优势（"Anthropic 十分之一的成本就能颠覆局面"）。来源：中国日报</p>
+</li>
+</ul>
+<p>━━━ 治理 / 监管 ━━━</p>
+<ul>
+<li>
+<p><strong>WAIC 2026 主题"智能伙伴"</strong>——宇树王兴兴、阶跃星辰印奇热议"既跑得快又跑得稳"。来源：新华社</p>
+</li>
+<li>
+<p><strong>华为 / 国家地方共建具身创新中心</strong>率先出台具身智能实训场样板点。来源：中新网</p>
+</li>
+<li>
+<p><strong>工信部《具身智能基准测试方法》正式落地实施</strong>——国内首个官方行业评测体系，覆盖感知/决策/执行/交互四维度。来源：工信部官方 / CSDN</p>
+</li>
+<li>
+<p><strong>北京网络安全大会 BCS 2026</strong>开幕，"AI 时代攻防先行"。来源：威易网</p>
+</li>
+<li>
+<p><strong>ISC.AI 2026</strong>——李冰、邬贺铨、周鸿祎齐聚共议智能体安全治理。来源：威易网</p>
+</li>
+</ul>
+<p>━━━ 一句话锐评（来自社区）━━━</p>
+<ul>
+<li><strong>Kevin Kelly 锐评 WAIC</strong>：机器人展区没有真正新的东西，真正的新东西是 AI 正在渗透到文化中——这是最强的信号。</li>
+<li><strong>方汉锐评</strong>：从"会生成"到"懂世界、能行动"，是世界模型元年的核心命题。</li>
+<li><strong>周志华锐评</strong>：决策层世界模型长期面临"复合误差平方级放大"瓶颈，分布匹配技术可压至线性级。</li>
+<li><strong>黄晓明体验 Mureka 锐评</strong>：Mureka 照着《空白格》生了一首抒情的，歌词挺触动人心的——对 AI 保持高度开放。</li>
+</ul>
+<hr>
+<p>📌 <strong>趋势小结（来自一手机构视角）</strong>：
+1. <strong>WAIC 2026 = "世界模型元年"宣告</strong>——从生成内容到理解物理世界，昆仑万维、生数科技、阿里、Google DeepMind、英伟达 Cosmos 3 五路玩家分头推进
+2. <strong>VLA 进入"一脑多机"工程化深水区</strong>——蚂蚁 LingBot-VLA 2.0、智元、Figure 都在押注"跨本体泛化"
+3. <strong>Agent 操作系统化</strong>——阶跃星辰、阿里 WorkBuddy、智谱 AutoGLM、OpenClaw、荣耀 Agentic OS 同向演进
+4. <strong>物理 AI 安全</strong>——OpenAI GPT-Red 自博弈红队 + 工信部《具身智能基准测试方法》+ ISC.AI 智能体安全治理 三线并进
+5. <strong>国家算力 + 国产芯片 + 数据飞轮</strong>——华为昇腾 950 / 阿里通义端侧 / 蚂蚁百灵 / 小米 MiMo 同步爆发</p>
+<p>⚠️ <strong>免责声明</strong>：本简报由 AI 实时抓取整理，仅供研究参考，不构成投资建议。来源包括微信公众号、量子位、机器之心、新华社、中新网、腾讯新闻、i 黑马、IDC、Nature、ScienceDaily、arXiv、Reddit、X 及各厂商官方发布。</p>
+<hr>
+<p>📊 <strong>2026-07-22 数据看板</strong>（截至 UTC 00:00）
+- 今日 arXiv cs.AI 新提交：<strong>301 篇</strong>（含子领域）
+- 今日 arXiv cs 全平台新提交：<strong>967 篇</strong>
+- WAIC 2026 总展商：<strong>1100+</strong> 家，展览面积突破 10 万平方米
+- 展品总数：<strong>4400+</strong> 款
+- "人工智能+" 重点行业渗透率：<strong>&gt;80%</strong>
+- 智能经济核心产业规模：<strong>&gt;1 万亿元</strong>
+- WAIC 2026 主题：<strong>智能伙伴</strong>
+</content>
+</invoke></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-07-21/"><span>← 上一期 · 2026-07-21</span><strong>AI 研究观察 · 2026-07-21</strong></a><a class="newer" href="../2026-07-23/"><span>下一期 → · 2026-07-23</span><strong>AI 研究观察 · 2026-07-23</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

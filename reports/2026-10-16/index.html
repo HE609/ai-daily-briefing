@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-16｜What Matters for World Modeling in VLAs · PAWA · StateCraft · Yunhe</title><meta name="description" content="研究焦点正在从“加入一个未来预测模块”转向三件更可检验的事：世界表示与 VLA 接口的受控选择、持久且可编辑的空间状态、以及部署时可验证的恢复/自我改进。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-16/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-16｜What Matters for World Modeling in VLAs · PAWA · StateCraft"><meta property="og:description" content="研究焦点正在从“加入一个未来预测模块”转向三件更可检验的事：世界表示与 VLA 接口的受控选择、持久且可编辑的空间状态、以及部署时可验证的恢复/自我改进。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-16/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><link rel="stylesheet" href="../../assets/katex/katex.min.css"><script defer src="../../assets/katex/katex.min.js"></script><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>What Matters for World Modeling in VLAs · PAWA · StateCraft</h1><p class="article-deck">研究焦点正在从“加入一个未来预测模块”转向三件更可检验的事：世界表示与 VLA 接口的受控选择、持久且可编辑的空间状态、以及部署时可验证的恢复/自我改进。</p><div class="article-meta"><time datetime="2026-10-16">2026 / 10 / 16</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-what-matters-for-world-modeling-in-vision-language-action-modelsp0">1. What Matters for World Modeling in Vision-Language-Action Models?｜P0</a><a class="toc-level-2" href="#2-pawa-panoramic-action-conditioned-world-modeling-for-multiple-agentsp0">2. PAWA: Panoramic Action-conditioned World Modeling for Multiple Agents｜P0</a><a class="toc-level-2" href="#3-statecraft-augmenting-video-world-models-with-abstract-state-reasoningp0">3. StateCraft: Augmenting Video World Models with Abstract-State Reasoning｜P0</a><a class="toc-level-2" href="#4-onela-learning-many-worlds-from-latent-actionsp1">4. OneLA: Learning Many Worlds from Latent Actions｜P1</a><a class="toc-level-2" href="#5-back-on-track-deployment-time-policy-improvement-via-world-model-planningp1">5. Back on Track: Deployment-time Policy Improvement via World Model Planning｜P1</a><a class="toc-level-2" href="#6-safedrivevla-navigation-conditioned-world-model-dreaming-for-conflict-aware-end-to-end-autonomous-drivingp1">6. SafeDriveVLA: Navigation-Conditioned World Model Dreaming for Conflict-Aware End-to-End Autonomous Driving｜P1</a><a class="toc-level-2" href="#7-adarsi-on-demand-recursive-self-improvement-for-embodied-agentsp1">7. AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents｜P1</a><a class="toc-level-2" href="#8-tacclaw-infinity-a-large-scale-vision-tactile-language-action-dataset-for-dexterous-manipulationp1">8. TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation｜P1</a><a class="toc-level-2" href="#9-sceneae-scene-generation-and-reconstruction-in-queryable-3d-anchored-latent-spacep1">9. SceneAE: Scene Generation and Reconstruction in Queryable 3D-Anchored Latent Space｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-16.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-16</div><article class="prose"><p>检索窗口为 <strong>2026-10-13 08:56—2026-10-16 08:56（Asia/Shanghai）</strong>，主窗口覆盖过去 72 小时，重点加权过去 24 小时。候选池来自 arXiv cs.RO/cs.CV/cs.AI/cs.LG、官方 research/news/model 页面、GitHub/Hugging Face、3D/4D world generation 与 real-to-sim 页面，以及 agent/self-evolution 的 broader web 交叉检索。arXiv API 在窗口内返回了 49 个含 “world model” 的候选和 222 个 robotics/VLA 相关候选，随后按问题相关性、证据完整度、是否有可复现实验和与上一期的增量做去重。</p>
+<p>上一期已经展开的 Thinker-WM、WAVE-0、WorldOracle、GreenWAM、RoboSimStudio、Code2Worlds-2、EmbodiedEvo、Gemini 4 Argon、Pi API beta、Meta Muse 和 Anthropic self-replication 报告，本期没有新版本、权重、代码或第三方验证，因此只在扫描记录中保留，不机械重复。今天最重要的判断是：<strong>研究焦点正在从“加入一个未来预测模块”转向三件更可检验的事：世界表示与 VLA 接口的受控选择、持久且可编辑的空间状态、以及部署时可验证的恢复/自我改进。</strong></p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：</p>
+<p><strong>A → What Matters for World Modeling in VLAs</strong>：先建立选择世界表示和耦合方式的实验基线，避免把模块堆叠误当成机制增益。</p>
+<p><strong>B → PAWA</strong>：它把“看不到的区域”和多智能体行动后果变成可训练的数据契约，适合检验空间记忆是否真的被使用。</p>
+<p><strong>C → StateCraft</strong>：显式、可编辑的抽象状态是持久世界模型最清晰的状态接口之一，能直接导出新的评测问题。</p>
+<p><strong>D → OneLA</strong>：它尝试在无动作标注视频与多种本体之间建立共享潜在动作空间，是跨本体 WAM 的关键接口候选。</p>
+<p><strong>E → Back on Track</strong>：把世界模型放进真实部署闭环，用 liveness 触发短时恢复，提供低延迟的工程化落点。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-what-matters-for-world-modeling-in-vision-language-action-modelsp0">1. What Matters for World Modeling in Vision-Language-Action Models?｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Qisen Ma、Yixiang Chen、Yuan Xu、Peiyan Li、Jiabing Yang、Kai Wang、Jianhua Yang、Jianlou Si、Jun Huang、Jing Liu、Nianfeng Liu、Yan Huang、Liang Wang；中国科学院自动化研究所 NLPR、国科大、Alibaba、FiveAges。2026-10-14 提交 arXiv，属于未同行评审预印本，论文页和项目页公开。<a href="https://arxiv.org/html/2610.19825" target="_blank" rel="noopener noreferrer">论文与作者机构</a></p>
+<p><strong>研究问题与方法。</strong> 论文把 VLA 世界建模拆成四种可比较的范式：Implicit Future Alignment、Explicit Future Query、MoT Future Expert、External World Predictor。统一使用 action flow-matching 与世界目标余弦对齐损失
+[
+\mathcal{L}=\mathcal{L}<em world>{action}+\lambda</em>(1-\cos(\hat z,z))
+]
+并在 Qwen3-VL-2B 和预训练 <span class="arithmatex">\(\pi_{0.5}\)</span> 上比较 ImageVAE、WanVAE、DINOv3、SigLIP、VGGT、V-JEPA 2.1。实验覆盖 LIBERO、LIBERO-Plus、RoboTwin 2.0、DOMINO、少样本、动态物体和真实机器人。</p>
+<p><strong>结果与创新。</strong> 作者报告表示，没有一种世界表示在所有范式都占优；DINOv3/SigLIP 的 2D 语义表示跨范式最稳健，解耦的 MoT Future Expert 对 OOD 更强。LIBERO 的 action-only baseline 平均成功率为 71.8%，WM-MoT 为 76.2%；RoboTwin Clean2Clean 平均为 52.3%→62.6%，Clean2Random 为 12.7%→14.0%。论文还报告 world modeling 对长时域、动态环境和视觉扰动有更稳定的收益。<a href="https://arxiv.org/html/2610.19825#S4.SS3" target="_blank" rel="noopener noreferrer">主要结果表</a></p>
+<p>这项工作的价值在于提供“先做机制隔离，再选模块”的实验合同；它与 4D-WAM、Fast-WAM、<span class="arithmatex">\(\pi_{0.5}\)</span> 的关系更像诊断基线，而不是又一个单点模型。局限是统一框架仍使用冻结 encoder、不同表示存在实现差异，且真实机器人规模有限；当前没有在论文页核实到公开代码、权重或训练数据。值得深入阅读，尤其是 Appendix B 的 factor isolation 和 <span class="arithmatex">\(\pi_{0.5}\)</span> 兼容性分析。轻量验证可在 LIBERO 选 10 个任务、2 个视觉扰动和 3 个随机种子，只比较 DINOv3/SigLIP/V-JEPA 2.1 × WM-MoT/WM-Ext，并记录 action-only、future-target alignment、参数量、吞吐和 OOD 变化。</p>
+<h2 id="2-pawa-panoramic-action-conditioned-world-modeling-for-multiple-agentsp0">2. PAWA: Panoramic Action-conditioned World Modeling for Multiple Agents｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Siqi Yang、Yimu Wang、Ziqi Cai、Chengxuan Zhu、Shuchen Weng、Erwin Wu、Zhaofei Yu、Kaipeng Zhang、Boxin Shi；Alaya Lab、北京大学、Institute of Science Tokyo。2026-10-14 arXiv 预印本，同时发布 Apache-2.0 数据管线和 Hugging Face 数据集。<a href="https://arxiv.org/html/2610.20240" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://pawa.siki.moe/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/yousiki/pawa-pipeline" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://huggingface.co/datasets/YOUSIKI/pawa-dataset" target="_blank" rel="noopener noreferrer">数据集</a></p>
+<p><strong>研究问题与方法。</strong> 多玩家的关键问题是行动后果常常发生在本地 POV 之外。PAWA 在 Minecraft 中用 CPU headless capture 记录多玩家脚本、动作、相机姿态，再离线渲染每个玩家的 POV 和 world-stabilized equirectangular panorama。模型用共享权重的 POV/panorama 双塔、ray-aligned cross-attention 和 quadratic-phase player code，把同一世界方向在两种投影中的 token 对齐；训练目标是两个投影的联合 flow matching，并对画面中稀疏的 co-player 区域加权。</p>
+<p><strong>结果与开放状态。</strong> 完整数据集公开 8,162 episodes、45,716 player views、278.5 episode hours/1,554.1 player hours；推荐训练子集为 5,387 episodes。两玩家 12 秒评测中，PAWA Causal 的 POV FVD 为 120.1，Gamma-World Bidirectional 为 267.1；四步 distilled 版本为 138.1，对比 Gamma-World Distilled 的 279.7。PAWA 还给出 panorama 预测，并在 4/8/16 玩家上保持可运行；关闭 cross-attention 后 POV FVD 从 138.1 恶化到 179.0，说明模型确实使用了全景上下文。<a href="https://arxiv.org/html/2610.20240#S5.SS2" target="_blank" rel="noopener noreferrer">结果与限制</a></p>
+<p>创新是把“离屏状态”和“多玩家身份”写进数据与表示，而不是只在模型末端增加一个记忆 token。局限是计算量随玩家数快速上升，论文模型只评测到 16 玩家；POV 与 panorama 长 rollout 仍会逐步分叉，Minecraft 也不能代表真实机器人动力学。代码和数据可复现性在本期条目中最好，但模型权重没有单独确认。轻量验证可直接下载推荐子集，训练一个 2 玩家低分辨率模型，做 co-player 离屏→回视的 LPIPS/FVD、action sensitivity 和 cross-attention removal；这比训练完整多玩家模型更适合单卡。</p>
+<h2 id="3-statecraft-augmenting-video-world-models-with-abstract-state-reasoningp0">3. StateCraft: Augmenting Video World Models with Abstract-State Reasoning｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Lorenzo Venturoli、Nedko Savov、Xi Wang、Marc Pollefeys、Luc Van Gool；INSAIT/Sofia University、ETH Zurich、University of Ulm、TUM MCML、Microsoft。2026-10-14 arXiv 预印本，项目页声明数据、代码和权重将公开。<a href="https://arxiv.org/html/2610.19795" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://insait-institute.github.io/StateCraft/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p><strong>研究问题与方法。</strong> 仅保存过去画面会把隐藏区域和已发生的状态变化混在一起。StateCraft 将世界拆成可更新的抽象状态图和当前视觉状态：VLM 根据 action 更新实体、属性和关系，video diffusion model 根据抽象状态渲染当前视图，并用 event-driven trigger 决定何时更新状态。作者为 GUI/文件浏览器模拟建立了无需人工或 agent 标注的轨迹采集流程和新的 memory/controllability benchmark，同时做了一个“不可见房间灯光变化”的 3D proof-of-concept。</p>
+<p><strong>结果、价值与边界。</strong> 作者报告在长轨迹上 revisit self-consistency 接近 0.9 SSIM，512 个 action 后仍保持一致；基线约为 0.5–0.6，PSNR 最多提升 10 dB，显式状态编辑执行率为 81%。<a href="https://arxiv.org/html/2610.19795#S1" target="_blank" rel="noopener noreferrer">摘要与结果</a> 这是从 WorldMem、VMem、3D cache 等“记住观测”走向“维护可编辑世界状态”的清晰一步。局限是主要证据来自 GUI，3D 只有小规模验证，插入新元素和状态解析仍困难；截至本期未核实到已经可下载的代码、权重和数据。值得精读，尤其是状态更新触发、泄漏防护和 3D intervention 细节。轻量验证可做一个 Playwright 文件浏览器或 2D 物理小环境，比较 frame retrieval、latent cache 和显式状态图在 64/128/512 action revisit、隐藏状态修改、错误恢复上的 SSIM/PSNR/编辑成功率。</p>
+<h2 id="4-onela-learning-many-worlds-from-latent-actionsp1">4. OneLA: Learning Many Worlds from Latent Actions｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Ziyu Zhu、Zhaoxu Sun、Fan Jiang、Chiyu Wang、Junfeng Ni、Mu Xu；Alibaba AMAP、清华大学。2026-10-14 arXiv 预印本。<a href="https://arxiv.org/html/2610.20160" target="_blank" rel="noopener noreferrer">论文</a></p>
+<p><strong>研究问题与方法。</strong> 游戏、导航、驾驶、机器人视频的动作接口不同，很多视频没有动作标签。OneLA 用 1.79M clips 训练 inverse-dynamics latent action model，以共享正交字典、QR 约束、KL 与稀疏正则把视觉转移压缩到可复用的 32 维潜在动作空间；再用轻量 command MLP 把原生控制映射到该空间。世界模型使用 Wan2.2-TI2V-5B DiT，联合视频 flow-matching 与 latent-action prediction，允许无动作视频参与训练。</p>
+<p><strong>结果、创新与边界。</strong> 作者报告 MIND cross-view F1 为 78.31/72.88，action-cycle transfer 的 rotation RPE 比强基线下降 24.8%；使用潜在动作后 real-scene HPSv3 从 4.94 提到 5.95，人工验证碰撞从 36% 降到 22%。<a href="https://arxiv.org/html/2610.20160#S4.SS2" target="_blank" rel="noopener noreferrer">实验与消融</a> 这使 OneLA 成为跨本体 WAM 的动作接口候选，但它还没有证明潜在动作在真实机器人闭环控制中稳定有效。局限包括 5B 视频骨干、16 GPU 训练、潜在方向缺少可解释语义，且没有公开代码/权重的可确认链接。值得阅读；轻量验证可冻结一个小视频 encoder，用 RT-1/nuScenes/游戏三域做 32 维 LAM，比较 OneLA、随机 latent、线性动作基线的 action sensitivity、cycle transfer 和 nearby-action consistency。</p>
+<h2 id="5-back-on-track-deployment-time-policy-improvement-via-world-model-planningp1">5. Back on Track: Deployment-time Policy Improvement via World Model Planning｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Colton Crosby、Hao Wang、Mac Schwager、Somil Bansal；Stanford Aeronautics and Astronautics、USC Electrical and Computer Engineering。2026-10-14 arXiv 预印本。<a href="https://arxiv.org/html/2610.19579" target="_blank" rel="noopener noreferrer">论文</a></p>
+<p><strong>研究问题与方法。</strong> 机器人部署时常常知道“已经偏离进度”，却只能重新采数据或重新训练。Back on Track 只要求 nominal policy 的黑盒查询和少量带 episode outcome 的 rollout：一个 policy-conditioned liveness value 监控进度，一个 29.6M 参数的 latent world model 用 rollout+play data 预测 compact state，触发时用 CEM 在短 horizon 想象未来，优化与 monitor 相同的 liveness，再把控制交回原 policy。</p>
+<p><strong>结果与可复现性。</strong> LIBERO-Goal 十任务上，<span class="arithmatex">\(\pi_{0.5}\)</span> 从 72.6% 提到 81.5%，救回 369 个失败但打断 102 个原本成功的 episode；Franka Panda lunchbox 任务从 40% 提到 60%，规划周期 108 ms，摊销约 27 ms/控制步。<a href="https://arxiv.org/html/2610.19579#S5.SS2" target="_blank" rel="noopener noreferrer">结果与硬件实验</a> 贡献在于把 world model 的作用约束为低延迟恢复器，而不是替换整个 VLA。局限是任务需要 rollout outcome labels 和 play data；wine-bottle 任务因世界模型 hallucinated grasp 下降 1 个百分点。论文页未核实到代码、权重或数据公开。轻量验证可在 LIBERO 选 4 个任务、200 个 nominal rollout，比较 liveness trigger、二元失败分类器和 LatentSafe，记录 rescue/breakage、OOD 扰动和 10 Hz 内延迟。</p>
+<h2 id="6-safedrivevla-navigation-conditioned-world-model-dreaming-for-conflict-aware-end-to-end-autonomous-drivingp1">6. SafeDriveVLA: Navigation-Conditioned World Model Dreaming for Conflict-Aware End-to-End Autonomous Driving｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Shaoyuan Xie、Zihan Zhang、Jingxuan Wang、Jiashu Qu、Xiaoqing Liang、Lingdong Kong、Junchi Lu、Henrik I. Christensen、Qi Alfred Chen；UC Irvine、UC San Diego、University of Cincinnati、NUS。CoRL 2026 接收，arXiv 2026-10-14；代码已在 2026-10 发布，预训练 checkpoint 仍标为 coming soon。<a href="https://safedrive-vla.github.io/SafeDriveVLA/" target="_blank" rel="noopener noreferrer">论文与项目</a> · <a href="https://github.com/ASGuard-UCI/safedrive-vla" target="_blank" rel="noopener noreferrer">代码</a></p>
+<p><strong>研究问题与方法。</strong> 自然语言导航指令可能与场景冲突。SafeDriveVLA 为每帧加入 strict/cautious/fallback 三档 mode token，把冲突判断从 action generation 中拆出；冻结的 V-JEPA 2 action-conditioned predictor 在每个 meta-command 的 action anchor 下向前滚 5 步，生成“如果严格服从指令会怎样”的 latent，再由 InternVL3-1B LoRA VLA 读取 camera、语言、world tokens 并输出 mode 和离散动作。评测包含 CARLA-F 导航跟随、Bench2Drive conflict、B2D-Adv adversarial instruction。</p>
+<p><strong>结果与边界。</strong> 作者报告 Bench2Drive 达到 88.16 DS/68.64% SR；自由语言导航 NCR 83.0%，B2D-C 达到 85.9 DS/67.3% SR，碰撞从最佳 SimLingo 的 60 降到 38；在 B2D-Adv 上 DS 下降 10.8，而对照下降 19.7。<a href="https://arxiv.org/html/2610.20609#S5.SS3" target="_blank" rel="noopener noreferrer">详细表格</a> 这是少数把 world model 当成“事前安全过滤器”而非泛化模块的工作。局限是 CARLA 训练分布、规则产生的 mode labels、速度误差偏高，尚无真实道路第三方验证。代码可以复现 benchmark/训练流程，但模型权重尚未确认。轻量验证可用 20 条 CARLA 路线做 mode-only、world-only、两者结合和 ego-history anchor ablation，重点看 lane-change、unsafe instruction 和 action sensitivity。</p>
+<h2 id="7-adarsi-on-demand-recursive-self-improvement-for-embodied-agentsp1">7. AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Peidong Wang、Ying Chang、Zhiming Ma 等；Northeastern University、University of Chinese Academy of Sciences、AgiBot。2026-10-14 arXiv 预印本，面向 LLM agent/self-evolution 与具身 VLA。<a href="https://arxiv.org/html/2610.20474" target="_blank" rel="noopener noreferrer">论文</a></p>
+<p><strong>研究问题与方法。</strong> 失败可能来自 harness 调用方式，也可能来自 executor 缺动作。AdaRSI 先让 coding agent 改 skills/harness，再从保存的 simulator state 重试失败 sub-step；只有在多种调用方式都失败时才收集自有 demonstration、微调对应 sub-policy，并用 held-out start state 验证后部署。经验和预算跨任务继承，GR00T N1.5 是低层 executor，测试不使用人工 demonstration。</p>
+<p><strong>结果与边界。</strong> RoboCasa365 的 50 个 target tasks 上，Composite-Unseen 成功率 4.6%→13.8%，三套 suite 最高平均 48.8%；对比“每个 sub-step 都训练”，GPU 时间只有 28%，自采 demonstrations 只有 22%。<a href="https://arxiv.org/html/2610.20474#S5.SS2" target="_blank" rel="noopener noreferrer">主结果与逐任务表</a> 创新在于把“是否改权重”变成 attribution/validation 问题，而不是无差别持续训练。局限是 simulator privileged state 只用于数据生成，尚无真实机器人验证；微调仍可能伤害已会的动作，例如 CuttingToolSelection 从 50% 降到 36%。未核实到公开代码/权重。轻量验证可在 RoboCasa 选 10 个任务，比较 harness-only、always-train、AdaRSI，记录 attribution precision、GPU 分钟、demonstration 数和 regression。</p>
+<h2 id="8-tacclaw-infinity-a-large-scale-vision-tactile-language-action-dataset-for-dexterous-manipulationp1">8. TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Fucai Zhu、Xidong Zhang、Yichi Zhang 等；Daimon Robotics、Nanjing University、Great Bay University、Tsinghua、NTU、KTH、DeepMind 等 20+ 组织。2026-10-14 arXiv 数据集论文。<a href="https://arxiv.org/html/2610.20320" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://daimon-robotics.github.io/TacClaw-Infinity/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://huggingface.co/datasets/daimonrobotics/Daimon-Infinity" target="_blank" rel="noopener noreferrer">HF 数据入口</a></p>
+<p><strong>研究问题与方法。</strong> 触觉 manipulation 数据难以规模化、跨本体且缺结构化标注。TacClaw 是带指尖触觉的 UMI-style handheld interface，记录 wrist/egocentric vision、tactile、end-effector trajectory 和 language；处理流水线做 trajectory reconstruction、contact-centric segmentation、subtask description、spatial grounding 和 embodiment-aware feasibility filtering。作者声明规模超过 10,000 小时、1M episodes、1B frames、1,000 task types，并在 Tianji/RealMan/DM-Sparky 三个本体上验证跨本体 transfer。</p>
+<p><strong>结果与证据状态。</strong> 项目页报告带触觉的 <span class="arithmatex">\(\pi_{0.5}\)</span> 平均成功率 74.0%，StarVLA 72.7%，但 transfer 实验只覆盖每任务/本体有限试验。HF 当前可见的是需要同意联系信息的 4,885-row、约 36.3 TB 数据仓库/样例，完整代码、模型和全量数据仍标为 coming soon；因此“1M episodes”是作者/项目方声明，不等于当前可直接下载。没有第三方复现。价值在于把 contact event 变成数据契约；局限是设备校准、触觉域差异和大规模统计的可审计性。轻量验证可从公开样例或合成触觉开始，做 100–500 episodes 的杯叠/瓶分拣跨本体迁移，并严格区分视觉-only、触觉-only、融合模型。</p>
+<h2 id="9-sceneae-scene-generation-and-reconstruction-in-queryable-3d-anchored-latent-spacep1">9. SceneAE: Scene Generation and Reconstruction in Queryable 3D-Anchored Latent Space｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Shuofeng Sun、Wenzhao Zheng、Yunpeng Zhang、Yi Wu、Linqing Zhao、Haibin Yan；北京邮电大学、UC Berkeley、PhiGent Robotics、SynapX。2026-10-14 arXiv 预印本，属于 Spatial Intelligence 一级主线。<a href="https://arxiv.org/html/2610.19708" target="_blank" rel="noopener noreferrer">论文</a></p>
+<p><strong>研究问题与方法。</strong> SceneAE 用带显式 3D 坐标的稀疏 latent point cloud 同时服务 scene reconstruction 和 camera-controlled generation。它先用 Depth Anything 3-Base 将多视图提升到 3D anchor，再以 Point DiT 先生成 geometry、Content DiT 后生成 appearance；训练使用 DL3DV、RealEstate10K、ScanNet，3000 个 latent、8 张 A800、100k iterations。</p>
+<p><strong>结果、创新与边界。</strong> 在论文自报的 geometry 评测中，1-view DL3DV Chamfer Distance 为 0.44，GLD 为 1.04、Gen3R 为 2.01；2-view 为 0.30，对比 0.85/1.38。trajectory-following AUC@30 为 0.76/0.72，round-trip reconstruction 为 PSNR 30.7、SSIM 0.93。<a href="https://arxiv.org/html/2610.19708#S4.SS1" target="_blank" rel="noopener noreferrer">实验表</a> 它把“可查询空间记忆”直接作为生成 latent，适合 real-to-sim 和 camera-controlled world generation。局限是静态或准静态场景、无动作动力学和时间演化，GT 部分依赖 DA3/VGGT 估计，未找到公开代码/权重。轻量验证可在单个真实房间用 9–20 帧建立 300–1000 anchors，比较 novel-view、round-trip 和 camera-path error，再加入一个可动体检查 representation 是否失效。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley、MIT、CMU、Princeton 和主要中国团队的公开入口。结论是：<strong>窗口内有少量重要官方更新，但没有一个能以“可公开验证的全新权重/论文/第三方结果”替代今天的核心论文条目。</strong></p>
+<ul>
+<li><strong>World Labs</strong>：官方研究页最近的相关大更新仍是 9 月 1 日 Atlas 与 9 月 28 日 AMD 加入；本轮未见新的 World Model/Spatial Intelligence 版本。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">研究入口</a></li>
+<li><strong>Physical Intelligence</strong>：10 月 13 日 Pi API beta 已在上一期完整展开；本轮未看到新版本、权重或独立验证。<a href="https://www.pi.website/" target="_blank" rel="noopener noreferrer">官方主页</a></li>
+<li><strong>Google DeepMind/Robotics</strong>：Gemini 4 Argon model card 在 10 月 13 日更新，属于上一期已覆盖的证据；本轮没有新的 robotics checkpoint。<a href="https://deepmind.google/models/model-cards/" target="_blank" rel="noopener noreferrer">Model cards</a></li>
+<li><strong>NVIDIA Robotics/Cosmos/GR00T</strong>：本轮扫描 Cosmos/GR00T blog 与 model pages，最新相关页面在 9 月/7 月；没有新的窗口内机器人模型权重或 benchmark。<a href="https://blogs.nvidia.com/blog/tag/cosmos/" target="_blank" rel="noopener noreferrer">Cosmos 标签页</a></li>
+<li><strong>Figure、Skild AI、Field AI、1X、Generalist AI</strong>：Figure 的最新官方新闻为 9 月底/9 月 17 日，Skild 为 9 月 23 日，Generalist 为 8 月 GEN-1.5，Field AI 相关页更早；未发现窗口内新的可审计模型发布。<a href="https://www.figure.ai/news" target="_blank" rel="noopener noreferrer">Figure</a> · <a href="https://skild.ai/blogs" target="_blank" rel="noopener noreferrer">Skild</a> · <a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a></li>
+<li><strong>Anthropic、Meta FAIR、TRI 与高校入口</strong>：Anthropic 10 月 12 日 self-replication/red-team 报告在上一期已覆盖；Meta、TRI 及 Stanford/Berkeley/MIT/CMU/Princeton 的窗口内增量主要通过本期 arXiv 候选体现，未见新的官方 physical foundation model release。</li>
+<li><strong>新增官方空间智能基础设施候选：Google Earth AI</strong>。Google Research 10 月 14 日发布 Earth AI early access、planetary prediction engine 和 Geospatial Reasoning agent-to-agent API；它是空间智能/agent infrastructure 的重大官方更新，但不是机器人 foundation model，没有公开权重，当前也缺少独立机器人闭环验证。<a href="https://www.research.google/blog/research-2026-10-ways-were-amplifying-human-ingenuity/" target="_blank" rel="noopener noreferrer">官方发布</a></li>
+<li><strong>新增官方物理 AI 候选：Natura-1</strong>。Nature Will 10 月 13 日通过 PRNewswire 宣称 50B physical foundation model、超过 1M 小时人类视频预训练和灵巧手 zero-shot instruction following。<a href="https://www.prnewswire.com/news-releases/physical-ai-lab-nature-will-unveils-natura-1-as-first-general-foundational-model-for-the-physical-world-302906608.html" target="_blank" rel="noopener noreferrer">官方新闻稿</a> 目前性质是公司新闻稿，未同行评审；代码、权重、数据和第三方验证均未确认，因此保留为 P2 watch item，不把公司指标当作论文结果。</li>
+</ul>
+<p>本轮 broader web 兜底交叉检查了 Spatial Intelligence、World Model、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 等关键词。可访问入口内没有发现未进入候选池而又有明确窗口证据的重大遗漏；动态渲染、登录墙或没有公开时间戳的页面仍只能标成未核实。Thinker-WM/WAVE-0/WorldOracle 等未重复属于 selection（上一期已有且无新证据），不是 retrieval failure。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p><strong>问题分类。</strong></p>
+<ol>
+<li><strong>持久空间状态与可编辑世界</strong>：StateCraft 把状态图与视觉渲染分离，SceneAE 把空间坐标变成生成 latent，PAWA 用全景视图覆盖离屏区域。</li>
+<li><strong>世界表示与 VLA 接口</strong>：What Matters 说明表示效果依赖集成范式；OneLA 试图把无动作视频、驾驶、游戏和机器人连接到共享潜在动作空间。</li>
+<li><strong>行动后果与安全闭环</strong>：SafeDriveVLA 预测严格服从指令的未来，Back on Track 用 compact WM 做部署恢复。</li>
+<li><strong>自我改进与执行归因</strong>：AdaRSI 把 harness failure 与 executor limitation 分开，决定何时改权重。</li>
+<li><strong>数据与触觉/跨本体对齐</strong>：TacClaw-Infinity 把触觉、接触分段和跨本体可行性纳入大规模数据管线。</li>
+</ol>
+<p><strong>近期趋势。</strong> 近期工作从像素预测转向可查询的语义/空间状态；从“未来帧看起来像不像”转向 action sensitivity、离屏一致性、闭环恢复和部署延迟；从单一 VLA 训练转向 world expert、action interface、harness、数据引擎的组合。另一个明显趋势是评测契约变严格：PAWA 把训练/评测 split、时间对齐和 QC 写进数据卡，What Matters 把 representation × integration × backbone 分开，SafeDriveVLA 把 navigation following、conflict awareness、adversarial instructions 分开。</p>
+<p><strong>未解决 gap。</strong></p>
+<ul>
+<li>世界模型是否真的捕获了动作因果，而不是只做相关性预测？需要 nearby-action、counterfactual action、长 rollout 和闭环任务四类一致性检查。</li>
+<li>3D 空间记忆、潜在动作和机器人本体之间仍缺统一接口；OneLA 目前证明的是 readout/cycle transfer，不是跨本体真实成功率。</li>
+<li>显式状态编辑、触觉接触状态和 VLA action chunk 还没有统一 benchmark；StateCraft 的 3D 证明和 TacClaw 的触觉规模都未完成独立复核。</li>
+<li>大模型/大数据的训练成本与部署延迟仍是瓶颈；Back on Track 的 29.6M compact predictor 是一个方向，但对分布外动力学的稳定性有限。</li>
+<li>官方模型和数据发布的证据层级差异很大：新闻稿、demo、technical report、arXiv、同行评审和第三方复现必须保持分层。</li>
+</ul>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li><strong>VLA 世界接口小型因果审计。</strong> 在 LIBERO 10 任务上复现 WM-Align/WM-MoT/WM-Ext 的简化版，统一 DINOv3、SigLIP、V-JEPA 2.1，加入 nearby-action probe、action inversion 和 held-out dynamic object；单卡可先用冻结 encoder 与小 action head。</li>
+<li><strong>离屏空间记忆小基准。</strong> 用 PAWA 数据两玩家子集或简化 Minecraft，固定一个玩家的 POV，测试另一玩家离屏移动、回视、遮挡后状态是否一致；报告 FVD/LPIPS 之外的 re-entry identity、action sensitivity 和 world-frame correspondence。</li>
+<li><strong>显式状态 vs. 视觉缓存。</strong> 做一个文件浏览器或 2D 物理 toy environment，比较 retrieval cache、RNN latent、StateCraft-style graph 在 128/512 action、隐藏状态编辑和错误恢复上的表现；这条线算力低、机制清楚，适合形成可审计的 workshop 论文。</li>
+<li><strong>部署恢复 wrapper。</strong> 以已有 diffusion/VLA policy 为 black box，复现 Back on Track 的 liveness monitor + 29.6M 以内 latent dynamics + CEM，先在 LIBERO 做 rescue/breakage/latency 曲线，再测物体位置和摩擦扰动。</li>
+<li><strong>小规模触觉跨本体实验。</strong> 不等待 TacClaw 全量发布，先用 100–500 条视觉-触觉-动作片段和一个接触任务，比较视觉-only、触觉-only、融合模型；把 contact event、object state change、action feasibility 分开记录，避免把“有触觉”直接等同于更强泛化。</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>证据性质</th>
+<th>代码</th>
+<th>权重</th>
+<th>数据</th>
+<th>第三方验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What Matters</td>
+<td>arXiv 作者实验；未同行评审</td>
+<td>未核实公开</td>
+<td>未核实</td>
+<td>使用公开 benchmark</td>
+<td>无独立复现</td>
+</tr>
+<tr>
+<td>PAWA</td>
+<td>arXiv 作者实验 + 官方项目</td>
+<td>Apache-2.0 pipeline</td>
+<td>模型权重未确认</td>
+<td>HF 完整数据/推荐子集公开，CC BY-NC 4.0</td>
+<td>无</td>
+</tr>
+<tr>
+<td>StateCraft</td>
+<td>arXiv 作者实验</td>
+<td>声明将公开</td>
+<td>声明将公开</td>
+<td>声明将公开</td>
+<td>无</td>
+</tr>
+<tr>
+<td>OneLA</td>
+<td>arXiv 作者实验</td>
+<td>未核实公开</td>
+<td>未核实</td>
+<td>使用多域公开数据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Back on Track</td>
+<td>arXiv 作者实验 + Stanford/USC</td>
+<td>未核实公开</td>
+<td>未核实</td>
+<td>LIBERO/Franka rollout 方案公开于论文</td>
+<td>无</td>
+</tr>
+<tr>
+<td>SafeDriveVLA</td>
+<td>CoRL 2026 接收 + arXiv + 官方 GitHub</td>
+<td>训练/评测代码公开</td>
+<td>checkpoint coming soon</td>
+<td>Bench2Drive/CARLA 等公开 benchmark</td>
+<td>无真实道路第三方复现</td>
+</tr>
+<tr>
+<td>AdaRSI</td>
+<td>arXiv 作者实验</td>
+<td>未核实公开</td>
+<td>GR00T N1.5 作为执行器</td>
+<td>RoboCasa365/simulator</td>
+<td>无</td>
+</tr>
+<tr>
+<td>TacClaw-Infinity</td>
+<td>arXiv 数据集论文 + 官方项目</td>
+<td>coming soon</td>
+<td>coming soon</td>
+<td>HF 有 gated metadata/sample，完整规模未直接可取</td>
+<td>无</td>
+</tr>
+<tr>
+<td>SceneAE</td>
+<td>arXiv 作者实验</td>
+<td>未核实公开</td>
+<td>未核实</td>
+<td>DL3DV/RE10K/ScanNet</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Natura-1</td>
+<td>公司新闻稿</td>
+<td>未公开</td>
+<td>未公开</td>
+<td>未公开</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Google Earth AI</td>
+<td>官方 research release/early access</td>
+<td>API/产品入口，非开源权重</td>
+<td>未公开</td>
+<td>地理数据/产品服务</td>
+<td>无机器人闭环验证</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期结论是：先读 <strong>What Matters → PAWA → StateCraft</strong>，然后用 <strong>Back on Track</strong> 做部署闭环验证；若要开新研究线，优先把“动作因果审计 + 持久空间状态 + 低延迟恢复”组合成一个小而可复现的实验。不要把公司新闻稿或没有权重的数据规模直接写成已验证的模型能力。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-15/"><span>← 上一期 · 2026-10-15</span><strong>Thinker-WM · WAVE-0 · WorldOracle</strong></a><a class="newer" href="../2026-10-17/"><span>下一期 → · 2026-10-17</span><strong>T2-z · ORBIA · CoDA</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

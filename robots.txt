@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://he609.github.io/ai-daily-briefing/sitemap.xml

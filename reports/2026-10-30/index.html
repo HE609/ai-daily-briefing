@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-10-30｜ImagiRep / GEARS · Best-of-N / HeadroomBench · ThinkWorld · Yunhe</title><meta name="description" content="最重要的产业新增是智元 GO-3 Preview 的正式预览发布：把推理、预测、动作及部署后学习连接起来；通用 Agent 侧则有 Gemini 4 Carbon 和 Copilot Fusion。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-10-30/"><meta property="og:type" content="article"><meta property="og:title" content="2026-10-30｜ImagiRep / GEARS · Best-of-N / HeadroomBench · ThinkWorld"><meta property="og:description" content="最重要的产业新增是智元 GO-3 Preview 的正式预览发布：把推理、预测、动作及部署后学习连接起来；通用 Agent 侧则有 Gemini 4 Carbon 和 Copilot Fusion。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-10-30/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>ImagiRep / GEARS · Best-of-N / HeadroomBench · ThinkWorld</h1><p class="article-deck">最重要的产业新增是智元 GO-3 Preview 的正式预览发布：把推理、预测、动作及部署后学习连接起来；通用 Agent 侧则有 Gemini 4 Carbon 和 Copilot Fusion。</p><div class="article-meta"><time datetime="2026-10-30">2026 / 10 / 30</time><span>约 19 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">Agent</span><span class="tag">空间智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-go-3-preview%E6%8E%A8%E7%90%86%E9%A2%84%E6%B5%8B%E5%8A%A8%E4%BD%9C%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%90%8E%E5%AD%A6%E4%B9%A0p0">1. GO-3 Preview：推理、预测、动作与部署后学习｜P0</a><a class="toc-level-2" href="#2-vision-language-action-or-world-action-just-action-modelsp0">2. Vision-Language-Action or World-Action? Just Action Models｜P0</a><a class="toc-level-2" href="#3-imagirep-gears%E7%A9%BA%E9%97%B4%E6%83%B3%E8%B1%A1%E5%BA%94%E8%AF%A5%E8%BE%93%E5%87%BA%E4%BB%80%E4%B9%88%E8%A1%A8%E7%A4%BAp0">3. ImagiRep / GEARS：空间想象应该输出什么表示？｜P0</a><a class="toc-level-2" href="#4-thinkworld-world-imagination-reinforces-chain-of-dynamics-reasoningp1">4. ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning｜P1</a><a class="toc-level-2" href="#5-best-of-n-headroombench%E8%83%BD%E9%80%89%E6%8B%A9%E5%88%B0%E5%A4%9A%E5%B0%91%E7%9C%9F%E5%AE%9E%E6%94%B6%E7%9B%8Ap0">5. Best-of-N / HeadroomBench：能选择到多少真实收益？｜P0</a><a class="toc-level-2" href="#6-mle-world%E9%A2%84%E6%B5%8B%E7%A7%91%E7%A0%94%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%E7%9A%84%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8Bp1">6. MLE-World：预测科研程序运行结果的世界模型｜P1</a><a class="toc-level-2" href="#7-gemini-4-carbon%E9%95%BF%E6%97%B6%E5%B7%A5%E7%A8%8B-agent-%E7%9A%84%E5%AE%98%E6%96%B9%E8%83%BD%E5%8A%9B%E5%8D%87%E7%BA%A7p1">7. Gemini 4 Carbon：长时工程 Agent 的官方能力升级｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-10-30.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-10-30</div><article class="prose"><p>本期主检索窗口为<strong>北京时间 2026-10-27 08:55—2026-10-30 08:55</strong>，来源核验延伸至成稿。最重要的产业新增是<strong>智元 GO-3 Preview 的正式预览发布</strong>：把推理、预测、动作及部署后学习连接起来；通用 Agent 侧则有 <strong>Gemini 4 Carbon</strong> 和 <strong>Copilot Fusion</strong>。论文侧更值得注意的是一个共同问题：<strong>未来信息究竟应当怎样表示、怎样监督策略、何时值得花计算去使用？</strong>这是本报对多项工作的综合判断。</p>
+<p>本期展开 <strong>5 篇窗口内预印本与 2 项官方模型发布</strong>。五篇论文均为 27 日 UTC 提交、此前已进入候选池、本期首次详细展开，属于重新筛选，<strong>不称作 30 日首发</strong>；Carbon 在上一期完成前已发布但未入池，明确记为 <strong>Retrieval Failure 回补</strong>。GO-3 的 29 日活动晚于上一期完成，本轮通过重大遗漏兜底补齐官网证据。ScIntBench、LabWorld、RynnWorld-Latent、TAPESTRY、LFM3、Genie 4 等无本轮核实的实质新增，不重复展开。可访问 arXiv 列表仍停在 28 日公告批次，不能据此声称完整覆盖 29—30 日论文。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>JAM → ImagiRep / GEARS → Best-of-N / HeadroomBench → ThinkWorld → MLE-World</strong>。</p>
+<ul>
+<li><strong>JAM：</strong>先拆开预训练来源、未来监督和部署计算，避免把整套系统收益都归因于“世界模型”。</li>
+<li><strong>ImagiRep / GEARS：</strong>检查同一个空间状态以 RGB、深度或几何呈现时，推理能力为何不同。</li>
+<li><strong>Best-of-N / HeadroomBench：</strong>建立候选选择的可信上限，区分动作质量与后续执行运气。</li>
+<li><strong>ThinkWorld：</strong>看人类视频如何通过运动 token 和未来特征奖励改善策略，以及 RL 实际贡献多少。</li>
+<li><strong>MLE-World：</strong>把世界模型扩展到科研程序执行，重点读真实运行门控、任务重叠与成本口径。</li>
+</ul>
+<p>GO-3 和 Carbon 建议先读官方发布及开放状态；它们目前适合判断方向，公开证据尚不足以复现完整训练配方。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-go-3-preview推理预测动作与部署后学习p0">1. GO-3 Preview：推理、预测、动作与部署后学习｜P0</h2>
+<p><strong>智元机器人 AGIBOT 团队；姚卯青、彭志辉等在创新日介绍。</strong>事件日期为 <strong>10 月 29 日</strong>，性质是官方模型预览与系统发布，未核实对应的新论文或同行评审。官网页面另标“2026-10-28 21:28:08”，未注明时区，正文则明确活动发生在 29 日；保留两者，不把页面时间当作发布会时间。<a href="https://www.agibot.com/article/231/detail/131.html" target="_blank" rel="noopener noreferrer">官方发布</a>。它关注的是跨任务操作能力如何从预训练延伸到真实部署中的持续改进。</p>
+<p><strong>官网可确认的方法层级</strong>是 WRAM（World Reasoning Action Model）统一连接任务推理、未来预测和动作生成，并把预训练、后训练及部署反馈组成学习循环。官方还介绍了运动智能 AGILE 和多模态交互模型 WITA-Omni，不能将它们的能力全部合并算给 GO-3。模型规模、精确损失、数据配比、模块消融及部署后更新协议，在本轮可核官方材料中尚未充分披露；媒体转述的更细架构不能替代技术报告。</p>
+<p><strong>官方结果：</strong>发布会称 GO-3 Preview 在 RoboDojo 的任务成功率与过程分、RoboTwin 总分、RoboColiseum 总分领先。这是公司展示的榜单结果，本轮未确认第三方重新运行，也未取得统一预算、完整任务分母和逐项失败记录。上一期观察过的 GO-3 Nano Preview 与本次完整发布的型号关系尚需固定，不能直接把 Nano 的数字移植过来。与 RynnUnify、Cosmos Policy 等路线相比，值得研究的是预测、原生动作和部署反馈如何共同学习；“统一建模”本身尚不足以说明具体创新或归因。</p>
+<p><strong>值得跟踪技术报告与开放包，暂不适合照发布会复刻全系统。</strong>未核到本次 GO-3 专属可下载权重、完整训练代码、数据和评测包；发布会负责人宣布的年底开放计划仍是未来承诺。<a href="https://www.caiwennews.com/article/1674540.shtml" target="_blank" rel="noopener noreferrer">现场发布记录</a>。轻量替代实验可先固定一个开放策略与三个任务，分别只加经验记忆、只更新策略、两者共同更新；用未参与更新的初态和故障测试，判断收益来自记忆、参数还是更多重试。部署自改进与跨任务泛化应分别验收。</p>
+<h2 id="2-vision-language-action-or-world-action-just-action-modelsp0">2. Vision-Language-Action or World-Action? Just Action Models｜P0</h2>
+<p><strong>Yonghao Yu、Lang Huang、Runyi Li、Toshihiko Yamasaki；东京大学、国立情报学研究所。</strong>v1 为 <strong>北京时间 10 月 27 日 21:29</strong>；预印本，未核实同行评审。<a href="https://arxiv.org/html/2610.37219v1" target="_blank" rel="noopener noreferrer">论文全文</a>｜<a href="https://y0uroy.github.io/JAM/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/y0urOy/JAM" target="_blank" rel="noopener noreferrer">代码</a>。JAM 将三个常被混在一起的变量拆开：骨干怎样预训练、未来观测提供什么训练目标、部署时保留哪些计算。</p>
+<p>它在动作 flow-matching 损失之外，用小预测头让当前观测特征匹配<strong>冻结编码器对真实未来的表征</strong>；未来只作监督，不进入动作输入。训练后丢弃预测头和目标分支。Wan、图像生成器、Qwen、DINO 均可作骨干；与 FastWAM / ImageWAM 的匹配实验维持策略结构、数据和更新预算。这里的关键贡献是可比较的训练配方，而非宣称原生 Wan 已具备机器人动作接口。</p>
+<p><strong>作者结果：</strong>Wan 路线最佳配置在 LIBERO / LIBERO-Plus 为 <strong>98.15% / 64.54%</strong>，FastWAM 为 <strong>97.00% / 55.31%</strong>。但仅将生成损失换成“预训练 Wan 特征预测”时，后者只到 <strong>55.58%</strong>；64.54% 来自进一步改用 VAE 未来目标，随机 Wan 目标还达到 58.63%。因此大幅收益不能全归因于损失替换。Ovis-U1 路线为 <strong>65.27%→79.95%</strong>；两种所选配置各三次训练的 Plus 均值为 64.61±0.37 / 79.92±0.43。Plus 使用固定 <strong>1,506 任务子集</strong>，不混同全量榜。缓存目标下“73% FLOPs 下降”是每样本每次更新的在线估算，不包含一次性缓存成本，也不是完整训练或部署加速。</p>
+<p><strong>很值得精读控制变量和目标消融。</strong>它接近 JEPA、VLA-JEPA 的未来表征监督思想，但更系统地比较骨干与目标。尚无真机结果，最佳目标依赖架构；三 seed 也只覆盖所选配置。MIT 源码、训练/评测入口及三份 LIBERO checkpoint 已核实；<a href="https://huggingface.co/y0urOy/JAM/commits/main" target="_blank" rel="noopener noreferrer">权重历史</a>早于本次论文，28 日更新主要为引用/标签，不计新权重首发。代码、权重与第三方基座许可须分开。轻量验证可用 DINOv2-B 和小动作头，在相同数据/更新数下比较动作单目标、当前重建目标、未来特征目标、随机目标；先测两类分布偏移与三 seed，不必复训全部八卡配方。</p>
+<h2 id="3-imagirep-gears空间想象应该输出什么表示p0">3. ImagiRep / GEARS：空间想象应该输出什么表示？｜P0</h2>
+<p><strong>Zengqi Zhao、Zun Wang、Shoubin Yu、Mohit Bansal、Yue Zhang；UNC Chapel Hill。</strong>论文《Representing the Unseen: Rethinking Visual Imagination for Spatial Reasoning》v1 为 <strong>北京时间 10 月 27 日 23:48</strong>；预印本。<a href="https://arxiv.org/html/2610.37437v1" target="_blank" rel="noopener noreferrer">论文全文</a>｜<a href="https://imagirep.github.io/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/Imagirep/ImagiRep" target="_blank" rel="noopener noreferrer">代码</a>。研究问题是：即使未来场景生成正确，RGB 是否就是最适合空间推理的接口？</p>
+<p>ImagiRep 在 Matterport3D 构造 <strong>922 道题</strong>，含 622 道视点想象和 300 道跨视图整合题，覆盖七类问题；固定底层状态、题目与答案，比较 RGB、深度、法线、全景、俯视几何、空间文本及视频。估计状态分别由 HY-World 2.0、SEVA 等产生。GEARS 不训练新骨干：先比较有无估计 RGB 的答案，一致时返回；不一致时选择一种补充表示，再回答。</p>
+<p><strong>作者结果：</strong>在视点想象中，估计 RGB 使准确率 <strong>57.2%→54.7%</strong>；实际 GEARS 达 <strong>61.4%</strong>，跨视图任务为 <strong>77.7%</strong>，对应 MindJourney 为 58.4% / 71.0%。论文中更高的“补充表示收益”和 87.5% / 91.7% oracle selection，含保留正确答案或事后选择，不能当成可部署路由成绩。估计终点的中位误差为 <strong>1.4 米、14°</strong>，说明世界估计、视点规划和表示选择仍纠缠；多次推理调用的预算也需控制。</p>
+<p><strong>值得优先读评测设计。</strong>它延伸 MindJourney / AVIC，把世界生成与推理接口分开验收；当前只覆盖静态室内场景，不能推及动态接触或导航闭环。公开仓库有逐题输出和核分脚本；<a href="https://huggingface.co/datasets/Imagirep/ImagiRep" target="_blank" rel="noopener noreferrer">数据入口</a>为 gated，28 日建档/更新，需遵守 Matterport 条款，不能把元数据可读等同文件已获访问授权。部分生成中间文件未发布，仓库许可证文件已移除，未确认通用代码许可。轻量验证先抽 140 题，比较观测、RGB、深度、俯视图及等调用预算的路由；同时报告错误被纠正和原本正确答案被破坏的比例，无需训练新世界模型。</p>
+<h2 id="4-thinkworld-world-imagination-reinforces-chain-of-dynamics-reasoningp1">4. ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning｜P1</h2>
+<p><strong>Chaehyun Kim、Chi-Pin Huang、Jisoo Kim、Min-Hung Chen、Yu-Chiang Frank Wang、Seungryong Kim、Fu-En Yang；NVIDIA、KAIST。</strong>v1 为 <strong>北京时间 10 月 28 日 01:59</strong>；预印本。<a href="https://arxiv.org/html/2610.37666v1" target="_blank" rel="noopener noreferrer">论文全文</a>｜<a href="https://thinkworld-project.github.io/" target="_blank" rel="noopener noreferrer">项目</a>。它研究如何让人类视频改善机器人策略，同时避免潜在动作只编码相机移动和外观变化。</p>
+<p>方法先把人手与机器人腕部运动转成归一化末端增量，用 FAST 风格 tokenizer 得到 Chain-of-Dynamics（CoD）。Qwen3-VL-2B 学习运动 token，并用未来 query 预测一秒后的冻结 DINOv3 特征；动作专家采用 flow matching。随后采样四条 CoD，以预测未来和真实未来的相似度作为 GRPO 奖励，并保留监督回放。<strong>推理链和未来预测只在训练使用</strong>，部署动作专家不直接读取生成 CoD；因此不能把它描述成运行时边想象边规划的 WAM。</p>
+<p><strong>作者结果：</strong>LIBERO <strong>97.3%</strong>、LIBERO-PRO <strong>55.6%</strong>；三类真机任务共 <strong>112/120（93.3%）</strong>，其中 OOD <strong>52/60</strong>。累加消融为基线 40.1→历史 40.7→未来预测 50.4→CoD 54.4→RL 55.6；RL 的最后增量是 <strong>1.2 个百分点</strong>。人类视频增加实验中，50% 人类数据相对等规模机器人控制约高 1.2 点，也不能将全部收益归给跨本体数据。H100 上约 325 ms 为特定输入下每次策略调用，动作仍多步积分。</p>
+<p><strong>值得读运动接口及奖励归因。</strong>相对 RynnVLA-Latent、VLA-JEPA，它把可监督的运动 token 与无动作标签视频的未来奖励连接起来；但相似度奖励不直接证明可控因果动力学。仅一个完整训练 seed，真机范围有限；SFT/RL 分别用到 128/64 张 H100，当前项目 Code/Model 链接仍是占位，未核实专属权重或可跑完整包。轻量替代实验可固定小 VLM 与少量腕部轨迹，只比较未来特征监督、再加运动 token、再加少量 GRPO；加入打乱运动、相机变化和等数据量机器人对照，先检查奖励是否奖励了错误的运动解释。</p>
+<h2 id="5-best-of-n-headroombench能选择到多少真实收益p0">5. Best-of-N / HeadroomBench：能选择到多少真实收益？｜P0</h2>
+<p><strong>Haojia Gao、Yue Cao、Yumin Liu 等；清华大学及深圳研究院、复旦、北大、Everwise-Tech。</strong>完整标题《How Much Can Best-of-N Help a World Action Model? Measuring Selectable Headroom and Realizing It in Closed Loop》；v1 为 <strong>北京时间 10 月 27 日 21:17</strong>，预印本。<a href="https://arxiv.org/html/2610.37196v1" target="_blank" rel="noopener noreferrer">论文全文</a>。问题是：每个候选只运行一次再挑最好结果，会不会把后续策略的好运误当成动作本身更好？</p>
+<p>它完整保存模拟器、fixture 与随机状态，从同一状态分支执行候选，给每个候选多次独立续跑；用一部分续跑选动作、另一部分评估，并共享评价随机数。四个 WAM、两个 MuJoCo benchmark、十万余次分支 rollout 显示，原生采样的动作差异很小；沿机器人坐标轴构造偏移，才产生较稳定的可选择空间。最终用失败门控决定是否偏离原策略，再用线性读出排序想象结果；训练目标来自分支结果，基础 WAM 固定。</p>
+<p><strong>作者结果：</strong>Cosmos Policy 在留出训练任务 episode 上 <strong>76.9%→81.6%</strong>；整任务留出时 <strong>62.6%→69.8%</strong>。17 次续跑实验对三个 WAM 给出的原生候选可选择比例界限约 <strong>24%—66%</strong>，不支持把单次 oracle 全部当作可兑现收益。想象与真实未来读出的等价检验只在给定短时域及 ±0.15 相关系数容差内成立；不等于预测完全保真。部分任务内实验中，仅“当前状态×动作方向”已接近完整排序器，想象的必要性仍应单独检验。</p>
+<p><strong>值得精读，尤其适合作为实验协议。</strong>相较单纯增加采样数的 test-time scaling，它先审计候选是否真的不同，再训练局部比较器。选择器每个 episode 额外约 <strong>17.5 次想象</strong>，原策略约 12 次查询，收益需与控制延迟一起衡量；真机无法精确恢复状态，reset 噪声会改变估计。HeadroomBench 在论文中仍为待公开承诺，未核到专属公开数据/代码包。轻量验证可先做 <strong>20 个状态×7 个候选×4 次续跑＝560 次</strong>，比较单次 oracle、留出 oracle、随机选择与固定方向；先证明测量差异，再扩大样本或训练排序器。</p>
+<h2 id="6-mle-world预测科研程序运行结果的世界模型p1">6. MLE-World：预测科研程序运行结果的世界模型｜P1</h2>
+<p><strong>Brian Ko、Han Wang、Hejia Geng、Li Erran Li、Sherry Yang；华盛顿大学、UIUC、牛津、哥伦比亚、NYU。</strong>v1 为 <strong>北京时间 10 月 27 日 21:01</strong>；预印本。<a href="https://arxiv.org/html/2610.37175v1" target="_blank" rel="noopener noreferrer">论文全文</a>｜<a href="https://mle-world.github.io/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/ko120/MLE_World" target="_blank" rel="noopener noreferrer">代码</a>。这里的“环境”是机器学习任务，“动作”是候选程序，预测对象是异常、训练日志和验证分数，用于降低科研 Agent 逐次运行的成本。</p>
+<p>它以 <strong>497,056 条执行记录</strong>微调 Qwen3.5-4B，输入代码、包版本、数据摘要与时限，联合预测终端输出、异常类型和指标。首个异常类别 token 的概率提供置信度，支持候选筛选、修订、融合和 UCB 搜索；低置信度触发真实运行，预测的新最佳结果也必须运行验证，最终按真实验证成绩提交。它与 AIDE、ForeAgent 的关系在于把分数/偏好判断扩展为可供调试的执行反馈。</p>
+<p><strong>作者结果：</strong>17 个已见任务上的 1,700 个留出程序，终端结果吻合率 <strong>77.9%</strong>，最强提示式基线 <strong>41.1%</strong>；这是带裁判的吻合率，非精确逐字预测。固定 arXiv v1 表 2/4：UCB 平均 leaderboard percentile <strong>45.4→52.1</strong>，门控 Sequential 为 <strong>55.4</strong>；门控减少约 <strong>30%—40% 真实执行时间</strong>。官网另有严格计分回放的可视化，不能与这些表格混用。置信度是异常类别分布，不是整个预测日志正确的校准概率；执行时间也不包含全部模型推理成本。</p>
+<p><strong>值得读门控与局限。</strong>主实验任务在世界模型训练中出现，约 50 万次历史执行构成额外知识；Base AIDE 尚未获得同等语料检索对照。三个完全留出任务的结果较弱，泛化仍开放。Apache-2.0 模型、源码及<a href="https://huggingface.co/datasets/ko120/MLE-World" target="_blank" rel="noopener noreferrer">执行语料</a>已核实，上传历史为 <strong>10 月 22 日</strong>，不是本轮新权重；数据许可、Kaggle 任务访问条件与环境版本需分别核查。<a href="https://huggingface.co/ko120/MLE-World-Qwen3.5-4B" target="_blank" rel="noopener noreferrer">模型</a>可先直接评估，无需重做 8 H200、约 43 小时训练。轻量验证用三项小型 ML 任务各 50 个程序，对比真实执行、语料检索、随机跳过及置信度门控，并整项留出一个任务；同时测有效提交、误跳过、质量与端到端时间。</p>
+<h2 id="7-gemini-4-carbon长时工程-agent-的官方能力升级p1">7. Gemini 4 Carbon：长时工程 Agent 的官方能力升级｜P1</h2>
+<p><strong>Google DeepMind；Koray Kavukcuoglu 署名发布，官网日期 10 月 28 日。</strong>性质是前沿模型官方公告与受限开放，未核实本次独立同行评审论文。<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener noreferrer">官方发布</a>。它面向持续多步骤的软件工程和防御任务，是 Agent 主线的重大新增；上一期漏扫，本期回补。</p>
+<p>官方称它在 Argon 基础上强化长时工程能力、训练中的捷径抑制、诚实性及监测。<strong>精确架构、训练数据、奖励和目标权重未披露</strong>，不能从产品结果反推具体 RL 配方。Google 报告 SEC-bench Pro <strong>88.2%</strong>、ExploitGym <strong>54.8%</strong>、CWE-bench <strong>71.0%</strong>，且明确这些外部基准结果在不启用 guardrails 条件下测得；这是厂商评测，尚非本报确认的独立复现。</p>
+<p><strong>值得关注长时执行，暂不把它当作可复现方法论文。</strong>内部“运行数日”的案例没有给出统一任务分母和成本对照，不能直接证明普遍科研自主性。相较已介绍的 Argon，这是新模型发布；相较 MLE-World，Carbon 扩展执行器能力，后者改变候选反馈与真实运行分配，二者贡献应分别衡量。当前向部分防御者及可信伙伴分阶段开放，代码、权重、训练数据与完整评测轨迹未公开；轻量替代可在开放模型上固定五个长程修复任务，记录中间测试、失败恢复、实际成本和最终留出测试，再比较模型升级与执行流程改动。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮确认的重点官方新增是 GO-3 Preview 与 Carbon；另将 Genie Sim 和 Copilot Fusion 的工程发布纳入候选。</strong>Spatial Intelligence 单独覆盖 omni/general world model、持久 3D/4D 世界、重建、real-to-sim 和交互仿真，不以是否出现机器人动作关键词为门槛。World Labs、SpAItial、Luma、腾讯 3D/HY-World、Tripo，以及生成/重建论文与代码入口均已检查；本轮没有核到可再展开的重大新开放空间模型。Genie 4、Hy-Nomas、Echo-3 等已报道项目不靠新的媒体报道日期重新计新。<a href="https://www.worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>｜<a href="https://www.tripo3d.ai/research" target="_blank" rel="noopener noreferrer">Tripo Research</a>。</p>
+<p><strong>Genie Sim 必须区分预告与落地。</strong>28 日官方仓库提交宣布下一大版本 <strong>11 月 2 日到来</strong>；29 日主要更新演示素材。已落地的是 28 日 LeRobot 转换元数据、全局 index、图像统计及相机外参读取等修复；当前仓库也有多后端、ROS 2、世界生成工具，但生成 PLY/高斯接入 RT Engine 仍标 WIP。媒体中的柔性仿真、Real2Sim 高一致性声明已进入候选，未取得与新版本绑定的完整原始对照包，故不宣称新版本已经可完整复现。Genie Master / Genie Sim / 30 日 CEL 的七日安排，需逐项核对实际公开物，排期不算交付。<a href="https://github.com/AgibotTech/genie_sim" target="_blank" rel="noopener noreferrer">仓库</a>｜<a href="https://github.com/AgibotTech/genie_sim/commit/1e49601179b1d10e38f3079e6f748b9a8d60ae9a" target="_blank" rel="noopener noreferrer">28 日实际修复</a>｜<a href="https://www.zhiyuan-robot.com/article/315/detail/250.html" target="_blank" rel="noopener noreferrer">官方排期</a>。</p>
+<p><strong>Agent 基础设施也有窗口内新增。</strong>GitHub 28 日宣布 Copilot Fusion GA，以 Single、Cascade、Critique 三类执行方式进行模型路由和编排；本地模型自动路由另属实验预览，不能与 GA 混为一谈。这是系统发布，非新基座权重或已验证的自演化算法；厂商指数成绩与成本比较需固定配置后再复核。<a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/" target="_blank" rel="noopener noreferrer">编排发布</a>｜<a href="https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models/" target="_blank" rel="noopener noreferrer">本地路由边界</a>。AWS Infinity 的官方首发是 <strong>23 日</strong>，虽有 29 日再报道，仍属窗口外。<a href="https://aws.amazon.com/blogs/opensource/introducing-infinity-a-runtime-for-extreme-agent-concurrency/" target="_blank" rel="noopener noreferrer">官方日期</a>。</p>
+<p><strong>日期与覆盖纠偏。</strong>Isaac Lab 3.0 的正式 GitHub release 是 <strong>20 日 02:05 UTC</strong>，29 日论坛是再公告，不计新版本。<a href="https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0" target="_blank" rel="noopener noreferrer">正式 release</a>。HF 29 日推荐中的 OmniShowcase、CausGround、HuGe，其论文更早，未核到窗口内新资产，不借推荐日计新。PonderPounce-WM 的 29 日报道已进入候选，但本轮未核到 WM 专属官方技术包，保留观察，未拿旧版 PonderPounce 仓库证明新版已开源。</p>
+<p>官方扫描范围包括 <strong>World Labs、Generalist、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild、Field AI、1X、Meta FAIR、Anthropic、TRI</strong>；高校覆盖 Stanford、Berkeley、MIT、CMU、Princeton，中国入口包括智元、腾讯、阿里达摩院、Robbyant、字节 Seed、智源、上海 AI 实验室、清华 AIR、北大 EPIC、云深处，并扩展 GitHub、HF 与 broader web。除上述新增与既有报道，可访问入口未发现其他足以进入重点的重大更新。Stanford AI blog / SpAItial 的 TLS、Princeton 的 403，以及部分国内动态空页、Meta 旧索引仍是<strong>检索覆盖缺口</strong>；已用 Stanford SRC、主页及站点搜索补查，不能称完整排除。<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">PI</a>｜<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a>｜<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic</a>｜<a href="https://src.stanford.edu/news" target="_blank" rel="noopener noreferrer">Stanford SRC</a>。</p>
+<p>四类 recent 页共 <strong>3,887 条分类记录 / 3,080 个去重 ID</strong>；严格提交时间 API 查询返回 <strong>404 条、标题主题初筛 173 条</strong>，最新可得提交仍为 27 日 17:59 UTC。计数只是检索覆盖，不是本期首发数量。已入池但未展开的 World Dreamer v5-lite、Dwell、Trace-WAM、Ego-CEVR、TAO、RuHarness 等属于 <strong>Selection</strong>；未抓到的重大官方新增则必须记为 <strong>Retrieval Failure</strong>，本期 Carbon 回补即属后者。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图仍按 <strong>感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施</strong>组织。下表的趋势、gap 与机会是本报的综合判断，均待实验检验。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与趋势</th>
+<th>未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空间表示与推理接口</td>
+<td>ImagiRep：同状态、多表示、按题路由</td>
+<td>状态估计误差、表示优势与调用预算混合</td>
+<td>等状态、等预算的空间证据选择与错误校准</td>
+</tr>
+<tr>
+<td>未来监督与动作表征</td>
+<td>JAM、ThinkWorld：特征预测、训练期动力学推理</td>
+<td>增益来自目标、预训练、数据还是 RL</td>
+<td>统一动作接口下的未来目标与运动 grounding 归因</td>
+</tr>
+<tr>
+<td>想象与候选执行</td>
+<td>Best-of-N：真实可选择空间、失败门控</td>
+<td>后续随机性、reset 噪声、推理开销</td>
+<td>带留出续跑的局部优势预测与候选设计</td>
+</tr>
+<tr>
+<td>真实部署学习循环</td>
+<td>GO-3、Genie Sim / Master</td>
+<td>系统演示与可复现的独立模块收益有距离</td>
+<td>分离记忆、参数更新、恢复与数据追加的长期评测</td>
+</tr>
+<tr>
+<td>科研与长时 Agent</td>
+<td>MLE-World、Carbon、Fusion</td>
+<td>任务知识、反馈模拟、模型与编排成本纠缠</td>
+<td>留出任务下的真实执行分配与完整成本审计</td>
+</tr>
+</tbody>
+</table></div>
+<p>与上一期的衔接是：ScIntBench 问“生成资产能否交互”，今天进一步问“世界状态怎样供推理/控制使用，以及何时值得调用”。LabWorld 的显式事件、BoxWorld 的状态—渲染分工、RynnWorld 的跨本体接口仍留在地图中；没有因今天换条目而撤销这些问题。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：未来监督的最小有效成分。</strong>小骨干上固定动作头、数据与训练步数，对比无未来、当前目标、未来目标、随机目标；再增加等 FLOPs 对照。若未来目标在三 seed 和留出偏移上仍稳定占优，继续研究目标结构；若优势只在某一骨干或更多计算下出现，收缩结论，不泛称世界监督有效。</li>
+<li><strong>机会二：空间想象的错误是否可控。</strong>先用 140 题比较观测、RGB、深度/几何与路由，固定总调用预算，记录“纠正/破坏/无变化”。若路由收益在预算匹配后消失，就停止将路由本身作为创新点；若置信度能预测哪类生成证据有害，再研究校准与主动补充观测。</li>
+<li><strong>机会三：先审计候选，再训练评价器。</strong>560 次小规模分支实验只用于验证流程，不能承担强统计结论。若留出 oracle 接近零，应先改候选；若其为正，再比较当前状态×动作、想象特征与真实未来三个读出，并将真实延迟纳入收益。完整任务留出后仍有效，才值得扩展闭环。</li>
+<li><strong>机会四：科研 Agent 该何时真的运行。</strong>三任务×50 程序，整项留出一任务，比较检索、随机门控与学习门控；最终候选全部真实验证。只有计入推理、等待、环境恢复后仍更快，并保持有效提交和质量，才支持效率结论。把 GO-3 式部署记忆/策略更新也放进固定外部验收框架，可进一步研究长期学习而非单次最佳成绩。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>本轮核实的公开资源</th>
+<th>主要未解决项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GO-3 Preview</td>
+<td>官网发布与活动记录</td>
+<td>专属论文、权重、完整配方、原始榜单运行及独立验证未齐</td>
+</tr>
+<tr>
+<td>JAM</td>
+<td>训练/评测代码、三份 LIBERO 权重、配置和结果</td>
+<td>未实跑；完整训练与第三方许可分组件；不将文档更新计新权重</td>
+</tr>
+<tr>
+<td>ImagiRep / GEARS</td>
+<td>逐题输出、核分/路由代码、gated 数据清单</td>
+<td>访问条款、部分生成中间产物与代码许可；未运行复核</td>
+</tr>
+<tr>
+<td>ThinkWorld</td>
+<td>论文、项目演示与配置说明</td>
+<td>Code/Model 占位；单训练 seed；完整包未落地</td>
+</tr>
+<tr>
+<td>HeadroomBench</td>
+<td>方法、分支协议、分母和预注册说明</td>
+<td>专属代码/数据仍待公开，真机 reset 与实际延迟待检验</td>
+</tr>
+<tr>
+<td>MLE-World</td>
+<td>代码、4B 权重、训练/留出执行语料</td>
+<td>任务重叠、语料公平对照、版本口径与端到端成本</td>
+</tr>
+<tr>
+<td>Carbon</td>
+<td>官方公告及受限访问说明</td>
+<td>精确训练方法、开放资源和独立复现未确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>本轮完成的是来源、日期、资源清单与实验口径核查，<strong>没有下载大模型、接受 gated 条款或运行论文实验</strong>。以上论文数字是作者报告，公司数字是官方报告；核到代码、模型卡、逐题结果或榜单展示，都不等于独立复现。P0/P1 表示阅读与研究优先级，不表示结论已确证。</p>
+<p><strong>今天先读 JAM 的目标消融，再读 ImagiRep 的 oracle 与实际路由区别；最先值得做的验证，是固定数据、调用和计算预算，检查收益是否仍成立。</strong>GO-3 优先跟踪技术报告与实际开放包，暂不按发布会叙述预设完整系统已经可复现。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-10-29/"><span>← 上一期 · 2026-10-29</span><strong>ScIntBench · LabWorld · RynnWorld-Latent</strong></a><a class="newer" href="../2026-10-31/"><span>下一期 → · 2026-10-31</span><strong>Probing Spatial State · L3G-World · Gym-Anything for Robotics</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

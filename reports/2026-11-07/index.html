@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-07｜交互世界的状态接口，与人类经验的规模化 · Yunhe</title><meta name="description" content="从 PlayGen2 的显式三维状态，到 Open-HumanWAM 的人类经验扩展：今天追问世界如何被记住、经验如何被对齐，以及自改进如何被验证。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-07/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-07｜交互世界的状态接口，与人类经验的规模化"><meta property="og:description" content="从 PlayGen2 的显式三维状态，到 Open-HumanWAM 的人类经验扩展：今天追问世界如何被记住、经验如何被对齐，以及自改进如何被验证。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-07/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>交互世界的状态接口，与人类经验的规模化</h1><p class="article-deck">从 PlayGen2 的显式三维状态，到 Open-HumanWAM 的人类经验扩展：今天追问世界如何被记住、经验如何被对齐，以及自改进如何被验证。</p><div class="article-meta"><time datetime="2026-11-07">2026 / 11 / 07</time><span>约 22 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-frameboy-atlas-in-real-timep0">1. Frameboy: Atlas in Real-time｜P0</a><a class="toc-level-2" href="#2-playgen2-learning-real-time-playable-worlds-with-explicit-3d-statep0">2. PlayGen2: Learning Real-Time Playable Worlds with Explicit 3D State｜P0</a><a class="toc-level-2" href="#3-open-humanwam-an-open-recipe-for-scaling-human-and-robot-experiencep0">3. Open-HumanWAM: An Open Recipe for Scaling Human and Robot Experience｜P0</a><a class="toc-level-2" href="#4-spatial-umi-dream-scaling-wams-with-metric-geometry-for-umi-manipulationp0">4. Spatial-UMI-Dream: Scaling WAMs with Metric Geometry for UMI Manipulation｜P0</a><a class="toc-level-2" href="#5-liber-0%E4%BB%8E-220-%E4%B8%87%E5%B0%8F%E6%97%B6%E4%BA%BA%E7%B1%BB%E7%BB%8F%E9%AA%8C%E5%88%B0%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E4%BD%9Cp0">5. Liber-0：从 220 万小时人类经验到机器人动作｜P0</a><a class="toc-level-2" href="#6-motion-guided-contrastive-regularization-for-latent-world-modelsp1">6. Motion-guided Contrastive Regularization for Latent World Models｜P1</a><a class="toc-level-2" href="#7-learning-the-task-or-learning-the-verifierp0">7. Learning the Task or Learning the Verifier?｜P0</a><a class="toc-level-2" href="#8-what-does-multi-turn-rl-really-improve-in-llm-agentsp1">8. What Does Multi-Turn RL Really Improve in LLM Agents?｜P1</a><a class="toc-level-2" href="#9-the-components-of-agent-memoryanthropic-%E7%9A%84%E8%AE%B0%E5%BF%86%E5%88%86%E5%B1%82%E4%B8%8E-dreamingp1">9. The Components of Agent Memory：Anthropic 的记忆分层与 dreaming｜P1</a><a class="toc-level-2" href="#10-lerobot-v070-from-terabytes-to-prompting-robotsp1">10. LeRobot v0.7.0: From Terabytes to Prompting Robots｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-07.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-07</div><article class="prose"><p>检索主窗口为北京时间 <strong>11 月 4 日 09:00—11 月 7 日 09:00</strong>，资源状态核验延伸至成稿。去重采用本地可核验的 <strong>11 月 3 日完整晨报</strong>与 11 月 5 日未完成候选；11 月 6 日有调度记录，但未找到对应的本地成稿，因此不声称已完成对该次会话内容的逐项去重。本期重点为 <strong>6 篇窗口内预印本与 4 项官方研究 / 软件发布</strong>；不把公告批次、媒体转载日或模型库建档日当成论文首发日。</p>
+<p>今天最重要的新增判断是：<strong>交互世界模型开始提供可直接研究的状态接口，人类经验扩展需要动作与本体对齐，自改进评测则必须检验验收规则与执行预算。</strong>World Labs 的 Frameboy 是本轮必须补齐的非 arXiv 重要发布；PlayGen2、Open-HumanWAM 与 Spatial-UMI-Dream 提供了更具体的技术与资源证据。以下“P0 / P1”表示本报阅读优先级，不表示同行评审或独立复现等级。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p><strong>今天我建议的精读顺序是：PlayGen2 → Open-HumanWAM → Spatial-UMI-Dream → Learning the Task or Learning the Verifier? → Frameboy。</strong></p>
+<ul>
+<li><strong>PlayGen2：</strong>先理解“持久状态更新”和“生成画面”如何分开，形成判断交互世界模型的技术标尺。</li>
+<li><strong>Open-HumanWAM：</strong>重点读数据多样性、动作对齐和训练预算，理解人类数据规模律的适用条件。</li>
+<li><strong>Spatial-UMI-Dream：</strong>看度量深度如何进入 WAM，以及跨环境和跨本体如何分别测量。</li>
+<li><strong>Learning the Task or Learning the Verifier?：</strong>检查自改进得分中有多少来自对验收器的适应。</li>
+<li><strong>Frameboy：</strong>最后回看官方实时演示，区分交互体验进展与尚未证明的物理仿真能力。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-frameboy-atlas-in-real-timep0">1. Frameboy: Atlas in Real-time｜P0</h2>
+<p><strong>World Labs 团队；官网日期 11 月 5 日。</strong>性质为官方研究预览与交互演示，没有同时核实到新同行评审论文。它是 Atlas 的实时化新交付，因此值得回访；9 月发布 Atlas 本身不计今日新增。<a href="https://www.worldlabs.ai/blog/atlas-realtime" target="_blank" rel="noopener noreferrer">官方发布</a>、<a href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener noreferrer">Atlas 原始介绍</a>。</p>
+<p>它解决的是生成世界的交互延迟：用户改变相机后，可以连续看到模型生成的新视角。基础 Atlas 把图像及其三维位姿等输入组织成空间上下文，以自回归扩散方式生成后续视图；本次使用优化后的模型变体，并把实时模式接入 Viewfinder。<strong>本次没有公开具体加速算法、训练损失变化或蒸馏配方</strong>，不能从演示反推其机制。</p>
+<p><strong>官方报告最高 15 fps</strong>，从云端 GPU 向浏览器串流。单图生成的场景与真实多视图场景均有展示，Viewfinder 可逐帧构建场景并生成颜色和深度。这里的帧率不是端到端延迟分布，也没有长期动态、接触物理或机器人策略迁移的独立量化结果。Viewfinder 仍为封闭测试，不能把 Frameboy 的展示范围等同所有 Atlas 能力的公开部署。</p>
+<p><strong>值得读，主要价值是交互式空间生成的系统方向。</strong>它承接 RTFM，并扩展到更丰富的生成式新视角；与下文 PlayGen2 的显式状态路线可形成对照。未核实本次开放权重、训练代码或数据，官方也说明依赖较强云端算力。轻量验证可先在开放替代模型上固定二十条“离开—重访”相机轨迹，分别测几何漂移、遮挡后实体状态与交互延迟，再考虑申请原系统访问；画面流畅本身不能证明物理状态可靠。</p>
+<h2 id="2-playgen2-learning-real-time-playable-worlds-with-explicit-3d-statep0">2. PlayGen2: Learning Real-Time Playable Worlds with Explicit 3D State｜P0</h2>
+<p><strong>Jihai Zhang、Yuhan Zhou、Junyou Li、Deheng Ye、Qi Dou、Yu Cheng；香港中文大学、Tencent、Wellington College、南洋理工大学。</strong>预印本首发为北京时间 <strong>11 月 5 日 19:45</strong>；同日已有公开推理包。<a href="https://arxiv.org/abs/2611.07867" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2611.07867v1" target="_blank" rel="noopener noreferrer">方法与实验</a>、<a href="https://github.com/MajorDavidZhang/PlayGen-2/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer">代码与权重发布</a>。</p>
+<p>它研究如何让地图、角色和交互在视野外继续保持状态。模型把静态体素占据与带身份的三维实体存入持久记忆，在局部区域联合学习几何补全、实体发现和动作条件转移；另一渲染器根据深度、语义投影和历史画面生成 RGB，<strong>生成的 RGB 不回流到状态预测</strong>。训练包含占据分类与 Dice 损失、实体属性和运动回归，以及渲染去噪；引入扰动历史帮助模型处理累积误差。</p>
+<p><strong>作者实验：</strong>约 500 小时 Freedoom2 MAP01 数据，状态模型 41.2M、渲染器 29.1M 参数，另有固定 VAE；总训练约 4 张 A100、3 天。十分钟<strong>模拟时间</strong>后，四种地图 / 初始化设置的动作识别准确率为 <strong>82.1%—85.6%</strong>，接触错误率为 <strong>5.2%—6.8%</strong>；后者统计已解决障碍接触及落地中严重穿透的比例，不能读成全部动作失败率。M4 Pro 上约 <strong>160 ms 后端延迟</strong>；多人对手可见性一致率为 96.3%，均是作者报告。</p>
+<p><strong>非常值得精读。</strong>相对 GameNGen / PlayGen 的视频递归路线，它提供可编辑、可检查的三维转移接口；但训练仍局限游戏域，显式真值状态监督、完整地图初始化和视图质量都限制外推。公开推理场景把六处门口固定打开，不模拟开关门。已核实约 277 MB 权重附件和 Apache-2.0 代码 / 权重许可；公开包主要覆盖单人 MAP01 推理，不等于完整训练与多人实验链已复现。轻量验证先用 <code>layout-only</code> 比较全图与局部初始化，固定动作测穿墙、重访和实体持续性，再启用 RGB 分析渲染误差。</p>
+<h2 id="3-open-humanwam-an-open-recipe-for-scaling-human-and-robot-experiencep0">3. Open-HumanWAM: An Open Recipe for Scaling Human and Robot Experience｜P0</h2>
+<p><strong>Juncheng Ma、Jiaxin Li、Jiankai Tu、Bo Liang 等；PKU、NUS、MIT、UCSB、NVIDIA 合作团队。</strong>预印本首发为北京时间 <strong>11 月 5 日 01:31</strong>，v2 为 <strong>11 月 6 日 00:35</strong>；本报固定阅读 v2。<a href="https://arxiv.org/html/2611.06817v2" target="_blank" rel="noopener noreferrer">论文 v2</a>、<a href="https://dagroup-pku.github.io/open-humanwam/" target="_blank" rel="noopener noreferrer">项目</a>、<a href="https://github.com/DAGroup-PKU/HumanNet/tree/open-humanscale" target="_blank" rel="noopener noreferrer">当前代码分支</a>。</p>
+<p>它把“更多人类视频是否改善机器人泛化”拆成数据清洗、动作对齐、多样性和人机混合训练问题。50,000 小时语料经过手部可见性、轨迹稳定性与静止片段过滤，再统一相机坐标、腕轴和双手动作。HumanWAM-Vanilla 基于视频骨干与动作专家联合预测；HumanWAM-Goal 进一步使用视觉目标与混合人机经验。目标包含未来视觉与动作的联合学习，注意力方式决定推理时是否需要显式生成未来。</p>
+<p><strong>作者结果：</strong>纯人类预训练规模从 100 扩到 50,000 小时，受控研究的 Scene-OOD 成功率从 <strong>49.1% 到 73.2%</strong>。最终 Vanilla 在 RoboTwin Clean / Random 为 <strong>92.08% / 68.88%</strong>，Goal 为 <strong>92.70% / 84.60%</strong>；Goal 未做目标任务后训练时，RoboTwin 与二十个真机任务均值为 <strong>13.94% / 30.5%</strong>。这些协议不能混为一个“零样本”成绩。规模研究为各数据量选择训练预算和较好检查点，<strong>不是严格等算力的数据规模因果实验</strong>；视觉目标和人工审阅目标缓存也应计入系统条件。</p>
+<p><strong>值得精读其规模实验，而不是只读榜首数字。</strong>它与人类视频到机器人 WAM 路线相连，价值在于把数据量、任务 / 场景多样性和动作表示分开考察。资源确有实质交付：已核 Vanilla Base / RoboTwin 权重、Goal 权重与目标缓存，以及视频 / Parquet 数据文件；但 50K 语料仍标注上传中，RoboDojo、部分探索权重与后训练链未齐。Vanilla README 的每任务 50 回合与论文 100 回合口径不同；Goal 使用官方 10,000 回合协议。根仓库与 Goal 子组件许可不同，不能统一写成 Apache；数据与检查点条款需逐卡确认。<a href="https://huggingface.co/collections/DAGroup-PKU/open-humanwam" target="_blank" rel="noopener noreferrer">权重集合</a>、<a href="https://huggingface.co/datasets/DAGroup-PKU/Open-HumanWAM-50K" target="_blank" rel="noopener noreferrer">数据入口</a>。</p>
+<p>轻量研究不必重训 50K 小时：从已公开子集做“固定小时数、改变任务多样性”与“固定多样性、改变小时数”的小规模对照，锁定动作转换、后训练示范和计算预算。先核目标缓存与初始观测的匹配，再评策略；本报只核实资源存在及协议，没有运行模型或验收完整语料。</p>
+<h2 id="4-spatial-umi-dream-scaling-wams-with-metric-geometry-for-umi-manipulationp0">4. Spatial-UMI-Dream: Scaling WAMs with Metric Geometry for UMI Manipulation｜P0</h2>
+<p><strong>Weiduo Yuan、Ze Yuan、Sihan Liu、Jionghao Wang、Liang Heng、Zhenyu Zhao、Yue Wang；USC Physical Superintelligence Lab、CMU、Texas A&amp;M。</strong>预印本首发为北京时间 <strong>11 月 5 日 07:34</strong>；本轮已核实模型与 benchmark 的代码交付，不以仓库建档时间代替公开发布时间。<a href="https://arxiv.org/abs/2611.07229" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://weiduoyuan.com/spatial-umi-dream/" target="_blank" rel="noopener noreferrer">项目</a>、<a href="https://github.com/Yewandou7/spatial_umi_dream" target="_blank" rel="noopener noreferrer">模型代码</a>。</p>
+<p>UMI 腕部相机同时移动和观察近距离物体，RGB 中的相机运动、物体运动与尺度容易混淆。本项以 <strong>605 小时 RGB-D UMI 数据</strong>适配 Wan2.2-TI2V-5B，将双手鱼眼图像与对齐的度量深度放入统一画布，先进行纯世界预测，再联合预测未来 RGB-D 与动作；两阶段使用世界与动作的流匹配目标。配套 RoboTwin-UMI 在两种机械臂共享同类 UMI 夹爪和相机条件下，分别测试本体、照明及二者组合迁移。</p>
+<p><strong>作者报告：</strong>二十个仿真任务域内 <strong>79.10%</strong>，本体加照明双变化 <strong>72.15%</strong>，对应最强基线 74.45% / 61.85%；匹配预训练消融中去掉深度使域内下降 <strong>5.75 个百分点</strong>。六个真机任务各二十次测试，完整回合成功率均值 <strong>85.0%</strong>，对比 π0.5 的 60.8%。这是真机作者实验，不是独立复现；共享夹爪和视角使“跨本体”范围较具体，不能外推任意灵巧手。</p>
+<p><strong>值得深入读几何表示与迁移协议。</strong>相对通用视频 WAM，它把度量尺度显式引入训练。已核模型仓库、预训练和微调 safetensors，以及 RoboTwin-UMI 的示范与评测代码；完整 605 小时预训练集未核实公开。模型代码 Apache-2.0、benchmark 代码 MIT，数据许可另核。<a href="https://huggingface.co/Yewandou/spatial-umi-dream" target="_blank" rel="noopener noreferrer">模型权重</a>、<a href="https://github.com/ZeYuan06/RoboTwin-UMI" target="_blank" rel="noopener noreferrer">benchmark</a>。原训练每阶段用 24 张 RTX PRO 6000；轻量实验可直接用微调权重，在两任务上比较正确深度、尺度扰动和打乱深度，分别记录到达、接触与最终成功，检查模型 20D 相对动作到仿真 16D 绝对位姿接口的转换。</p>
+<h2 id="5-liber-0从-220-万小时人类经验到机器人动作p0">5. Liber-0：从 220 万小时人类经验到机器人动作｜P0</h2>
+<p><strong>LiberAI 团队；11 月 4 日已对外公开报道，官方技术长文未列精确日时。</strong>性质为官方研究发布，未核实同行评审、独立技术论文或第三方验证。<a href="https://www.liberai.com/blog/liber0/" target="_blank" rel="noopener noreferrer">官方技术说明</a>、<a href="https://roboticsandautomationnews.com/2026/11/04/from-human-experience-to-robot-action-liberai-launches-liber-0-world-action-model/106378/" target="_blank" rel="noopener noreferrer">发布日报道</a>。它已进入候选并完成官页核验，不再停留于 11 月 5 日的媒体线索状态。</p>
+<p>核心问题是人类视频缺少可靠动作监督，且人体与机器人在形态、视角和可达空间上不同。Liber-0 使用语言、视觉、动作专家与共享 Physical Encoder，把本体表示作为条件；LiberSense Glove 提供实测手部运动，LEO 机器人在腕部、手和相机配置上缩小人机差异。训练依次进行纯视觉预测、联合世界—动作预测、提高动作数据占比的操控预训练，并加入语义任务。<strong>220 万小时是混合人类经验规模，不能写成全部由手套采集的精确动作数据。</strong></p>
+<p><strong>官方结果：</strong>六十个由 GPT-6 提议的任务、每任务十次，共六百次；无这些目标任务的专属机器人示范，总成功率 <strong>36.0%</strong>。其中抓放、短非抓放和复杂多步分别为 <strong>63.5%、34.0%、10.5%</strong>，所以 36% 不能称为多步任务成功率。另一套后训练缩放实验的 <strong>83.6 / 73.8 是平均进度分</strong>，也不能换写为完整成功率。测试任务由模型提议不构成独立第三方评测。</p>
+<p><strong>值得读数据与硬件共同对齐的思路。</strong>它与 Open-HumanWAM 共同推动人类经验扩展，但平台、数据来源与评测不同，不能按小时数排能力。未核实开放权重、训练实现或完整数据，架构细节和总计算量不足以独立重建。可行替代实验是固定一小份机器人示范，加入同等时长的普通人类视频或动作标注视频，比较留出技能与留出本体；再改变腕部视角，检验收益来自动作监督还是硬件视觉接近。</p>
+<h2 id="6-motion-guided-contrastive-regularization-for-latent-world-modelsp1">6. Motion-guided Contrastive Regularization for Latent World Models｜P1</h2>
+<p><strong>Yiwen Chen、Qiqi Hou、Jisoo Jeong、Yinhao Zhu、Huaizu Jiang、Amir Said；Northeastern University、Qualcomm AI Research。</strong>预印本首发为北京时间 <strong>11 月 5 日 02:49</strong>。<a href="https://arxiv.org/abs/2611.06901" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2611.06901v1" target="_blank" rel="noopener noreferrer">完整方法与结果</a>。</p>
+<p>它指出 JEPA 世界模型可能保留各回合不同的背景，却忽略同回合中的物体状态变化：潜变量分布没有塌缩，并不保证其对控制有用。方法保留潜在预测与 SIGReg，再加入同回合候选之间的对比学习；用 SEA-RAFT 光流相似度构造软目标，使相似运动不必被当作完全不同的负例，减少背景身份提供的捷径。</p>
+<p><strong>作者报告：</strong>同架构、同优化设置下，LeWM 在随机背景 OGBench-Cube 的规划成功率从 <strong>52% 提升到 78%</strong>，LIBERO-Object 从 <strong>14% 到 54%</strong>；普通 InfoNCE 对应为 56% / 34%。但 DINO-WM 在 LIBERO-Object 为 68%，本方法并未全线超过强视觉预训练模型。372 MB 为规划峰值显存；112 ms 是指定 Cube / A5000 下五次重规划的整条轨迹用时，不能外推成机器人端到端延迟。</p>
+<p><strong>值得精读，尤其适合作为小规模机制验证。</strong>它把 LeWM / JEPA 的表示正则与“能否区分动作后果”联系起来；局限是依赖光流教师，镜头运动与背景运动仍可能污染监督，任务范围也有限。本轮未核实专属公开代码、权重与完整实验包，使用的是已有控制 benchmark。轻量验证只需选 Cube 两种背景，比较原目标、普通对比、运动软目标和打乱光流四组，同时看物体位置探针与闭环规划成功；探针变好而控制不变时，应保留这一失败结果。</p>
+<h2 id="7-learning-the-task-or-learning-the-verifierp0">7. Learning the Task or Learning the Verifier?｜P0</h2>
+<p><strong>Wenbo Huang、Jianxin Bi、Shunyu Yang 等；PKU、NUS。</strong>全名为 Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement，预印本首发于北京时间 <strong>11 月 6 日 01:14</strong>。<a href="https://arxiv.org/abs/2611.08318" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://arxiv.org/html/2611.08318v1" target="_blank" rel="noopener noreferrer">实验协议</a>、<a href="https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge/" target="_blank" rel="noopener noreferrer">RSIJudge 项目</a>。</p>
+<p>它研究自改进 Agent 读取成功判据后，究竟提高了任务能力还是适应了验收器。实验固定机器人执行接口，比较仅成功反馈与可读判据代码 / 阶段得分两种学习条件，演化任务技能和记忆；评测再用保持指令含义的另一套判据复判。<strong>没有新的神经网络训练损失</strong>，优化对象是 Agent 生成的代码、技能库与记忆。</p>
+<p><strong>作者结果：</strong>二十五任务原判据下，有 / 无判据暴露为 <strong>62.0% / 47.8%</strong>。在十六个“判据要求超出指令”的任务上，原判据为 <strong>51.6% / 27.8%</strong>，换为指令忠实判据后变为 <strong>45.0% / 47.2%</strong>；二者是在同一批轨迹上复判。新任务迁移中，无暴露技能库达到 80/200，暴露技能库为 71/200，空库为 65/200。结论针对这套受控仿真实验，不应推广为所有自进化都无效。</p>
+<p><strong>非常值得精读其验收设计。</strong>它为 PyRUA-Lean 等程序型自改进路线补上外部效度检查；局限包括改写判据仍出自作者、任务样本较少，以及仅分析两档暴露程度。PyRUA-Lean 框架已开放，但论文将独立审阅及判据代码进一步发布列为后续工作，本轮未核实完整改写判据与配对轨迹包。轻量验证可选三个任务，冻结候选程序与回放，分别以原规则和独立编写的指令规则评分；改规则不能反过来向学习器泄露隐藏测试。</p>
+<h2 id="8-what-does-multi-turn-rl-really-improve-in-llm-agentsp1">8. What Does Multi-Turn RL Really Improve in LLM Agents?｜P1</h2>
+<p><strong>Kejian Zhu、Zhuoran Jin、Shangqing Tu、Tianyi Men 等；中科院自动化所、国科大、清华大学。</strong>预印本首发为北京时间 <strong>11 月 4 日 21:24</strong>；配套工具代码此前 10 月 30 日已公开，不能把旧代码首发计作本周新增。<a href="https://arxiv.org/abs/2611.06483" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://rethinking-agentic-rl.github.io/" target="_blank" rel="noopener noreferrer">项目</a>、<a href="https://github.com/GaryStack/Rethinking-Agent-RL/blob/main/paper/coverage.md" target="_blank" rel="noopener noreferrer">代码与覆盖边界</a>。</p>
+<p>它把采样次数 K 与可交互轮数 T 分开，用 Pass@(K,T) 检查多轮 RL。结果提示，收益常集中在错误恢复和长程持续尝试，不能只凭长预算成功率推断每一步都更聪明。BudgetMix 在训练时按任务组随机选择 10%—100% 的轮数预算，并在提示中给出剩余轮数；超时未完成记零奖励，沿用 GRPO、GiGPO 或 PPO 的终局训练目标。</p>
+<p><strong>作者结果示例：</strong>Qwen3-4B、DeepCoder-MT、25% 轮数预算时，Base 为 <strong>34.0%</strong>，满预算 GRPO 训练为 <strong>29.2%</strong>，BudgetMix 为 <strong>38.1%</strong>；100% 预算分别为 48.3%、59.0%、61.2%。这里都是表中的 <strong>Pass@8</strong>，不是单次执行成功率。论文跨任务支持预算依赖判断，但不能据此断言 RL 没有提升基础能力，且训练交互总量也应作为比较成本。</p>
+<p><strong>值得读评测框架与恢复诊断。</strong>它补充长程 Agent RL 的预算维度，与下文记忆整理共同涉及“额外计算花在哪里”。MIT 工具实现已公开，但仓库明确全部论文数值复现状态仍为 false，完整 PPO / GiGPO 集成、论文权重及原始轨迹未齐；脚本策略演示不构成模型验证。低成本做法是对已有 Base / RL 模型固定二十个任务、四档 T 和同一 K，再从相同错误前缀恢复，分别统计决策正确率、恢复率、token 与耗时。</p>
+<h2 id="9-the-components-of-agent-memoryanthropic-的记忆分层与-dreamingp1">9. The Components of Agent Memory：Anthropic 的记忆分层与 dreaming｜P1</h2>
+<p><strong>Lance Martin 撰文，Anthropic Engineering；11 月 6 日官方研究 / 工程文章。</strong>没有核实为同行评审论文或新权重发布。<a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank" rel="noopener noreferrer">官方文章</a>、<a href="https://github.com/anthropics/claude-quickstarts/tree/main/managed-agents/knowledge-wiki" target="_blank" rel="noopener noreferrer">知识 Wiki 示例</a>。</p>
+<p>它处理 Agent 如何从跨会话经验中保存可用知识。系统区分原始记录、记忆笔记、Wiki 等组织表示与预先注入的上下文；dreaming 利用离线计算回查来源、纠错、合并或调整注入内容。它属于外部记忆与运行时改进，<strong>不等于模型参数训练，也不等于视频世界模型中的“做梦”</strong>；没有一个统一的新训练损失。</p>
+<p><strong>官方实验：</strong>在约 35 万文件的内部语料上，二十五个问题的 search-only 得分为 <strong>53%</strong>，Wiki 加 search 随整理计算增加达到 <strong>61%</strong>，Wiki-only 为 <strong>48%</strong>；这些是分级标准得分。另一案例从 41/57 条事实覆盖提升到 57/57，伴随对写作规则和并发写入方式的修正，不能只归因为“睡眠式推理”。文章也报告单文档检索任务没有明显 Wiki 增益，甚至出现 Wiki 比原文更大的情况。</p>
+<p><strong>值得读其组件归因与负结果。</strong>它承接 sleep-time compute，把长期记忆组织当作可研究的计算分配；局限是内部语料、小评测集及额外整理成本，未见独立复现。公开示例包含笔记本、提示与资料组织工具，原内部语料和完整实验状态未开放。可用一百份公开文档、冻结的三十个跨文档问题，比较直接搜索、在线笔记、离线整理三组，计入建库成本与过期事实错误，避免用单次成功案例证明普遍收益。</p>
+<h2 id="10-lerobot-v070-from-terabytes-to-prompting-robotsp1">10. LeRobot v0.7.0: From Terabytes to Prompting Robots｜P1</h2>
+<p><strong>Steven Palma、Pepijn Kooijmans、Caroline Pascal、Khalil Meftah 等，Hugging Face LeRobot 团队与社区。</strong>官方文章日期为 <strong>11 月 5 日</strong>；正式 GitHub Release 发布于北京时间 <strong>11 月 6 日 01:13</strong>，已有 wheel 和源码附件。<a href="https://huggingface.co/blog/lerobot/lerobot-release-v070" target="_blank" rel="noopener noreferrer">发布文章</a>、<a href="https://github.com/huggingface/lerobot/releases/tag/v0.7.0" target="_blank" rel="noopener noreferrer">正式版本</a>。</p>
+<p>这是研究基础设施的实质更新：交互式策略运行、外部 VLM 规划、语言监督配方、按需视频读取、FSDP2 / HSDP、分布式检查点、远端推理，以及统一仿真接口共同进入发布。新增 WAM / VLA 适配使多模型实验更容易组合，但<strong>适配器发布不等于上游模型本日首发</strong>。框架不提出统一的新学习目标，各策略仍使用自身的动作、视觉或语言训练目标。</p>
+<p><strong>维护者报告：</strong>流式数据读取用四个 worker 达到 <strong>2.1—2.5 倍 samples/s</strong>；6B FastWAM、8×H200 下，DCP 保存快约三倍，恢复峰值显存由 <strong>143 GB 到 42 GB / GPU</strong>。这些是指定系统设置的测量，本报未独立测试。平台接近 300 TB 的 Physical AI 数据是累积托管规模，不是本次新发布数据集；模型页的成功率也来自不同上游协议，不能横向拼榜。</p>
+<p><strong>值得读发布与迁移说明，做实验前应优先核接口。</strong>它把数据、训练与部署流程连起来，但依赖与接口变化较大，集成不保证公平复现。代码和正式包已交付，权重 / 数据许可按组件分别核验。轻量验证可先在隔离环境对一小份数据比较流式与本地读取的样本顺序、断点恢复及动作归一化，再用固定策略加入网络延迟，检查远端动作块过期处理；不必先训练十亿级模型。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮发现了足以进入重点的官方新增，不能使用“主要公司没有更新”的结论。</strong>主要包括 World Labs Frameboy、LiberAI Liber-0、Anthropic 记忆研究，以及 LeRobot 正式交付。额外确认 Google DeepMind 于 11 月 5 日发布 Gemini Omni 1.2 Flash：增加十五秒视频与多轮编辑，属视频生成模型 / 产品发布；本轮没有核实新的物理控制或机器人迁移实验，因此进入候选观察，不替代世界模拟证据。<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" target="_blank" rel="noopener noreferrer">Google 官方发布</a>、<a href="https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/" target="_blank" rel="noopener noreferrer">模型卡</a>。</p>
+<p><strong>FieldAI / Kajima 的 11 月 5 日工地部署公告</strong>也已进入候选，它是应用部署证据，尚非新公开模型、训练配方或可重算基准。<a href="https://www.fieldai.com/news/kajima-full-scale-deployment-of-robots-with-general-purpose-autonomy-software-on-construction-sites" target="_blank" rel="noopener noreferrer">官方公告入口</a>。MoWorld 2.0 的 11 月 4 日发布线索已回补；当前取到的主要是媒体对官方说法的转述，尚未取得可审计的原始技术包，不据此认定物理能力或速度优势。该项属于<strong>原始证据检索尚未闭环</strong>，不是没有搜到后以筛选解释。<a href="https://www.ithome.com/1/022/424.htm" target="_blank" rel="noopener noreferrer">事件报道</a>。</p>
+<p>扫描范围覆盖 <strong>World Labs、Generalist AI、Physical Intelligence、Google DeepMind / Robotics、NVIDIA Robotics / Cosmos / GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute</strong>；高校与中国团队入口包括 Stanford、Berkeley、MIT、CMU、Princeton、北大 EPIC / DAGroup、清华 AIR、上海 AI Lab、BAAI、腾讯混元、阿里达摩院、字节 Seed、智元、Robbyant、云深处等。除上面已说明的更新外，本轮在可读取入口中未核实到其他足以升级为重点的新研究交付；这不代表全部机构均无更新。</p>
+<p><strong>覆盖边界：</strong>TRI、Stanford AI Blog 的直接连接失败，Princeton 返回 403；已补站点检索和 Stanford Robotics Center。部分国内动态页只有空壳，Meta 索引也偏旧。arXiv 严格窗口 API 返回 429，已改用四类 new / recent、逐篇版本历史及全文；可读公告到 11 月 6 日，无法保证覆盖之后尚未公告的提交。四类 recent 共 4,211 条分类记录、3,364 个唯一 ID，主题初筛 584 项；这些数字包含交叉投稿、旧版本与窗口外首发，<strong>不是今日新增论文数量</strong>。</p>
+<p>最后又以 Spatial Intelligence、World Model、Physical AI、Embodied / Robot Foundation Model、Real-to-Sim、3D / 4D world generation、Human-to-Robot、Agent / Self-Evolution 与主要机构交叉做 broader-web 兜底。已入池但未展开的 <a href="https://arxiv.org/abs/2611.06748" target="_blank" rel="noopener noreferrer">EvoWorld</a>、<a href="https://arxiv.org/abs/2611.08156" target="_blank" rel="noopener noreferrer">La-JEPA</a>、<a href="https://arxiv.org/abs/2611.08373" target="_blank" rel="noopener noreferrer">SLA</a>、<a href="https://arxiv.org/abs/2611.07939" target="_blank" rel="noopener noreferrer">WAM-Sim0.1</a>、<a href="https://arxiv.org/abs/2611.08478" target="_blank" rel="noopener noreferrer">Scientist World</a> 属本轮 Selection；<a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer">HY-World 2.0</a> 与 <a href="https://arxiv.org/abs/2610.26659" target="_blank" rel="noopener noreferrer">SpatialScout</a> 已回溯到更早发布，没有核实窗口内实质新证据，不因近期转载计新。11 月 5 日候选中的 DreamX / HiLo-WAM 等也没有仅凭候选名称自动升级。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图仍按“感知与状态 → 转移预测 → 规划执行 → 学习闭环 → 评测基础设施”组织。下列趋势、gap 与机会是本报综合判断，尚未由这些论文共同验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>未解决 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久空间与可交互世界</td>
+<td>Frameboy、PlayGen2；空间上下文与显式状态两路推进</td>
+<td>重访一致、视野外动态、接触正确性缺少统一比较</td>
+<td>同观测、同预算下比较像素递归与显式状态，并分离渲染错误</td>
+</tr>
+<tr>
+<td>人类经验与跨本体对齐</td>
+<td>Open-HumanWAM、Liber-0；数据覆盖和动作锚点结合</td>
+<td>数据小时数、动作精度、硬件接近和计算量相互混合</td>
+<td>固定数据量与预算，估计动作标注质量及形态差异的迁移曲线</td>
+</tr>
+<tr>
+<td>几何状态到动作</td>
+<td>Spatial-UMI-Dream，连接 UMI / WAM</td>
+<td>深度质量收益与标定、视角及接口转换贡献难分</td>
+<td>深度尺度和外参受控扰动，区分几何推理与视觉捷径</td>
+</tr>
+<tr>
+<td>视频表示的控制效用</td>
+<td>Motion-guided regularization，连接 JEPA / LeWM</td>
+<td>分布不塌缩仍可能忽略任务动态</td>
+<td>任务状态与背景独立干预，以闭环后果检验潜变量</td>
+</tr>
+<tr>
+<td>自改进与长期执行</td>
+<td>Criteria Exposure、BudgetMix、Anthropic memory</td>
+<td>验收适应、重试预算、记忆整理计算共同改变分数</td>
+<td>冻结外部判据，联合报告预算曲线、记忆成本与跨任务保留</td>
+</tr>
+<tr>
+<td>研究基础设施</td>
+<td>LeRobot 0.7、持续跟踪 Genie Sim / SimuGuard</td>
+<td>包可安装、资源可见与任务成功之间仍有距离</td>
+<td>流式数据、动作转换和远端运行的语义一致性审计</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期新增的连接是：<strong>持久化的不只是视觉状态，也包括目标、动作语义和经验规则；每一种持久化都需要校准其适用范围。</strong>上一期的 ID-WM 可达性、GeoFlip 物理事件、SimuGuard 引擎异常与 Genie Sim 任务验收继续保留，不把旧结果重新计作本期进展。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：把“世界稳定”拆成状态与渲染两项。</strong>在 PlayGen2 的局部 / 全局初始化下固定相同动作，先审计占据、碰撞和实体状态，再看 RGB。加入视野外等待与回访，记录按模拟时长变化的错误，而不只挑流畅视频。若状态可靠而画面漂移，研究方向应落到渲染条件；反之应修转移和记忆。</li>
+<li><strong>机会二：建立人类数据的质量—多样性迁移曲线。</strong>选择十到五十小时公开人类数据与固定机器人示范，改变动作对齐、任务覆盖与视角匹配，保持后训练量和计算量不变；留出任务与本体分别测试。这样能检验 Open-HumanWAM / Liber-0 的可迁移机制，而不必复刻全部预训练规模。</li>
+<li><strong>机会三：用背景干预检验潜变量是否保留可控状态。</strong>保持物理轨迹不变，只改变背景；比较原 JEPA、普通对比、运动软目标及打乱光流。物体探针、动作后果排序与闭环规划至少同时报告两项，避免只凭潜变量可分性推断控制收益。</li>
+<li><strong>机会四：给自改进做验收与预算的交叉实验。</strong>先冻结隐藏判据和任务划分，只允许训练反馈；对同一轨迹双规则复判，再在相同错误前缀下测四档轮数预算。引入记忆时把离线整理 token、维护时间和旧知识失效率计入成本，检验得分增长能否迁移到新的任务与验收者。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>六篇重点论文按预印本核验，本轮未核实同行评审录用；四项官方发布也不自动视为论文证据。<strong>本报完成了来源、版本、代码与资源目录核查，没有运行论文模型、GPU 仿真、付费 API 或真机实验；没有把官方 / 作者结果称为独立复现。</strong></p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实的公开资源</th>
+<th>仍需补齐的证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frameboy</td>
+<td>官方技术介绍与研究预览入口</td>
+<td>权重、训练 / 加速细节、独立延迟与长期物理量化</td>
+</tr>
+<tr>
+<td>PlayGen2</td>
+<td>推理代码、场景、正式权重附件</td>
+<td>完整训练 / 多人实验复现与真实物理迁移</td>
+</tr>
+<tr>
+<td>Open-HumanWAM</td>
+<td>部分基础 / 后训练权重、Goal 缓存、数据文件与代码</td>
+<td>完整 50K 上传验收、缺失训练链、协议和组件许可统一核对</td>
+</tr>
+<tr>
+<td>Spatial-UMI-Dream</td>
+<td>预训练 / 微调权重、benchmark、示范与评测代码</td>
+<td>605 小时全量预训练数据、独立迁移实验</td>
+</tr>
+<tr>
+<td>Liber-0</td>
+<td>官方技术长文与展示</td>
+<td>开放权重 / 训练 / 数据、独立任务设计及复现</td>
+</tr>
+<tr>
+<td>Motion-guided regularization</td>
+<td>论文、消融与已知 benchmark 定义</td>
+<td>专属代码、权重和多种动态背景验证</td>
+</tr>
+<tr>
+<td>Criteria Exposure</td>
+<td>论文、框架与项目说明</td>
+<td>独立审阅判据、完整配对轨迹及跨 benchmark 改写</td>
+</tr>
+<tr>
+<td>BudgetMix</td>
+<td>诊断工具与部分训练集成</td>
+<td>论文权重、完整实验数据与数值复现</td>
+</tr>
+<tr>
+<td>Anthropic memory</td>
+<td>官方实验说明、Wiki / dreaming 示例</td>
+<td>内部语料、重复实验与完整建库成本</td>
+</tr>
+<tr>
+<td>LeRobot 0.7</td>
+<td>正式 wheel、源码、集成文档</td>
+<td>各上游模型的统一协议复现及系统测量复核</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>今天先读 PlayGen2 的状态更新，再读 Open-HumanWAM 的数据与预算协议。第一个小实验建议选择“同一物理轨迹、改变背景”的四组对照，同时保留闭环成功与失败回放；它最容易区分表示改进和视觉捷径。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-03/"><span>← 上一期 · 2026-11-03</span><strong>ID-WM · GeoFlip · RoboArchitect</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>

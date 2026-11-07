@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-05-24｜AI 研究观察 · 2026-05-24 · Yunhe</title><meta name="description" content="① Google I/O 2026 全面AI化：Gemini 3.5 Flash/Gemini Spark/Gemini Omni 齐发 Google 于5月20日召开I/O 2026大会，发布Gemini 3.5 Flash（已全面可用）、Gemini Spark（24/7个人AI智能体）、Gemini Omni等多款重磅产品。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-05-24/"><meta property="og:type" content="article"><meta property="og:title" content="2026-05-24｜AI 研究观察 · 2026-05-24"><meta property="og:description" content="① Google I/O 2026 全面AI化：Gemini 3.5 Flash/Gemini Spark/Gemini Omni 齐发 Google 于5月20日召开I/O 2026大会，发布Gemini 3.5 Flash（已全面可用）、Gemini Spark（24/7个人AI智能体）、Gemini Omni等多款重磅产品。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-05-24/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">AI 前沿情报 <span> / </span> RESEARCH DAILY</p><h1>AI 研究观察 · 2026-05-24</h1><p class="article-deck">① Google I/O 2026 全面AI化：Gemini 3.5 Flash/Gemini Spark/Gemini Omni 齐发 Google 于5月20日召开I/O 2026大会，发布Gemini 3.5 Flash（已全面可用）、Gemini Spark（24/7个人AI智能体）、Gemini Omni等多款重磅产品。</p><div class="article-meta"><time datetime="2026-05-24">2026 / 05 / 24</time><span>约 16 分钟阅读</span><div class="tags"><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-05-24.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">AI 前沿情报日报 <span>｜</span> 2026-05-24</div><article class="prose"><p>来源覆盖：arXiv · 公众号 · 知乎 · 小红书 · X · 微博 · B站 · 贴吧 · Reddit · 科技媒体 · Google News · LinkedIn</p>
+<p>【🚨 今日重点】</p>
+<p><strong>① Google I/O 2026 全面AI化：Gemini 3.5 Flash/Gemini Spark/Gemini Omni 齐发</strong>
+Google 于5月20日召开I/O 2026大会，发布Gemini 3.5 Flash（已全面可用）、Gemini Spark（24/7个人AI智能体）、Gemini Omni等多款重磅产品。同时宣布Gemini API支持Webhooks、推出Google Antigravity agent开发平台。谷歌全面向"Agent优先"战略转型。</p>
+<p><strong>② 阿里发布Qwen3.7-Max：登顶最佳国产模型，可完成35小时超长程Agent任务</strong>
+阿里巴巴于5月19日发布千问新一代旗舰模型Qwen3.7-Max，该模型面向Agent全新设计，在编程、推理等核心能力上实现突破，可全自主完成35小时的超长程复杂任务，预训练成本仅为同规模模型的约6%，现已上线百炼API。</p>
+<p><strong>③ 英伟达Jim Fan红杉演讲引爆VLA vs WAM路线之争</strong>
+英伟达机器人负责人Jim Fan在红杉AI Ascent 2026大会上连开两场"葬礼"：宣告VLA（视觉-语言-动作模型）已死，WAM（世界动作模型）当立。同时复旦发布全球首篇WAM系统性综述，系统梳理366篇论文，标志着具身智能领域一场前所未有的技术路线之争正式开启。</p>
+<p>━━━ 顶级研究组新发布 ━━━
+<strong>arXiv 5月22日单日新增236篇论文</strong>，以下是值得重点关注的新发布：</p>
+<ol>
+<li>
+<p><strong>MOSS: Self-Evolution through Source-Level Rewriting in Autonomous Agent Systems</strong>（arXiv:2605.22794）— 自主Agent系统通过源码级重写实现自我演化，无需人类干预即可持续提升能力，来自复旦大学。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Efficient Agentic Reasoning Through Self-Regulated Simulative Planning</strong>（arXiv:2605.22138）— 通过自监管模拟规划实现高效Agent推理，同时覆盖cs.AI/cs.CL/cs.LG/cs.RO多领域，链接规划与机器人控制。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Claw AI Lab: An Autonomous Multi-Agent Research Team</strong>（arXiv:2605.22662）— 自主多智能体研究团队框架，多Agent协作完成端到端科研任务。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Ratchet: A Minimal Hygiene Recipe for Self-Evolving LLM Agents</strong>（arXiv:2605.22148）— 提出自演化LLM Agent的最小化"卫生配方"，实现长期自主学习。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Compiling Agentic Workflows into LLM Weights: Near-Frontier Quality at Two Orders of Magnitude Less Cost</strong>（arXiv:2605.22502）— 将Agent工作流编译为LLM权重，成本降低两个数量级同时接近前沿质量。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Clipping Bottleneck: Stabilizing RLVR via Stochastic Recovery of Near-Boundary Signals</strong>（arXiv:2605.22703）— 来自清华/字节/北大团队，解决RLVR（基于过程验证的强化学习）的稳定性问题，推进推理模型后训练。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>SciCore-Mol: Augmenting LLMs with Pluggable Molecular Cognition Modules</strong>（arXiv:2605.22287）— 清华大学 &amp; 腾讯AI Lab团队，为LLM引入可插拔分子认知模块，强化AI辅助药物设计能力。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Search-E1: Self-Distillation Drives Self-Evolution in Search-Augmented Reasoning</strong>（arXiv:2605.22511）— 搜索增强推理中的自我蒸馏自演化方法，提升RAG系统推理能力。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Advancing Mathematics Research with AI-Driven Formal Proof Search</strong>（arXiv:2605.22763）— DeepMind团队参与，利用AI驱动形式化证明搜索推进数学研究，论文合著者包含Pushmeet Kohli等核心成员。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>TerminalWorld: Benchmarking Agents on Real-World Terminal Tasks</strong>（arXiv:2605.22535）— 评测Agent在真实终端任务上的表现，建立新的评测基准。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>WorkstreamBench: Evaluating LLM Agents on End-to-End Spreadsheet Tasks in Finance</strong>（arXiv:2605.22664）— 金融电子表格任务的端到端LLM Agent评测基准，来自汇量科技/哥伦比亚大学团队。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Post-Training is About States, Not Tokens: A State Distribution View of SFT, RL, and On-Policy Distillation</strong>（arXiv:2605.22731）— 后训练新视角：状态分布而非token分布，刷新对SFT/RL/蒸馏的理解。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>ArborKV: Structure-Aware KV Cache Management for Scaling Tree-based LLM Reasoning</strong>（arXiv:2605.22106）— 树结构LLM推理的KV Cache管理方案，提升长推理的效率与可扩展性。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems</strong>（arXiv:2605.22786）— 多智能体系统中KV共享安全防护，确保多Agent协作安全。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Vector Policy Optimization: Training for Diversity Improves Test-Time Search</strong>（arXiv:2605.22817）— 强调多样性的策略优化方法，提升测试时搜索能力，来自Google DeepMind/UC Berkeley团队。 | 来源：arXiv</p>
+</li>
+</ol>
+<p><strong>Anthropic Glasswing项目更新</strong>（5月22日）— Anthropic发布Glasswing初始更新，这是其在安全与AI结合方面的最新研究项目，延续Claude Mythos Preview的网络安全能力探索。 | 来源：Anthropic官网</p>
+<p><strong>Google DeepMind Gemma新模型</strong>— 谷歌DeepMind近期发布最新开源Gemma模型，继续扩展轻量级开源模型家族。 | 来源：Google DeepMind</p>
+<p><strong>Meta Superintelligence Labs "Muse Spark"</strong>— Meta AI宣布Muse Spark作为Llama系列的替代品即将发布（Wiktionary引用）。 | 来源：Wikipedia/Reddit</p>
+<p><strong>百度Create 2026发布文心5.1</strong>（5月9日）— 百度发布文心大模型5.1，采用"多维弹性预训练"技术，预训练成本仅为业界同规模模型的约6%。在5月13-14日Create大会上，发布通用智能体DuMate（百度搭子）、代码智能体秒哒、数字人智能体百度一镜等三大智能体产品，百度全面转型"智能体优先"。 | 来源：公众号·量子位</p>
+<p><strong>智象未来HiDream-O1-Image-Pro发布</strong>（5月20日）— 智象未来发布超两千亿参数图像大模型HiDream-O1-Image-Pro，采用原生全模态UiT统一架构，融资持续提速。 | 来源：公众号·量子位</p>
+<p><strong>昆仑万维荣获量子位2026年度双奖</strong>（5月20日）— 昆仑万维获"2026年度值得关注的AIGC企业"和"2026年度值得关注的AIGC产品"两大奖项。 | 来源：公众号·量子位</p>
+<p><strong>北大孵化项目"维泛智能"获数亿元种子轮融资</strong>（5月23日）— 国内首家原生机器人"大脑芯片"公司，完成数亿元种子轮融资，孵化自北大类脑芯片实验室，专注机器人原生大脑芯片。 | 来源：科技媒体·36氪</p>
+<p>━━━ 生成模型 / 新范式 ━━━
+1. <strong>Google Gemini 3.5 Flash</strong> — I/O 2026发布，已在Gemini API和Google Antigravity平台全面可用，主打速度与成本优化，面向AI Agent场景优化。 | 来源：Google Blog</p>
+<ol start="2">
+<li>
+<p><strong>Google Gemini Omni</strong> — I/O 2026发布，整合多模态能力，支持跨模态信息处理，谷歌称其为"全模态"模型架构。 | 来源：Google I/O</p>
+</li>
+<li>
+<p><strong>量子位智库《2026年中国AI应用全景图谱报告》</strong>（5月20日）— 报告显示：2026年中国AI日均Token调用量突破140万亿，两年增长千倍；大模型周调用量超美国；Web端月访问量破9亿，APP总下载量超2.4亿。 | 来源：公众号·量子位</p>
+</li>
+<li>
+<p><strong>Diffusion模型新进展</strong>：arXiv近期收录多篇扩散模型理论论文，包括Uniform Diffusion Models Revisited（LOO去噪器新框架）和The Distillation Game（自适应攻击与高效防御）等，推动扩散模型效率与安全性提升。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Seedance 2.0 音视频联合生成</strong>（字节跳动，4月发布，近期持续迭代）— 原生多模态音视频联合生成模型，同时理解文字、图片、音频、视频四种输入，实现画面与声音深度同步。 | 来源：知乎</p>
+</li>
+</ol>
+<p>━━━ 多模态 / VLM ━━━
+1. <strong>Google Gemini Spark</strong> — I/O 2026发布24/7个人AI助手，基于Gemini构建，支持个性化长期记忆与持续陪伴。 | 来源：Google Cloud Blog</p>
+<ol start="2">
+<li>
+<p><strong>Google Antigravity Agent开发平台</strong> — I/O 2026发布，谷歌首个Agent优先开发平台，整合Gemini 3.5 Flash能力，支持webhooks和工作流自动化。 | 来源：Google I/O</p>
+</li>
+<li>
+<p><strong>智象未来HiDream-O1-Image-Pro</strong> — 超两千亿参数图像生成模型，基于UiT架构，实现文字/图片/视频原生统一建模，向世界模型进发。 | 来源：公众号·量子位</p>
+</li>
+<li>
+<p><strong>ST-SimDiff: VLM视频理解</strong>（arXiv:2605.22154）— 平衡时空相似性与差异性的高效视频理解方法，用于多模态大语言模型（MLLM）。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Perception or Prejudice: Can MLLMs Go Beyond First Impressions of Personality?</strong>（arXiv:2605.22109）— 探究多模态大语言模型能否超越第一印象感知人格，研究模型偏见与感知能力的边界。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Measuring Cross-Modal Synergy: A Benchmark for VLM Explainability</strong>（arXiv:2605.22168）— 跨模态协同评测基准，用于VLM可解释性研究。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Understanding Multimodal Failure in Action-Chunking Behavioral Cloning</strong>（arXiv:2605.22493）— 分析行为克隆中多模态失败的根因，推进机器人多模态学习。 | 来源：arXiv</p>
+</li>
+</ol>
+<p>━━━ 具身 / VLA / 机器人 ━━━
+1. <strong>英伟达Jim Fan宣告"VLA已死，WAM当立"</strong>（红杉AI Ascent 2026，5月）— Jim Fan在红杉AI峰会上抛出重磅论断：现有VLA架构无法实现真正的通用机器人智能，下一代范式是World Action Model（WAM）——将视频预测与动作预测统一到同一模型中，Jim Fan称之为"机器人的GPT时刻"。 | 来源：知乎/36氪/腾讯新闻</p>
+<ol start="2">
+<li>
+<p><strong>复旦发布全球首篇WAM系统性综述</strong>（近期）— 收录366篇论文，系统梳理World-Action Model（世界动作模型）研究现状，为VLA→WAM转型提供理论支撑。 | 来源：36氪/新浪财经</p>
+</li>
+<li>
+<p><strong>百度Create 2026发布通用智能体DuMate"百度搭子"</strong>（5月13-14日）— 百度全面转向智能体战略，DuMate定位为日常生活通用助手，整合文心大模型5.1能力。 | 来源：公众号·量子位</p>
+</li>
+<li>
+<p><strong>MoSA: Motion-constrained Stress Adaptation for Real-to-Sim Gap</strong>（arXiv:2605.22597）— ICML 2026录用论文，解决连续体动力学仿真到现实的迁移差距问题。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Factored Diffusion Policies for Robot Control</strong>（arXiv:2605.22596）— 因子化扩散策略，实现单分数网络组合泛化的机器人控制。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>英伟达Jim Fan"机器人终局之战"完整演讲</strong>（红杉AI Ascent 2026，5月5日）— Jim Fan提出2040机器人终局之战路线图，称未来5年将是机器人从实验室走向工业规模化的关键窗口期。 | 来源：YouTube/知乎</p>
+</li>
+<li>
+<p><strong>人形机器人2026：从试点到平台</strong>（KraneShares研报）— 分析人形机器人从示范应用到规模化平台的演进路径，VLA架构是核心支撑。 | 来源：KraneShares</p>
+</li>
+</ol>
+<p>━━━ Agent / 大模型 ━━━
+1. <strong>Google I/O 2026：Agent优先战略</strong>（5月20日）— 谷歌将"Agent"提升为公司战略核心，Gemini 3.5 Flash定位为Agent开发首选模型，Antigravity平台支持webhooks驱动的workflow自动化。 | 来源：Google Blog</p>
+<ol start="2">
+<li>
+<p><strong>百度全面转型"智能体优先"，不再流水线式发布基础模型</strong>（Create 2026，5月13-14日）— 百度CEO李彦宏提出AI时代"度量衡"概念：评估AI不再只看基准测试分数，更要看实际任务完成率与生态繁荣度。发布三大智能体产品：DuMate（通用）、秒哒（代码）、百度一镜（数字人）。 | 来源：公众号·量子位/网易</p>
+</li>
+<li>
+<p><strong>Qwen3.7-Max发布：35小时超长程Agent任务</strong>（5月19日）— 阿里千问新一代旗舰，面向Agent全新设计，支持端到端35小时复杂任务执行，刷新国产模型Agent能力上限。 | 来源：微博/量子位</p>
+</li>
+<li>
+<p><strong>HarnessAPI: A Skill-First Framework for Unified Streaming APIs and MCP Tools</strong>（arXiv:2605.22733）— 统一流式API与MCP工具的Skill优先框架，推动Agent工具调用标准化。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>ExComm: Exploration-Stage Communication for Error-Resilient Agentic Test-Time Scaling</strong>（arXiv:2605.22102）— Agent测试时缩放的探索阶段通信协议，提升错误容忍度。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>IdleSpec: Exploiting Idle Time via Speculative Planning for LLM Agents</strong>（arXiv:2605.22154）— 利用空闲时间的推测规划方法，提升LLM Agent资源利用效率。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Intent-based chaos testing for AI agents</strong>（VentureBeat，5月9日）— 2026年企业AI对话两大焦点：身份治理（谁在代理行事）与可观测性（Agent行为是否可信）。 | 来源：VentureBeat</p>
+</li>
+<li>
+<p><strong>MIT Sloan《2026 AI决策者行动清单》</strong> — MIT观点：Agentic AI尚未准备好进入黄金时代；AI泡沫将会收缩；有条件的生成式AI应成为核心。 | 来源：MIT Tech Review</p>
+</li>
+</ol>
+<p>━━━ AI for Science ━━━
+1. <strong>DeepMind团队参与"AI推进形式化数学证明搜索"</strong>（arXiv:2605.22763）— DeepMind、华为、哥德堡大学等机构联合推进AI形式化证明，提升数学研究自动化程度。 | 来源：arXiv</p>
+<ol start="2">
+<li>
+<p><strong>SciCore-Mol: LLM+可插拔分子认知模块</strong>（arXiv:2605.22287）— 清华+腾讯AI Lab，LLM辅助药物发现的模块化增强方案，可插拔设计支持不同药物靶点定制。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Integrable Elasticity via Neural Demand Potentials</strong>（arXiv:2605.22820）— 神经需求势能方法处理可积弹性问题，推进力学与机器学习的交叉研究。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>AI辅助放射学报告生成的双重困境与梯度动力学分析</strong>（arXiv:2605.22635）— ICML 2026录用，分析医学影像报告生成中的双重优化困境并提出解决方案。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>GraphFlow: Graph-Based Workflow Management for Efficient LLM-Agent Serving</strong>（arXiv:2605.22566）— ICML 2026录用，图结构工作流管理用于高效LLM-Agent服务系统。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Benchmarking ML Architectures for Antimicrobial Stewardship in Pediatric ICUs</strong>（arXiv:2605.22611）— 儿童ICU抗菌药物管理的机器学习评测，推动AI在重症医学的落地。 | 来源：arXiv</p>
+</li>
+<li>
+<p><strong>Isomorphic Labs AI设计药物进入临床</strong> — AlphaFold 3团队分拆公司Isomorphic Labs的AI设计候选药物已进入临床试验阶段，AI药物设计从研究走向真实价值验证。 | 来源：LinkedIn/Scientific American</p>
+</li>
+</ol>
+<p>━━━ 开源 · 工具 ━━━
+1. <strong>GitHub Trending AI Repositories（2026年5月）</strong> — 当前最热AI开源项目：awesome-ai-agents-2026（Zijian-Ni团队，5月10日更新）、OpenClaw（据称GitHub史上增长最快的开源项目之一）。 | 来源：GitHub/Medium</p>
+<ol start="2">
+<li>
+<p><strong>HuggingFace社区活跃</strong> — 智象未来HiDream-O1-Image开源权重，鲸智平台收录多款Apache 2.0许可模型。 | 来源：鲸智社区</p>
+</li>
+<li>
+<p><strong>Ollama Llama4系列持续更新</strong> — Meta Llama4 MoE架构模型已可在Ollama本地运行，支持文本与多模态体验。 | 来源：Ollama官网</p>
+</li>
+<li>
+<p><strong>Awesome AI Agents 2026资源库</strong>（GitHub，5月10日）— 汇集2026年Agent主流方法、框架、工具与协议资源，成为开发者必看资源列表。 | 来源：GitHub</p>
+</li>
+<li>
+<p><strong>Google I/O 2026发布100项AI公告</strong> — 涵盖模型、工具、平台三大层面，Gemini API更新、Antigravity平台、Google Search集成更新等。 | 来源：Google Blog</p>
+</li>
+</ol>
+<p>━━━ 产业 · 创业 ━━━
+1. <strong>OpenAI筹备年底IPO</strong> — 多方消息显示OpenAI正加速IPO进程，同时推出GPT-5.5-Cyber网络安全模型；Anthropic发布Claude Mythos Preview网络安全模型并获谷歌额外算力支持。 | 来源：公众号·量子位</p>
+<ol start="2">
+<li>
+<p><strong>2026年Q1全球AI创业投融资数据</strong>（IT桔子）— Q1共发生2865起融资事件，环比+2.5%，同比+52%；AI公司定价正沿产业集群重新调整，中国大模型赛道持续吸引资本。 | 来源：36氪</p>
+</li>
+<li>
+<p><strong>阶跃星辰B+轮融资超50亿人民币</strong>（1月24日完成）— 刷新过去12个月中国大模型赛道单笔最高融资纪录，上国投先导基金、国寿股权、浦东创投等参与。 | 来源：36氪</p>
+</li>
+<li>
+<p><strong>Fireworks AI 2.5亿美元C轮</strong>（2025年10月）— ARR约8000万美元，2026年目标1.5亿美元，聚焦企业级规模化落地。 | 来源：36氪</p>
+</li>
+<li>
+<p><strong>百度智能云AI Infra &amp; Agent Infra双突破</strong>（Create 2026）— 大规模高性价比算力服务能力全面升级，推动AI基础设施民主化。 | 来源：公众号·量子位</p>
+</li>
+</ol>
+<p>【📌 今日一句话总结】
+Google I/O 2026与百度Create 2026同周召开，共同指向"Agent优先"战略；英伟达Jim Fan引爆VLA vs WAM路线之争，具身智能迎来范式争议期；arXiv单日新增236篇，Qwen3.7-Max刷新国产Agent模型上限，AI军备竞赛进入新阶段。</p>
+<p>⚠️ 免责声明：本早报由AI自动生成，仅供研究参考，不构成投资建议，请独立判断。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-05-23/"><span>← 上一期 · 2026-05-23</span><strong>⚠️ 免责声明</strong></a><a class="newer" href="../2026-05-25/"><span>下一期 → · 2026-05-25</span><strong>【🚨 今日重点】 · ━━━ 顶级研究组新发布 ━━━ · ━━━ 生成模型 / 新范式 ━━━</strong></a></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
