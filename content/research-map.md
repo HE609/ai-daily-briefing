@@ -1,8 +1,23 @@
 # 空间智能与通用 AI 持续研究地图
 
-更新时间：2026-11-08。
+更新时间：2026-11-09。
 
 本文件保留跨期问题分类；各日晨报保留当日快照。研究机会是可检验假设，不是已验证结论。
+
+## 2026-11-09 地图快照
+
+本期把研究地图继续按 **感知与状态 → 转移预测 → 规划执行 → 学习闭环 → 评测基础设施** 组织。arXiv 周末批次停在 11 月 5 日 UTC，以下七项均保留真实提交时间并标为批次边界回补；它们是当日候选池的高相关展开，不把边界项改写成 11 月 9 日首发。
+
+| 问题分类 | 今日工作与近期趋势 | 未解决 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 空间表征进入基础模型 | SLA 以 OmniVGGT 对齐中间视觉 token，把空间监督放进 continual pre-training 与 post-training | 教师质量、标定缺失、数据混合和下游适配成本仍纠缠 | 固定 VLA 与数据预算，做空间对齐阶段、标定可用性、state dropout 的因子化曲线 |
+| 世界模型后训练 | RoboImagine 用候选未来的语义/视觉反馈；WAM-Sim 用持久 memory 约束在线 RL | 预测指标、任务进度、策略排名和物理真实性尚未闭合 | 同一动作序列下，比较 semantic/visual/world-state 反馈对真实闭环成功的预测力 |
+| 语义纠错与人机对齐 | OopsieRecover 将少量人类干预变成 gated correction cost，并迁移到新姿态/场景 | 语义点集难表达接触力、隐变量和候选动作缺失 | 统一纠正库并加入触觉/力反馈，测程序蒸馏到小 VLA 后的迁移 |
+| 传感器现实性与 real-to-sim | VisionSIM 把原始传感器测量、历史依赖和数字孪生置于独立接口 | 当前 open-loop，室内数据和中间深度抽象限制闭环 | 传感器参数扰动到感知、抓取和控制失败的误差预算 |
+| Agent 机器人控制评测 | RoboARCade 统一策略选择、执行精度、记忆、错误成功声称和自写 prompt | tool schema、API 成本、资产许可和仿真到真机迁移影响可比性 | 固定工具接口和预算，因子化策略、示范、记忆和反思贡献 |
+| 视觉规划效率 | VFlash 以 primitive boundary 并行解码，并把几何特征送入 WAM | TensorRT/kernel、primitive schema 与算法收益尚未分离 | 同一 VLM/WAM 后端比较 AR、block draft、primitive draft 的几何误差和闭环收益 |
+
+本期新增判断是：**训练期空间接口、生成期反馈接口、传感器测量接口和评测期 Agent 接口正在分化；下一步优先做接口可传递性和错误归因，而不是继续只堆模型规模。**
 
 ## 当前地图
 
@@ -123,6 +138,8 @@
 今天新增的共同问题是：把状态、渲染、动作和执行程序分开后，怎样用留出干预证明各自的独立贡献。上一期 Genie 4、Echo-3、EmbodiedLab、ZAP、GenSfM、FL4N、OSWAM、OpTTA、OpenWAM 与人类判断/科研Agent主线保留在历史，未被当前分类撤销。
 
 ## 下一轮追踪
+
+- 2026-11-09 新增：SLA 的完整训练代码/数据/权重闭合、OmniVGGT 教师和 state dropout 复现；RoboImagine 预测指标到闭环任务进度的桥接；OopsieRecover correction program 的触觉扩展；WAM-Sim memory 与 online RL 的独立归因；VisionSIM 传感器误差到控制失败链；RoboARCade 单任务成本与错误成功声称；VFlash TensorRT/算法收益分离。
 
 - 2026-11-08 新增：GPWM 完整代码／权重／ParticleWorlds、视觉到粒子及噪声搜索的独立归因；ToyBlocks 完整数据验收、oracle 四组与接触真值；Cosmos 训练／观测接口、59D 动作契约及策略排名有效性。
 - 2026-11-08 新增：MetricTrail 标定启动及深度失效曲线、权重和上游许可分开；La-JEPA 空仓库后续实现、修正指令协议与未来目标消融；Scientist World 实际公开环境／轨迹、十题外部效度、解锁修复及外部验收。
