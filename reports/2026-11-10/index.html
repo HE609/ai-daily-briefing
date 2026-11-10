@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-10｜GR00T 2 · Meituan-Robotics-0 · ObjectWorld · Yunhe</title><meta name="description" content="相对 11 月 9 日，SLA、RoboImagine、OopsieRecover、WAM-Sim、VisionSIM、RoboARCade 没有核实到新版本、权重、代码、基准或第三方验证，本期不机械重复。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-10/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-10｜GR00T 2 · Meituan-Robotics-0 · ObjectWorld"><meta property="og:description" content="相对 11 月 9 日，SLA、RoboImagine、OopsieRecover、WAM-Sim、VisionSIM、RoboARCade 没有核实到新版本、权重、代码、基准或第三方验证，本期不机械重复。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-10/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>GR00T 2 · Meituan-Robotics-0 · ObjectWorld</h1><p class="article-deck">相对 11 月 9 日，SLA、RoboImagine、OopsieRecover、WAM-Sim、VisionSIM、RoboARCade 没有核实到新版本、权重、代码、基准或第三方验证，本期不机械重复。</p><div class="article-meta"><time datetime="2026-11-10">2026 / 11 / 10</time><span>约 31 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-gr00t-2-scaling-robot-foundation-models-for-generalization-dexterity-and-adaptationp0">1. GR00T 2: Scaling Robot Foundation Models for Generalization, Dexterity, and Adaptation｜P0</a><a class="toc-level-2" href="#2-meituan-robotics-0-a-vision-language-action-foundation-model-for-desktop-manipulationp0">2. Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation｜P0</a><a class="toc-level-2" href="#3-objectworld-scaling-object-centric-world-models-with-a-large-scale-3d-full-object-flow-datasetp0">3. ObjectWorld: Scaling Object-Centric World Models with a Large-Scale 3D Full-Object Flow Dataset｜P0</a><a class="toc-level-2" href="#4-tiresias-towards-language-conditioned-world-modelsp0">4. Tiresias: Towards Language-Conditioned World Models｜P0</a><a class="toc-level-2" href="#5-dexforesight-grounding-dexterous-policies-with-implicit-spatial-foresightp1">5. DexForesight: Grounding Dexterous Policies with Implicit Spatial Foresight｜P1</a><a class="toc-level-2" href="#6-bat-wam-bridging-action-and-touch-in-world-action-models-for-dexterous-handsp1">6. BAT-WAM: Bridging Action and Touch in World-Action Models for Dexterous Hands｜P1</a><a class="toc-level-2" href="#7-warp-jepa-world-model-in-the-loop-amortized-rollout-planning-for-frozen-hierarchical-jepasp1">7. WARP-JEPA: World-Model-in-the-Loop Amortized Rollout Planning for Frozen Hierarchical JEPAs｜P1</a><a class="toc-level-2" href="#8-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planningp1">8. REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning｜P1</a><a class="toc-level-2" href="#9-spatial-harness-grounding-spatial-reasoning-in-executable-world-states-with-physics-enginesp1">9. Spatial Harness: Grounding Spatial Reasoning in Executable World States with Physics Engines｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-10.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-10</div><article class="prose"><p>本期主检索窗口按 Asia/Shanghai 记为 <strong>2026-11-07 09:00—2026-11-10 09:00</strong>，并把官方公告、代码、权重和数据核验延伸到 11 月 10 日 12:55。候选池并行来自 arXiv cs.RO/cs.CV/cs.AI/cs.LG、主要实验室和公司的 research/news/project 页面、GitHub、Hugging Face、Spatial Intelligence/3D-4D/real-to-sim、VLA/WAM/RL、LLM Agent/self-evolution 与 broader web 兜底。arXiv 11 月 7—8 日批次可访问；Meituan-Robotics-0 的论文在 11 月 5 日提交，但其模型、代码、RoboDesk 与评测 checkpoint 在窗口内完成了实际发布，因此按“窗口内新资源证据”纳入，而不改写论文日期。</p>
+<p>相对 11 月 9 日，SLA、RoboImagine、OopsieRecover、WAM-Sim、VisionSIM、RoboARCade 没有核实到新版本、权重、代码、基准或第三方验证，本期不机械重复。今天最重要的新增判断有三点：<strong>第一，世界动作模型正在从“动作条件视频”走向联合预测未来视频、动作、触觉和跨本体迁移；第二，空间智能的有效中间接口越来越明确，完整物体流、可执行物理状态和隐式空间预见都在把生成结果接到控制；第三，真正的可复现性差距已经从“是否有 GitHub”转为“论文、版本、权重、数据、评测协议和成本是否闭合”。</strong>这些是本报综合判断，不等于任何单项结果已经被独立复现。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p><strong>今天我建议的精读顺序是：GR00T 2 → Meituan-Robotics-0 → ObjectWorld → Tiresias → REINS。</strong></p>
+<ul>
+<li><strong>GR00T 2：</strong>先看官方 WAM 如何把人类视频、UMI 与机器人数据放进同一个未来视频—动作目标，并把“零样本跨本体”与“少样本适配”分开报告。</li>
+<li><strong>Meituan-Robotics-0：</strong>再看一个资源已经闭合的中国团队 VLA，重点核对离散动作预训练、连续 flow-matching、Rollback 纠错和事件记忆是否真正互补。</li>
+<li><strong>ObjectWorld：</strong>随后读空间智能主线的完整物体流接口，判断它能否成为跨本体控制前的中间状态，而不是只做漂亮的轨迹预测。</li>
+<li><strong>Tiresias：</strong>再看语言、候选动作、视频想象和跨域基准如何被统一，尤其关注 36 秒推理成本与 51 分 unseen 结果的关系。</li>
+<li><strong>REINS：</strong>最后读 Agent harness 如何把 LLM 的语义规则接到毫秒级规划、校验与持久记忆，审计“自演化”是否只是记忆增长而非权重更新。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-gr00t-2-scaling-robot-foundation-models-for-generalization-dexterity-and-adaptationp0">1. GR00T 2: Scaling Robot Foundation Models for Generalization, Dexterity, and Adaptation｜P0</h2>
+<p><strong>作者与机构：</strong>NVIDIA GEAR / NVIDIA Research。发布时间为 <strong>2026-11-09（官方研究页与 CoRL 公告）</strong>，性质为官方技术报告/白皮书与模型预览，不是已同行评审论文。<a href="https://research.nvidia.com/labs/gear/gr00t-2/" target="_blank" rel="noopener noreferrer">官方研究页</a> · <a href="https://research.nvidia.com/labs/gear/gr00t-2/assets/gr00t2_whitepaper.pdf" target="_blank" rel="noopener noreferrer">白皮书</a> · <a href="https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/" target="_blank" rel="noopener noreferrer">NVIDIA CoRL 公告</a>。</p>
+<p>它解决的是“机器人看到任务但没有关于世界如何变化的可迁移预测”。GR00T 2 用一个 diffusion transformer <strong>同时去噪未来视频与机器人动作</strong>，输入近期视频、指令和本体状态，输出未来观测与动作 chunk；不同本体通过小型动作头接入。官方披露的预训练混合为 <strong>402,730 小时人类第一视角视频、10,184 小时手持 UMI 夹爪演示、23,500 小时机器人遥操作</strong>，覆盖平行夹爪、灵巧手和 Unitree G1。训练目标的关键变化是让视频预测成为动作学习的物理监督，而不是只做动作模仿。</p>
+<p><strong>作者/官方结果：</strong>50 个目标机器人从未见过的任务，零样本平均成功率 <strong>40%</strong>；每任务 1 条示范为 71%，5 条示范、单张 RTX 5090 约 30 分钟 LoRA 后达到 <strong>95%</strong>。真实机器人 RL 后，三个接触丰富任务达到 <strong>88–96%</strong>；通过 Agent 调用 WAM API，三种玩具连续装配为 <strong>98/100、97/100、97/100</strong>；视觉标点把 YAM 的“what-and-where”成功率从 40% 提到 <strong>92%</strong>。GR00T 2 Turbo 在 Jetson Thor 上每次预测 <strong>124 ms</strong>，G1 全身任务 48 次爆米花服务全部成功，清桌任务 93%。模拟—真实匹配的作者报告相关系数为 Pearson <strong>0.92</strong>（成功率）和 <strong>0.93</strong>（Elo）。这些全部是 NVIDIA 官方报告，未见第三方复跑。</p>
+<p><strong>创新、局限与关系：</strong>它把 π0.5、GR00T N1.7、Cosmos/World Action Model 和人类视频预训练路线推进到更统一的“世界—动作联合生成”；真正的新证据是跨本体的 human→robot、UMI→YAM 和 DexUMI→灵巧手，而不是又一个仅在 LIBERO 上的 VLA。局限是官方研究页明确写着 <strong>代码预计 12 月提供</strong>，GR00T 2 主权重/训练脚本在本轮未找到；公开的是 <strong>Human-1M-100K</strong> 约 10 万小时子集，不能把它等同于完整 402,730 小时训练语料。任务、机器人、后训练轮数和真实成功门也仍由 NVIDIA 选择，不能直接与第三方榜单混排。</p>
+<p><strong>可复现性与轻量验证：</strong><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K" target="_blank" rel="noopener noreferrer">Human-1M-100K 数据集</a> 在窗口内有 11 月 7 日更新，CC BY 4.0、可直接浏览；GR00T 2 代码和权重尚未闭合。低成本验证可用公开 GR00T N1.7 或一个 0.5–2B VLA 做四组：机器人数据、机器人+人类视频、联合未来视频/动作目标、联合目标+少样本 LoRA。固定 10–20 个跨本体任务，分别报告零样本、1-shot、5-shot、执行失败类型和推理延迟，不把官方 95% 当作可复现结果。</p>
+<p><strong>是否值得深入阅读：值得，优先级最高。</strong>优先读 72-task 人类视频缩放曲线、X-Adapt 数据契约、Turbo 的压缩视频表示和模拟—真实匹配统计，再看主权重何时真正落地。</p>
+<h2 id="2-meituan-robotics-0-a-vision-language-action-foundation-model-for-desktop-manipulationp0">2. Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation｜P0</h2>
+<p><strong>作者与机构：</strong>Meituan Robotics Team，论文作者列表含 Caicheng Wang、Chen Zhao、Chengpeng Jin 等；美团机器人团队。论文提交于 <strong>2026-11-05 18:55 UTC</strong>，属于上一批次边界论文；模型、代码、评测 checkpoint 和 RoboDesk 数据在 <strong>11 月 9 日 UTC</strong> 完成实际发布，因此本轮按“窗口内资源新增”纳入。<a href="https://arxiv.org/abs/2611.08577" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/Meituan-Robotics/Meituan-Robotics-0" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://huggingface.co/MeituanRobotics/Meituan-Robotics-0" target="_blank" rel="noopener noreferrer">主模型</a> · <a href="https://huggingface.co/datasets/MeituanRobotics/RoboDesk" target="_blank" rel="noopener noreferrer">RoboDesk</a>。</p>
+<p>MR0 面向 stationary-base desktop manipulation，针对三个长期问题：异构机器人数据无法直接混训、成功示范缺少模型自身错误状态、反应式策略离开观察窗口后无法维持任务状态。它的训练链是 <strong>Stage 1 FAST 离散动作 token 预训练 → Stage 2 MMDiT 连续 flow-matching 跨本体控制 → Stage 3 真实世界后训练</strong>。后训练包括成功示范、HG-DAgger、RECAP，以及新提出的 <strong>Rollback</strong>：回到历史锚点保留被替换的失败片段，同时收集人类修正，直接构成 CFG-DAgger 的正负监督。控制侧用统一末端执行器接口和异步 action-chunk merging；Agent 侧用 Monitor、Planner、Event Memory 只在任务进度或可行性变化时重规划。</p>
+<p><strong>结果与资源状态：</strong>训练数据为 <strong>147M vision-language samples、15,060 小时机器人轨迹、12 个本体</strong>；其中公开 RoboDesk 3,235 小时，许可真实数据 7,530 小时，开放仿真 4,295 小时。GitHub 表格给出 RoboTwin 2.0 <strong>93.22% clean、93.88% randomized</strong>；论文总体报告 <strong>93.6%</strong>，RoboDojo VLA 平均成功率 <strong>14.63%</strong>，RoboCasa365 score <strong>29.03 / SR 28.33%</strong>。在 Ethernet insertion 上，RollBack + CFG-DAgger 达到 <strong>70% success、0.90 progress score</strong>。主模型、RoboTwin/RoboDojo/RoboCasa365 checkpoint 和 SHA256 manifest 已在 Hugging Face 出现；代码仓库包含训练配置、评测入口和 OpenPI-compatible policy server。RoboDesk 数据为 <strong>CC BY-NC-SA 4.0</strong>，代码与模型组件许可证需按各仓库和模型卡分别核对。</p>
+<p><strong>创新、局限与关系：</strong>MR0 与 π0.5、OpenVLA、RynnUnify、Fast-WAM 的关系是把跨本体数据对齐、纠错采集和任务记忆放到同一条交付链，而不是只提升 backbone。Rollback 的价值在于它用“被替换动作片段”提供局部失败标签，避免完整 value learning；事件记忆则把长任务状态从运动控制器中拆出来。局限是主表仍以仿真和少量真实任务为主，许可真实数据并不公开；论文报告的 15,060 小时与 GitHub 页面展示的模型/数据快照需固定 revision 后再比较；RoboDojo 分数不能与 RoboTwin 成功率混为一个总榜。</p>
+<p><strong>轻量验证：</strong>先下载主 checkpoint 做 20 个 RoboTwin episode 的推理 smoke test，固定 action chunk 长度与 camera 输入；再做三个开关：无 Event Memory、只事件检索、事件检索+条件恢复。Ethernet insertion 用 30–50 个 Rollback 风格干预片段比较 HG-DAgger、CFG-DAgger 与 RECAP，记录 success、progress、干预次数和恢复延迟。这样可以验证 MR0 的机制贡献，而不重训 15,060 小时模型。</p>
+<p><strong>是否值得深入阅读：值得，优先级与 GR00T 2 并列。</strong>先读数据 canonicalization、Rollback 轨迹重建和 event memory 的触发条件，再核对公开 checkpoint 与论文表格是否来自同一版本。</p>
+<h2 id="3-objectworld-scaling-object-centric-world-models-with-a-large-scale-3d-full-object-flow-datasetp0">3. ObjectWorld: Scaling Object-Centric World Models with a Large-Scale 3D Full-Object Flow Dataset｜P0</h2>
+<p><strong>作者与机构：</strong>Haonan Chen、Sicheng Isabella Lu、Haitian Li、Jiajin Wu、Hexiang Wei、Jiawei Zhang、Xin Fei、Yiwen Hou、Chenrui Tie、Chongkai Gao、Sheng Wang、Lin Shao；新加坡国立大学 Lin Shao 团队。论文和项目页在窗口内公开。<a href="https://nus-lins-lab.github.io/ObjectWorld/static/paper.pdf" target="_blank" rel="noopener noreferrer">论文 PDF</a> · <a href="https://nus-lins-lab.github.io/ObjectWorld/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>它把“目标视频”与“机器人动作”之间的接口改成 <strong>3D full-object flow</strong>：对完整物体表面（包括输入视角看不到的区域）采样 512 个点，预测未来 48 帧的稠密 3D 轨迹。这样一个表示既能描述刚体运动，也能描述衣物、柔性物体的非刚性变形，还不绑定某个机器人本体。训练时 Qwen2.5-VL 产生任务条件视觉/语言特征，PointTransformer V3 编码物体与场景几何，flow head 用 x1-prediction 预测整条表面轨迹；执行时只在接触局部拟合末端轨迹，保留全物体非刚性运动。</p>
+<p><strong>数据和结果：</strong>项目页报告 <strong>1,210.1 小时</strong> full-object flow，其中 755.6 小时真实视频、454.5 小时仿真，约 488K clips/trajectories；论文细化为 198,947 条仿真轨迹、289,976 条真实视频 clips。自动标注不依赖机器人动作、标定相机、深度或预扫描物体网格，使用 VLM、Track4World/DA3、SeC、SAM 3D、Any6D、FoundationPose 组成流水线。Golden filtering gate 的专家验证精度 <strong>93.3%</strong>。全帧 flow EPE <strong>6.22 cm</strong>，优于最强报告基线 10.24 cm；仿真执行 <strong>29/30</strong>，真实平行夹爪执行 <strong>13/15</strong>，高于 Dream2Flow 的 10/15。作者报告的 13/15 与 29/30 都是方法链结果，尚无第三方复核。</p>
+<p><strong>创新、局限与关系：</strong>它连接 ObjectForesight、Dream2Flow、PointWorld 与 4D/3D world model，但把“完整表面、可执行、跨本体”同时放进接口。局限在于完整几何是由多个外部模型估计的，误差会从 VLM 分割、深度、姿态跟踪一路传入 flow；时间被重采样为动作进度，不等价于真实秒级动力学；项目页有交互式 28 个示例，但本轮未找到可下载的完整 1,210 小时数据或训练代码，不能把网页浏览称为数据集开放。</p>
+<p><strong>轻量验证：</strong>从公开 RoboTwin/ManiSkill 生成 20 个 rigid + 10 个 deformable clip，固定 512 点、48 帧，用现成 SAM 3D/Depth Anything/点云配准构造 full-object 与 visible-only 两组监督。只训练小型 flow head，比较 EPE、hidden-surface coverage、flow-to-action 轨迹误差以及真实控制器的成功率；核心是验证完整表面监督的独立增益，而不是复刻自动标注流水线。</p>
+<p><strong>是否值得深入阅读：值得。</strong>优先核对 hidden-surface flow 是否真的改善执行，及“对象运动接口”相对直接视频预测和直接动作监督的样本效率。</p>
+<h2 id="4-tiresias-towards-language-conditioned-world-modelsp0">4. Tiresias: Towards Language-Conditioned World Models｜P0</h2>
+<p><strong>作者与机构：</strong>Fengyi Wu、Yifei Dong、Yetong Sha、Lingdong Kong、Qiyu Hu、Bohan Xiong、Qi Dai、Alexander G. Hauptmann、Zhi-Qi Cheng；华盛顿大学、新加坡国立大学、Microsoft Research、卡内基梅隆大学。论文为 <strong>2026-11-07 批次</strong>，含代码和数据脚本。<a href="https://arxiv.org/abs/2611.10392" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/UWMILab/Tiresias" target="_blank" rel="noopener noreferrer">GitHub</a>。</p>
+<p>Tiresias 先提出统一任务 <strong>LCWM</strong>：给定初始 agent-view RGB 和语言指令，输出完成指令的动作序列；LCWM-Bench 把导航、机器人、3D 游戏、驾驶的 <strong>15 个数据集、142,987 episodes、428,961 条三种风格指令</strong>放进同一 action interface 和评测协议。参考 Agent 采用“选择性想象”：语言条件 diffusion policy 先生成 <strong>128</strong> 个候选轨迹，Trajectory Ranker 保留 <strong>8</strong> 个，Wan2.2 视频世界模型只想象这 8 个未来，Visual Ranker 再与轨迹分数按 2:1 融合选出最终动作。</p>
+<p><strong>作者结果：</strong>LCWM-Bench val seen overall score（SR 与 nDTW 的四域宏平均）为 <strong>63</strong>，val unseen 为 <strong>51</strong>；MPC 版本为 59/46。Tiresias 的 val seen 一步 imagination 为 <strong>FVD 274.0、SSIM 0.674、PSNR 20.351、LPIPS 0.242</strong>；val unseen 为 744.9、0.550、19.695、0.303。默认 128→8→1 推理延迟约 <strong>36 s</strong>，将 shortlist 改为 2 个可降到 9 s、SR 从 0.60 降到 0.55。论文明确写出：尚未在真实机器人上部署，物理控制效用仍未知。</p>
+<p><strong>可复现性：</strong>GitHub 有完整目录、训练脚本、下载脚本、测试和四域数据准备流程；但需要 Wan2.2-TI2V-5B、Meta DINOv3 ViT-L/16 权重访问，仓库没有本项目训练后的最终 checkpoint，不能把“有代码”写成“开箱即跑”。轻量验证可只做导航域 10% data_ratio、N=32→k=2，比较 random、Trajectory Ranker、Trajectory+Visual Ranker 的 SR/nDTW 与想象帧数，先不训练完整 Wan2.2。</p>
+<p><strong>创新、局限与关系：</strong>它把 LLM Agent 的语言规划、diffusion proposal、world-model imagination 和统一 benchmark 接起来，补足了 world model 论文常见的“只预测、不执行”缺口。局限是整体评分仍在仿真/离线数据，36 秒级延迟很难直接进入机器人闭环；跨域 action interface 的统一可能掩盖每个域的执行差异；val unseen 从 63 降到 51 说明来源外推仍是主要瓶颈。</p>
+<p><strong>是否值得深入阅读：值得。</strong>重点读 128→8 的候选保留率、视觉 ranker 是否真的带来超越 trajectory-only 的闭环收益，以及 36 秒想象成本能否通过小模型蒸馏或缓存降下来。</p>
+<h2 id="5-dexforesight-grounding-dexterous-policies-with-implicit-spatial-foresightp1">5. DexForesight: Grounding Dexterous Policies with Implicit Spatial Foresight｜P1</h2>
+<p><strong>作者与机构：</strong>Zhongxi Chen、Yi Yang、Xinyi Chen、Mingzhe Ye、Yaping Li、Zhihong Liu、Congsheng Xu、Haonan Wang、Zhijie Deng；Sharpa Robotics、SJTU–Sharpa Joint Lab for Embodied AI、香港中文大学、复旦大学。论文与项目页于 <strong>2026-11-08</strong> 发布。<a href="https://arxiv.org/abs/2611.11166" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://dexforesight.github.io/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>DexForesight 研究“策略是否可以在不生成未来视频的情况下保留空间预见”。训练阶段用约 <strong>370 小时、60 个任务</strong>的演示，另有约 100 小时由 stereo RGB 离线估计的深度；空间 world model 预测 3D hand-point motion 和视觉特征变化，显式利用手的运动学几何覆盖摄像头看不到的手指。训练完冻结 world model，把其 predictive queries 与策略 queries 对齐，部署时只保留策略，输入 RGB、语言和 robot state，不需要深度或未来解码器。</p>
+<p><strong>结果：</strong>11 个 DexJoCo 仿真任务从基线 <strong>49.4% 提升到 60.5%</strong>；三项真实灵巧手任务 <strong>58.3%</strong>，强基线 50.0%；推理开销仅 <strong>1.3%</strong>（230.4 ms 对 227.4 ms）。冻结策略特征上的 0.54 s 未来手位移线性探针误差从 QwenVLA 的 13.59 mm 降到 10.01 mm，降低 <strong>26.3%</strong>。作者还报告 query alignment 比直接加预测 head 更好（60.5% 对 53.1%）。未见第三方验证。</p>
+<p><strong>局限与复现：</strong>深度只在训练用，部署更简洁，但训练仍依赖离线深度估计、手部运动学和 Sharpa 专属平台；项目页和论文没有公开训练代码、权重或完整数据下载。轻量替代实验可在 20 个仿真任务上用公开手模型构造“深度训练/无深度部署”的 query alignment，对比 action-only、直接预测 head、query alignment 三组，并对遮挡手指和相机视角做受控扰动。</p>
+<p><strong>是否值得深入阅读：值得作为 WAM→VLA 的桥接工作。</strong>优先看“隐式预测知识”是否只在 probe 上存在，还是在长时接触任务和跨物体留出上真正改善动作。</p>
+<h2 id="6-bat-wam-bridging-action-and-touch-in-world-action-models-for-dexterous-handsp1">6. BAT-WAM: Bridging Action and Touch in World-Action Models for Dexterous Hands｜P1</h2>
+<p><strong>作者与机构：</strong>Dong Fang、Feixuan Huang、Yuanxin Zhong、Yuxiang Gao、Qi Song、Yunlong Wang、Xiaosong Jia、Yu-Gang Jiang；复旦大学、Rimbot、东南大学、清华大学。论文提交于 <strong>2026-11-07</strong>。<a href="https://arxiv.org/abs/2611.10967" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>BAT-WAM 处理触觉、关节状态和动作被遮挡或缺失时的 WAM 表征问题。它给 Touch 与 Action/Joint 分别学习 codebook 和 decoder，用 RGB 条件的连续 latent bridge 做双向关联；Touch 每手 196 tokens，Joint 8 tokens，RGB 用冻结 SigLIP 连续编码。静态目标包含 unimodal reconstruction、masked prediction、latent alignment、codebook matching 和 commitment loss；时序目标根据历史 Touch、历史 Joint、目标时刻 RGB 和历史动作预测未来 Touch。</p>
+<p><strong>结果：</strong>在 HTBench 完整遮挡条件，Action+Image 的 F-RMSE <strong>0.0145</strong>，HandTouch 为 0.0221，下降 <strong>34.73%</strong>；局部遮挡 H-RMSE <strong>0.0137</strong>，HandTouch 为 0.0224，下降 <strong>38.87%</strong>。未来触觉预测 RMSE <strong>0.0157</strong>，相对 HandTouch 降低 25.59%。真实 PiPER + Linker Hand L6 七任务、每任务 200 条演示，平均成功率 <strong>79.3%</strong>，OpenWAM-α 为 66.4%，OpenWAM-α+HandTouch 为 69.3%；未见物体/布局/姿态的 unseen 平均为 <strong>54.5%</strong>，两个基线为 42.0% 和 38.5%。这些是作者报告，尚无独立复现。</p>
+<p><strong>局限与复现：</strong>论文只给出方法、实验和硬件描述，未找到专属代码、权重或 HTBench 数据下载入口；全手触觉 glove、PiPER 和 Linker Hand L6 的传感器契约是重要依赖。轻量验证可用公开触觉模拟器或 2D taxel 数据，固定遮挡 mask，做 image-only、joint-only、image+joint 三组 masked completion，再用一个小型 action head 测接触任务成功率；不要把合成触觉重建称为 BAT-WAM 完整复现。</p>
+<p><strong>是否值得深入阅读：值得作为跨本体对齐的 P1。</strong>重点核对动作状态是否真的提供了触觉可预测信息，还是只在相同手型/相同物体分布上提供 shortcut。</p>
+<h2 id="7-warp-jepa-world-model-in-the-loop-amortized-rollout-planning-for-frozen-hierarchical-jepasp1">7. WARP-JEPA: World-Model-in-the-Loop Amortized Rollout Planning for Frozen Hierarchical JEPAs｜P1</h2>
+<p><strong>作者与机构：</strong>Junjie Li、Zhaojiacheng Zhou、Kaixiang Wang、Zihan Wang、QingSong Zhao、Jiong Lou、Jie Li；上海交通大学。论文与代码于 <strong>2026-11-07</strong> 发布。<a href="https://arxiv.org/abs/2611.10806" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/hideinsewer/WARP-JEPA" target="_blank" rel="noopener noreferrer">MIT 代码</a>。</p>
+<p>WARP-JEPA 针对 H-JEPA 在线 gradient-descent planner 的两个问题：迭代优化占长时 episode <strong>最高 97.7%</strong> 的运行时间，低预测 cost 也不一定对应成功控制；同时长层级组合和底层两步规划的 horizon 不对称。方法冻结 world model，用 world-model-in-the-loop causal Transformer 做顶层多候选 proposer，用并行 residual MLP 做下层 proposer；训练目标结合 model-based rollout cost 与 best-of-K behavior cloning，一次批量验证候选。</p>
+<p><strong>结果：</strong>30 个冻结 H-JEPA 模型、Push-T/FourRoom/Visual AntMaze/OGBench Cube 四类 benchmark；长时任务端到端加速 <strong>9.6–18.8×</strong>，Cube 为 2.9–3.0×。代表性成功增益为 Push-T <strong>+23.9 pp</strong>、FourRoom <strong>+16.7 pp</strong>、Visual AntMaze <strong>+33.3 pp</strong>、Cube <strong>+26.0 pp</strong>。例如 Push-T L2 从 online GD 40.8% 到 TM 64.7%，AntMaze L2 从 45.3% 到 78.7%。代码含 CPU unit tests、环境锁定、checkpoint manifest 和 held-out task 生成脚本，但论文实验使用单张 NVIDIA H200、CUDA 12.8、MuJoCo 3.14，依赖上游 H-JEPA/LeWorldModel 资源。</p>
+<p><strong>局限与轻量验证：</strong>这是高质量的 planner 复用和效率工作，不等于 world model 本身更准确；成功收益可能来自 proposer 的行为先验和更好地逃离 online GD 局部极小。先运行 CPU tests，再只复现 Push-T L2 的 10 个任务，比较 online GD、MLP proposer、Transformer proposer 的速度、成功率和候选数量；不重训 30 个模型。</p>
+<p><strong>是否值得深入阅读：值得作为效率线 P1。</strong>优先看成功提升来自 world-model cost、best-of-K 监督还是候选结构，及在更短 horizon 或真实机器人上是否仍成立。</p>
+<h2 id="8-reins-a-self-evolving-agent-harness-for-real-time-trajectory-planningp1">8. REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning｜P1</h2>
+<p><strong>作者与机构：</strong>Zhihong Cui、Hengyu Liu、Haoran Tang、Amir Taherkordi、Tor Skeie、Shijun Liu；奥斯陆大学、奥尔堡大学、香港理工大学、山东大学、Simula Research Laboratory。论文于 <strong>2026-11-07</strong> 发布。<a href="https://arxiv.org/abs/2611.10748" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/ZhihongCui/REINS" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>REINS 把软件 Agent harness 的三种耦合搬到实时轨迹规划：<strong>grounding</strong>（LLM 规则对齐到变量级 learned dynamics）、<strong>verification</strong>（把规则编译成 calibrated predicates 并做 H-step rollout）、<strong>consolidation</strong>（用 Neo4j indexed rule memory 按变量检索，O(log n) 返回熟悉场景规则）。新场景才调用 LLM，验证通过后写回记忆；熟悉场景不再调用 LLM，因此自演化发生在规则记忆而不是 LLM 权重。</p>
+<p><strong>作者结果：</strong>仿真和 highD/rounD replay 的 tactical decision layer 上，compliance <strong>98%+</strong>，规划延迟 <strong>1.9–4.6 ms</strong>，相对最佳 learned baseline 碰撞率下降约 <strong>49–56%</strong>。Highway 1000 episode 中规则记忆从 88 增到 145，LLM call rate 从 70.0% 降到 <strong>12.81%</strong>，compliance 从 0.9885 到 0.9956，collision rate 从 7.05% 降到 5.67%；100,000 条规则时检索仍低于 0.8 ms。论文还报告在 2.5–10% 观测噪声和 5% frame drop 下，REINS collision rate 最高约 8.14%，但这些仍是作者设定的仿真/回放条件。</p>
+<p><strong>局限、复现与价值：</strong>它的 perception 被假设为干净的 factored variables，真实世界部分是 replay，不是完整感知—规划—控制闭环，不能称为可部署 AV stack；LLM 使用 GPT-4o temperature 0，成本和服务可用性也未被报告。代码、配置、数据脚本和 Neo4j schema 已公开。轻量验证可换成本地小模型，只让它提出 20–50 条规则，再做 schema 校验、rollout verification、memory hit/miss 三组 100 episode 对照，报告规则调用率、误拒绝、冲突和延迟。</p>
+<p><strong>是否值得深入阅读：值得作为 Agent/self-evolution 主线。</strong>重点是把“记忆增长”“规则覆盖”“外部验收不变”分别报告，避免把调用次数下降直接写成模型能力自我提升。</p>
+<h2 id="9-spatial-harness-grounding-spatial-reasoning-in-executable-world-states-with-physics-enginesp1">9. Spatial Harness: Grounding Spatial Reasoning in Executable World States with Physics Engines｜P1</h2>
+<p><strong>作者与机构：</strong>Chentao Cao、Zhanke Zhou、Sangni Duan、Bo Han；TMLR Group、香港浸会大学计算机系；Hang Li，ByteDance Seed。论文于 <strong>2026-11-08</strong> 发布。<a href="https://arxiv.org/abs/2611.11344" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/tmlr-group/Spatial-Harness" target="_blank" rel="noopener noreferrer">代码占位仓库</a>。</p>
+<p>Spatial Harness 把空间推理拆为 Perceiver 和 Reasoner：Perceiver 从问题和视觉估计中建立对象/相机的共享坐标，把场景写成显式可执行 world state；Reasoner 在 physics engine 中执行视点变化，用计算出的测量和渲染视图回答问题。它覆盖 MindCube、SAT、MMSI-Bench、SpatialRGPT-Bench，目标是解决“模型读对了场景但想象的视角变换不满足几何/物理约束”。</p>
+<p><strong>作者结果：</strong>MindCube 上 Qwen3.5-27B 从模型内部推理 <strong>52.70%</strong> 提到 <strong>71.14%</strong>，比 pySpatial 高 7.52 个百分点；当对象和相机位姿使用同一标注输入时，显式执行达到 <strong>98.25%</strong>，模型内部推理为 71.81%。这些结果说明执行式状态有价值，但也说明标注位姿质量会显著影响上限。</p>
+<p><strong>证据边界：</strong>论文摘要写“代码公开”，但本轮核到的仓库只有 README，内容为“paper and code will be released within a month”；因此当前应标为 <strong>论文可读、代码未闭合</strong>。这与上一期曾出现的 <code>SpatialHarness</code>（arXiv:2610.12457、实时机器人操作脚手架）是不同作者和不同任务，不能合并去重。轻量验证可用 PyBullet/MuJoCo 构造 20 个对象—相机位姿，比较 VLM 内部推理、显式状态测量、显式状态+渲染三组，加入位姿扰动和遮挡，报告几何答案准确率与状态构建失败率。</p>
+<p><strong>是否值得深入阅读：值得作为 Spatial Intelligence 评测接口。</strong>优先追踪仓库落地、自动位姿估计误差和执行式状态能否迁移到机器人规划，而不是只看 MindCube 的高分。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮已扫描主要官方发布入口；足以进入 Top Papers 的窗口内重大新增包括 NVIDIA GR00T 2、RLWRLD DexBench、Noitom HiPHI-Hand，以及前述 Meituan-Robotics-0 的真实模型/数据落地。</strong>其余主要入口没有核实到新的可独立确认权重、论文或基准，旧条目不因新闻转载重复展开。</p>
+<ul>
+<li><strong>World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute：</strong>逐一复查 research/news/project/model 页面与 broader web；World Labs 的 Atlas、Google Genie 4、Pi API beta、Anthropic recursive self-improvement 等均是窗口前已有证据或没有新的可验证资源。本轮未发现新权重/代码/基准，动态页面访问受限之处已用公开索引交叉核对。</li>
+<li><strong>NVIDIA：</strong>11 月 9 日官方 CoRL 页面发布 GR00T 2、Isaac Lab 3.0、Video-to-Data 工作流与 EgoHand/人类视频数据入口。GR00T 2 主代码标注预计 12 月，不能把官方演示写成当前可复现模型。<a href="https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/" target="_blank" rel="noopener noreferrer">官方页面</a> · <a href="https://research.nvidia.com/labs/gear/gr00t-2/" target="_blank" rel="noopener noreferrer">GR00T 2 研究页</a>。</li>
+<li><strong>RLWRLD / DexBench：</strong>RLWRLD 11 月 9 日官方宣布 DexBench，15 个任务、4 个工业环境，按 Object/Physics/Spatial 三个维度测泛化，基于 Isaac Lab-Arena 与 Newton；代码、环境、资产、训练数据、baseline 和 leaderboard <strong>计划发布</strong>，当前不能称已开源。<a href="https://www.rlwrld.ai/jp/news/117" target="_blank" rel="noopener noreferrer">官方公告</a>。</li>
+<li><strong>Noitom / NVIDIA EgoHand：</strong>11 月 9 日官方新闻稿宣布 11 小时 HiPHI-Hand 第一视角双鱼眼视频、IMU 外参和光学动作捕捉手部关节，Hugging Face 数据集已创建但需要人工 gated 访问；EgoHand 模型本身早于窗口发布。它是人类视频到机器人手部表示的高价值数据补充，但不是新的 WAM。<a href="https://www.globenewswire.com/news-release/2026/11/09/3398459/0/en/noitom-robotics-releases-hiphi-hand-precision-hand-capture-data-used-to-train-nvidia-egohand-and-demonstrates-real-time-hand-reconstruction-at-corl-2026.html" target="_blank" rel="noopener noreferrer">发布说明</a> · <a href="https://huggingface.co/datasets/noitomrobotics/HiPHI-Hand" target="_blank" rel="noopener noreferrer">HiPHI-Hand</a>。</li>
+<li><strong>中国团队和高校：</strong>本轮补查 Meituan Robotics、Fudan/Rimbot、SJTU-Sharpa、NUS Lin Shao、HKBU/ByteDance Seed、上海交通大学，以及上海 AI Lab、清华 AIR、智源、复旦 Fusion Lab 等入口。MR0 是唯一完成模型/代码/数据闭合的重大新增；其他项目若只有媒体稿或计划，不升为 Top。</li>
+<li><strong>broader-web 重大遗漏兜底：</strong>使用 World Model、Spatial Intelligence、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与主要机构交叉搜索后，没有发现比上述条目更强的窗口内主来源。Nature Will Natura-1 只找到二级媒体摘要，没有论文、代码、权重、基准或第三方验证，保留观察，不进入重点。</li>
+</ul>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人类经验与跨本体动作</td>
+<td>GR00T 2、MR0、HiPHI-Hand 将人类视频、UMI、机器人和手部 mocap 接到统一动作接口</td>
+<td>人类视频数量、动作可执行性、形态接近度、后训练预算纠缠</td>
+<td>固定机器人数据和参数预算，做 human-only / robot-only / joint future-action 的跨本体因果曲线</td>
+</tr>
+<tr>
+<td>对象中心空间状态</td>
+<td>ObjectWorld 用完整物体流替代直接机器人动作，刚体和柔性物体共用接口</td>
+<td>自动几何、隐藏表面和真实时间尺度误差还没有闭合</td>
+<td>在同一控制器下比较 visible flow、full-object flow、goal pose，独立测 hidden-surface 和闭环成功</td>
+</tr>
+<tr>
+<td>语言条件世界模型</td>
+<td>Tiresias 把指令、候选动作和视频想象放进 LCWM-Bench</td>
+<td>36 秒级想象成本与真实控制收益不匹配，unseen 域仍从 63 降到 51</td>
+<td>训练小型 ranker/latent predictor，测想象预算、候选覆盖和真实任务成功的校准曲线</td>
+</tr>
+<tr>
+<td>隐式空间预见与规划效率</td>
+<td>DexForesight 把世界预测蒸馏进策略；WARP-JEPA 把在线 GD 改成 amortized proposer</td>
+<td>probe/仿真增益是否能转为接触和长时真实收益</td>
+<td>对同一冻结 world model 做 explicit future、query alignment、amortized planning 三因素实验</td>
+</tr>
+<tr>
+<td>视觉—触觉—动作对齐</td>
+<td>BAT-WAM 用连续 bridge 恢复缺失触觉，并把状态加入 WAM</td>
+<td>触觉预测、动作执行和传感器布局仍可能共变</td>
+<td>同手型/跨手型、同物体/留出物体下，测 touch prediction 对控制的独立贡献</td>
+</tr>
+<tr>
+<td>可执行空间推理</td>
+<td>Spatial Harness 用 physics engine 执行视角变换；DexBench 计划按 Object/Physics/Spatial 评测</td>
+<td>估计状态错误、执行正确、任务成功尚未在同一协议中拆开</td>
+<td>建立状态—执行—策略三层 benchmark，分别冻结位姿、物理和任务验收器</td>
+</tr>
+<tr>
+<td>Agent 与自演化</td>
+<td>REINS 把 LLM 规则 grounding、verification、memory consolidation 放进实时规划</td>
+<td>记忆增长不等于权重能力增长，感知和真实控制仍被抽象</td>
+<td>固定外部验收器，报告规则覆盖、LLM 调用率、完整成本与跨场景保留率</td>
+</tr>
+<tr>
+<td>可复现性与基础设施</td>
+<td>MR0 的 manifest、WARP-JEPA 的 checkpoint contract、WorldFoundry 的 evidence-aware scorecard</td>
+<td>代码、权重、数据、环境和结果常来自不同 revision</td>
+<td>为 world model/VLA 建立 provenance lockfile，并对每个分数标注 artifact、runtime、seed 和成本</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ol>
+<li>
+<p><strong>跨本体数据与目标的四因素实验。</strong>用公开小型 VLA 或 GR00T N1.7，在 20 个任务上固定控制器和推理预算，只改变人类视频比例、机器人数据比例、未来视频/动作联合目标和事件记忆。报告 zero-shot、1-shot、5-shot、失败类型与推理延迟，避免把更大数据量直接当成更强机制。</p>
+</li>
+<li>
+<p><strong>“预测好”是否真的帮助控制。</strong>用 ObjectWorld 的 full-object flow、Tiresias 的 imagined future 和一个直接行为克隆策略，统一接入同一末端控制器。先在仿真做 30 个 rigid/deformable 任务，再在 5 个真实任务上做 10 次重复；同时记录 EPE/SSIM、接触误差、轨迹偏差和成功率，检验预测指标是否能预测动作收益。</p>
+</li>
+<li>
+<p><strong>触觉缺失的因果审计。</strong>在 BAT-WAM 风格的 mask 下做 image-only、joint-only、image+joint、image+joint+future-touch 四组。用同一演示、同一 action head、同一推理频率，分离 tactile reconstruction、contact detection 和最终 success，不把触觉重建分数直接当作控制能力。</p>
+</li>
+<li>
+<p><strong>规划效率与自演化的联合曲线。</strong>WARP-JEPA 测 proposer 数量与 world-model rollout 数，REINS 测规则记忆大小与 LLM miss rate；共同报告每成功 episode 的 GPU/LLM 成本、延迟、失败恢复和外部验收。建议先用 CPU unit tests、10–20 个任务和本地小模型，确认接口后再上 H200/GPT API。</p>
+</li>
+<li>
+<p><strong>可执行状态基准。</strong>用 Spatial Harness 的对象—相机显式状态构造 20 个受控干预：遮挡、视角变化、物体位姿噪声、摩擦/重力变化。比较 VLM 内部推理、显式测量、physics-engine 渲染三组，分别报告状态解析错误、执行错误和任务答案错误；这比只报最终准确率更能解释 gap。</p>
+</li>
+</ol>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条目</th>
+<th>证据性质</th>
+<th>代码/权重/数据</th>
+<th>第三方验证与主要缺口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GR00T 2</td>
+<td>NVIDIA 官方研究页/白皮书/CoRL 公告</td>
+<td>Human-1M-100K 已公开；主代码标注 12 月；主权重未核到</td>
+<td>无独立复跑；官方任务/后训练设置和完整语料未开放</td>
+</tr>
+<tr>
+<td>MR0</td>
+<td>arXiv 技术报告 + 官方 GitHub/HF 资源</td>
+<td>代码、主 checkpoint、RoboTwin/Dojo/Casa checkpoint、RoboDesk 已可见；SHA256 manifest</td>
+<td>尚无第三方复现；许可真实数据和训练成本不完整公开</td>
+</tr>
+<tr>
+<td>ObjectWorld</td>
+<td>论文 PDF + 官方项目页</td>
+<td>交互示例和论文可读；未找到完整数据/训练代码下载入口</td>
+<td>无第三方复现；自动标注链和 hidden-surface 误差需独立重建</td>
+</tr>
+<tr>
+<td>Tiresias</td>
+<td>arXiv + GitHub + 数据下载脚本</td>
+<td>代码和准备脚本公开；依赖 Wan2.2 与 gated DINOv3；本项目训练权重未见</td>
+<td>仅作者 benchmark；无真实机器人部署</td>
+</tr>
+<tr>
+<td>DexForesight</td>
+<td>arXiv + 官方项目页</td>
+<td>论文、演示和定性结果；未找到专属代码、权重、完整数据</td>
+<td>无第三方复现；Sharpa 专属硬件和离线深度依赖明显</td>
+</tr>
+<tr>
+<td>BAT-WAM</td>
+<td>arXiv 论文</td>
+<td>未找到代码、权重和 HTBench 专属下载入口</td>
+<td>作者自建 7 任务、每任务 200 演示；无第三方复现</td>
+</tr>
+<tr>
+<td>WARP-JEPA</td>
+<td>arXiv + MIT GitHub</td>
+<td>代码、CPU tests、manifest、环境和任务脚本公开；需要 H-JEPA/LeWorldModel checkpoints，论文用 H200</td>
+<td>无第三方数值复现；MuJoCo/CUDA 版本会影响 episode</td>
+</tr>
+<tr>
+<td>REINS</td>
+<td>arXiv + 官方 GitHub</td>
+<td>代码、配置、schema 和数据脚本公开；LLM/API 需替换或自备</td>
+<td>结果停留在 tactical/replay 层；无完整感知和真车闭环</td>
+</tr>
+<tr>
+<td>Spatial Harness</td>
+<td>arXiv + GitHub 占位仓库</td>
+<td>论文称代码公开，但当前仓库只有“within a month”README</td>
+<td>无第三方复现；位姿标注条件与自动解析需分开审计</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天应先验证 <strong>MR0 的公开 checkpoint 与 Rollback/事件记忆开关</strong>，再用 <strong>ObjectWorld 或 Tiresias 的预测—控制桥接实验</strong>检查世界模型指标是否真的带来动作收益。GR00T 2 适合跟踪主权重和代码落地后再做缩小版跨本体验证；REINS/WARP-JEPA 则适合先做低成本接口和延迟审计。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-09/"><span>← 上一期 · 2026-11-09</span><strong>SLA · RoboImagine · OopsieRecover</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
