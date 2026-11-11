@@ -2,6 +2,17 @@
 
 本地图按“感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施”组织；每期快照保留历史判断，不把作者/官方报告自动当作独立验证。
 
+## 2026-11-11 地图快照
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 动态空间世界与持久状态 | WanderBench 测源事件与动态重访，Compass 1 激活长时空间历史 | 可见外观、离屏事件和检索状态缺少共同真值 | 固定事件时间与相机路线，构建动态重访的状态级评测 |
+| 可执行生成与仿真 | SoftPAT3D 生成可变形初始状态，Steel 支持异构批次 | 生成合法性、接触精度和下游学习收益尚需联合验证 | 同资产、同接触设置下比较生成流程与求解器对迁移的贡献 |
+| 人类经验与跨模态动作 | SWAM 系统研究语言、视频、UMI 与机器人监督 | 数据质量、模态配比、算力和模型结构仍可能混杂 | 等数据等计算下估计标注细度和动作锚点的迁移曲线 |
+| 跨传感器接触表示 | LingBot-Touch 复用冻结编码器，真实策略获得增益 | 几何标定、掌面覆盖和跨硬件误差尚未闭合 | 表示、布局和传感器物理的因子化留出测试 |
+| 世界反馈与 Agent 学习 | RoboScript、Fable 5.2 将模型、工具和任务记忆连接 | 示范数量、世界交互和推理预算缺少统一记账 | 固定模型与工具，比较上下文、权重更新和两者组合的成本曲线 |
+| 可靠部署与自演化基础设施 | Gemini 2.5 测物理约束，InfraRSI 验证系统改动 | 试点可靠性、验收器充分性和总成本仍需长期证据 | 独立验收器下做长期扰动、失败恢复和收益摊平评测 |
+
 ## 2026-11-10 地图快照
 
 | 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
@@ -47,6 +58,7 @@
 
 ## 下一轮追踪
 
+- 2026-11-11 新增：Gemini Robotics 2.5 工业统计与 ASIMOV 门槛；Steel 固定 Newton revision、reuse_kinematics、接触误差和训练墙钟；RoboScript rehearsal/API 总成本及真机部署代码；LingBot-Touch 4K 主表与公开编码器、全量数据；SWAM 主权重、UMI 和分批数据完整性；WanderBench 专属评分/视频包；SoftPAT3D 可执行资产；Compass 1 十二月交付；Fable 5.2 同预算机器人评测；InfraRSI 完整审计和许可。
 - 2026-11-10 新增：GR00T 2 主代码/权重与 Human-1M-100K 的训练契约；MR0 固定 HF revision、Rollback/事件记忆复现；ObjectWorld 完整数据与 flow-to-action 代码；Tiresias 小预算 ranker/想象验证；DexForesight 真实遮挡和 query alignment；BAT-WAM 代码与 HTBench；WARP-JEPA held-out 任务与小 GPU 复现；REINS 感知噪声与外部成本；Spatial Harness 代码落地；RLWRLD DexBench 资源计划。
 - 2026-11-09 新增：SLA 的完整训练代码/数据/权重闭合、OmniVGGT 教师和 state dropout 复现；RoboImagine 预测指标到闭环任务进度的桥接；OopsieRecover correction program 的触觉扩展；WAM-Sim memory 与 online RL 的独立归因；VisionSIM 传感器误差到控制失败链；RoboARCade 单任务成本与错误成功声称；VFlash TensorRT/算法收益分离。
 - 2026-11-08 新增：GPWM 完整代码／权重／ParticleWorlds、视觉到粒子及噪声搜索的独立归因；ToyBlocks 完整数据验收、oracle 四组与接触真值；Cosmos 训练／观测接口、59D 动作契约及策略排名有效性。
@@ -54,6 +66,7 @@
 
 ## 历史来源
 
+- [2026-11-11 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-11/)
 - [2026-11-10 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-10/)
 - [2026-11-09 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-09/)
 - [2026-11-08 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-08/)
