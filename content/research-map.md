@@ -2,6 +2,22 @@
 
 本地图按“感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施”组织；每期快照保留历史判断，不把作者/官方报告自动当作独立验证。
 
+## 2026-11-12 地图快照
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 物理可检验世界预测 | PAN 2 用结构化状态和视频模拟多步计划；NTT 用质量、姿态、速度与运动方程筛选候选动作 | 模拟画面、物理状态、候选排序和真实闭环仍由不同系统提供 | 建立状态—视频—动作三层基准，要求候选排序和中间接触同时正确 |
+| 4D 场景与几何补全 | UGG 统一 RGB、深度、相机 ray map 与 test-time search | seed、caption、稀疏观测和几何真值的影响尚未分离 | 构建稀疏视角、隐藏表面、相机误差和下游策略的联合评测 |
+| WAM 接口与推理预算 | MetaWAM 压缩 robot signals；Elastic-WAM 选择未来 refinement；Long-WAM 刷新长历史 checkpoint | 表示压缩、未来预测、动作成功和总墙钟缺少等预算归因 | 在同一 WAM 上做 latent interface × history × refinement budget 三因素实验 |
+| 交互状态与动力学适配 | LaST0.5 引入 interaction-centric latent；Few-Shot Residual 用三回合修正部署动力学 | 预测误差、接触状态和现场特异性适配容易混在一起 | 用冻结 world model、质心/摩擦 shift 和真实回合分离三者贡献 |
+| 记忆与任务进度 | Memory Clock 用 null event 证明时间采样会产生 phantom progress | 记忆索引、事件边界、延迟和可见状态缺少统一不变性测试 | 设计 null-event、hidden-memory、clock-scaling、event-index 四联协议 |
+| 跨本体与人类经验 | CIALLO 用 intent codec 做本体校准；Ego Guidance 用无动作人类视频监督未来表示 | 形态差异、视觉先验、动作接口和数据质量仍相互纠缠 | 固定数据与计算预算，比较 intent、future representation、raw action 三种接口 |
+| Agent 自演化与验收器 | FGSE 把 lesson 视作可证伪假设；PAN 2 让 Agent 比较模拟计划 | verifier 错误、probe 过拟合、外部副作用和长期成本未闭合 | 将临时状态、世界模拟、外部验收和回滚统一到同一长期基准 |
+
+## 下一轮追踪
+
+- 2026-11-12 新增：PAN 2 29B checkpoint、概念状态与视频生成接口、长计划失败和 GPU 成本；NTT physics control adapter 的论文、代码、动作候选与 OBJ3D 细节；UGG 30 GB 权重的跨 seed 几何复验；MetaWAM 三组 checkpoint 的真实推理和上游数据许可；Elastic-WAM 的代码与速度边界；Long-WAM 19.2 秒 checkpoint 的独立评测；Memory Clock 的跨模型 null-event 协议；CIALLO 的 one-record calibration 和 FGSE 的 verifier 复核。
+
 ## 2026-11-11 地图快照
 
 | 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
@@ -66,6 +82,7 @@
 
 ## 历史来源
 
+- [2026-11-12 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-12/)
 - [2026-11-11 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-11/)
 - [2026-11-10 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-10/)
 - [2026-11-09 晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-09/)
