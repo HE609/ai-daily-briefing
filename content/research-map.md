@@ -1,5 +1,21 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-13 地图快照
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 动作表征与世界模型接口 | OnlyAct 用 V-JEPA 2 抽取 scene-invariant latent action；BEHAVIOR WAM 方案用 stage、skill 和候选动作连接世界预测与执行 | action expressiveness、scene leakage、物理因果和真实动作可执行性仍由不同指标衡量 | 建立 action representation × scene invariance × counterfactual rollout 三层协议，并做跨本体留出 |
+| 无动作人类视频与跨本体 | Ego Guidance 用 future visual state，DexSeed 用 grasp prior 与 physics rollout，将人类经验转成机器人训练信号 | 视频量、动作标签、手型差异、仿真接触和视觉多样性相互纠缠 | 固定机器人数据和计算预算，比较 raw action、future state、contact prior 三种接口的迁移曲线 |
+| WAM 长时状态与推理预算 | BEHAVIOR WAM 方案使用 progress estimator、skill routing 和 rolling inpainting；ExRL 学习 execution length | stage、时间、动作候选和重规划成本缺少统一账本 | 做 stage semantics × execution length × refinement budget 三因素冻结 checkpoint 实验 |
+| Agent safety 与闭环验收 | LEASH 把 task/action/commit 三个 gate 接到 RoboRisk 五类风险；One Policy 用冻结 practice session 路由 agent | reviewer 误判、外部副作用、练习成本和安全收益仍未长期闭合 | 构建 resettable agent-robot harness，统一报告 harm、safe success、API cost、rollback 和 transfer |
+| 游戏与桌面数据 | Game-Enhanced 用事件和 foresight 预训练 InternVLA-A1.5 | 游戏事件与物理动作存在接口鸿沟，收益可能来自额外训练预算 | 做 events-only、foresight-only、联合目标和随机事件的等预算对照 |
+| 记忆与任务进度 | Memory Clock 的 null-event 审计与 BEHAVIOR 的 stage estimator 都说明时间不能代替状态 | 无事件延迟、重复动作、隐藏状态和阶段边界缺少统一测试 | 把 null-event、hidden-memory、stage confusion、execution length 放入同一长时基准 |
+| 工业 persistent world 与真实部署 | HolidayFactory 作为窗口外边界线索，LEASH 和 BEHAVIOR 提供可审计闭环基础设施 | 模拟器成功、持续作业 throughput、能耗和真实安全仍缺跨系统证据 | 建立 persistent-scene benchmark，要求重置前后任务顺序、接触、能耗和安全同时正确 |
+
+## 下一轮追踪
+
+- 2026-11-13 新增：OnlyAct 的 V-JEPA 2 action encoder、Apache-2.0 代码与 checkpoint；LEASH/RoboRisk 的 92+13 任务目录、3,312 仿真结果与 Hugging Face 数据集；ExRL 的 execution-length adapter、真实 π₀.₅ 适配和公开代码；DexSeed 的 25,270 物理 rollout 轨迹、代码待发布与真实 grasp demo；Ego Guidance 的 SPAR、975 小时过滤 Ego4D 与 Open-AoE scaling；BEHAVIOR WAM 第二名的 stage estimator/skill routing；Game-Enhanced 的 event/foresight 预训练；One Policy 的冻结 Astra practice route。
+
 本地图按“感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施”组织；每期快照保留历史判断，不把作者/官方报告自动当作独立验证。
 
 ## 2026-11-12 地图快照
