@@ -1,5 +1,25 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-14 地图快照
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久空间世界与可编辑场景 | Atlas 开放 Viewfinder、Chisel、API 和 splats-to-mesh；Spatial Foundry 把相机、几何、实例和场景编辑放入统一坐标 | 生成世界的几何一致性、物体持久性、物理接触和长期重访仍未统一计分 | 建立 camera-held / scene-held / object-edit 三联协议，联合测重投影、实例位姿、接触和策略成功 |
+| 几何基础模型与 3D/4D 重建 | Kosmo-GFM 用 GFM、PoseEngine、KosmoWorld 连接学习先验、全局优化和 3DGS/4DGS | 深度、位姿、scene flow 和下游策略收益仍然分离 | 固定输入视图与优化预算，比较 geometry prior、bundle optimization、4D flow 对闭环导航的独立贡献 |
+| 真实场景与物理 AI 数据 | Ropedia Xperience 2 用 LiDAR + HOMIE 生成 real-to-sim、重定向、虚拟遥操作和长时轨迹，首批 126 场景已上线 | 批次版本、腿部缺失、模型生成语言和静态场景假设会影响可迁移性 | 用同一场景做 human-only、retargeted、virtual teleop 三组数据，估计环境规模与行为规模的因果曲线 |
+| 跨本体动作接口 | SALA 用语言软邻域对齐 latent action，EgoX 用统一 frame 和 dreaming 共享 dynamics | 语言描述、动作锚点、形态差异和真实接触尚未完全解耦 | 建立 action semantics、latent geometry、control success 三层跨本体 benchmark |
+| 空间记忆与长时执行 | STVLA 将几何 token 放入 bounded temporal memory，ACE-CaP-0 将示范与仿真经验写入冻结代码 | 进度、记忆、程序和外部验收缺少统一成本账本 | 同一 VLA/agent 上比较 geometry memory、event memory、program memory 和重规划预算 |
+| 局部未来表征与可控视频 | ProtoVis-Nav 用 projected local target feature 对齐 waypoint，BWM-Forge 用 Blender scene program 控制机器人视频 | 局部视觉想象和视频 realism 尚未证明可转成真实飞行或接触动作 | 用相同 motion、不同 camera 和 object edit 做 feature alignment、生成一致性与闭环成功的三层实验 |
+| Agent 自演化与评估器 | ACE-CaP-0 的 demonstration/simulation on demand 与 Anthropic Anvil 的 attack-evaluate-fix loop 都把经验回写执行系统 | 评估器错误、外部副作用、长期成本和跨任务保留率仍缺统一协议 | 设计 resettable agent harness，联合记录 success、rollback、token、wall-clock、verifier error 和 transfer |
+| 证据与发布基础设施 | Atlas 无权重但有 API，Ropedia 有数据批次与 license，SALA/EgoX/STVLA 论文和项目页先于代码 | 产品、论文、代码、权重、数据与第三方结果常来自不同版本 | 为 world model/VLA 建立 provenance lockfile，要求每个数字绑定 revision、artifact、runtime、seed 和成本 |
+
+## 下一轮追踪
+
+- 2026-11-14 新增：Atlas 11 月 12 日开放工具与 API；Spatial Foundry 5,280 个可编辑住宅场景；Kosmo-GFM 的 GFM/PoseEngine/KosmoWorld；Ropedia Xperience 2 首批 126 场景约 1.07 TB、CC BY-NC 4.0；SALA 的 2,678 小时人类视频与语言对齐 latent；EgoX 的 MXT+ 与 embodiment dreaming；STVLA 的几何 temporal memory；ACE-CaP-0 的冻结代码策略；ProtoVis-Nav 的公开 checkpoint 与 AirSim/UE4；BWM-Forge 的 Apache-2.0 Blender pipeline；Anthropic Anvil 的 evaluator-guided red-team。
+- 优先补查 Atlas 的长期几何/物理一致性、Spatial Foundry 完整数据批次、Kosmo-GFM 代码与权重、Ropedia 坐标注册和许可证、SALA/EgoX/STVLA 的公开实现、ACE-CaP-0 的可运行代码、ProtoVis-Nav 的真实或硬件在环评测、BWM-Forge 的物理有效性、Anvil 的公开可审计替代协议。
+
+本地图按“感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施”组织。每期快照保留历史判断，不把作者或官方报告自动当作独立验证。
+
 ## 2026-11-13 地图快照
 
 | 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
