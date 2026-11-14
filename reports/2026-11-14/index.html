@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-14｜Atlas · Ropedia Xperience 2 · SALA · Yunhe</title><meta name="description" content="相对 11 月 13 日，OnlyAct、LEASH、ExRL、DexSeed、Ego Guidance、BEHAVIOR WAM、Game-Enhanced 和 One Policy 没有窗口内新版本、代码、权重、基准或第三方验证，本期不重复展开。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-14/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-14｜Atlas · Ropedia Xperience 2 · SALA"><meta property="og:description" content="相对 11 月 13 日，OnlyAct、LEASH、ExRL、DexSeed、Ego Guidance、BEHAVIOR WAM、Game-Enhanced 和 One Policy 没有窗口内新版本、代码、权重、基准或第三方验证，本期不重复展开。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-14/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Atlas · Ropedia Xperience 2 · SALA</h1><p class="article-deck">相对 11 月 13 日，OnlyAct、LEASH、ExRL、DexSeed、Ego Guidance、BEHAVIOR WAM、Game-Enhanced 和 One Policy 没有窗口内新版本、代码、权重、基准或第三方验证，本期不重复展开。</p><div class="article-meta"><time datetime="2026-11-14">2026 / 11 / 14</time><span>约 29 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-atlasreleasing-our-next-generation-world-modelp0">1. Atlas：Releasing our next generation world model｜P0</a><a class="toc-level-2" href="#2-spatial-foundrya-multimodal-dataset-for-spatial-intelligencep0">2. Spatial Foundry：A Multimodal Dataset for Spatial Intelligence｜P0</a><a class="toc-level-2" href="#3-kosmo-gfma-production-ready-geometry-foundation-modelp0">3. Kosmo-GFM：A Production-Ready Geometry Foundation Model｜P0</a><a class="toc-level-2" href="#4-ropedia-xperience-2a-gold-standard-for-scaling-physical-ai-environments-and-behaviorsp0">4. Ropedia Xperience 2：A Gold Standard for Scaling Physical AI Environments and Behaviors｜P0</a><a class="toc-level-2" href="#5-salasemantically-aligned-latent-actions-enable-dual-axis-scaling-of-embodied-foundation-modelsp0">5. SALA：Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models｜P0</a><a class="toc-level-2" href="#6-egoxegocentric-cross-embodiment-manipulation-with-embodiment-dreamingp0">6. EgoX：Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming｜P0</a><a class="toc-level-2" href="#7-stvlaspatial-aware-and-temporal-memory-for-vision-language-action-modelsp0">7. STVLA：Spatial-aware and Temporal-memory for Vision-Language-Action Models｜P0</a><a class="toc-level-2" href="#8-ace-cap-0real-world-code-as-policies-in-the-era-of-experiencep0">8. ACE-CaP-0：Real-World Code-as-Policies in the Era of Experience｜P0</a><a class="toc-level-2" href="#9-protovis-navprototypical-visual-imagination-for-visual-spatial-aligned-uav-navigationp1">9. ProtoVis-Nav：Prototypical Visual Imagination for Visual-Spatial Aligned UAV Navigation｜P1</a><a class="toc-level-2" href="#10-bwm-forgeagentic-world-programming-for-embodied-intelligencep1">10. BWM-Forge：Agentic World Programming for Embodied Intelligence｜P1</a><a class="toc-level-2" href="#11-anthropic-anvilstrengthening-our-safeguards-with-frontier-automated-red-teamingp1">11. Anthropic Anvil：Strengthening our safeguards with frontier automated red-teaming｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-14.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-14</div><article class="prose"><p>本轮检索窗口为北京时间 <strong>2026-11-11 09:00 至 2026-11-14 09:00</strong>，资源核验延伸至成稿。候选池并行覆盖 arXiv cs.RO、cs.CV、cs.AI、cs.LG 最新批次，World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、TRI、Stanford、Berkeley、MIT、CMU、Princeton、Huawei Cloud 和主要中国团队的官方入口，以及 GitHub、Hugging Face、Spatial Intelligence、3D/4D 世界生成、real-to-sim、WAM/VLA、Robot Learning、Agent/self-evolution 的 broader web 入口。</p>
+<p>相对 11 月 13 日，OnlyAct、LEASH、ExRL、DexSeed、Ego Guidance、BEHAVIOR WAM、Game-Enhanced 和 One Policy 没有窗口内新版本、代码、权重、基准或第三方验证，本期不重复展开。今天最重要的新增判断是，空间智能正在从“生成一段看起来合理的视频”转向可检查的 <strong>几何坐标、持久状态、可编辑场景和闭环接口</strong>。Atlas 把世界模型开放成带 API 的空间工作流，Spatial Foundry、Ropedia Xperience 2 和 Kosmo-GFM 分别补齐可编辑数据、真实场景采集和几何重建，SALA、EgoX、STVLA 与 ACE-CaP-0 则把这些表征连接到跨本体动作、长期记忆和可复用程序。本期因此保留 11 项高相关工作，未用低证据项目填充篇幅。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p><strong>今天我建议的精读顺序是：Atlas → Ropedia Xperience 2 → SALA → STVLA → ACE-CaP-0。</strong></p>
+<ul>
+<li><strong>Atlas</strong>。先确认公开空间世界模型能否从少量图像保持相机、几何和对象状态的一致性，再判断它是否适合作为 real-to-sim 前端。</li>
+<li><strong>Ropedia Xperience 2</strong>。接着审查真实场景、第一视角行为和机器人轨迹是否处在同一度量坐标，重点看数据版本与批次边界。</li>
+<li><strong>SALA</strong>。随后看无配对人类视频怎样通过语言语义和机器人动作重建进入同一个 latent action 空间。</li>
+<li><strong>STVLA</strong>。再看空间几何怎样改变 VLA 的历史检索，尤其是 null-event、遮挡和阶段边界下的记忆有效性。</li>
+<li><strong>ACE-CaP-0</strong>。最后看 agent 如何把一次次示范和仿真试验写成冻结程序，并把开发时成本与部署时延分开记账。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-atlasreleasing-our-next-generation-world-modelp0">1. Atlas：Releasing our next generation world model｜P0</h2>
+<p><strong>发布方与时间</strong> - World Labs 团队，官方产品与研究发布，2026-11-12。Atlas 最初在 2026-09-01 作为下一代 omni world model 介绍，本轮新增的是面向所有用户的 Viewfinder、Chisel、Splats to Mesh、Relight 和开发者 API 开放。<a href="https://worldlabs.ai/atlas" target="_blank" rel="noopener noreferrer">官方 Atlas 页面</a> · <a href="https://worldlabs.ai/blog/atlas" target="_blank" rel="noopener noreferrer">研究说明</a> · <a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">研究入口</a></p>
+<p>Atlas 要解决的是从少量图像、视频和相机条件恢复可探索、可编辑并能继续生成的空间世界。官方架构是多模态自回归扩散 Transformer，把文本、图像、视频序列、相机位姿和深度图放到共享空间上下文中。它可以从一张图生成新视角，从两到三张图开始做稀疏重建，使用更多输入减少想象成分，也可以输出点云和 3D Gaussian splats。机器人示例用手机视频的 24 帧重建场景，再生成不同机器人机身相机看到的 RGB 和深度，并展示刚体、关节体和可变形物体的交互变化。</p>
+<p>结果主要是 World Labs 的官方报告。页面称 Atlas 在相机控制生成和 3D 重建上优于对比的专用模型，并使用第三方人工评审相机轨迹跟随。公开版本仍是官方托管 API 和网页工具，没有公开权重，也没有独立实验室的闭环控制复现。长期细节漂移、物体持久性、复杂物理交互、空间精度和可读文字仍被官方列为限制。它与 Genie 4 的实时交互模拟、Marble/3DGS、NeRF/重建系统和 real-to-sim 工作流相连，当前新增价值在于把空间模型变成可调用的工程入口。</p>
+<p><strong>值得深入阅读。</strong> 轻量验证不需要训练模型。固定一个房间或桌面，用 3-4 张手机图测试新视角、相机路径、splats-to-mesh 和机器人相机渲染，分别记录重投影误差、对象相对距离、重复视角的一致性和导出网格的尺度。若使用 API，应把调用成本与生成质量单独记账。官方发布、技术说明、权重和第三方验证目前分别处于“有、部分、无、无”。</p>
+<h2 id="2-spatial-foundrya-multimodal-dataset-for-spatial-intelligencep0">2. Spatial Foundry：A Multimodal Dataset for Spatial Intelligence｜P0</h2>
+<p><strong>作者与机构</strong> - Ethan Lin、Yang Song，Ranolabs，2026-11-12 提交，空间智能数据集论文与项目页。<a href="https://arxiv.org/abs/2611.17318" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://ranolabs.com/Blog/spatial-foundry" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>Spatial Foundry 处理的是空间数据常把 RGB、几何、相机运动和场景变化拆散的问题。它提供 <strong>5,280 个带家具的住宅 3D 场景配置</strong>，每个场景保留楼层平面、透视与全景 RGB、度量深度、点云、网格、实例级 3D 框、相机轨迹和视频。共享场景坐标把多视角、多时间观察连起来，可编辑源场景支持固定相机改变物体，或固定场景改变相机的成对样本。构建流程使用 GPT-6 生成结构化布局、人工检查连通性和通行区域，再用 Blender 与 Infinigen 组装资产。数据组织本身就是训练目标的契约，适合几何重建、相机条件视频、持久世界和状态编辑。</p>
+<p>论文展示的是数据覆盖与应用路径，尚未提供与策略成功直接相连的统一 benchmark 结果。项目页公开交互式点云预览和演示视频，但完整源场景、批次下载、许可证和独立复现入口本轮没有核实。它与 Structured3D、3D-FRONT、Hypersim、ProcTHOR、Ropedia Xperience 2 和 Atlas 形成互补。局限包括以美国住宅为主、动态和真实接触不足、场景由程序生成且部分标注来自渲染或处理，不能把 5,280 配置直接当作真实世界数据量。</p>
+<p><strong>值得深入阅读。</strong> 先取 10 个场景做资产审计，检查世界坐标、深度单位、实例 ID、相机内外参和同一路线的前后编辑是否能逐帧对齐。再用相同模型分别训练“只看 RGB”“RGB+深度”“RGB+编辑前后对”三组小规模重建，报告视角一致性、对象变换误差和持久状态识别，不要把渲染成功率当作真实物理成功。</p>
+<h2 id="3-kosmo-gfma-production-ready-geometry-foundation-modelp0">3. Kosmo-GFM：A Production-Ready Geometry Foundation Model｜P0</h2>
+<p><strong>作者与机构</strong> - Kosmo Research 团队，2026-11-12 提交，几何基础模型与场景重建系统。<a href="https://arxiv.org/abs/2611.16840" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://kosmoresearch.github.io/Kosmo-GFM/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>Kosmo-GFM 解决的是几何基础模型输出与大场景全局一致性之间的断层。GFM 以 ViT-Giant 为骨干，从图像和视频联合预测相机参数、深度、跨视图对应、动态 3D 点和 scene flow。PoseEngine 再把这些预测放入跨视图几何优化，恢复场景级相机和可渲染的 3DGS/4DGS。KosmoWorld 用真实场景重建产生几何监督，训练目标覆盖相机、深度、动态点可见性和匹配。它保留了显式优化，使“学习到的空间先验”和“全局几何约束”可以分别审计。</p>
+<p>作者报告称，GFM 在 SpatialBench Sparse 与 Medium 上取得最低的绝对相对深度误差和最高的 5 度相对位姿 AUC，在五个数据集上动态点和 scene flow 的平均端点误差最低。对 34 个所有系统都完成的场景，PoseEngine 累计 14.07 小时，约为 GLUEMAP 69.67 小时的 20%。PoseEngine Flash 的混合精度运行时间为 2.62 小时，约为 GLUEMAP 的 4%。这些都是作者报告，尚无第三方复跑。项目页存在，但代码、权重、KosmoWorld 下载入口本轮未核实。</p>
+<p>它与 DUSt3R、MASt3R、VGGT、GLUEMAP、3DGS/4DGS 以及 Atlas 的重建分支相连。局限是 34 场景交集与全量系统能力不同，重建指标尚未证明对导航、操控或接触预测的提升，动态场景也仍依赖多阶段处理。轻量验证可选公开 SpatialBench 的小子集，比较 COLMAP、冻结几何模型和“几何模型+短窗口优化”的位姿与深度，另外对 6 个视角做遮挡、宽基线和动态物体扰动。</p>
+<h2 id="4-ropedia-xperience-2a-gold-standard-for-scaling-physical-ai-environments-and-behaviorsp0">4. Ropedia Xperience 2：A Gold Standard for Scaling Physical AI Environments and Behaviors｜P0</h2>
+<p><strong>作者与机构</strong> - Ropedia Research Team，Ropedia AI，2026-11-12 提交并同步项目页、GitHub 与 Hugging Face 数据集。<a href="https://arxiv.org/abs/2611.17060" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://ropedia.com/xperience/2-research/" target="_blank" rel="noopener noreferrer">项目页</a> · <a href="https://github.com/Ropedia/Ropedia-Xperience-2" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://huggingface.co/datasets/ropedia-ai/Ropedia-Xperience-2" target="_blank" rel="noopener noreferrer">数据集</a></p>
+<p>Ropedia Xperience 2 研究怎样用一次空间采集同时支持环境、行为、仿真和机器人学习。发布规模是 <strong>1,589 个度量级 3D 扫描、4,230 段第一视角录制、74 个任务、131 小时视频</strong>。手持 LiDAR 扫描场景，HOMIE 头戴设备记录第一视角、IMU、音频、手部和身体运动，再把网格、3DGS、相机轨迹、深度、手体姿态、语言和场景注册到同一度量坐标。官方展示了 real-to-sim、人体到机器人重定向、虚拟遥操作和长时轨迹生成四条扩展路线。</p>
+<p>作者报告和项目页结果包括一个办公室场景的 7/7 子任务通过、家庭场景 30/30 个留出起点完成八个子任务，以及机器人重定向的 0.40-0.55 cm 中位指尖误差。它们是作者演示和项目页结果，不是第三方验证。Hugging Face 数据集当前为非 gated、CC BY-NC 4.0，首批 <strong>126 个场景约 1.07 TB</strong> 已上线，后续批次仍在发布。限制包括腿部姿态未直接观测、语言标注以模型生成内容为主、捕获时假设场景静态、真实动态人群与接触物理不在首批契约内。它与 Xperience-10M、Ego4D、DROID、Ropedia 的前序数据和 real-to-sim 基准相连。</p>
+<p><strong>值得深入阅读。</strong> 先只取 Hugging Face 的元数据和一个小场景，复合 scan、HOMIE、mocap、camera calibration，先检查坐标注册和时间同步，再做一个机器人 retargeting。报告应把数据可读、坐标注册、仿真通过、机器人策略成功和许可证分开。完整首批下载量已经达到 TB 级，轻量路线不需要拉取整批数据。</p>
+<h2 id="5-salasemantically-aligned-latent-actions-enable-dual-axis-scaling-of-embodied-foundation-modelsp0">5. SALA：Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models｜P0</h2>
+<p><strong>作者与机构</strong> - Jiachun Jin、Zetong Zhou、Haonan Wang、Xiao Yang、Jun Zhu、Zhijie Deng，Sharpa Robotics、SJTU-Sharpa Joint Lab、清华大学，2026-11-12 提交。<a href="https://arxiv.org/abs/2611.17110" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://sala-vla.github.io/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>SALA 解决人类视频和机器人视频在动作语义上无法对齐的问题。它用机器人动作重建把 robot latent 变成控制锚点，再用未配对片段的原子动作文字描述构造软邻域，推动人类 latent 靠近语义相近的 robot latent。SoftVQ 使用 256 个 code、每段 8 个 latent token，策略阶段冻结 tokenizer，让人类和机器人视频共同监督 latent-action head，机器人数据额外使用 flow-matching 动作损失。训练目标可以写成 <strong>控制重建 + 语义邻域对齐 + latent-action 预测 + 机器人动作 flow matching</strong>。</p>
+<p>作者报告在 RoboTwin 2.0 上平均成功率 <strong>66.4%</strong>，项目页称在比较的 VLA、WAM 和 latent-action 方法中最好。真实 63-DoF 平台上，通用人类视频预训练扩展到 <strong>2,678 小时</strong>，任务特定人类视频后训练后平均真实成功率从 <strong>53.75% 提升到 72.5%</strong>，项目页给出 GR00T N1.7 的 41.25% 对照。结果都是作者报告，尚无第三方复跑。项目页仍标注 Code soon，权重和训练数据未核实。</p>
+<p>SALA 与 LAM、WAM、OnlyAct、Ego Guidance 形成直接关系。它的创新是把语言当作无配对跨本体关系监督，而不是把人类视频伪标成机器人动作。局限在于原子动作文字质量、机器人控制锚点和 63-DoF 平台规模会共同影响结果，真实任务数量和跨机构验证仍不足。轻量验证可在不下载整套模型的情况下，用两个动作类别构造软邻域，对比硬 VQ、SoftVQ、仅视觉重建三组 latent 的跨场景检索与动作重建误差。</p>
+<h2 id="6-egoxegocentric-cross-embodiment-manipulation-with-embodiment-dreamingp0">6. EgoX：Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming｜P0</h2>
+<p><strong>作者与机构</strong> - Yaru Niu、Binghong Chen、Changwei Yao 等，作者来自 Carnegie Mellon University、Bosch Center for AI、UT Arlington、UC Berkeley、NVIDIA，2026-11-12 提交，项目页以 anonymous authors under review 发布。<a href="https://arxiv.org/abs/2611.16728" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://egox-embodiment.github.io/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>EgoX 处理人类、真实机器人和模拟机器人在形态、传感器、控制接口上的差异。MXT+ 为每个 embodiment 的观察模态提供专属 tokenizer，为每类动作提供专属 action expert，中间共享 Transformer trunk。训练时加入 embodiment dreaming，让共享 trunk 预测未来视觉和本体状态 latent，目标来自 EMA 编码器。统一的 root、egocentric 和 wrist frame 约定，使不同身体的位姿 token 具有相同语义，dreaming expert 和 EMA teacher 在部署时移除。</p>
+<p>作者报告覆盖 13 个 task-embodiment pairs、5 个任务和 6 个机器人 embodiment，包含 5 个真实机器人和 1 个模拟 humanoid。跨本体预训练把平均 normalized task progress 从 <strong>0.63 提高到 0.80</strong>，OOD 从 <strong>0.53 提高到 0.77</strong>，预训练模型在 13 个 pair 中 12 个排名第一。dreaming 消融在 7 个设置上把平均进度从 0.63 提高到 0.78。当前项目页没有可核实的代码、权重或数据下载入口。另一个同名的 DAVIAN Robotics 仓库是 2025/2026 的 exocentric-to-egocentric 视频生成项目，不能当作本论文的实现。</p>
+<p>它与 SALA、Ego Guidance、DexSeed、Ropedia 的跨本体路径相连。局限包括论文处于 under review、结果主要由作者提供、数据混合和 embodiment-specific tokenizer 的规模效应难完全拆开，真实任务的每个 pair 试验数也有限。轻量验证可用两种动作空间和两种观察模态构成小型 shared trunk，加入 modality dropout 与 future-latent dreaming，测试 ID/OOD、跨本体和不带 dreaming 的三组差异。</p>
+<h2 id="7-stvlaspatial-aware-and-temporal-memory-for-vision-language-action-modelsp0">7. STVLA：Spatial-aware and Temporal-memory for Vision-Language-Action Models｜P0</h2>
+<p><strong>作者与机构</strong> - Zhuo Han、Yeqiang Wang、Xinran Wang、Hongwei Han、Yi Xiong 等，2026-11-12 提交，项目页同步展示真实机器人结果。<a href="https://arxiv.org/abs/2611.16589" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://stvla.github.io/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>STVLA 研究当前视觉与任务历史同时决定动作时，VLA 该记住什么。它把冻结视觉几何基础模型的空间特征和视觉表示一起放进有容量上限的 temporal memory，再用一个同时考虑当前相关性与历史互补性的检索分数选择信息。训练目标保留当前动作监督，历史 token 作为空间与阶段上下文，避免只靠外观记忆在遮挡或视角变化下失效。</p>
+<p>作者报告在 LIBERO、LIBERO-Mem、MIKASA-Robo、SimplerEnv Bridge 上平均成功率均为对比方法最高，项目页给出 <strong>97.8%、41.0%、45.2%、74.0%</strong>。AGIBOT G2 真实任务上，block stacking、object organization、phone packaging 分别为 <strong>100%、85%、45%</strong>，平均 <strong>76.7%</strong>，相对 π0.5 的 41.7%、55.0%、10.0% 提升 58.3、30.0、35.0 个百分点。这些结果来自作者，暂无外部复跑。项目页没有可核实的公开训练代码或权重。</p>
+<p>它与 MemoryVLA、Memory Clock、Kosmo-GFM 和历史检索类 VLA 相连。局限是只在一台 AGIBOT G2 上做真实试验，memory scoring、几何基础模型和任务阶段标签可能共同贡献收益，20 次试验的长尾统计仍有限。轻量验证可固定一个已有 VLA，做外观 memory、几何 memory、联合 memory 和随机 memory 四组，再插入 null-event、遮挡和重复动作，报告成功率、memory 长度、检索延迟与失败阶段。</p>
+<h2 id="8-ace-cap-0real-world-code-as-policies-in-the-era-of-experiencep0">8. ACE-CaP-0：Real-World Code-as-Policies in the Era of Experience｜P0</h2>
+<p><strong>作者与机构</strong> - ACE-CaP Team、ACE Robotics，2026-11-12 提交，项目页展示 Agilex PIPER X 双臂实验。<a href="https://arxiv.org/abs/2611.16872" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://acerobotics2025.github.io/ACE-CaP/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>ACE-CaP-0 解决 agent 在每一步都调用大模型导致延迟高、经验难以复用的问题。编码 agent 在开发阶段按需索取机器人示范，必要时按需调用仿真比较候选程序，再把程序冻结。部署时只有运行时视觉和控制，human 或 coding agent 不再介入。项目页的开发 agent 为 Claude Opus 5.5，开发预算为每个任务最多 10 次人工辅助场景 reset，评估时每个冻结程序运行 30 次。</p>
+<p>作者报告覆盖 8 个真实操作任务，221/240 次成功，整体 <strong>92.1%</strong>，其中 7/8 个任务至少 90%，平均执行时间 0.97-2.27 分钟。辅助实验中，纯文字 guidance 为 60%，人类第一视角视频为 73.3%，机器人示范为 86.7%。在同一开发流程中，simulation on demand 达到 100%，real-only 为 86.7%，先仿真后迁移的 sequential real-sim 为 0%，失败原因是仿真图像和深度比真实传感器更干净。结果是作者报告，尚无第三方复现，项目页提供 PDF 与视频但没有已核实的公开代码或权重。</p>
+<p>它连接 Code as Policies、RoboScript、LEASH、Ropedia 的程序化经验与闭环验收。局限是每个条件只有一次开发 run，开发时间、输出 token、人工 reset、硬件和任务设计共同影响结果，0% 的顺序仿真结果也说明 sensor gap 不能被“先仿真”自动消除。轻量验证可在两个任务上用固定程序、按需示范、按需仿真三组对照，记录开发 reset、墙钟、token、部署成功和动作重规划次数。</p>
+<h2 id="9-protovis-navprototypical-visual-imagination-for-visual-spatial-aligned-uav-navigationp1">9. ProtoVis-Nav：Prototypical Visual Imagination for Visual-Spatial Aligned UAV Navigation｜P1</h2>
+<p><strong>作者与机构</strong> - Guangyuan Sui、Yunzhong Hou、Chi Harold Liu，北京理工大学，2026-11-12 提交。<a href="https://arxiv.org/abs/2611.17330" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/ygs0002/protovis-nav" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://huggingface.co/AnonymousSubmission1111/ProtoVis" target="_blank" rel="noopener noreferrer">权重与数据入口</a> · <a href="https://huggingface.co/datasets/wangxiangyu0814/TravelUAV" target="_blank" rel="noopener noreferrer">TravelUAV 数据</a></p>
+<p>ProtoVis-Nav 研究 UAV 在连续 3D 空间中怎样把语言 waypoint 与实际视觉后果对齐。模型冻结 Qwen3-VL-2B，只训练 LoRA 和新 head。它把下一位置投影到当前 front/down 图像，裁剪 32×32 目标区域，用 16 个 PVI token 的 softmax 线性组合预测该区域的视觉特征，再把 PVI token 作为 waypoint token 上下文。PVI 损失是 SmoothL1 加余弦距离，另有 stop head 和 waypoint head。</p>
+<p>作者在 OpenUAV Test Seen Full 上报告 NE 51.77 m、SR 50.78%、OSR 66.50%、SPL 44.68%，相同 backbone 的 Base 为 55.67 m、46.47%、62.69%、41.14%。Test Unseen Full 为 NE 90.85 m、SR 30.12%、OSR 41.52%、SPL 27.53%，Base SR 为 27.91%。HUGE-Bench 五次独立训练平均 nDTW 0.1762、SR 47.47%、CSPL 0.4161、碰撞率 39.76%，Base 分别为 0.1599、36.39%、0.3179、54.46%。代码为 MIT，README 提供 checkpoint、TravelUAV 数据和 AirSim/UE4 环境。训练使用 4 张 RTX 5090，推理使用单张 A6000。</p>
+<p>它与 Pathdreamer、NWM、LongFly、全局未来视频想象形成“局部结果视觉”路线。局限是闭环只在仿真，树枝、电线和细杆仍是主要碰撞来源，未证明 real-world UAV transfer。轻量验证优先跑公开 checkpoint 的 seen/unseen 小子集，再做去掉 PVI token 或替换为 center crop 的同预算对照，记录 SR、collision、near-collision、SPL 与单回合墙钟。</p>
+<h2 id="10-bwm-forgeagentic-world-programming-for-embodied-intelligencep1">10. BWM-Forge：Agentic World Programming for Embodied Intelligence｜P1</h2>
+<p><strong>作者与机构</strong> - BWM Team，仓库标注 Tongji University 与 Koala Uran，2026-11-12 技术报告，Apache-2.0 代码发布。<a href="https://arxiv.org/abs/2611.16221" target="_blank" rel="noopener noreferrer">论文</a> · <a href="https://github.com/Lcixs/BWM-Forge" target="_blank" rel="noopener noreferrer">代码</a> · <a href="https://bwm-forge.github.io/" target="_blank" rel="noopener noreferrer">项目页</a></p>
+<p>BWM-Forge 解决端到端视频生成无法直接控制场景几何、机器人运动和相机的问题。输入可以是一张初始图、带运动数据的图或人类演示视频。编码 agent 先写可编辑的 Blender scene program，指定对象、robot motion 和 camera，Blender 生成 proxy video，视频生成模型再补充外观。多 agent harness 负责输入、建模、审查、渲染，自动评估和用户反馈驱动局部修订，experience repository 复用建模与渲染规则。</p>
+<p>作者在 15 个任务、5 类机器人上与 LingBot-World Base Cam 比较，报告 BWM-Forge 在美学质量、图像质量、主体一致性、背景一致性、运动平滑度、RoboJudge-9B 物理遵循和指令对齐上更高，但 dynamic degree 更低。尚无第三方验证，也没有在论文摘要中给出完整数值表。代码仓库是完整的本地 pipeline，但需要 Blender、外部 Responses API、视频生成服务和 Cloudflare tunnel，当前不包含通用视频模型权重。</p>
+<p>它连接 Atlas 的可编辑空间、Ropedia 的场景扩展和视频世界模型。局限是生成视频质量与真实物理可执行性仍是两条证据链，外部服务和机器人资产会决定复现成本，README 主要面向 Windows 本地运行。轻量验证可只跑 Blender proxy stage，在一个机器人资产上固定运动、替换相机和改变对象，检查 geometry、motion 和 view 是否真的由代码控制，再决定是否接入视频生成。</p>
+<h2 id="11-anthropic-anvilstrengthening-our-safeguards-with-frontier-automated-red-teamingp1">11. Anthropic Anvil：Strengthening our safeguards with frontier automated red-teaming｜P1</h2>
+<p><strong>作者与机构</strong> - Nate Rahn、Chawin Sitawarin、David Huang 等，Anthropic，官方研究/安全基础设施发布，2026-11-12。<a href="https://safeguards.anthropic.com/2026/automated-red-teaming/" target="_blank" rel="noopener noreferrer">官方报告</a></p>
+<p>Anvil 把 Claude 作为并行 investigator agent，在多个任务上迭代攻击策略、与目标模型和 classifier 交互、回退或分支会话，并用 attack library 加速下一轮测试。它不直接改基础模型，而是用 agent 轨迹和 evaluator 结果驱动 safeguards 的自我改进。官方称在生物、网络安全和反蒸馏三类任务上，Anvil 能在 24-48 小时发现人类需要数周到数月才发现的高严重度 jailbreak，在 24/24 个给定 cyber task-model pair 上找到有效 break，在反蒸馏实验中首个 substantial leak 为 435 次请求、1.2 小时，而专家为 102,200 次请求、27.9 小时。防御迭代中，Anvil transcript 上的漏检率从 31.5% 降到 0.4%。</p>
+<p>这是 Anthropic 的内部报告，代码、权重和 classifier 访问没有公开，结果依赖未开启 safeguards 的 attacker、精确 classifier 分数和内部任务，不能视为第三方可复现 benchmark。它对本领域的价值在于把 agent self-evolution 的“经验回写”扩展到 evaluator 与防御器共同演化。轻量验证只应在无害 toy classifier 上做固定任务、攻击成本和防御迭代的曲线，避免把公开安全报告改写成可操作的越狱教程。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute、Stanford、Berkeley、MIT、CMU、Princeton、Huawei Cloud 和主要中国团队的 research/news/project/model 入口。</p>
+<ul>
+<li><strong>窗口内重大官方更新</strong> - World Labs 在 11 月 12 日把 Atlas 的网页工具、API 和空间工作流开放给所有用户，属于模型从研究预览进入可调用产品的证据。Anthropic 在 11 月 12 日发布 Anvil 自动化红队报告，属于 Agent/self-evolution 基础设施更新。两者都没有公开训练权重。</li>
+<li><strong>已覆盖但不重复</strong> - Gemini Robotics 2.5、NVIDIA GR00T 2、Steel、LingBot-Touch、Fable 5.2 等在 11 月 9-13 日前期报告已有展开，本轮没有发现新版本、代码、权重或独立验证，不机械重复。</li>
+<li><strong>观察项</strong> - Huawei Cloud 已在 11 月 12 日预告 11 月 16 日发布 CloudRobo-WM1.2，官方预告尚无模型规格、权重、代码、基准或可用接口，因此记录为 upcoming release，不进入 Top Papers。<a href="https://pandaily.com/huawei-cloud-cloudrobo-wm1-2-ascend-native-embodied-world-model-launch-preview" target="_blank" rel="noopener noreferrer">窗口外预告</a></li>
+<li><strong>主要入口的总体判断</strong> - 本轮没有发现 World Labs 之外新的公开 omni world model 产品，也没有发现 Physical Intelligence、Figure、Field AI、1X、TRI 或 Generalist AI 在窗口内发布可独立核验的新权重或机器人 benchmark。Anthropic 的 Anvil 属于 Agent/安全基础设施，不应被混写成机器人能力证据。</li>
+</ul>
+<p>重大遗漏兜底还检索了 Spatial Intelligence、World Model、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 等 broader web 关键词。LingBot-Touch、Atlas、Ropedia、Spatial Foundry、Kosmo-GFM、Huawei Cloud 预告和若干产业合作均被交叉核对。把未公开模型、即将发布模型和二级媒体中的产品描述留在观察池，属于 Selection，不属于 Retrieval Failure。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久空间世界与可编辑场景</td>
+<td>Atlas、Spatial Foundry 将图像、相机、深度、3DGS、网格和场景编辑放进统一空间上下文</td>
+<td>生成世界的几何一致性、物体持久性、物理接触和长期重访仍未统一计分</td>
+<td>构建 camera-held / scene-held / object-edit 三联协议，同时测重投影、实例位姿、接触和策略成功</td>
+</tr>
+<tr>
+<td>几何基础模型与 3D/4D 重建</td>
+<td>Kosmo-GFM 用 GFM + PoseEngine + KosmoWorld 连接学习先验与全局优化</td>
+<td>深度、位姿、scene flow 和下游策略收益仍然分离</td>
+<td>固定输入视图与优化预算，比较 geometry prior、bundle optimization、4D flow 对闭环导航的独立贡献</td>
+</tr>
+<tr>
+<td>真实场景与物理 AI 数据</td>
+<td>Ropedia Xperience 2 用 LiDAR + 第一视角行为生成 real-to-sim、重定向与虚拟轨迹，首批 126 场景已上线</td>
+<td>批次版本、腿部缺失、模型生成语言和静态场景假设会影响数据可迁移性</td>
+<td>用同一场景做 human-only、retargeted、virtual teleop 三组数据，估计环境规模与行为规模的因果曲线</td>
+</tr>
+<tr>
+<td>跨本体动作接口</td>
+<td>SALA 以语言软邻域对齐 latent action，EgoX 以统一 frame 和 dreaming 共享 dynamics</td>
+<td>语言描述、动作锚点、形态差异与真实接触尚未完全解耦</td>
+<td>建立 action semantics、latent geometry、control success 三层跨本体 benchmark</td>
+</tr>
+<tr>
+<td>空间记忆与长时执行</td>
+<td>STVLA 将几何 token 放入 bounded temporal memory，ACE-CaP-0 将经验写入冻结代码</td>
+<td>进度、记忆、程序和外部验收的贡献没有统一成本账本</td>
+<td>同一 VLA/agent 上比较 geometry memory、event memory、program memory 和重规划预算</td>
+</tr>
+<tr>
+<td>局部未来表征与导航</td>
+<td>ProtoVis-Nav 用 projected local target feature 替代整帧未来想象，BWM-Forge 用可执行 scene program 控制视频</td>
+<td>局部视觉想象和视频 realism 仍未证明可转成真实飞行或接触动作</td>
+<td>用相同 motion、不同 camera 和 object edit 做 feature alignment、生成一致性与闭环成功的三层实验</td>
+</tr>
+<tr>
+<td>Agent 自演化与评估器</td>
+<td>ACE-CaP-0 的 demonstration/simulation on demand 与 Anthropic Anvil 的 attack-evaluate-fix loop 都把经验回写执行系统</td>
+<td>评估器错误、外部副作用、长期成本和跨任务保留率仍缺统一协议</td>
+<td>设计 resettable agent harness，联合记录 success、rollback、token、wall-clock、verifier error 和 transfer</td>
+</tr>
+<tr>
+<td>证据与发布基础设施</td>
+<td>Atlas 无权重但有 API，Ropedia 有数据批次与 license，SALA/EgoX/STVLA 论文和项目页先于代码</td>
+<td>产品、论文、代码、权重、数据与第三方结果常来自不同版本</td>
+<td>为 world model/VLA 建立 provenance lockfile，要求每个数字绑定 revision、artifact、runtime、seed 和成本</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>空间世界一致性四联实验</strong>。选 Atlas 或 Spatial Foundry 的小场景，固定输入图片和相机路径，只改变一个物体。测跨视角重投影、实例位姿、深度尺度、mesh 可用性和 before/after state consistency。</li>
+<li><strong>Ropedia 首批场景审计</strong>。只下载 Hugging Face 元数据和一个场景，复合 scan、HOMIE、mocap、camera calibration，先检查坐标注册和时间同步，再做一个机器人 retargeting。不要用 126 场景的可下载性替代全量 1,589 场景已开放。</li>
+<li><strong>SALA 与 EgoX 的共享接口对照</strong>。在两个 embodiment、两个任务和固定 100/500/1,000 条示范下，比较 raw action、language-aligned latent、future-state dreaming，报告 action reconstruction、latent retrieval、OOD success 和每步推理成本。</li>
+<li><strong>STVLA 的 null-event 审计</strong>。给相同 VLA 插入无状态变化的重复帧、遮挡帧和相同动作回放，比较 appearance-only、geometry-only、joint memory 与随机检索，统计阶段混淆、重复动作、memory token 数和延迟。</li>
+<li><strong>ACE-CaP-0 的成本曲线</strong>。在两个可重置模拟任务中固定 base planner，比较 text-only、demonstration-on-request、simulation-on-demand，完整记录 reset、token、墙钟、代码长度、部署调用数和成功率。</li>
+<li><strong>ProtoVis-Nav 的单 GPU 复核</strong>。直接使用公开 checkpoint 跑 OpenUAV seen/unseen 各 20 回合，再删除 PVI token 或替换为 center crop。报告 SR、collision、near-collision、SPL，不把仿真结果写成实飞能力。</li>
+<li><strong>BWM-Forge 的代理最小闭环</strong>。只跑 Input → Blender Scene → Robot → Composed proxy stage，冻结一个动作轨迹并变更相机与物体。若几何与运动不保持一致，先不要接入外部视频生成服务。</li>
+<li><strong>Anvil 类 evaluator 的无害原型</strong>。在 toy grid-world 或合成文本分类器上做 parallel investigator、fixed attack library 和 evaluator-guided repair，记录 break cost 与防御迭代，不使用真实越狱目标。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本轮把官方发布、论文/技术报告、代码、权重、数据、API、作者实验和第三方验证分开记录。以下状态截至成稿，不把“项目页存在”写成“资源已开放”。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实资源</th>
+<th>仍需补齐或谨慎解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atlas</td>
+<td>官方产品页、研究说明、Viewfinder/Chisel/API 入口、real-to-sim 演示</td>
+<td>无公开权重，无第三方闭环，无公开完整训练数据；长时一致性和物理交互仍是官方限制</td>
+</tr>
+<tr>
+<td>Spatial Foundry</td>
+<td>arXiv、Ranolabs 项目页、5,280 场景与多模态/可编辑数据契约</td>
+<td>完整下载批次、许可证、真实场景比例和第三方 benchmark 未核</td>
+</tr>
+<tr>
+<td>Kosmo-GFM</td>
+<td>arXiv、项目页、GFM/PoseEngine/KosmoWorld 方法、SpatialBench 与 34 场景作者结果</td>
+<td>代码、权重、KosmoWorld 下载与第三方复跑未核；指标还未闭环到策略成功</td>
+</tr>
+<tr>
+<td>Ropedia Xperience 2</td>
+<td>arXiv、项目页、GitHub、HF 数据集；首批 126 场景约 1.07 TB，CC BY-NC 4.0，非 gated</td>
+<td>全量 1,589 场景尚在分批发布；腿部、动态场景、模型语言和 retargeting 误差需独立审计</td>
+</tr>
+<tr>
+<td>SALA</td>
+<td>arXiv、项目页、66.4% RoboTwin 与 72.5% real author report、2,678h/63-DoF 配置</td>
+<td>项目页 Code soon；没有核实权重、完整数据和第三方结果</td>
+</tr>
+<tr>
+<td>EgoX</td>
+<td>arXiv、项目页、13 task-embodiment pairs、MXT+ 与 dreaming 消融</td>
+<td>当前论文 under review，未核实当前 manipulation paper 的代码、权重和数据；同名 DAVIAN 视频生成仓库不相关</td>
+</tr>
+<tr>
+<td>STVLA</td>
+<td>arXiv、项目页、LIBERO/MIKASA/SimplerEnv 与 AGIBOT G2 作者结果</td>
+<td>未核公开训练代码和权重；真实试验平台与任务数量有限</td>
+</tr>
+<tr>
+<td>ACE-CaP-0</td>
+<td>arXiv、项目页、PDF、8 任务/240 trials/冻结程序、示范与仿真成本对照</td>
+<td>未核 GitHub、权重或可独立运行的 agent；开发条件每项一次，第三方未验证</td>
+</tr>
+<tr>
+<td>ProtoVis-Nav</td>
+<td>arXiv HTML、MIT 代码、HF LoRA/checkpoint、TravelUAV 数据和 AirSim/UE4 环境</td>
+<td>仿真闭环，环境下载与 4-GPU 训练成本高；无真实 UAV 验证</td>
+</tr>
+<tr>
+<td>BWM-Forge</td>
+<td>arXiv、Apache-2.0 GitHub、Blender/Gradio pipeline、15 tasks/5 robot types 作者比较</td>
+<td>外部模型服务、Blender、Cloudflare tunnel 和机器人资产仍需配置；无通用权重、无闭环策略成功证据</td>
+</tr>
+<tr>
+<td>Anthropic Anvil</td>
+<td>官方研究报告、内部 red-team 结果、attack library/evaluator 描述</td>
+<td>代码、权重、classifier 和任务访问均未公开，结果依赖内部权限，不可外推为机器人能力</td>
+</tr>
+<tr>
+<td>Experience-Handoff RL</td>
+<td>arXiv、官方 GitHub doyoungkim-ml/ehrl，当前仓库只有 README 与 PDF，3 commits</td>
+<td>代码、模型、数据集和可核 benchmark 尚未公开，暂留 Agent/self-evolution 观察池</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期 P0/P1 是阅读和研究价值判断，不代表同行评审、资源开放或独立验证已完成。窗口内检索到的 Experience-Handoff RL、HEIR、Rethinking Actions、Spatial Foundry 的完整数据包、Huawei Cloud CloudRobo-WM1.2 等按证据状态分别保留或降级，没有把缺失资源解释成筛选标准。</p>
+<p><strong>今天先读 Atlas 和 Ropedia Xperience 2，随后做 SALA/STVLA 的小规模表示与记忆对照。若只安排一个下午的实验，优先做 Ropedia 单场景坐标审计和 ProtoVis-Nav 公开 checkpoint 的 20+20 回合复核。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-13/"><span>← 上一期 · 2026-11-13</span><strong>OnlyAct · LEASH · ExRL</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
