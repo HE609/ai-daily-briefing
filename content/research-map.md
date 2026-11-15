@@ -1,5 +1,22 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-15 地图快照
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 开放 WAM 与跨本体动作 | Praxis-1 把视频未来、动作 expert、DROID/YAM/SO-101 和 LeRobot 接口放入一个可下载包 | 27B 推理成本、动作 head、长时任务和真实硬件适配仍缺独立对齐 | 固定视频 backbone，比较 action head、LoRA、NVFP4 和 embodiment projection 对跨本体成功率与成本的独立贡献 |
+| 可执行 4D 世界与生成式渲染 | WorldDraft 用代码构造世界、视频模型渲染外观，并分别计分 preservation、realization、persistence 和 leakage | renderer 分数与真实物理接触、策略成功和长期状态仍未连接 | 将 WorldDraft 指标与 Atlas/Spatial Foundry 的几何重访、接触预测和下游策略放进同一三层协议 |
+| 物理语言与视频表征 | PhysCapBench 用 1,500 个序列和七个 physical dimensions 评估 caption 是否保留接触、事件和状态变化 | 可见信息、语言压缩、跨本体动作和真实控制之间缺少因果归因 | 建立 caption precision/recall → video latent quality → closed-loop success 的冻结模型链路 |
+| Agent 验收与持久场景 | Reins 用 guarded chain、narrator、3D tools 和 scene twin 处理长时真机；Praxis-1 计划与快速策略形成互补 | API 延迟、旁观者误判、场景 twin 误差和外部副作用尚无统一成本账本 | 在 resettable harness 中统一记录 success、rollback、narrator lag、token、wall-clock、twin error 和 transfer |
+| 世界模型规划与动作连续性 | Rethinking Actions 把 expert temporal structure 放进 GP prior，ActWorld-JEPA 把 latent future 放进 candidate reranking | 预测质量、动作连续性、候选覆盖和真实成功仍由不同指标表示 | 做 action history × future latent × planning budget 三因素冻结实验，并报告长时失败阶段 |
+| 低算力 world-model RL | BlinkMimic 把 differentiable simulation、failure-directed reset 和 CUDA graph 压到单卡分钟级 | 单一动作库和仿真结果无法证明真实 humanoid 鲁棒性 | 统一 fit/tail/iteration 账本，跨 MuJoCo、Newton、Genesis 和不同动作库做可迁移性验证 |
+| 证据与发布基础设施 | Praxis、WorldDraft、ActWorld、BlinkMimic 公开了不同层级的代码、权重、数据和评测脚本 | 论文、artifact、revision、runtime、seed、成本常常分散在不同页面 | 为 world model/VLA/agent 建立 provenance lockfile，要求每个数字绑定版本、输入、硬件和验收器 |
+
+## 下一轮追踪
+
+- 2026-11-15 新增：Praxis-1 的 SO-101/NVFP4/LeRobot artifacts；WorldDraft 的 48 executable worlds、432 paired cases、Apache-2.0 代码与 805 MB HF 数据；PhysCapBench 的 1,500 序列与七维物理标注；Reins 的 guarded chain/narrator/scene twin；Rethinking Actions 的 LG-DKGP 与五任务权重；ActWorld-JEPA 的 PC-JEPA/R³ 选择器和 NAVSIM/nuScenes artifacts；BlinkMimic 的单 RTX 4090 三分多钟配方。
+- 优先补查：Praxis-1 SO-101 真机或硬件在环日志；WorldDraft 与真实接触或策略成功的桥接；PhysCapBench 数据 revision、许可证和 caption-to-policy 归因；Reins 代码及 narrator lag；Rethinking Actions 的真实机器人迁移；ActWorld-JEPA 的非官方 GPU 复跑；BlinkMimic 的多动作库和真机部署。
+
 ## 2026-11-14 地图快照
 
 | 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
