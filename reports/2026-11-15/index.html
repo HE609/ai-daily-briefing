@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-15｜Praxis-1 · WorldDraft · PhysCapBench · Yunhe</title><meta name="description" content="相对 11 月 14 日，Atlas、Spatial Foundry、Kosmo-GFM、Ropedia Xperience 2、SALA、EgoX、STVLA 和 ACE-CaP-0 已重新核对。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-15/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-15｜Praxis-1 · WorldDraft · PhysCapBench"><meta property="og:description" content="相对 11 月 14 日，Atlas、Spatial Foundry、Kosmo-GFM、Ropedia Xperience 2、SALA、EgoX、STVLA 和 ACE-CaP-0 已重新核对。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-15/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Praxis-1 · WorldDraft · PhysCapBench</h1><p class="article-deck">相对 11 月 14 日，Atlas、Spatial Foundry、Kosmo-GFM、Ropedia Xperience 2、SALA、EgoX、STVLA 和 ACE-CaP-0 已重新核对。</p><div class="article-meta"><time datetime="2026-11-15">2026 / 11 / 15</time><span>约 27 分钟阅读</span><div class="tags"><span class="tag">世界模型</span><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-praxis-1from-video-pretraining-to-robot-controlp0">1. Praxis-1：From Video Pretraining to Robot Control｜P0</a><a class="toc-level-2" href="#2-worlddraftif-code-builds-the-world-can-video-models-just-render-itp0">2. WorldDraft：If Code Builds the World, Can Video Models Just Render It?｜P0</a><a class="toc-level-2" href="#3-physcapbencha-cross-domain-benchmark-for-physically-grounded-video-captioningp0">3. PhysCapBench：A Cross-Domain Benchmark for Physically Grounded Video Captioning｜P0</a><a class="toc-level-2" href="#4-reinsfrontier-multimodal-models-driving-real-robot-arms-on-long-horizon-tasks-zero-shotp0">4. Reins：Frontier Multimodal Models Driving Real Robot Arms on Long-Horizon Tasks, Zero-Shot｜P0</a><a class="toc-level-2" href="#5-rethinking-actionscontinuity-aware-priors-for-world-model-planningp1">5. Rethinking Actions：Continuity-Aware Priors for World-Model Planning｜P1</a><a class="toc-level-2" href="#6-actworld-jepaaction-conditioned-jepa-world-models-meet-latent-planning-for-end-to-end-autonomous-drivingp1">6. ActWorld-JEPA：Action-Conditioned JEPA World Models Meet Latent Planning for End-to-End Autonomous Driving｜P1</a><a class="toc-level-2" href="#7-blinkmimictraining-a-humanoid-motion-tracker-in-minutes-on-a-single-gpup1">7. BlinkMimic：Training a Humanoid Motion Tracker in Minutes on a Single GPU｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-15.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-15</div><article class="prose"><p>本轮检索窗口为北京时间 <strong>2026-11-12 08:58 至 2026-11-15 08:58</strong>。候选池并行覆盖 arXiv cs.RO、cs.CV、cs.AI、cs.LG，World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute、Stanford、Berkeley、MIT、CMU、Princeton、华为云、主要中国团队，以及 GitHub、Hugging Face、Spatial Intelligence、3D/4D world generation、real-to-sim、VLA/WAM、Robot Learning、Agent/self-evolution 入口。</p>
+<p>相对 11 月 14 日，Atlas、Spatial Foundry、Kosmo-GFM、Ropedia Xperience 2、SALA、EgoX、STVLA 和 ACE-CaP-0 已重新核对。本窗口没有发现这些项目新增版本、权重、代码、基准或第三方结果，因此保留在研究地图与追踪清单中，不重复展开。Praxis-1 的开放权重与 SO-101 适配属于本轮新增的可复现证据。WorldDraft 的论文、代码和数据在前期候选池中出现了检索遗漏，本期以 Retrieval Failure backfill 补录。今天最重要的判断是，研究竞争正在从“模型能否生成逼真未来”转向“世界是否可执行、可审计、可复现”，而开放 WAM、可执行 4D benchmark、物理语言标注和 agent harness 正好覆盖了这条链路。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p><strong>今天我建议的精读顺序是：Praxis-1 → WorldDraft → PhysCapBench → Reins → Rethinking Actions。</strong></p>
+<ul>
+<li><strong>A｜Praxis-1</strong>。先读公开 WAM 的完整训练契约、动作与视频联合预测，以及真实硬件和仿真边界，建立可运行基线。</li>
+<li><strong>B｜WorldDraft</strong>。再读可执行 4D 世界如何把几何、事件和相机路径固定成 renderer benchmark，避免把视频逼真度当作世界模型能力。</li>
+<li><strong>C｜PhysCapBench</strong>。随后检查物理语言监督怎样被拆成可核验的实体、事件、接触和状态变化。</li>
+<li><strong>D｜Reins</strong>。接着看通用多模态模型怎样通过 guarded chain、narrator 和 scene twin 进入长时真机闭环。</li>
+<li><strong>E｜Rethinking Actions</strong>。最后读动作连续性先验怎样改变冻结世界模型的候选搜索，适合做小算力复核。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-praxis-1from-video-pretraining-to-robot-controlp0">1. Praxis-1：From Video Pretraining to Robot Control｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Runway Robotics 团队，官方模型发布与技术报告。首个公开权重公告为 2026-11-11，当前窗口新增了 SO-100/SO-101 checkpoint、NVFP4 版本和 LeRobot 接入，Hugging Face 集合在本轮显示为近期更新。前一期没有收录公开权重，本期按“检索遗漏 + 当前窗口新硬件适配”补录。入口包括 <a href="https://runway.com/news/company-news/praxis-1-is-now-available" target="_blank" rel="noopener noreferrer">官方开放权重公告</a>、<a href="https://runway.com/research/praxis-1-video-pretraining-to-robot-control" target="_blank" rel="noopener noreferrer">技术报告</a>、<a href="https://github.com/runwayml/praxis-1-oss" target="_blank" rel="noopener noreferrer">Apache-2.0 代码</a> 和 <a href="https://huggingface.co/collections/runwayml/praxis-1" target="_blank" rel="noopener noreferrer">Hugging Face 模型集合</a>。</p>
+<p>它解决的是机器人数据稀缺和动作策略缺少视觉未来的问题。Praxis-1 用 27B 参数的 MoE video-diffusion backbone 预测下一段视频，同时让小型 action expert 从视频隐状态产生动作。视频路径使用冻结的 Wan2.2 VAE 和 Qwen3.5-2B 文本编码器，20 个前馈层中 17 层使用 MoE。中训练阶段改为 chunk-causal attention，每个 1.6 秒、6 个 latent frame 的未来块只能看过去块。训练目标保持视频预测，并在 embodied-video、action mid-training 和 embodiment-specific post-training 中加入动作损失。SO-101 checkpoint 进一步把输出映射到 5 个关节加夹爪的 6D joint-space action head。</p>
+<p>作者与官方榜单报告 RoboLab-120 1,200 episodes 上 <strong>46.2% success</strong>，高于 FLUX 3 Action 42.9%、Cosmos3 Nano 36.8% 和 π0.5 28.0%。在未见过的 Google RT-1 embodiment 上微调后，官方报告 SimplerEnv <strong>80.0%</strong>，RT-1 原策略为 52.4%。这些数字属于 Runway 官方报告，尚无独立实验室复跑。代码、推理、LoRA/全量微调、MuJoCo simulator、DROID/YAM/SO-101 checkpoint 已公开。单个 checkpoint 约 54.4 GB，官方仓库要求至少 80 GB GPU、CUDA 13 和 Python 3.12，NVFP4 可降低路由专家推理成本。</p>
+<p>创新点在于把一般视频预训练直接接到 action-conditioned WAM，并通过薄的 per-robot projection 支持不同 embodiment。它与 GR00T 2、Cosmos、π0.5 和其他 VLA 的关系是共享“视频或未来状态帮助动作”的目标，Praxis-1 更强调一个开放、可运行、带视频未来的策略包。局限包括 look-alike object、模糊指令和单提示多步骤任务，长时状态仍需要外部分解。<strong>值得深入阅读。</strong> 轻量验证优先运行公开 DROID MuJoCo 单任务和 SO-101 预处理检查，比较 bf16 与 NVFP4 的视频未来、动作误差、延迟和成功率，再把同一 checkpoint 的 1.6 秒预测与真实下一帧逐步对齐，不需要重新训练 27B 模型。</p>
+<h2 id="2-worlddraftif-code-builds-the-world-can-video-models-just-render-itp0">2. WorldDraft：If Code Builds the World, Can Video Models Just Render It?｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Zhiyu Hou、Wen-Jie Shu、Harold H. Chen、Weilin Ruan、Chenfei Liao、Liuzhou Zhang、Disen Lan、Xiaogang Xu、Qi Chen、Ser-Nam Lim，来自 SUSTech、ZODA、HKUST、CUHK、HKUST(GZ)、FDU、ZJU、UCF。arXiv v1 于 <strong>2026-11-12 03:09 UTC</strong> 提交，代码和 benchmark data 于 11 月 11 日开放，论文于 11 月 13 日在仓库标记为 released。性质为预印本、Apache-2.0 代码与数据集发布，尚无同行评审或第三方复跑。入口包括 <a href="https://arxiv.org/abs/2611.16217" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://haroldchen19.github.io/WorldDraft-site/" target="_blank" rel="noopener noreferrer">项目页</a>、<a href="https://github.com/KevinHuge/WorldDraft" target="_blank" rel="noopener noreferrer">代码</a> 和 <a href="https://huggingface.co/datasets/KevinHuge/WorldDraft" target="_blank" rel="noopener noreferrer">Hugging Face 数据集</a>。</p>
+<p>WorldDraft 研究一个对 Spatial Intelligence 很关键的问题：当多模态 coding agent 已经用 Blender 或其他 simulator 构造了可执行的 4D 世界，视频模型能否只负责把它渲染成目标外观。数据包含 <strong>48 个 executable world families、6 类动态挑战、432 个严格配对案例</strong>。3×3 设计保持动力学和目标文本不变，改变 draft granularity（abstract、simulation、previs）与 appearance alignment（neutral、aligned、conflicting）。评测同时看 world preservation、rendering fidelity、appearance persistence 和 source leakage，指标包含 instance mask、bbox、track coverage、event timing、相机轨迹和属性持久性。</p>
+<p>作者在 12 个视频模型上发现世界保持和外观实现存在明显张力。更丰富的 previs draft 能固定结构，却会降低外观绑定。冲突外观最高出现 <strong>64% source leakage</strong>。WorldDraft-Primer 是推理时视觉提示策略，无需重新训练。官方表中，OmniWeaving 加 Primer 后 preservation 从 61.61 提升到 64.60，realization 从 66.37 提升到 70.93，source leakage 从 50.97% 降到 47.55%，overall 从 57.62 提升到 60.13。MiniMax-H3 的 overall 从 63.63 提升到 65.56。结果来自作者自建 benchmark，模型输入协议和视觉提示模板会影响数字。</p>
+<p>它与 Atlas、Spatial Foundry、BWM-Forge、Genie/WorldFoundry 的关系是把“可编辑世界”推进到可量化 renderer contract。局限是 48 个程序化世界仍集中在可控 Blender 场景，外观质量和物理可执行性分属不同证据链，不能把 renderer 分数直接解释为机器人成功。<strong>值得深入阅读。</strong> 轻量验证只下载 805 MB 数据中的 6 个 world families，先用一个开源视频模型跑 P0/P1/P2 三档 draft，再计算 camera error、entity persistence、event timing 和 source leakage。先复核指标实现，再决定是否接入大型商业模型。</p>
+<h2 id="3-physcapbencha-cross-domain-benchmark-for-physically-grounded-video-captioningp0">3. PhysCapBench：A Cross-Domain Benchmark for Physically Grounded Video Captioning｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Haofeng Wang、Pengcheng Wen、Ruiqi Li、Yuhao Zhang、Tiange Zhang、Boren Zheng、Xuanyi Liu、Siyu Tao、Danni Yu、Gan Lin、Haocheng Tang、Tianzizhe Guo、Mingyuan Su、Boyuan Chen、Zhongyuan Wang，来自北京智源人工智能研究院、北京大学、清华大学、北京航空航天大学和 Physis。arXiv v1 于 <strong>2026-11-12 07:33 UTC</strong> 提交，性质为技术报告预印本。入口包括 <a href="https://arxiv.org/abs/2611.16424" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://hfwang2001.github.io/physcapbench-site/" target="_blank" rel="noopener noreferrer">项目页</a> 和 <a href="https://huggingface.co/datasets/hfwang01/PhysCapBench" target="_blank" rel="noopener noreferrer">Hugging Face 数据集条目</a>。</p>
+<p>它处理的是视频语言监督经常描述“发生了什么”，却遗漏接触、因果、形变和状态变化的问题。PhysCapBench 将 third-person physical scenes、egocentric human manipulation 和 multi-view handheld-gripper demonstrations 放入同一协议，共 <strong>1,500 个序列，每个域 500 个</strong>。标注组织实体、事件、状态和关系，沿七个 physical dimensions 计算准确性与覆盖度。七名数据标注员依据帧区间、相机视角、手部角色和前后状态进行交叉复核，最终记录保留 evidence references 与字段级不确定性。训练目标落在 caption quality、video reconstruction 和 manipulation-policy instruction enrichment 三个下游接口。</p>
+<p>作者报告物理 captions 相对 metadata captions 将 third-person 视频重建 LPIPS 降低 <strong>8.6–9.5%</strong>，egocentric 视频降低 <strong>26.9–30.9%</strong>。在 RoboTwin 2.0 的一个 π0.5 子任务上，instruction enrichment 带来 <strong>7.5 个百分点</strong>成功率提升。结果来自作者实验，尚无第三方复跑。项目页和 HF 数据集入口可见，数据文件版本、许可证和完整代码本轮没有全部核实，因此不把“页面可见”写成完全可复现。</p>
+<p>它与 Physis-Lang、Ego4D、UMI、FineVLA、WGO-Bench 和 PhysCapBench 前身的关系，是把物理语言从提示工程提升为可审计的数据质量变量。局限包括 caption 仍受可见性限制，语言描述无法直接补齐不可观测接触力，三个域的采样分布也不能代表所有 robot data。<strong>值得深入阅读。</strong> 轻量验证可先抽取每个域 30 个样本，比较 metadata caption、通用 VLM caption 和物理模板 caption 的实体、接触、事件时序 F1，再把三组描述接入同一个冻结小型视频预测器或 VLA，分开报告 caption score 与策略成功。</p>
+<h2 id="4-reinsfrontier-multimodal-models-driving-real-robot-arms-on-long-horizon-tasks-zero-shotp0">4. Reins：Frontier Multimodal Models Driving Real Robot Arms on Long-Horizon Tasks, Zero-Shot｜P0</h2>
+<p><strong>作者与机构、时间、性质。</strong> Pengfei Ye、Zhiyang Dou、Yuxiang Ma 来自 MIT CSAIL，Haonan Chen、Heng Yang 来自 Harvard University，Edward H. Adelson 来自 MIT CSAIL。arXiv v1 于 <strong>2026-11-12 11:05 UTC</strong> 提交，性质为预印本与真机系统报告，论文称代码将在发表时公开。入口包括 <a href="https://arxiv.org/abs/2611.16632" target="_blank" rel="noopener noreferrer">论文</a> 和 <a href="https://reins-robot.github.io" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>Reins 研究通用多模态模型如何处理接触丰富、长时、场景会在模型思考期间变化的真机任务。actor 使用 3D perception tools 和返回接触/抓取状态的 atomic actions，把带条件的动作链放在同一次调用中，条件失败时立即停止。narrator 由另一个模型实例持续观察摄像头，在 actor 等待期间维护 scene change 记录。系统从一帧 head-camera image 构建可进入 MuJoCo 的 simulation-ready twin，用于后续策略学习。方法的关键训练目标是运行时验收和可重规划，当前没有 task-specific policy training。</p>
+<p>作者报告 GPT-6.1 Sol 在五个真实任务上的 episode success <strong>88%</strong>。去掉 harness 后 shell game 五次均失败，加入 narrator 后 Sol 从无 narrator 的 2/5 提升到完整条件下的报告结果。三种 frontier model 的总体表现相近，但对模型思考期间的场景变化追踪能力不同。实验每个条件只有五个 episode，单一双臂平台，接触主要由 joint current 和 gripper width 估计，结果全部属于作者报告，暂无第三方验证。</p>
+<p>它与 Show-Harness、RoboScript、ACE-CaP-0、LEASH 和 Code-as-Policies 的关系，是把“调用原子技能”推进到带条件、带旁观者、带 scene twin 的闭环 Agent。局限包括 narrator 延迟、模型 API 成本、单平台和小样本，scene twin 目前只展示对象动力学，无法证明完整物理复制。<strong>值得深入阅读。</strong> 轻量路线是先在离线日志中回放 actor/narrator 时间线，构造 shell-game 类 toy environment，比较 raw image、guarded chain、guarded chain+narrator 三组的 state-change detection、错误动作数、重规划延迟和调用成本，避免直接复现真机。</p>
+<h2 id="5-rethinking-actionscontinuity-aware-priors-for-world-model-planningp1">5. Rethinking Actions：Continuity-Aware Priors for World-Model Planning｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Shaobo Yang、Zichen Ai、Ziyang Ma、Qian Yang、Bin Fang，来自北京邮电大学、阿里巴巴集团与蚂蚁集团。arXiv v1 于 <strong>2026-11-12 11:18 UTC</strong> 提交，性质为预印本，代码使用 MIT License，权重与固定 world model 资产通过 Hugging Face 分发。入口包括 <a href="https://arxiv.org/html/2611.16645v1" target="_blank" rel="noopener noreferrer">论文 HTML</a>、<a href="https://github.com/oliverstack-byte/LG-DKGP" target="_blank" rel="noopener noreferrer">代码</a> 和 <a href="https://huggingface.co/yangbobome/LG-DKGP" target="_blank" rel="noopener noreferrer">权重</a>。</p>
+<p>它处理冻结视觉世界模型在候选动作搜索中容易提出“局部看起来合理、时间上却不连贯”的问题。LG-DKGP 使用 locality-gated history encoder，把近期动作和较长阶段历史分别编码，neural mean 预测连续动作延续，temporal Gaussian-process residual 建模剩余结构，再用从专家动作增量估计的 exploration scale 初始化 CEM 搜索。训练先拟合 neural mean，再以专家未来动作共同优化 GP residual。冻结 world model 只负责把候选动作 rollout 到目标视觉状态并计算规划分数。</p>
+<p>五个模拟任务的 macro success 为 <strong>87.07%</strong>，对比 INTACT 71.03%、PRISM 61.66%、LeWM 58.66%。PushT、Cube、LIBERO Caddy、LIBERO Scene2、RoboTwin 分别为 97.60%、98.80%、83.32%、76.96%、78.66%。代码仓库提供五任务配置、五个 evaluation seeds、checkpoint binding、数据和环境说明，作者报告包含作者复跑结果，第三方复跑尚无。仓库要求 Linux x86-64、Python 3.10、单张 CUDA GPU，原始数据和 native scene fixtures 需另行下载。</p>
+<p>它与 LeWM、PRISM、INTACT、action prior 和 CEM world-model planning 相连，贡献集中在动作时间结构和搜索初始化。局限是全部结果仍在模拟器，world model 与 prior 的绑定容易造成任务特定收益，RoboTwin native success 与 fragment-level goal attainment的定义也需逐项核对。<strong>值得深入阅读。</strong> 轻量验证可直接下载公开 prior 和 paired LeWM，在 PushT 与 Cube 各运行五个 seeds，再做 history length、horizon/execution、随机 action prior 与无 history 对照，优先验证收益来自连续性还是来自额外搜索预算。</p>
+<h2 id="6-actworld-jepaaction-conditioned-jepa-world-models-meet-latent-planning-for-end-to-end-autonomous-drivingp1">6. ActWorld-JEPA：Action-Conditioned JEPA World Models Meet Latent Planning for End-to-End Autonomous Driving｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Ziying Song、Shengkai Zhang、Caiyan Jia、Lei Yang、Lin Liu、Yuchen Liu、Ziyang Liu、Zirui Li、Gang Wang、Peiliang Wu、Li Wang、Yadan Luo、Chen Lv，来自南洋理工大学、北京交通大学、大连理工大学、北方工业大学、清华大学、北京理工大学、宁波工程学院、昆士兰大学等。arXiv v1 于 <strong>2026-11-12 10:10 UTC</strong> 提交，性质为预印本、Apache-2.0 代码与权重发布。入口包括 <a href="https://arxiv.org/abs/2611.16579" target="_blank" rel="noopener noreferrer">论文</a>、<a href="https://github.com/adept-thu/ActWorld-JEPA" target="_blank" rel="noopener noreferrer">代码与权重</a> 和 <a href="https://adept-thu.github.io/ActWorld-JEPA/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>ActWorld-JEPA 研究 latent predictive consistency 怎样转化成候选轨迹选择。PC-JEPA 用 global and step-wise trajectory intentions 条件化 latent future rollout，再通过 gated cross-attention 与当前场景融合。Relational Residual Reranking，也就是 R³，建模 plan 与 predicted future 的一致和差异，用 bounded residual 修正基础 planner score。训练目标同时包含 latent future prediction、候选计划排序和 planning feedback，推理时只需要观察上下文与候选轨迹。</p>
+<p>作者报告 NAVSIM v1 navtest <strong>94.1 PDMS</strong>，NAVSIM v2 navtest/navhard 为 <strong>91.6/42.7 EPDMS</strong>，nuScenes 1–6 秒平均轨迹 L2 为 <strong>1.20 m</strong>，预测碰撞率 <strong>0.76%</strong>。仓库提供 NAVSIM v1/v2、nuScenes 的代码、选择器和模型 bundle，README 明确这是 inference/evaluation release，尚无完整 from-scratch training recipe，官方 GPU clean reproduction 尚未完成独立验证。</p>
+<p>它与 Drive-JEPA、DriveWorld、DriveFuture、GraphWorld、Cosmos-Drive-Dreams 和候选轨迹 reranking 工作相连，价值在于把“未来表示”绑定到“哪条轨迹更好”。局限是 NAVSIM 的 candidate set 和 aggregate calibration 会影响分数，offline replay 不能自动推导到真实闭环驾驶。<strong>值得深入阅读。</strong> 轻量验证可用公开模型跑 12,146-scene regression 的小子集，分别关闭 PC-JEPA、关闭 R³、只保留 baseline planner，记录候选覆盖、score calibration、碰撞预测和单场景 FPS。</p>
+<h2 id="7-blinkmimictraining-a-humanoid-motion-tracker-in-minutes-on-a-single-gpup1">7. BlinkMimic：Training a Humanoid Motion Tracker in Minutes on a Single GPU｜P1</h2>
+<p><strong>作者与机构、时间、性质。</strong> Fuyi Chen，Fortune AI technical report，arXiv v1 于 <strong>2026-11-12 07:31 UTC</strong> 提交，性质为预印本与 MIT License 代码发布。入口包括 <a href="https://arxiv.org/abs/2611.16422" target="_blank" rel="noopener noreferrer">论文</a> 和 <a href="https://github.com/fuyichen0725/blinkmimic" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>BlinkMimic 研究 humanoid whole-body tracking 怎样把世界模型反向传播和模拟器成本压到单张消费级 GPU。它继承 SuperMimic 的 differentiable world model 和 InstantTrack 的 Muon update、residual policy、EMA policy，引入随训练进度衰减的 step size、由部署失败驱动的 reset allocation，以及把 policy inference、physics、reward 和 reset 放进 CUDA graph 的 host-free iteration。训练目标是同一策略覆盖全部 40 个 LAFAN1 clips，同时压低 late failure。</p>
+<p>在模拟 Unitree G1 上，40 个动作片段、三 seeds、单张 RTX 4090 达到 return 0.82 且连续三次 checkpoint 无失败的平均时间 <strong>3.38 分钟</strong>，最终 return 0.861，14 个 tracked bodies 的 RMS position error 约 4.1 cm。相对重新运行的 InstantTrack 7.36 分钟，训练时间约减半。作者明确报告一个机器人、一套动作库、单 GPU、无真实机器人部署，late flips 仍然存在。代码、逐 seed 结果和锁定环境已公开，暂无第三方复跑。</p>
+<p>它与 SuperMimic、InstantTrack、MuJoCo Warp 和 model-based RL 的关系，是把“训练时间”拆成 fit、tail 和 iteration 三个可审计成本。<strong>值得深入阅读。</strong> 轻量验证只跑公开 5 个 LAFAN1 clips，比较 full recipe、无 failure-directed reset、无 CUDA graph 三组，记录 wall-clock、late failure、RMS error 和 GPU 利用率，先验证成本分解再迁移到其他 humanoid。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p>本轮已扫描 World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute、Stanford、Berkeley、MIT、CMU、Princeton、华为云及主要中国团队的 research、news、project、model、GitHub 和 Hugging Face 入口。</p>
+<ul>
+<li><strong>窗口内重大官方更新</strong>。Runway 的 Praxis-1 开放权重在当前窗口获得 SO-101 checkpoint、NVFP4 和 LeRobot 适配。World Labs 的 Atlas 工具和 API 发布仍是 11 月 12 日的主要 Spatial Intelligence 产品更新，上一期已展开，本期保留去重记录。Anthropic、Physical Intelligence、Figure、Field AI、1X、Generalist AI、TRI 和 Meta FAIR 的公开入口中没有发现足以进入本期 Top Papers 的新模型、权重或独立 benchmark。</li>
+<li><strong>即将发布观察项</strong>。华为云官方页面显示 CloudRobo-WM1.2 将于 <strong>11 月 16 日 14:00–15:30（北京时间）</strong>发布，议程包含模型发布、架构与能力解读、昇腾云生态和合作签约。<a href="https://www.huaweicloud.com/about/live/261116.html" target="_blank" rel="noopener noreferrer">官方议程</a> 当前尚未公开参数、训练数据、权重、代码、支持本体或 benchmark，因此保留为 upcoming release，不把预告写成已发布能力。</li>
+<li><strong>检索遗漏补录</strong>。WorldDraft 在上一期候选池中未进入重点，当前补入的依据是 11 月 11 日代码与数据集发布、11 月 13 日论文 release 标记和 Apache-2.0/Hugging Face 资源。Praxis-1 的依据是 11 月 13 日前后新增 SO-101/NVFP4/LeRobot artifacts。两项均保持 Retrieval Failure 标签和新证据边界。</li>
+<li><strong>broader-web 兜底</strong>。本轮再次交叉查询 Spatial Intelligence、World Model、Physical AI、Embodied Foundation Model、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与主要机构。Runway、WorldDraft、PhysCapBench、Reins、ActWorld-JEPA、Rethinking Actions、BlinkMimic 和 Huawei Cloud 预告均回到原始论文、官方页面或代码入口核验。Rethinking Actions、XBot-Omni、MotionSkill、HEIR、What Can a VLA Learn from the Agent That Calls It 等属于已检索候选，按本期篇幅和证据强度做 Selection，未遗漏解释为筛选结论。</li>
+</ul>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开放 WAM 与跨本体动作</td>
+<td>Praxis-1 把视频未来、动作 expert、DROID/YAM/SO-101 和 LeRobot 接口放入一个可下载包</td>
+<td>27B 推理成本、动作 head、长时任务和真实硬件适配仍缺独立对齐</td>
+<td>固定视频 backbone，比较 action head、LoRA、NVFP4 和 embodiment projection 对跨本体成功率与成本的独立贡献</td>
+</tr>
+<tr>
+<td>可执行 4D 世界与生成式渲染</td>
+<td>WorldDraft 用代码构造世界、视频模型渲染外观，并分别计分 preservation、realization、persistence 和 leakage</td>
+<td>renderer 分数与真实物理接触、策略成功和长期状态仍未连接</td>
+<td>将 WorldDraft 指标与 Atlas/Spatial Foundry 的几何重访、接触预测和下游策略放进同一三层协议</td>
+</tr>
+<tr>
+<td>物理语言与视频表征</td>
+<td>PhysCapBench 用 1,500 个序列和七个 physical dimensions 评估 caption 是否保留接触、事件和状态变化</td>
+<td>可见信息、语言压缩、跨本体动作和真实控制之间缺少因果归因</td>
+<td>建立 caption precision/recall → video latent quality → closed-loop success 的冻结模型链路</td>
+</tr>
+<tr>
+<td>Agent 验收与持久场景</td>
+<td>Reins 用 guarded chain、narrator、3D tools 和 scene twin 处理长时真机；Praxis-1 计划与快速策略形成互补</td>
+<td>API 延迟、旁观者误判、场景 twin 误差和外部副作用尚无统一成本账本</td>
+<td>在 resettable harness 中统一记录 success、rollback、narrator lag、token、wall-clock、twin error 和 transfer</td>
+</tr>
+<tr>
+<td>世界模型规划与动作连续性</td>
+<td>Rethinking Actions 把 expert temporal structure 放进 GP prior，ActWorld-JEPA 把 latent future 放进 candidate reranking</td>
+<td>预测质量、动作连续性、候选覆盖和真实成功仍由不同指标表示</td>
+<td>做 action history × future latent × planning budget 三因素冻结实验，并报告长时失败阶段</td>
+</tr>
+<tr>
+<td>低算力 world-model RL</td>
+<td>BlinkMimic 把 differentiable simulation、failure-directed reset 和 CUDA graph 压到单卡分钟级</td>
+<td>单一动作库和仿真结果无法证明真实 humanoid 鲁棒性</td>
+<td>统一 fit/tail/iteration 账本，跨 MuJoCo、Newton、Genesis 和不同动作库做可迁移性验证</td>
+</tr>
+<tr>
+<td>证据与发布基础设施</td>
+<td>Praxis、WorldDraft、ActWorld、BlinkMimic 公开了不同层级的代码、权重、数据和评测脚本</td>
+<td>论文、artifact、revision、runtime、seed、成本常常分散在不同页面</td>
+<td>为 world model/VLA/agent 建立 provenance lockfile，要求每个数字绑定版本、输入、硬件和验收器</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>Praxis-1 开放 WAM 基线</strong>。在一台 80 GB GPU 上只跑 DROID 的单任务 simulator evaluation，记录 video future consistency、action chunk error、success、latency 和显存。随后比较 bf16 与 NVFP4，保持同一 checkpoint、seed、prompt 和 episode。</li>
+<li><strong>WorldDraft 结构—外观解耦</strong>。从 48 个 world families 中抽取 6 个，固定目标文本和动力学，只改变 P0/P1/P2 draft。使用一个开源 renderer 复现 preservation、appearance persistence 和 source leakage，先验证评测代码的 frame sampling 与 mask 对齐。</li>
+<li><strong>PhysCapBench 语言监督</strong>。每个 domain 抽取 30 个样本，比较 metadata caption、通用 VLM caption、物理模板 caption。把三组 caption 接到同一个冻结视频预测器和一个冻结 VLA，分别测 caption F1、reconstruction LPIPS、action success。</li>
+<li><strong>Reins harness 离线原型</strong>。在 toy grid-world 或 MuJoCo 简化任务中记录 actor/narrator 时间线，比较 raw image、guarded chain、guarded chain+narrator。把 success、错误动作、重规划延迟和 API/token 成本绑定到 episode id。</li>
+<li><strong>Rethinking Actions 小算力复核</strong>。优先跑 PushT 与 Cube 的公开五 seeds，做 history length 0/短/长、horizon/execution 25/25 与 10/10、随机 prior 与 LG-DKGP 三组对照。重点检查 action continuity 是否带来候选覆盖变化。</li>
+<li><strong>ActWorld-JEPA 选择器审计</strong>。运行 12,146-scene regression 的小子集，关闭 PC-JEPA 和 R³，检查 candidate set、score calibration、碰撞率和单场景 FPS。offline replay 结果单独记录。</li>
+<li><strong>BlinkMimic 成本拆分</strong>。只训练 5 个 LAFAN1 clips，分别关闭 failure-directed reset 与 CUDA graph，报告 fit time、tail time、late flip 和 RMS error。该实验可在单张 RTX 4090 上完成，适合先验证机制再迁移到 humanoid。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本轮将官方/作者主张、同行评审、代码、权重、数据、API、作者实验和第三方验证分开记录。当前重点项目的状态如下。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核实资源</th>
+<th>证据边界与复现重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Praxis-1</td>
+<td>官方发布、技术报告、Apache-2.0 代码、DROID/YAM/SO-101/base/NVFP4 checkpoint、LeRobot 接入、MuJoCo simulator</td>
+<td>官方 benchmark 与真机结果尚无第三方复跑；27B、54.4 GB、80 GB GPU 和 CUDA 13 是主要门槛；长时单提示任务仍弱</td>
+</tr>
+<tr>
+<td>WorldDraft</td>
+<td>arXiv、项目页、Apache-2.0 GitHub、805 MB HF 数据集、48 worlds/432 cases/12 models 评测</td>
+<td>结果来自作者自建 benchmark；数据与代码可见，renderer 输入协议、第三方模型适配和真实物理外推需独立复核</td>
+</tr>
+<tr>
+<td>PhysCapBench</td>
+<td>arXiv 技术报告、项目页、HF 数据集条目、1,500 序列和七维 physical annotation 设计</td>
+<td>具体数据 revision、许可证和完整代码尚未全部核实； caption score 与 policy success 的因果关系仍需冻结模型实验</td>
+</tr>
+<tr>
+<td>Reins</td>
+<td>arXiv HTML/PDF、MIT/Harvard 作者信息、真机五任务和 scene-twin 方法说明</td>
+<td>代码承诺在发表时公开；每条件五 episode、单一双臂平台、API 模型与接触估计限制第三方复现</td>
+</tr>
+<tr>
+<td>Rethinking Actions</td>
+<td>arXiv HTML、MIT 代码、五任务配置、五 seeds、Hugging Face prior/world-model assets</td>
+<td>代码和资产较完整，但环境、paired world model、任务成功定义和 CUDA 版本必须锁定；没有真实机器人验证</td>
+</tr>
+<tr>
+<td>ActWorld-JEPA</td>
+<td>arXiv、Apache-2.0 GitHub、NAVSIM v1/v2 与 nuScenes 权重、selectors、12,146-scene regression 说明</td>
+<td>inference/evaluation release 尚无 from-scratch recipe；官方说明新硬件 clean reproduction 尚未独立验证</td>
+</tr>
+<tr>
+<td>BlinkMimic</td>
+<td>arXiv、MIT 代码、uv.lock、逐 seed 结果、RTX 4090 单卡配方</td>
+<td>一个机器人、一套 LAFAN1 动作库、仿真证据、无真机部署；晚期失败仍存在，第三方复跑尚无</td>
+</tr>
+<tr>
+<td>Huawei Cloud CloudRobo-WM1.2</td>
+<td>官方发布会时间、议程和嘉宾已核实</td>
+<td>11 月 16 日前没有参数、代码、权重、数据或 benchmark，保留为 upcoming release</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期优先级标签反映阅读与研究价值。P0 项目具备较强的接口或评测影响力，P1 项目适合方法复核和轻量实验。它们均不自动代表同行评审、独立复现或真实部署完成。</p>
+<p><strong>今天先读 Praxis-1 的代码与 checkpoint contract，再用 WorldDraft 的小子集验证结构保持和外观绑定。若只有半天实验时间，优先做 Rethinking Actions 的 PushT/Cube 五 seeds，随后做 BlinkMimic 的 fit/tail 成本拆分。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-14/"><span>← 上一期 · 2026-11-14</span><strong>Atlas · Ropedia Xperience 2 · SALA</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
