@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-18｜RelayWAM · RFW-S · The Resolution Hypothesis · Yunhe</title><meta name="description" content="空间状态是否可靠、预测信息是否真正被动作利用、评估器能否辨别微小进步，正在成为比继续堆模型规模更关键的共同瓶颈。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-18/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-18｜RelayWAM · RFW-S · The Resolution Hypothesis"><meta property="og:description" content="空间状态是否可靠、预测信息是否真正被动作利用、评估器能否辨别微小进步，正在成为比继续堆模型规模更关键的共同瓶颈。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-18/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>RelayWAM · RFW-S · The Resolution Hypothesis</h1><p class="article-deck">空间状态是否可靠、预测信息是否真正被动作利用、评估器能否辨别微小进步，正在成为比继续堆模型规模更关键的共同瓶颈。</p><div class="article-meta"><time datetime="2026-11-18">2026 / 11 / 18</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">具身智能</span><span class="tag">世界模型</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-%CF%80%E2%81%B4%E7%BB%9F%E4%B8%80-4d-%E5%9C%BA%E6%99%AF%E5%87%A0%E4%BD%95%E4%B8%8E%E8%BF%90%E5%8A%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8Bp0">1. π⁴：统一 4D 场景几何与运动的基础模型｜P0</a><a class="toc-level-2" href="#2-relaywam%E6%9C%AA%E6%9D%A5%E8%A1%A8%E5%BE%81%E5%8F%AF%E8%A7%A3%E7%A0%81%E4%B8%8D%E4%BB%A3%E8%A1%A8%E5%8A%A8%E4%BD%9C%E7%9C%9F%E6%AD%A3%E4%BD%BF%E7%94%A8%E4%BA%86%E5%AE%83p0">2. RelayWAM：未来表征可解码，不代表动作真正使用了它｜P0</a><a class="toc-level-2" href="#3-rfw-s%E5%8D%81%E4%B8%87%E5%8F%AF%E5%8F%98%E5%BD%A2%E8%B5%84%E4%BA%A7%E4%B9%8B%E5%90%8E%E7%89%A9%E7%90%86%E9%AA%8C%E8%AF%81%E6%89%8D%E6%98%AF%E9%87%8D%E7%82%B9p0">3. RFW-S：十万可变形资产之后，物理验证才是重点｜P0</a><a class="toc-level-2" href="#4-code-world-model-20%E6%98%BE%E5%BC%8F%E4%B8%96%E7%95%8C%E7%8A%B6%E6%80%81%E4%B8%8E%E6%8C%81%E7%BB%AD%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90p0">4. Code World Model 2.0：显式世界状态与持续视频生成｜P0</a><a class="toc-level-2" href="#5-fastframes%E6%8A%8A%E4%BA%A4%E4%BA%92%E5%93%8D%E5%BA%94%E4%BD%9C%E4%B8%BA%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%AD%89%E6%8C%87%E6%A0%87p1">5. FastFrames：把交互响应作为生成系统的一等指标｜P1</a><a class="toc-level-2" href="#6-scalevla552b-%E5%86%BB%E7%BB%93%E8%A1%A8%E5%BE%81%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%E6%88%90%E6%9C%AC%E5%8F%88%E5%9C%A8%E5%93%AA%E9%87%8Cp1">6. ScaleVLA：552B 冻结表征带来什么，成本又在哪里｜P1</a><a class="toc-level-2" href="#7-hubego-100k%E9%A6%96%E6%89%B9%E6%98%AF%E4%B8%80%E4%B8%87%E5%B0%8F%E6%97%B6%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%81%E7%A7%BB%E4%BB%8D%E5%BE%85%E9%AA%8C%E8%AF%81p1">7. HubEgo-100K：首批是一万小时，机器人迁移仍待验证｜P1</a><a class="toc-level-2" href="#8-%E7%9C%9F%E5%AE%9E%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F%E6%A0%A1%E5%87%86%E8%A7%82%E6%B5%8B%E5%92%8C%E9%81%A5%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F%E6%98%AF%E9%9A%90%E8%97%8F%E5%8F%98%E9%87%8Fp1">8. 真实机器人数据质量：校准、观测和遥操作方式是隐藏变量｜P1</a><a class="toc-level-2" href="#9-the-resolution-hypothesis%E8%87%AA%E6%BC%94%E5%8C%96%E7%9A%84%E7%93%B6%E9%A2%88%E5%8F%AF%E8%83%BD%E6%98%AF%E8%BE%A8%E5%88%AB%E6%94%B9%E8%BF%9Bp0">9. The Resolution Hypothesis：自演化的瓶颈可能是辨别改进｜P0</a><a class="toc-level-2" href="#10-gpt-62-astra-sol%E9%87%8D%E8%A6%81%E5%AE%98%E6%96%B9-agent-%E5%8F%91%E5%B8%83%E8%83%BD%E5%8A%9B%E6%95%B0%E5%AD%97%E4%BB%8D%E9%A1%BB%E7%8B%AC%E7%AB%8B%E9%AA%8C%E6%94%B6p0">10. GPT-6.2 Astra / Sol：重要官方 Agent 发布，能力数字仍须独立验收｜P0</a><a class="toc-level-2" href="#11-cloudrobo-wm12%E4%BB%8E%E9%A2%84%E5%91%8A%E6%8E%A8%E8%BF%9B%E5%88%B0%E5%AE%98%E6%96%B9%E5%8F%91%E5%B8%83%E5%BC%80%E6%94%BE%E5%B7%A5%E4%BB%B6%E4%BB%8D%E5%BE%85%E6%A0%B8%E9%AA%8Cp1">11. CloudRobo-WM1.2：从预告推进到官方发布，开放工件仍待核验｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-18.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-18</div><article class="prose"><p>检索窗口为 <strong>2026-11-15 13:40—2026-11-18 13:40（北京时间）</strong>，重点关注最近 24 小时的新论文，同时纳入 72 小时内的重要模型、数据与官方发布。本轮交叉检索了 arXiv 的 Robotics、CV、AI、ML 最新批次、主要实验室官方入口、GitHub/Hugging Face，以及 Spatial Intelligence、机器人基础模型和 Agent 三条独立主线。当前工作目录和自动化记忆中最近可核验的完整成稿是 11 月 15 日；未找到 16、17 日成稿，因此以 15 日及更早正文去重，不补造缺失日期。CloudRobo-WM1.2 从上一期的“待发布”推进到 16 日官方发布，属于有新证据的更新。</p>
+<p>今天最重要的判断是：<strong>空间状态是否可靠、预测信息是否真正被动作利用、评估器能否辨别微小进步，正在成为比继续堆模型规模更关键的共同瓶颈。</strong> π⁴ 将几何与运动统一，RelayWAM 检查未来表征与动作之间的因果联系，RFW-S 把生成资产与独立刺激验证分开；另一边，ScaleVLA 与 GPT-6.2 展示规模和系统能力的进展，但它们都不能替代任务级、成本一致的验证。本期保留 11 项，覆盖不同问题层次；所有实验数字均为作者或官方报告，本轮未复现训练或真机实验。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>π⁴ → RelayWAM → RFW-S → The Resolution Hypothesis → GPT-6.2 Astra / Sol</strong>。</p>
+<ul>
+<li><strong>π⁴</strong>：先看如何形成可供世界模型和控制使用的 4D 状态，以及几何与运动解耦的边界。</li>
+<li><strong>RelayWAM</strong>：再看“模型能预测未来”为什么不等于“策略使用了未来”，其干预实验比单一成功率更有启发。</li>
+<li><strong>RFW-S</strong>：把注意力从可视化资产转到物理有效性，理解校准与验证必须使用不同刺激。</li>
+<li><strong>The Resolution Hypothesis</strong>：审计自演化系统的选择器；先估计噪声，才能判断一次“提升”是否可信。</li>
+<li><strong>GPT-6.2 Astra / Sol</strong>：作为新的 Agent 能力与成本基线阅读，同时保留官方指标、架构披露和独立验证之间的边界。</li>
+</ul>
+<p>如果今天主要关心可运行的生成世界，可将 <strong>Code World Model 2.0 与 FastFrames</strong> 连读：前者讨论显式状态和持续生成，后者讨论交互响应的系统瓶颈。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-π⁴统一-4d-场景几何与运动的基础模型p0">1. π⁴：统一 4D 场景几何与运动的基础模型｜P0</h2>
+<p><strong>标题：π⁴: A Foundation Model for 4D Scene Geometry and Motion。</strong> 作者 Yifan Wang、Weiguang Zhao、Ni Yang、Haoyu Guo、Junting Dong、Weinan Zhang、Chunhua Shen；机构为上海人工智能实验室、上海交通大学、浙江大学。arXiv v1 于 <strong>11 月 17 日 17:59 UTC，即北京时间 18 日 01:59</strong>公开，属于预印本，本轮未核验到同行评审接收信息。<a href="https://arxiv.org/abs/2611.23144" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://yyfz.github.io/pi4" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/yyfz/Pi4" target="_blank" rel="noopener noreferrer">代码</a>｜<a href="https://huggingface.co/yyfz233/Pi4" target="_blank" rel="noopener noreferrer">权重</a>。</p>
+<p>它解决的是多视图几何、相机、尺度、二维与三维轨迹、动态物体分割长期分开建模的问题。约 0.5B 的共享模型接收单图、无序图像或视频；几何分支沿用不依赖指定锚点视图的置换等变设计，并以共享权重的循环解码扩大推理深度。运动分支在几何条件下预测二维对应，再利用目标帧几何解析提升到三维。训练包含相对位姿、点云与尺度监督，轨迹坐标、可见性和置信度目标，以及仅在有标注处计算的运动掩码损失；训练运动部分时冻结几何相关组件。</p>
+<p><strong>作者报告</strong>，模型在 16 个任务—数据集几何设置中取得最好的整体平均排名，同时具有有竞争力的追踪能力；这不等于每项追踪指标都最优。训练最多使用 64 个视图，展示了单次前向处理千张以上图像的泛化。数据混合公开资源、约一万个人工场景、互联网伪标签及引擎原生运动轨迹。它与 DUSt3R、VGGT、π³、CoTracker 的关系，是从几何或追踪单任务走向共享空间状态接口，而非直接学习可交互的物理转移模型。</p>
+<p>创新价值在于将动态世界的多种输出放到同一坐标体系；局限仍包括相机与物体运动的歧义、弱背景条件下的误差，以及长序列精度与优化式方法之间的差距。<strong>值得优先精读，但不能据此宣称已获得生成式世界模型或物理因果模型。</strong> 代码与模型文件已公开，仓库说明代码和模型采用 <strong>CC BY-NC 4.0</strong>，应与可商用资源区分。</p>
+<p>轻量验证可从同一段 25 帧视频开始，分别设置静态相机、移动相机和移动物体，比较联合模型与几何基线的尺度、相机漂移及轨迹误差，再加入动态掩码消融。仓库示例中 150 帧、512×288 输入在 A800 上峰值约 12.03 GiB；这是特定配置观测，不是所有输入的显存保证。先做短片和重访测试，比直接跑千帧展示更容易定位错误。</p>
+<h2 id="2-relaywam未来表征可解码不代表动作真正使用了它p0">2. RelayWAM：未来表征可解码，不代表动作真正使用了它｜P0</h2>
+<p><strong>标题：Making Future-Predictive Representations Actionable。</strong> 作者 Fangchuan Wang、Hao Zhang、Qiyan Zhao、Huanqi Zhao、Guanting Ye、Xu-Yao Zhang、Yuqing Gao；来自新疆大学、同济大学、中科院自动化所、中国科学技术大学。v1 于 <strong>11 月 17 日 16:10 UTC／18 日 00:10 北京时间</strong>公开，为预印本。<a href="https://arxiv.org/abs/2611.22994" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://arxiv.org/html/2611.22994v1" target="_blank" rel="noopener noreferrer">方法与实验全文</a>。本轮未找到可核验的官方代码、策略权重或完整训练数据发布。</p>
+<p>论文针对 FastWAM 一类“训练时预测未来、推理时不生成未来”的架构提出关键问题：辅助任务学到的信息有没有进入动作决策？作者先用层级探针、动作敏感梯度子空间和因果擦除实验发现，未来信息即使可从深层读出，也可能与动作真正敏感的方向脱节。RelayWAM 引入受任务、状态和当前动作条件约束的 transition tokens，在网络深度上循环读取视频线索并注入动作注意力，使预测信息有明确的动作读取通道。</p>
+<p>训练仍采用动作目标与加权未来预测目标，没有另设 transition token 的独立监督。新增约 <strong>34.96M 参数，占 6.02B 基座不足 0.6%</strong>；视频 DiT 只运行一次并缓存，推理无需生成完整未来。<strong>作者报告</strong> LIBERO-Plus 成功率 <strong>72.03%</strong>，去掉未来监督的 transition 变体为 <strong>56.42%</strong>，FastWAM 为 <strong>51.50%</strong>。更有价值的是交叉消融：没有读取结构时未来监督约带来 5.2 个百分点，有读取结构时约带来 15.6 个百分点。真实照明扰动小规模实验报告 70% 对 15%，应连同任务数与示范规模一起解读。</p>
+<p>相较 FastWAM、DreamWAM 和预测式表征学习，它的贡献是把“信息存在”与“信息被用到”分开检验。局限是探针和擦除结果依赖子空间估计，真机覆盖仍有限，而且新增参数少不意味着训练便宜：论文训练配置为 8 张 A100 80GB、约两万步。<strong>值得精读方法与干预实验，暂不能视作已经独立验证的通用 WAM 结论。</strong></p>
+<p>轻量路线是冻结现有公开视频—动作模型，先测未来可解码性，再做动作敏感子空间与等维随机子空间擦除；随后仅验证“未来监督有／无 × 读取模块有／无”的四格设计。必须同时报告动作成功、表征质量与推理成本，避免把辅助任务损失下降当作控制收益。</p>
+<h2 id="3-rfw-s十万可变形资产之后物理验证才是重点p0">3. RFW-S：十万可变形资产之后，物理验证才是重点｜P0</h2>
+<p><strong>标题：RFW-S: Everyday Deformable Objects with Independent Simulation Verification。</strong> 作者 Jiarui Guo、Saining Zhang、Jiaying Wan、Jiawei Weng、Junhao Chen、Rui Zhang 等；机构包括阿里巴巴、清华大学、南洋理工大学、南京大学、香港科技大学。v1 于 <strong>11 月 17 日 16:49 UTC／18 日 00:49 北京时间</strong>公开，为预印本与项目展示。<a href="https://arxiv.org/abs/2611.23056" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://sjijs.github.io/RFW-S_website/" target="_blank" rel="noopener noreferrer">项目与发布状态</a>。</p>
+<p>研究问题是：视觉上像布、袋子或软物体的网格，能否真正用于可重复的交互仿真？流水线将参考引导的三维生成、结构适配、语言模型辅助的有效物理参数估计与校准连接起来，再<strong>冻结校准配置，使用不同刺激验证</strong>。资产覆盖软实体、布片、薄壳、服装和袋类五大家族；验证分别记录任务完成与结构完整性，避免只看一次落地视频就宣布物理有效。这里的 independent 指作者研究内独立于校准刺激的验证，不是第三方复现。</p>
+<p><strong>作者报告</strong>生成 100,000 个资产、覆盖 485 类；通过物理验证与运行时条件交集的资产是 <strong>83,365 个，约 83.4%</strong>，不能写成十万个全部通过。扩展袋类审计中，8,400 次候选评估全部通过校准，但 <strong>325 次、即 3.87%</strong> 未通过独立交互；这是重复评估层面的比例，不是全数据集资产失败率。豆腐等 sim-to-real 展示提供定性证据，尚不能代替真实材料参数或力学曲线的定量测量。</p>
+<p>它比 Objaverse 式视觉资产库向物理可执行性迈进了一步，也为 Genesis 等可变形模拟环境提供资源组织思路。局限是有效参数不等于实测材料真值，完整性代理指标也未必能严格对应断裂或不可逆损伤，跨求解器迁移仍待验证。<strong>值得精读其校准—验证协议，暂不宜把它当作已经可下载的完整物理数据集。</strong> 项目页仍标注 <strong>Code SOON、Dataset SOON</strong>；120 个资产、85 类的展示不等于 8.3 万资产已开放。</p>
+<p>轻量验证不必等待全量发布：取 20 个公开布袋和软物体，在落体条件下校准，再用压缩、悬挂、拖拽验证；记录参数、网格、求解器、时间步和失败类型。一个有价值的小实验是比较“同刺激复测”与“留出刺激测试”的通过率差距，并检查该差距是否预测下游操作失败。</p>
+<h2 id="4-code-world-model-20显式世界状态与持续视频生成p0">4. Code World Model 2.0：显式世界状态与持续视频生成｜P0</h2>
+<p><strong>标题：Code World Model 2.0: Towards Infinite Controllable Video Generation。</strong> 作者 Ruoyu Wang、Hao Zhong、Yanming Yang、Jiahao Tian、Lin Liu、Biao Gong、Guoshan Lu、Yiding Tian、Chunhua Shen、Zhenzhong Lan、Chi Zhang；来自西湖大学、蚂蚁 InclusionAI AGI 研究中心、浙江大学。v1 于 <strong>11 月 17 日 15:23 UTC／17 日 23:23 北京时间</strong>公开。<a href="https://arxiv.org/abs/2611.22925" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://www.inclusion-ai.org/CodeWorldModel/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/inclusionAI/CodeWorldModel" target="_blank" rel="noopener noreferrer">代码</a>｜<a href="https://huggingface.co/inclusionAI/invoker-render-1.0" target="_blank" rel="noopener noreferrer">InvokerRender 权重</a>。属于预印本与代码／模型发布。</p>
+<p>它将世界状态放在可执行代码和代理渲染中，由视频模型负责外观补全，从而降低纯视频长时生成的状态漂移。条件包括代理视频、首帧外观与语言；统一接收从粗盒子到关节结构的多粒度几何。训练使用约 200 小时对齐视频，先获得双向渲染能力，再以四步因果生成和 ProForcing 处理压缩采样与自回归分布偏移，包含历史条件训练、蒸馏及连续自生成 rollout。</p>
+<p><strong>作者报告</strong>在 140 段留出序列上开展偏好评估，并展示 30 分钟赛车持续生成。1280×768、8 GPU 配置中，生成块耗时由约 <strong>1,770 ms 降到 930 ms</strong>，吞吐由 <strong>9.9 提升到 18 FPS，约 1.82 倍</strong>。这里的 18 FPS 不能换算成 55 ms 的输入响应；块式生成仍有约 0.93 秒的节拍。仓库还说明，长赛车展示使用的参考引导质量策略未在默认服务中启用，因此直接启动默认服务不等于复现该展示。</p>
+<p>相较 Code World Model 1、WorldDraft、Atlas 和 Self-Forcing，它突出了“显式状态负责持久性，生成器负责视觉”的分工。但标题中的 infinite 代表持续生成设计，不能证明无限时长物理正确或任意编辑一致。<strong>值得读状态接口与长时训练方法。</strong> 推理代码、服务／浏览器示例与权重已可核验；训练代码和完整对齐语料尚未核验公开。原仓库代码采用 Apache-2.0，但依赖与模型包含其他许可证，不能将整套系统一概称为无条件可商用。</p>
+<p>轻量验证先固定同一代理轨迹，对粗盒、关节几何、相机重访和物体编辑做短片对照，分别测几何跟随、物体身份保持、编辑泄漏和首响应时间。完整默认高分辨率服务依赖多 GPU；预算有限时可先审计公开示例与代理状态的一致性，或在缩短序列后验证接口，明确不把离线审计当作模型复跑。</p>
+<h2 id="5-fastframes把交互响应作为生成系统的一等指标p1">5. FastFrames：把交互响应作为生成系统的一等指标｜P1</h2>
+<p><strong>标题：FastFrames: Video Generation at Interactive Latency。</strong> 作者 Gene Chou、Guandao Yang、Fujun Luan、Lars Mescheder、Wei Dong、Stephan R. Richter、Vladlen Koltun；机构为 Apple 与 Cornell。v1 于 <strong>11 月 17 日 18:59 UTC／18 日 02:59 北京时间</strong>公开。<a href="https://arxiv.org/abs/2611.23226" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://apple-aiml-research.github.io/ml-fastframes/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/apple-aiml-research/ml-fastframes" target="_blank" rel="noopener noreferrer">代码</a>｜<a href="https://huggingface.co/apple/FastFrames-S" target="_blank" rel="noopener noreferrer">S 权重</a>｜<a href="https://huggingface.co/apple/FastFrames-L" target="_blank" rel="noopener noreferrer">L 权重</a>。属于预印本与代码／权重发布。</p>
+<p>论文发现，自回归视频扩散的交互关键路径不只在采样步数：VAE 解码和 KV 缓存更新也占据大量时间。其方法用轻量因果 3D ConvNeXt 像素解码器替换原解码过程，并用小型 KV refiner 近似完整 DiT 对缓存的更新。像素模块使用重建、感知与对抗目标，缓存模块向完整模型的干净 KV 蒸馏，再配合系统优化。S 基于小型两步因果生成器，L 使用 14B 级模型；这与单纯缩小生成模型不同。</p>
+<p><strong>作者报告</strong>在 480p 下，1.3B 的 S 在单张 B200 达到 <strong>36 ms／帧、约 28 次响应／秒</strong>，与其 CF++ 对照保持相近质量并约快八倍；14B 的 L 在 8 张 B200 为 <strong>45 ms／帧</strong>，单张 B200 则约 <strong>158 ms／帧</strong>。720p 的成本明显上升。数字与分辨率、GPU 数、缓存状态绑定，不能笼统说“14B 单卡 45 ms”。RealWonder 等物理条件应用展示，也不等于物理正确性已被验证。</p>
+<p>它与 CWM2 的互补点是降低视频渲染的响应延迟；与机器人控制的距离则在于反馈状态、接触和稳定性还需要单独检验。<strong>值得精读性能剖析与模块消融。</strong> 代码和两档权重文件已存在；S 主要提供缓存修复器和像素解码器，仍需上游基座权重，并非独立完整生成模型。代码、Apple 模型权重与 LingBot 等上游资源采用不同许可，使用时需逐项核对。</p>
+<p>轻量实验选择 S 和相应公开基座，在 20 个固定提示／控制轨迹上比较原始、仅换解码器、仅换缓存、两者合用四组。记录预热后的端到端 p50／p95 延迟、首响应、显存与视频质量；消费级 GPU 的可行性须实测，不能照搬 B200 数字。</p>
+<h2 id="6-scalevla552b-冻结表征带来什么成本又在哪里p1">6. ScaleVLA：552B 冻结表征带来什么，成本又在哪里｜P1</h2>
+<p><strong>标题：ScaleVLA: Scaling VLA Models to 552B。</strong> 作者 Ruixi Yu、Dairu Liu、Xuchuan Chen、Zekun Qi、Zekai Li、Zhuo Cao、Luyang Niu、Yingsheng Zhang、Sikai Liang、Ke Fan、He Wang、Li Yi；来自清华大学、北京大学、上海交通大学、Galbot。v1 于 <strong>11 月 16 日 18:59 UTC／17 日 02:59 北京时间</strong>公开。<a href="https://arxiv.org/abs/2611.21607" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://galaxygeneralrobotics.github.io/scalevla/" target="_blank" rel="noopener noreferrer">项目</a>。属于预印本，本轮未核验到完整策略代码、权重与固定训练数据发布。</p>
+<p>研究问题是超大语言模型的表征能否直接改善机器人少样本适应。系统冻结 DeepSeek-V4.1-Flash 552B MoE 等视觉／语言骨干，只运行其中用作因果编码器的 20 层，语言解码器不参与执行；训练特征适配、状态／动作编码和 32 层动作 DiT，采用 flow matching 并以四步输出动作块。论文比较 2B、8B、32B、552B 级骨干，在尽量一致的数据、动作头初始化及优化设置下研究收益。</p>
+<p><strong>作者报告</strong>，Goal 设置中 552B 使用 10 条示范达到 <strong>87.8%</strong>，超过 2B 使用 50 条示范的 <strong>85.6%</strong>；四套 LIBERO 综合为 <strong>96.1%</strong>，LIBERO-Pro 为 <strong>45.1%</strong>，较最佳较小模型的 <strong>31.3%</strong> 更高。真实充电器插入示例为 9／10 对 4／10，样本量很小。552B 配置在 4 张 H200 上动作块推理中位数约 <strong>216 ms</strong>；较小模型使用不同硬件，不能据此声称规模收益没有部署代价。</p>
+<p>它与 OpenVLA、π₀.₅、GR00T 的共同问题是将预训练表征接到动作专家，但这里的重点是冻结骨干的规模，而非让 552B 模型在线逐字推理。局限是骨干规模、架构和预训练语料同时变化，无法把收益全部归因于参数量；更难的分布外测试仍只有约 45%。<strong>建议读少样本曲线和消融，不把它当作已确立的机器人 scaling law。</strong> 上游模型开放，也不代表完整 ScaleVLA 策略已开放。</p>
+<p>可行替代是用 2B／8B 冻结骨干缓存相同图像特征，共享动作头与随机种子，测 5／10／25／50 条示范曲线，并同时统计预计算、训练和推理成本。先确定收益来自特征质量还是额外训练容量，再决定是否值得引入更大模型或教师蒸馏。</p>
+<h2 id="7-hubego-100k首批是一万小时机器人迁移仍待验证p1">7. HubEgo-100K：首批是一万小时，机器人迁移仍待验证｜P1</h2>
+<p><strong>标题：HubEgo-100K: In-the-Wild Egocentric Video of Skilled Work for Robot Learning。</strong> 作者 Javad Amirian、Armin Kiani、Loïc Schaeffer、Tim Sprecher、Mohamed Taha、Karthik Yadati；机构为 Hub Labs。v1 于 <strong>11 月 16 日 21:56 UTC／17 日 05:56 北京时间</strong>公开；数据仓库在 18 日仍有窗口内更新。<a href="https://arxiv.org/abs/2611.21938" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://huggingface.co/datasets/HubLabs/HubEgo-100K" target="_blank" rel="noopener noreferrer">数据与许可</a>。属于预印本与分批数据发布。</p>
+<p>它瞄准熟练工作、真实场所和长尾操作的人类第一视角数据缺口。以头戴设备采集 1080p、30fps 视频与 100Hz IMU，再经隐私处理、片段组织及自动语言／动作标注，提供便于机器人数据系统对接的格式。贡献主要在采集分布、规模和数据接口，并未提出一个新的机器人策略训练目标；IMU 与人类视频也不能直接替代机器人动作标签。</p>
+<p><strong>作者报告</strong>的首版实际规模为 <strong>10,124 小时、72,754 个 episode、12,227 名贡献者</strong>，覆盖 30 类活动、56 种任务类型、35 个动作家族，约 83% 时长来自工作场所。100K 是计划规模，不能写成十万小时已全部发布。其 15,548 个 environment 按贡献者所在设置定义，不宜直接解释成经独立测量的物理场所数量。自动标注和手部可见性等统计未经过全面人工真值验证。</p>
+<p>与 Ego4D、EgoDex、OpenHumanScale 和 Ropedia 一类资源相比，价值在熟练劳动分布与持续采集；未解决的问题是人类行为、接触语义与机器人可执行动作的跨本体连接。<strong>值得读数据说明和划分方式，当前不应宣称已证明机器人泛化提升：首版论文尚未给出完整下游策略收益实验。</strong> 数据采用 CC BY 4.0；Hugging Face 页面及文件清单可核验，但下载需要登录并完成访问表单，本轮未下载全量内容。</p>
+<p>轻量验证可在获得访问后每类抽取少量片段，先做 100 段字幕、接触顺序和隐私处理人工审计；训练／测试必须按贡献者和环境留出。随后固定机器人数据，比较人类视频表征预训练有／无，测同等计算下的迁移收益，而不是用新增小时数推断收益。</p>
+<h2 id="8-真实机器人数据质量校准观测和遥操作方式是隐藏变量p1">8. 真实机器人数据质量：校准、观测和遥操作方式是隐藏变量｜P1</h2>
+<p><strong>标题：Hidden Variables Behind Real-Robot Data Quality: Lessons from Hundreds of Thousands of Hours。</strong> 作者 Maniformer／Real-World Manipulation 团队，署名包括 Che Tsang Calvin、Xingyu Chen、Bowen Jiang 等；机构为 AgiBot／智元机器人相关团队。arXiv v1 于 <strong>11 月 17 日 08:38 UTC／17 日 16:38 北京时间</strong>公开；文稿内部日期较早，本期以公开提交时间计入。<a href="https://arxiv.org/abs/2611.22388" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://teleop.agibot.com/" target="_blank" rel="noopener noreferrer">团队遥操作平台</a>。属于经验研究预印本，平台展示不等于实验包开放。</p>
+<p>它研究为何“更多小时”经常没有带来稳定的策略收益。论文从 25 类双臂 URDF 的运动学分析出发，强调考虑姿态的工作空间、并行身体控制与柔顺遥操作，再检查标定一致性、观测完整性及示范绕路等变量。实验主要微调 π₀.₅，并非提出新的 VLA 结构或损失；核心方法是将数据生成过程拆成可干预因素。</p>
+<p><strong>作者报告</strong>并行遥操作将部分任务用时改善约 <strong>43%—53%</strong>，主动搜索示范可将某项手臂选择实验从 50% 提升至 100%；推理时标定错误的配置出现 <strong>0／30 成功</strong>，而混合标定训练在推理对齐的条件下仍可有效。策略还会继承大量示范中的额外路径，约 90% 的相关绕路量可被保留。必须逐项查看任务和对照，不能把标题中的数十万小时当作每个结论的随机实验样本量。</p>
+<p>它为 DROID、AgiBot World 等规模路线补上采集机制审计，与 HubEgo 的多样性问题互补：覆盖广度与标定一致性是不同变量。局限包括部分设置训练重复不足、任务和操作者覆盖有限，以及人为偏移与真实漂移并不完全一致。<strong>值得精读实验设计；本轮未核验到支撑全部结论的公开训练数据、策略权重和复现脚本，其他 AgiBot 数据集的开放状态不能移植到本论文。</strong></p>
+<p>轻量路线是选 10—20 条示范，固定策略与训练预算，仅改变时间同步、相机外参、采集会话或绕路比例，记录 calibration ID、延迟和观测缺失。优先验证“小量高一致数据”与“大量混合会话数据”的交互，而不是先增加采集时长。</p>
+<h2 id="9-the-resolution-hypothesis自演化的瓶颈可能是辨别改进p0">9. The Resolution Hypothesis：自演化的瓶颈可能是辨别改进｜P0</h2>
+<p><strong>标题：The Resolution Hypothesis: Agent Evolution’s Key Is Identifying Improvements。</strong> 作者 Yuanhao Zeng、Shaocheng Lan、Ao Lu、Kuang Yan、Heng Lin、Xinang Xu、Yuan Luo、Yueting Wang、Yexin Li、Ruo Shan、Kan Ren；机构包括上海科技大学、字节跳动、北京通用人工智能研究院、南方科技大学。v1 于 <strong>11 月 17 日 16:57 UTC／18 日 00:57 北京时间</strong>公开。<a href="https://arxiv.org/abs/2611.23068" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://lineshogan.github.io/resolution-hypothesis/" target="_blank" rel="noopener noreferrer">项目与交互结果</a>。属于预印本和分析性研究。</p>
+<p>论文把冻结 LLM、演化提示／技能／记忆／执行框架的系统拆成候选生成器和候选选择器。作者将可观察分数变化中的执行噪声与候选真实差异分开，通过固定候选池、重复评估及留出测试检查选择器分辨率。研究包含 7 种演化方法、6 个模型、<strong>1,030 次独立演化运行、超过 210 万测试轨迹和 1,000 万次 LLM 调用</strong>，涉及 ALFWorld、SpreadsheetBench、OfficeQA、Terminal-Bench v2.1 等环境。</p>
+<p><strong>作者报告</strong>很多候选间只有数个百分点差异，小于运行噪声；某四方法设置中，被选择的最佳候选比例约 33%，随机基线为 25%，二元候选判断有时接近 50%。扩大候选池可以改善理想 oracle 的上限，却未必改善有噪声的选择器；修复评估捷径后，部分表面收益消失。它因此不只问“能生成多少改进”，而问“当前评估预算是否足以识别改进”。</p>
+<p>这与 GEPA、SkillOpt、ReasoningBank、MetaHarness、AHE、FGSE 等外部工件演化直接相关，也提醒阅读新模型 Agent 指标时核对重复次数与验收器。局限是结果绑定所测模型、任务、预算和冻结工件范式，不能推出所有自演化或权重更新都无效。<strong>非常值得精读，尤其是噪声估计与选择器实验。</strong> 项目有图表和示例，但完整代码与轨迹声明在接收后发布，本轮尚未核验到全量开放，也无第三方完整复跑。</p>
+<p>不需要复刻千万次调用：固定 8 个已有提示／技能候选，在 20 个任务上各重复 4—8 次，使用相同任务配对比较和 bootstrap 区间；报告排名稳定性、选择正确率、留出收益与总成本。再用相同预算比较均匀评估与自适应追加样本，先建立“能看清多小提升”的曲线，再设计新演化机制。</p>
+<h2 id="10-gpt-62-astra-sol重要官方-agent-发布能力数字仍须独立验收p0">10. GPT-6.2 Astra / Sol：重要官方 Agent 发布，能力数字仍须独立验收｜P0</h2>
+<p><strong>发布方：OpenAI；官方日期为 11 月 17 日。</strong> 这是模型／API 产品发布及系统卡，不是开放权重论文。本轮更广网页兜底核对才发现该项，随后补入候选池；初次未覆盖属于 <strong>Retrieval Failure 的补救</strong>，不能解释为筛选淘汰。<a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" target="_blank" rel="noopener noreferrer">官方发布</a>｜<a href="https://deploymentsafety.openai.com/gpt-6-2-astra-sol/internal-deployment-of-gpt-6.2-astra-and-gpt-6.2-sol" target="_blank" rel="noopener noreferrer">系统卡</a>｜<a href="https://developers.openai.com/api/docs/models/gpt-6.2-astra" target="_blank" rel="noopener noreferrer">Astra 模型说明</a>。</p>
+<p>发布重点是复杂专业任务、编程、计算机使用与工具型 Agent 的能力和成本。官方披露训练使用多源数据与强化学习，但未完整公开参数规模、架构、数据配方和损失权重，因此不能据此推断使用了某种世界模型或新增空间模块。模型说明列出 Astra 约 105 万 token 上下文、最高 12.8 万输出 token，输入支持文本／图像、输出为文本；大上下文容量本身不代表长任务执行正确。</p>
+<p><strong>官方报告</strong>在 Agents' Last Exam 上，相对 GPT-6 Astra 提高 <strong>5.2 个百分点</strong>，每任务成本低于三分之一；Terminal-Bench Science 0.1 提高 <strong>9 个百分点</strong>，成本同样低于三分之一。应将这些结论限定到官方模型设置和任务账本，不能直接映射到机器人成功率或当前工程仓库。系统卡包含外部安全评估，但这与对产品效率指标的独立复现是不同证据。官方还将 Astra 评为首次对外发布、达到 AI Self-improvement “High”阈值的模型；这是其能力评估分类，不能直接解释为已证明自主递归改进。</p>
+<p>它应成为 Agent、科学终端和代码生成研究的新基线，也适合与 The Resolution Hypothesis 连读：强模型可能改善候选生成，也可能改变选择噪声与成本。<strong>建议读发布中的具体任务设置和系统卡；未开放训练代码、模型权重及完整训练数据，API 可用性不能等同于开放复现。</strong> 与前代 GPT 和其他前沿模型比较时，应固定 harness、工具权限、重试预算和成本口径。</p>
+<p>轻量验证可准备 20 个留出的仓库问题或仿真脚本任务，对旧／新模型各重复三次，统一测试、超时与人工介入规则，统计验收成功率、token／API 成本、延迟和修正次数。本轮未发起收费 API 调用；先把任务与验收固定下来，才能将模型升级和测试噪声区分开。</p>
+<h2 id="11-cloudrobo-wm12从预告推进到官方发布开放工件仍待核验p1">11. CloudRobo-WM1.2：从预告推进到官方发布，开放工件仍待核验｜P1</h2>
+<p><strong>发布方：华为云具身智能实验室；官方发布日期为 11 月 16 日。</strong> 上一期仅记录发布预告，本期纳入正式发布这一新证据。<a href="https://www.huaweicloud.com/news/2026/20261116171910882.html" target="_blank" rel="noopener noreferrer">官方新闻</a>｜<a href="https://www.huaweicloud.com/ai/cloudrobo.html" target="_blank" rel="noopener noreferrer">CloudRobo 产品入口</a>｜<a href="https://www.huaweicloud.com/about/live/261116.html" target="_blank" rel="noopener noreferrer">发布活动</a>。发布性质是官方研究／产品发布；本轮未核验到对应 arXiv 技术报告或同行评审论文。</p>
+<p>官方介绍共享世界骨干、PPA 预测式 4D 表征，以及原生 DualAct 世界—动作路径和 MoT 动作专家路径；强调在深度、视角或动作标签不完整时使用相应粒度监督，并通过保持语义的动作映射连接不同本体。系统区分 World／Expert Action 与 Joint／Action Only 的组合推理模式，面向昇腾原生部署。具体目标函数、训练数据配比和各模式消融仍缺可逐项审计的技术披露。</p>
+<p><strong>官方宣称</strong>在 RoboTwin 2.0、LIBERO-Pro 2.0 等评测领先，但本轮看到的正式发布页面未提供足以重建比较的完整分数、协议和运行表，因此不转述成可比排行榜结论，也不把产品页其他版本的 LIBERO 数字归给 WM1.2。新闻使用“发布并开源”表述；实际可下载的基座权重、训练代码、数据和许可证，本轮尚未逐项核验到，证据状态仍是“官方声明，工件待核验”。</p>
+<p>它与 FastWAM、GR00T、Praxis-1 的关联在原生世界—动作建模、异构数据和跨本体接口。<strong>值得跟踪技术报告与工件，现阶段精读优先级低于可审计方法。</strong> 轻量准备可以先建立统一观察、状态、动作掩码和四种推理模式的验收表；若未获得模型接口就保留空结果。也可在公开 WAM 上验证缺失标签掩码的作用，但应明确这是替代机制实验，不能称为复现 WM1.2。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>Spatial Intelligence 是本轮独立一级主线。</strong> π⁴ 进入候选池的依据是动态几何与运动状态，RFW-S 是可变形生成仿真，CWM2／FastFrames 是可控世界渲染与交互延迟；它们不依赖是否出现 VLA 或 robot action 关键词。扫描同时覆盖 persistent world、3D／4D generation、real-to-sim、重建、世界状态、交互模拟和人类到机器人的数据接口。</p>
+<p><strong>本轮发现足以进入重点条目的官方新增：OpenAI GPT-6.2 Astra／Sol、华为云 CloudRobo-WM1.2，以及 Apple FastFrames、InclusionAI CWM2 等论文—工件发布。</strong> 其余主要入口未核验到窗口内同等重要的新发布；这表示本轮检索结果，不是对互联网不存在其他更新的保证。</p>
+<ul>
+<li><strong>空间与机器人公司</strong>：<a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.pi.website/" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://www.figure.ai/news" target="_blank" rel="noopener noreferrer">Figure</a>、<a href="https://www.skild.ai/" target="_blank" rel="noopener noreferrer">Skild AI</a>、<a href="https://www.fieldai.com/news" target="_blank" rel="noopener noreferrer">Field AI</a>、<a href="https://www.1x.tech/ai" target="_blank" rel="noopener noreferrer">1X</a> 均通过官方页面与定向搜索核对。Atlas 等已报道发布没有发现足以重列的新证据；不以近期抓取日期替代原始发布日期。</li>
+<li><strong>大型研究机构</strong>：<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a>、<a href="https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/" target="_blank" rel="noopener noreferrer">NVIDIA Robotics／Cosmos／GR00T</a>、<a href="https://ai.meta.com/research/" target="_blank" rel="noopener noreferrer">Meta FAIR</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a> 已扫描。Gemini Robotics、GR00T 等较早更新不充当本期新发布；Anthropic 某些近期二次报道对应更早原文，也未机械重列。<a href="https://www.tri.global/news" target="_blank" rel="noopener noreferrer">Toyota Research Institute</a> 直接入口访问受限，使用索引与机构定向搜索补查，覆盖完整性低于可直接读取的入口。</li>
+<li><strong>高校与中国团队</strong>：对 Stanford、Berkeley／BAIR、MIT、CMU、Princeton，以及上海人工智能实验室、清华、北大、浙大、阿里／InclusionAI、字节、华为、智元等进行机构与主题交叉检索。入选以原始论文、团队项目和官方资源页为准，活动公告、招聘与旧工作报道不计研究新增。</li>
+<li><strong>代码与数据</strong>：交叉检查 GitHub／Hugging Face 的仓库、文件清单和近期 revision，确认 π⁴、InvokerRender、FastFrames 与 HubEgo 的资源层级；同时保留“代码待发”“数据有门槛”“仅推理开放”等区别。</li>
+</ul>
+<p>最终筛选前，使用 broader web 将 Spatial Intelligence、World Model、Physical AI、Embodied／Robot Foundation Model、Real-to-Sim、3D／4D World Generation、Human-to-Robot、Agent／Self-Evolution 与主要机构交叉核对。GPT-6.2 是这一步补回的重要漏项。其他进入候选池的 POKE、FAVR、ELITE 等因与本期问题重叠、证据增量和阅读预算未进入长条目，这是 <strong>Selection</strong>；它们与最初未检索到的重要发布不是同一种情况。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>今天的主线可沿着 <strong>可观测状态 → 可执行世界 → 可用的未来信息 → 动作与数据 → 有分辨率的评估闭环</strong> 阅读。近期趋势是每层都开始明确接口，但跨层成功仍缺统一证据：几何准确不保证物理有效，视频逼真不保证控制稳定，自演化分数变高也不保证留出任务进步。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4D 状态与动态几何</td>
+<td>π⁴ 将几何、相机、尺度、轨迹统一</td>
+<td>相机运动、物体运动与下游控制误差仍纠缠</td>
+<td>固定场景和动作，分离几何漂移、轨迹误差与策略失败</td>
+</tr>
+<tr>
+<td>可控生成与持久世界</td>
+<td>CWM2 显式状态；FastFrames 压缩响应链路</td>
+<td>吞吐、响应、持久性和物理正确性尚未统一</td>
+<td>同一代理世界比较状态误差、重访一致性和 p95 响应</td>
+</tr>
+<tr>
+<td>可变形生成仿真</td>
+<td>RFW-S 将校准与留出刺激验证分开</td>
+<td>材料真值、跨求解器与完整性指标不足</td>
+<td>校准刺激×验证刺激×求解器的交叉物理协议</td>
+</tr>
+<tr>
+<td>预测表征到动作</td>
+<td>RelayWAM 建立读取通道；ScaleVLA 扩大冻结骨干</td>
+<td>可解码信息、因果使用和规模收益尚未分离</td>
+<td>未来监督×读取结构×骨干规模的等预算消融</td>
+</tr>
+<tr>
+<td>人类数据与机器人质量</td>
+<td>HubEgo 扩展熟练工作；Hidden Variables 审计采集</td>
+<td>多样性、标定一致性与动作语义缺因果对照</td>
+<td>环境留出×标定漂移×跨本体接口的迁移曲线</td>
+</tr>
+<tr>
+<td>Agent 与自演化</td>
+<td>Resolution 审计选择噪声；GPT-6.2 改善能力／成本</td>
+<td>更强候选与更准选择器的贡献混在一起</td>
+<td>固定候选池，比较模型升级和重复评估预算</td>
+</tr>
+<tr>
+<td>原生 WAM 与开放边界</td>
+<td>WM1.2 强调异构监督和多推理模式</td>
+<td>官方叙述、可下载工件与可比评测仍有距离</td>
+<td>建立 observation／action mask／mode 的版本化验收契约</td>
+</tr>
+</tbody>
+</table></div>
+<p>地图保留历史快照；今天新增的不是另一个孤立排行榜，而是“<strong>状态是否可靠—信息是否被用到—改进是否能被测出</strong>”这条横贯空间智能、机器人与 Agent 的问题链。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：预测知识到动作的因果接口。</strong> 固定一个公开 WAM，做未来监督与读取模块的四格实验；用探针、随机子空间擦除和任务成功共同验证。先用冻结表征和小型动作头，减少全模型重训成本。论文价值来自信息使用机制，而不是单次榜单提升。</li>
+<li><strong>机会二：可执行世界的三层一致性。</strong> 对同一组短轨迹记录几何／身份、接触／完整性、策略成功三类指标，再测 CWM 类渲染器的延迟。可以从 20 个公开资产、10 条相机重访和两种求解器起步；寻找哪些视觉错误最能预测控制失败。</li>
+<li><strong>机会三：数据质量与数据规模的交互曲线。</strong> 固定少量机器人示范，分别改变人类视频多样性、标定漂移和观测缺失；训练／测试按人员与环境留出。若先清理标定就能超过扩充数据的收益，这本身就是可审计的研究结论。</li>
+<li><strong>机会四：自演化的最小可检测收益。</strong> 固定 8 个候选与 20 个任务，用重复运行估计选择噪声，再比较旧／新模型作为 proposer 或 selector 的不同组合。目标是给出每单位成本能可靠识别多大提升，避免候选越多、被噪声选中的极值越多。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本轮完成的是公开资料、资源页面与发布状态核对，<strong>没有重训模型、下载全部数据、运行真实机器人或复现官方榜单</strong>。预印本是否已通过同行评审，若无可核验证据就保留未确认；官方商业发布与论文研究按各自证据记录。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>论文／发布与工件状态</th>
+<th>关键限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>π⁴</td>
+<td>预印本；代码和模型已可核验，CC BY-NC 4.0</td>
+<td>数据混合与长时几何仍需独立复跑</td>
+</tr>
+<tr>
+<td>RelayWAM</td>
+<td>预印本；完整代码／策略／数据未核验公开</td>
+<td>小模块不等于低训练成本</td>
+</tr>
+<tr>
+<td>RFW-S</td>
+<td>预印本与展示；代码、数据标注待发布</td>
+<td>独立刺激验证不等于第三方验证</td>
+</tr>
+<tr>
+<td>CWM2</td>
+<td>预印本；推理代码和 InvokerRender 权重已公开</td>
+<td>训练语料未齐；长演示策略与默认服务不同</td>
+</tr>
+<tr>
+<td>FastFrames</td>
+<td>预印本；代码与 S／L 权重可核验</td>
+<td>S 依赖上游基座；硬件与许可分层</td>
+</tr>
+<tr>
+<td>ScaleVLA</td>
+<td>预印本；项目页公开</td>
+<td>完整策略与固定数据尚未核验发布</td>
+</tr>
+<tr>
+<td>HubEgo</td>
+<td>预印本；首批数据、CC BY 4.0、需访问表单</td>
+<td>首版 10,124 小时；无完整机器人迁移结果</td>
+</tr>
+<tr>
+<td>Hidden Variables</td>
+<td>预印本与团队平台</td>
+<td>全套实验数据、权重与脚本未核验开放</td>
+</tr>
+<tr>
+<td>Resolution Hypothesis</td>
+<td>预印本与分析项目</td>
+<td>完整代码／轨迹计划接收后公开</td>
+</tr>
+<tr>
+<td>GPT-6.2</td>
+<td>官方发布、系统卡、模型／API 说明</td>
+<td>无开放权重；效率指标为官方报告</td>
+</tr>
+<tr>
+<td>CloudRobo-WM1.2</td>
+<td>官方正式发布并声明开源</td>
+<td>下载工件、许可证和可比榜单仍待核验</td>
+</tr>
+</tbody>
+</table></div>
+<p>资源状态按本次检索时点记录：网页存在、文件清单可见、文件可下载、成功运行、任务成功是不同级别。本期主要实证仍来自作者／官方，没有将其改写为第三方验证；系统卡中的外部安全评估也没有被移植成生产力或机器人指标的独立验证。</p>
+<p><strong>今天先读 π⁴ 与 RelayWAM，分别标出“输出了什么状态”和“动作实际用了什么信息”。如果只做一个实验，先完成 8 候选、20 任务的重复评估小样，量出当前验收器能可靠识别的最小收益，再投入更大训练或自演化预算。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-15/"><span>← 上一期 · 2026-11-15</span><strong>Praxis-1 · WorldDraft · PhysCapBench</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
