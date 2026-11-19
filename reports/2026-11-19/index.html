@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-19｜DreamFAR · InteractVLA · ForceHarness · Yunhe</title><meta name="description" content="世界模型的瓶颈正在从“能否生成下一帧”转向“能否通过独立审计证明预测、交互和动作真的对上了”。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-19/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-19｜DreamFAR · InteractVLA · ForceHarness"><meta property="og:description" content="世界模型的瓶颈正在从“能否生成下一帧”转向“能否通过独立审计证明预测、交互和动作真的对上了”。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-19/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>DreamFAR · InteractVLA · ForceHarness</h1><p class="article-deck">世界模型的瓶颈正在从“能否生成下一帧”转向“能否通过独立审计证明预测、交互和动作真的对上了”。</p><div class="article-meta"><time datetime="2026-11-19">2026 / 11 / 19</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">具身智能</span><span class="tag">世界模型</span><span class="tag">空间智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-auditing-a-learned-simulator-for-legged-robotsrwm-%E7%9A%84%E7%8B%AC%E7%AB%8B%E5%AE%A1%E8%AE%A1p0">1. Auditing a Learned Simulator for Legged Robots：RWM 的独立审计｜P0</a><a class="toc-level-2" href="#2-dreamfar%E9%9D%A2%E5%90%91%E7%9C%9F%E5%AE%9E%E4%BA%A4%E4%BA%92%E7%9A%84%E9%95%BF%E6%97%B6%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E9%A2%91%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8Bp0">2. DreamFAR：面向真实交互的长时机器人视频世界模型｜P0</a><a class="toc-level-2" href="#3-interactvla%E6%8A%8A-vla-%E5%8F%98%E6%88%90-agent-%E5%8F%AF%E8%AF%BB%E5%86%99%E7%9A%84%E4%BA%A4%E4%BA%92%E5%B7%A5%E5%85%B7p0">3. InteractVLA：把 VLA 变成 agent 可读写的交互工具｜P0</a><a class="toc-level-2" href="#4-forceharness%E4%B8%BA%E5%86%BB%E7%BB%93-frontier-model-%E6%8E%A5%E4%B8%8A%E5%8A%9B%E4%B8%8E%E7%89%A9%E7%90%86p0">4. ForceHarness：为冻结 frontier model 接上力与物理｜P0</a><a class="toc-level-2" href="#5-tcp4d%E7%94%A8-tcp-%E8%BD%A8%E8%BF%B9%E8%BF%9E%E6%8E%A5%E8%A7%86%E9%A2%91%E5%87%A0%E4%BD%95%E4%B8%8E%E8%B7%A8%E6%9C%AC%E4%BD%93%E5%8A%A8%E4%BD%9Cp1">5. TCP4D：用 TCP 轨迹连接视频、几何与跨本体动作｜P1</a><a class="toc-level-2" href="#6-jointgv%E7%94%A8%E7%BB%93%E6%9E%84%E5%9B%BE%E7%BA%A0%E6%AD%A3%E8%A7%86%E8%A7%89%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%95%BF%E6%97%B6%E6%BC%82%E7%A7%BBp1">6. JointGV：用结构图纠正视觉世界模型的长时漂移｜P1</a><a class="toc-level-2" href="#7-making-the-world-react-realistically%E9%97%AD%E7%8E%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8Bp1">7. Making the World React Realistically：闭环自动驾驶世界模型｜P1</a><a class="toc-level-2" href="#8-lynnreal-hand%E8%AE%A9%E6%89%8B%E6%8E%A7%E5%88%B6%E6%88%90%E4%B8%BA%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%A7%86%E9%A2%91%E4%B8%96%E7%95%8C%E6%8E%A5%E5%8F%A3p1">8. LynnReal-Hand：让手控制成为交互式视频世界接口｜P1</a><a class="toc-level-2" href="#9-do-llm-agents-still-need-to-be-told-how-to-self-improvep1">9. Do LLM Agents Still Need to Be Told How to Self-Improve?｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-19.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-19</div><article class="prose"><p>检索窗口为 <strong>2026-11-16 10:30—2026-11-19 10:30（北京时间）</strong>。本轮并行检查了 arXiv Robotics、AI、CV、ML 与交叉投稿，World Labs、Generalist AI、Physical Intelligence、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、Toyota Research Institute，以及 Stanford、Berkeley/BAIR、MIT、CMU、Princeton 和主要中国团队的官方入口；同时交叉检索 GitHub、Hugging Face、Spatial Intelligence、3D/4D world generation、real-to-sim、robot foundation model、VLA/WAM、Agent/self-evolution 等 broader web 关键词。</p>
+<p>上一期已覆盖 π⁴、RelayWAM、RFW-S、Code World Model 2、FastFrames、ScaleVLA、HubEgo、Hidden Variables、The Resolution Hypothesis、GPT-6.2 Astra/Sol 和 CloudRobo-WM1.2。本期只在有新版本、代码/权重、基准结果或独立审计证据时重复；因此不机械重列上一期条目。今天最重要的新增判断是：<strong>世界模型的瓶颈正在从“能否生成下一帧”转向“能否通过独立审计证明预测、交互和动作真的对上了”。</strong> RWM 审计揭示一步预测、长时 rollout、策略成功和不确定性校准可能互相脱节；DreamFAR、InteractVLA、ForceHarness 和 TCP4D 则分别把长时视频、agent↔VLA 工具接口、接触力和跨本体动作推进到可测接口层。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>RWM 审计 → DreamFAR → InteractVLA → ForceHarness → TCP4D</strong>。</p>
+<ul>
+<li><strong>A｜RWM 审计</strong>：先建立评估纪律，分清一步预测、长时 rollout、策略成功与置信度校准，避免被漂亮的预测曲线带偏。</li>
+<li><strong>B｜DreamFAR</strong>：再读机器人原生、长时、低延迟视频世界模型，重点看数据规模、KV 缓存与接触关键帧如何共同支撑交互。</li>
+<li><strong>C｜InteractVLA</strong>：把 VLA 当作可被 agent 读写的工具，而不是不可解释的语言 API；几何反馈和递归自改进接口值得直接借鉴。</li>
+<li><strong>D｜ForceHarness</strong>：看冻结 frontier model 如何通过力传感器、可终止原语和物理摘要获得接触能力；这是“外接接口”路线的清晰例子。</li>
+<li><strong>E｜TCP4D</strong>：最后看 4D TCP 轨迹如何成为跨本体的中间表示，并把视频、几何与 action retargeting 接起来。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-auditing-a-learned-simulator-for-legged-robotsrwm-的独立审计p0">1. Auditing a Learned Simulator for Legged Robots：RWM 的独立审计｜P0</h2>
+<p><strong>标题：Auditing a Learned Simulator for Legged Robots: The Robotic World Model on ANYmal D。</strong> 作者 Joyjeet Singh；发布于 <strong>2026-11-17 17:36 UTC（北京时间 11 月 18 日 01:36）</strong>，为独立审计型预印本，不是原 RWM 论文的官方勘误。<a href="https://arxiv.org/abs/2611.23118" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/joyjeet-singh/rwm" target="_blank" rel="noopener noreferrer">代码与重建工件</a>｜<a href="https://github.com/joyjeet-singh/rwm-robot-level" target="_blank" rel="noopener noreferrer">机器人级实验</a>。</p>
+<p>它解决的是一个被世界模型论文经常跳过的问题：模型的单步预测、长时 rollout、用它训练的策略，以及置信度估计，是否真的互相支持？作者不依赖 GPU，重建公开 RWM/RWM-U 的输出、损失和梯度，训练了 <strong>101 个 learned simulators、200 个压缩副本，以及另外三种架构的 38 个模拟器</strong>，再把策略放回手工构建的 MuJoCo ANYmal D 环境测试。</p>
+<p><strong>作者审计报告</strong>显示：在十个留出 episode 上，368 步时 own-rollout 训练优于 one-step 训练，但 one-step 在一步预测上更好；剪枝 30% 时，一步技能保留约 90%，两秒预测技能只剩约 39%；ensemble disagreement 与 100 步误差的 Spearman 相关约 <strong>+0.90</strong>，但一倍标准差只覆盖 <strong>4.6%</strong> 的真实误差，远低于名义 68% 校准覆盖。18 个微调副本都改善了一步/八步预测，却有 13 个策略失败。作者据此撤回原工作中的 9 项过强结论，范围仍限于单机器人、单步态、仿真，没有硬件验证。</p>
+<p>创新不在于另一个更大的模型，而在于把预测指标、策略成功、剪枝鲁棒性和不确定性校准放进同一审计框架。这与 RWM、Dreamer、DINO-WM 等工作的关系是：它不提出新的 world model，而是检验现有“可学习模拟器”是否真能承担控制职责。局限是只覆盖 ANYmal D 与仿真，审计作者也没有证明所有结论能迁移到双足或操作任务。<strong>非常值得深入阅读，且是本期最优先的评估基线。</strong> 仓库为 Apache-2.0，README 声明结果可由 CPU 生成；代码与实验工件可见，但本轮没有重新跑完整实验。</p>
+<p>轻量验证可以直接复现 CPU 版的单步、8 步和 100 步误差，再在 10 个短 episode 上比较 one-step 与 own-rollout 训练；同时画出不确定性覆盖曲线，不能只报告相关系数。若算力有限，先用已有 checkpoint 做剪枝和策略冻结测试，比重新训练 101 个副本更有信息量。</p>
+<h2 id="2-dreamfar面向真实交互的长时机器人视频世界模型p0">2. DreamFAR：面向真实交互的长时机器人视频世界模型｜P0</h2>
+<p><strong>标题：DreamFAR: Real-Time and Long-Horizon Interaction with Diverse Objects。</strong> 作者 Yiming Dou、Botao He、Antonio Loquercio、Andrew Owens、Jitendra Malik、Sumedh Anand Sontakke、Ruoshi Liu；来自 Berkeley、Meta 等合作团队；arXiv 于 <strong>2026-11-16 23:31 UTC（北京时间 11 月 17 日 07:31）</strong>公开，属于预印本与代码发布。<a href="https://arxiv.org/abs/2611.22001" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://amazon-far.github.io/dreamfar/" target="_blank" rel="noopener noreferrer">项目页</a>｜<a href="https://github.com/amazon-far/dreamfar" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>DreamFAR 关注机器人世界模型在物体交互中的两个现实约束：视频要能连续生成几分钟，反馈又要快到可以用于控制。系统使用约 <strong>20,000 小时</strong>机器人原生遥操作数据、三相机和 XDOF 表示；256×256 输入被压到 16×16×16 的 unit-sphere latent，2.2B dynamics DiT 以 10 Hz 工作，采用 streaming DiT、KV cache、contact-keyframe memory 和长时自回归 rollout。训练目标把视频外观、动作条件动力学与接触关键帧保持放在一条链上，而不是只优化短片单帧质量。</p>
+<p><strong>项目/论文作者报告</strong>其在 1000 多类任务上可以生成分钟级交互视频，并在长时 held-out 片段上优于所比较的 Cosmos-Predict、WEAVER 和 IWS 基线；项目资料给出 10 Hz、单 GPU 流式推理等系统数字。当前更重要的证据是代码、训练配方和小型 sample scenes 已公开，仓库说明 A100/H100/H200 是支持硬件，Ada/L40S/4090 因 Triton shared-memory 限制不受支持。README 仍写明 tokenizer、dynamics、normalizer checkpoint 将发布到 Hugging Face；本轮没有核验到可下载的正式权重，因此不能把它写成“权重已开放”。</p>
+<p>它与 CWM2、FastFrames 的关系，是把低延迟与长时交互放进机器人数据和接触结构，而不是只看视频生成的视觉逼真度；与 RWM 的关系则是 DreamFAR 更偏视频—动作交互，RWM 审计提醒我们必须测策略成功和 rollout 失真。局限包括数据与算力门槛很高、真实机器人闭环成功率尚未由独立团队验证、SSD/teacher 依赖和未来权重许可证仍需核对。<strong>值得深入阅读系统设计与数据组织，权重未核验前不宜宣称可完整复现。</strong> 代码仓库为 Apache-2.0，但依赖和数据许可证需要逐项查看。</p>
+<p>轻量路线是先运行公开 sample scene 和单段短 rollout，测首块响应、p50/p95 生成间隔与 10–60 秒后的身份漂移；如果 checkpoint 尚不可下载，可先对代码做配置、tokenizer、KV cache 和 dummy-action 的单元审计。再用同一段录制动作比较“真实视频—模型 rollout—动作重放”三者的接触事件，而不是只看 PSNR。</p>
+<h2 id="3-interactvla把-vla-变成-agent-可读写的交互工具p0">3. InteractVLA：把 VLA 变成 agent 可读写的交互工具｜P0</h2>
+<p><strong>标题：InteractVLA: Turning VLAs into Interactive Tools for Agentic Robotic Manipulation。</strong> 作者 Chen Zhao、Zipeng Ye、Shifeng Bao、Yihan Lin、Haitao Shen、Yining Luo、Yuchen Xie、Jing Zhang；arXiv 于 <strong>2026-11-17 11:07 UTC（北京时间 19:07）</strong>公开，为预印本。<a href="https://arxiv.org/abs/2611.22584" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://lingwupro.github.io/InteractVLA/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>它针对现有 agentic robotics 把 flow-based VLA 当成只接受语言、不会解释空间错误的黑盒。方法提供双向几何接口：正向接口将 agent 给出的末端目标通过可微 command-to-pose 模块传入 action expert，并用 soft-time target alignment 做测试时几何引导；反向接口把动作 chunk、相机重投影和 calibrated pose 返回给 agent，让它判断目标偏差、修改目标或做局部重规划。作者称此为 recursive self-improvement（RSI），核心训练并不是重新训练一个更大的 VLA，而是让 agent 能检查并纠正 VLA 的空间输出。</p>
+<p><strong>作者报告</strong>在 LIBERO-Plus 达到 <strong>99.4%</strong>，RoboDojo <strong>48.62%</strong>，RoboCasa365 <strong>89.4%</strong>；论文 HTML 还报告背景/光照扰动下至少 98.4% 的七类任务，以及相对 PhysicalRSI、WorldScape-R²SI、EmbodiedEvo 等基线的 RoboDojo 提升。以上都属于作者实验，部分基线与协议版本需逐项核对，不能当第三方验证。项目页和本轮公开检查未核验到完整代码、权重和训练数据，故证据状态为“方法与结果可读，工件待确认”。</p>
+<p>创新点是把 VLA 的几何中间量暴露成 agent 工具，连接了 action chunk、相机和语言计划；它与 ForceHarness 是互补路线，InteractVLA 处理空间目标与反馈，ForceHarness 处理接触力与物理状态。局限是仿真和 benchmark 成功不等于真实机械臂的稳定闭环，额外的重投影、agent 循环和 API 延迟也可能改变成本。<strong>值得精读接口定义和失败案例；不宜只引用最高成功率。</strong></p>
+<p>轻量验证可冻结同一个 VLA，在 20 个任务、3 个随机种子上做四格对照：无引导、固定末端目标、soft-time 引导、双向反馈。除成功率外，记录重规划次数、目标修正距离、API latency、动作 chunk 重试和失败时的空间误差；这能判断收益来自真正的几何闭环还是额外重试。</p>
+<h2 id="4-forceharness为冻结-frontier-model-接上力与物理p0">4. ForceHarness：为冻结 frontier model 接上力与物理｜P0</h2>
+<p><strong>标题：ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models。</strong> 作者 Ke Sun、Kevin Yuchen Ma、Yike Zhang、Yanzhe Chen、Mike Zheng Shou；Show Lab、National University of Singapore；arXiv 于 <strong>2026-11-16 13:44 UTC（北京时间 21:44）</strong>公开，配套项目和代码发布。<a href="https://arxiv.org/abs/2611.21099" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://showlab.github.io/ForceHarness/" target="_blank" rel="noopener noreferrer">项目页</a>｜<a href="https://github.com/showlab/ForceHarness" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>问题是冻结 VLM/LLM 只看到图像和语言，无法直接知道接触力、摩擦、质量和插入是否卡住。ForceHarness 分三层：第一层从腕部传感器或关节力矩校准外力，使用 <code>w=(Jᵀ)^+τ_ext</code> 一类映射；第二层提供 12 个会在接触、停滞、掉落阻力或目标满足时自终止的 force primitives；第三层把力信号翻译成质量、质心、摩擦、接触高度和刚度等带不确定性与状态标记的物理摘要，再交给冻结模型规划。</p>
+<p><strong>作者报告</strong>在真实 Franka FR3 的 6 个任务、每项 10 次中，无力输入为 2/60，ForceHarness 为 54/60，GPT-6.1 Sol 为 47/60；ForceBench 从 50/80 到 66/80，HiddenPhys 从 87/140 到 135/140，摘要给出约 +17.5 和 +34.3 个百分点，GPT-6 Astra 的一项设置从 3.3% 到 90.0%。项目页还给出 Fisher 检验等统计信息。证据是作者实验，尚无本轮独立真机复现；仓库和数据入口公开可见，但具体 checkpoint、传感器配置和任务脚本仍需下载核验。</p>
+<p>它和 InteractVLA 的共同价值是把模型能力扩展为可验收接口，而不是重新训练 frontier model；与传统 force-control policy 的不同是让冻结模型读懂物理摘要并负责高层决策。局限是力矩到 wrench 的校准依赖机器人动力学、原语库仍有限，物理摘要的错误或不确定性标记可能被模型忽略。<strong>值得深入阅读，尤其是原语终止条件与 HiddenPhys 对照；成功率数字应保留任务、传感器和模型版本。</strong> 项目页标示代码和数据入口，本轮未把“可见链接”升级为“已成功运行”。</p>
+<p>轻量验证先在 MuJoCo HiddenPhys 取 7 个任务、每项 5 次，固定一个规则 planner 或小型 VLM，比较 raw image、力向量、物理摘要和带 uncertainty/status 的四种输入。随后只校准一个 FR3 关节链的扭矩到外力映射，检查原语是否在接触与卡死时及时停止；无需先调用昂贵 frontier API。</p>
+<h2 id="5-tcp4d用-tcp-轨迹连接视频几何与跨本体动作p1">5. TCP4D：用 TCP 轨迹连接视频、几何与跨本体动作｜P1</h2>
+<p><strong>标题：TCP4D: A Unified Tool-Center-Point Tracking and Generation Model for Robot Manipulation。</strong> 作者 Haosong Peng、Xiangyang Liu、Zhengshen Zhang、Yunfeng Fan、Tianyu Qi、Xin Xia、Yufeng Zhan、Wenchao Xu；arXiv 于 <strong>2026-11-17 17:59 UTC（北京时间 11 月 18 日 01:59）</strong>公开。<a href="https://arxiv.org/abs/2611.23143" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://livioni.github.io/TCP4D/" target="_blank" rel="noopener noreferrer">项目页</a>｜<a href="https://github.com/Livioni/TCP4D" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>TCP4D 试图解决跨机器人学习中“视频里看到了动作，但没有源机器人状态”的接口问题。它用 embodiment-agnostic 的 tool-center-point（TCP）动作空间和共享 4D 场景表示，同时跟踪观测到的 TCP 并生成未来 TCP。输入是单目视频与初始 2D TCP query，输出包括 metric SE(3) TCP pose、夹爪、场景几何与相机参数；生成器沿恢复轨迹采样局部特征，再融合机器人观察和语言。跨本体增强通过重定向恢复动作、合成观察，不需要源机器人关节状态。</p>
+<p><strong>作者报告</strong>在 DROID 与 RoboLab 上 TCP tracking ATE 分别为 <strong>7.60 mm、16.07 mm</strong>，用 10 个示范适配新本体；RoboTwin 平均成功率 <strong>69.19%</strong>，联合真实与增强数据比仅增强数据高 <strong>41.5%</strong>。GitHub 公开训练/推理脚本和 CC-BY-4.0 许可证；Papers with Code 页面还能看到 TCP4D 的阶段模型和 DROID、RoboTwin、UR5 数据集条目，但本轮只核验到条目存在，没有把 HF 文件下载和可运行性当作已证实权重。</p>
+<p>创新点是把“可追踪的几何动作”置于语言和关节动作之间，适合人类视频到机器人动作、跨本体 retargeting 和 real-to-sim。它与 π⁴ 的关系是 π⁴ 更偏通用 4D 几何/运动状态，TCP4D 更偏操作执行的可用中间变量；与 InteractVLA 的关系是前者提供动作生成表示，后者提供 agent 反馈回路。局限是 TCP query、相机标定和接触几何依赖仍然明显，ATE 低不代表关节控制或真实接触一定成功。<strong>值得精读，尤其适合做人类视频—机器人动作对齐实验。</strong></p>
+<p>轻量验证取 20 段公开操作视频，分别测 TCP ATE、夹爪状态、目标接触和重定向后的碰撞率；在一个新本体上用 10 个示范做适配，并与仅 2D 轨迹、仅语言和关节逆解基线比较。若 HF 权重暂不可用，先复现轨迹恢复、SE(3) 变换和 retargeting 数据生成，明确这只是接口审计而非完整模型复跑。</p>
+<h2 id="6-jointgv用结构图纠正视觉世界模型的长时漂移p1">6. JointGV：用结构图纠正视觉世界模型的长时漂移｜P1</h2>
+<p><strong>标题：JointGV: Structure-Aware Correction of Visual World Models with Parallel Graph Dynamics for Long-Horizon Modeling。</strong> 作者 Tian Lyu、Yichen Jiang、Ziyuan Cheng、Yunda Yan、Xiangyu Pan、Junjie Jiang、Jialin Yu、Boyu Ning、Pietro Liò、Fan Mo；arXiv 于 <strong>2026-11-17 10:33 UTC（北京时间 18:33）</strong>公开，为预印本。<a href="https://arxiv.org/abs/2611.22543" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>JointGV 是一个可插拔校正器：任务条件的 scene graph 与视觉世界模型并行滚动，通过跨粒度动力学把节点位置预测成有界 gated residual，修正 DINO-WM 空间 token 或 DreamerV3 的全局 latent。训练目标把视觉 rollout、图节点位置和结构一致性联合起来，不要求重训所有视觉编码器。</p>
+<p><strong>作者报告</strong>在 DMC Cheetah Run、Walker Walk、Finger Turn Hard 等设置的 32-step rollout 中将 joint-position error 降低约 <strong>11%—28%</strong>；真实 inverted pendulum 上 DINO-WM 的 pole-angle error 从 <strong>12.56° 降到 6.69°</strong>。用修正 rollout 训练的 pendulum actor 在 50 次测试中成功 46 次，原始 rollout 为 0/50；这些是作者三 seed/小型真实实验，尚未有外部复现，尤其需要核对 actor、环境随机化与“0/50”基线设置。</p>
+<p>它把“视觉世界模型会漂移”具体化为结构关系漂移，与 RWM 审计互补：RWM 证明评估要跨长时和策略，JointGV 提供一种可测的结构残差接口。局限是依赖可定义的节点和关系，复杂柔性物体、遮挡与大规模场景未覆盖；没有代码、权重或数据工件被本轮核验到。<strong>值得读方法与结构误差指标，复现优先级低于 RWM 和 DreamFAR。</strong></p>
+<p>轻量实验可冻结一个 DINO-WM 或 DreamerV3，只在 Cheetah/Walker 两个任务上接入小型 graph residual，3 个 seed、32 步 horizon，分别报告像素误差、joint-position error、策略成功和额外参数/延迟。先验证结构残差是否在节点可观测时有效，再测试节点缺失与错误关系，避免把图先验当作无条件收益。</p>
+<h2 id="7-making-the-world-react-realistically闭环自动驾驶世界模型p1">7. Making the World React Realistically：闭环自动驾驶世界模型｜P1</h2>
+<p><strong>标题：Making the World React Realistically: A Closed-Loop Interactive World Model for Autonomous Driving。</strong> 作者 Jia Hu、Yang Chang、Panqu Wang、Zhijun Fu、Chang Liu、Changjian Yu、Jintao Lai；arXiv 于 <strong>2026-11-17 12:39 UTC（北京时间 20:39）</strong>公开，为预印本。<a href="https://arxiv.org/abs/2611.22691" target="_blank" rel="noopener noreferrer">论文</a>。</p>
+<p>这项工作把自动驾驶 world model 从“渲染下一帧”推进到“背景车辆会对 ego 行为反应”。方法包括：用 imitation learning 初始化背景车辆，再通过多智能体 RL 对着 ego planner 和渲染图像微调；用 interaction-guided per-Gaussian 诊断与修复生成式高斯；对信号灯使用 counterfactual fine-tuning 和分类器，能编辑 turn signal 并观察 ego 响应。</p>
+<p><strong>作者报告</strong>相对真实交互行为的 divergence 降低约 <strong>85%</strong>，新视角车辆 PSNR 提高约 <strong>2.0 dB</strong>；在 288 个场景中，turn-signal mF1 比 FLUX 高约 12%，最大单步修复提升约 0.54 dB，而整车替换会损失约 1.8 dB。它同时报告 ego 行为在一部分信号灯反事实中发生改变。数字都是作者实验，代码、权重与完整场景数据本轮未核验公开。</p>
+<p>空间智能价值在于把“持久场景、可编辑对象、行为反应和视觉渲染”置于一个闭环；它与 CWM2 的显式状态路线、RFW-S 的独立物理验证相呼应。局限是自动驾驶交通参与者的可反应性不等于真实世界的安全性，PSNR 与 divergence 也不直接说明规划成功或碰撞风险。<strong>值得作为 Spatial Intelligence 一级主线精读，但不应按机器人 VLA 论文的任务成功率解读。</strong></p>
+<p>轻量验证可从 20 个短日志和两类反事实开始：保持相机与地图不变，只改变一辆背景车的让行策略或信号灯，比较 3D 轨迹 divergence、渲染质量和 ego planner 选择。优先建立可重复的 counterfactual harness，不必先训练完整多智能体 RL。</p>
+<h2 id="8-lynnreal-hand让手控制成为交互式视频世界接口p1">8. LynnReal-Hand：让手控制成为交互式视频世界接口｜P1</h2>
+<p><strong>标题：LynnReal-Hand: Unlocking World Interaction with Hand Control。</strong> 作者 Shaohao Rui、Chaoyang Zhang、Xiaofeng Mao、Weijie Ma；arXiv 于 <strong>2026-11-16 17:51 UTC（北京时间 11 月 17 日 01:51）</strong>公开，属于预印本与开源推理项目。<a href="https://arxiv.org/abs/2611.21479" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/LynnReal-AI/LynnReal" target="_blank" rel="noopener noreferrer">代码与模型说明</a>。</p>
+<p>LynnReal-Hand 让初始图像、语言、带关节的手部动作与相机位姿共同控制交互视频。方法使用约 100K 条真实/合成交互片段、hand-aware multilevel supervision、causal flow map、region-aware score distillation 和 Ultra-Fast-VAE；33B Base/Fast 两个版本以三步因果生成减少等待，目标是让手部动作不只是视频中的后验标注，而是可交互的控制条件。</p>
+<p><strong>作者/项目 README 报告</strong> FVD <strong>181.67</strong>、MANO Dice 全序列 <strong>93.02</strong>、三步 <strong>92.49</strong>，Fast 版本在 540p 约 <strong>18.03 FPS</strong>，warm chunk response <strong>741 ms</strong>；H200 实测峰值约 34.89 GiB（encoder offload）。GitHub 已公开推理和模型下载入口，数据集及完整训练代码写明将发布但本轮未核验到，许可证是 MiniMax H3 community license 一类的模型许可，不能笼统称 Apache 或商用开放。</p>
+<p>它与 DreamFAR 的区别是手部控制和快速交互视频，和 TCP4D 的共同点是把动作锚点显式放入视觉生成；但 MANO 一致性与 FVD 仍不代表物体受力、接触或机器人末端控制成功。<strong>值得读实时系统和手—物体区域约束，需把模型许可与权重下载状态写清。</strong> 尚无第三方完整验证。</p>
+<p>轻量验证选择四个短场景，分别扰动手指轨迹、相机位姿和物体初始状态，记录 warm/cold latency、MANO Dice、物体身份保持和接触事件；在没有全量训练数据时，只做公开 Fast 推理与输入敏感性审计，不把视频质量当作机器人策略复现。</p>
+<h2 id="9-do-llm-agents-still-need-to-be-told-how-to-self-improvep1">9. Do LLM Agents Still Need to Be Told How to Self-Improve?｜P1</h2>
+<p><strong>标题：Do LLM Agents Still Need to Be Told How to Self-Improve?</strong> 作者 Shobhita Sundaram、Cansu Sancaktar、Phillip Isola；arXiv 于 <strong>2026-11-17</strong>公开，项目为 Self-Org 经验研究。<a href="https://arxiv.org/abs/2611.23219" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://ssundaram21.github.io/self-org/" target="_blank" rel="noopener noreferrer">项目页</a>。</p>
+<p>这项工作把冻结 LLM 放进一个只给 primitives、资源、预算和“改善自己”目标的环境，不指定 self-improvement loop，也不给真实世界数据。模型可以写和改文本文档、组织经验和生成课程，在游戏、不同 horizon、不同机制和 3D 导航任务上形成自己的自学习算法。核心问题是：能力足够强的 agent 是否能从目标和工具中自行发现循环，而不是被 prompt 规定步骤。</p>
+<p><strong>作者报告</strong>部分模型会构造 self-learning algorithm、self-regulated learning 与 self-generated curricula，并将形成的文档迁移到不同游戏 horizon、机制和 3D 导航；本轮没有独立运行，也没有核验完整代码、权重或可下载轨迹。它属于 Agent/self-evolution 线，不是 physical robotics 论文，不能把游戏内 transfer 直接写成机器人自进化。</p>
+<p>研究价值在于把“自我改进”拆成候选生成、经验记忆、课程选择和评估器，而不是把一次分数上涨都归因于递归能力。它与 The Resolution Hypothesis 的选择器噪声审计直接相连：Self-Org 研究 agent 是否会发明循环，Resolution 研究我们是否能识别循环真的有效。局限是工具世界被设计成可控、文本工件可能过拟合环境，真实外部副作用与物理成本缺失。<strong>值得作为自演化理论的补充阅读，优先级低于 RWM/DreamFAR。</strong></p>
+<p>轻量验证固定 8 个候选文档/策略、20 个任务、每项 4 次重复，比较“允许自定循环”“给固定循环”“只允许记忆”三组；用留出机制和 3D 导航测 transfer，记录 token、墙钟、写入文档次数和评估器误差。目标是测出最小可检测收益，而不是让模型无预算地自我循环。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮已扫描主要官方发布入口，未发现足以进入 Top Papers 的重大新增。</strong> 扫描范围包括 <a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a>、<a href="https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/" target="_blank" rel="noopener noreferrer">NVIDIA Robotics/Cosmos/GR00T</a>、<a href="https://www.figure.ai/news" target="_blank" rel="noopener noreferrer">Figure</a>、<a href="https://skild.ai/blogs/steel" target="_blank" rel="noopener noreferrer">Skild AI</a>、<a href="https://www.fieldai.com/news" target="_blank" rel="noopener noreferrer">Field AI</a>、<a href="https://www.1x.tech/ai" target="_blank" rel="noopener noreferrer">1X</a>、<a href="https://ai.meta.com/research/" target="_blank" rel="noopener noreferrer">Meta FAIR</a>、<a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic Research</a>、<a href="https://www.tri.global/news" target="_blank" rel="noopener noreferrer">Toyota Research Institute</a>，以及 Stanford、Berkeley/BAIR、MIT、CMU、Princeton、上海人工智能实验室、清华、北大、浙大、阿里/InclusionAI、字节、华为、智元等团队的主题与机构交叉检索。</p>
+<p>Atlas、GEN-1.5、Physical Intelligence 的 Frontier Models、NVIDIA CoRL、Figure Helix、Skild Steel、Anthropic 的近期页面都能核对到，但在当前窗口内没有新的、证据强度足以替代本期论文的模型发布。Skild Steel 的测量日期在 11 月 7—9 日，World Labs Atlas 的公众开放公告在 11 月 12 日，均是窗口外背景；CloudRobo-WM1.2 已在上一期记录，本期没有新工件，因此不重复。主要新增来自 arXiv 与研究项目页，而不是公司官网新产品。</p>
+<p>Spatial Intelligence 仍是独立一级主线：JointGV 处理结构化空间漂移，TCP4D 处理 4D TCP 与跨本体，LynnReal-Hand 处理手—物体交互，自动驾驶工作处理可反应场景；它们即使不使用 VLA/WAM 关键词，也进入候选池。<code>PAIR</code> 家庭机器人、FailureGen 和 PhysicalWorldAgent survey 已检索到，但因代码/数据和实证增量不足或属于综述，归入 <strong>Selection</strong>，不是 Retrieval Failure。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>今天的主线可以写成：<strong>可观测状态 → 可执行世界 → 预测信息被动作读取 → 接触与跨本体接口 → 有分辨率的评估器</strong>。近期趋势是每层都开始显式给出中间量，但跨层证据仍断裂：几何准确不保证接触有效，视频逼真不保证策略成功，候选分数上升也不保证留出任务进步。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>世界模型审计与不确定性</td>
+<td>RWM 同时测一步、长时、策略和置信度</td>
+<td>预测指标与任务成功的排序仍不稳定</td>
+<td>建立 prediction→policy→calibration 三层统一审计协议</td>
+</tr>
+<tr>
+<td>机器人原生长时视频</td>
+<td>DreamFAR 用接触关键帧、KV cache 和流式 DiT 支撑长时交互</td>
+<td>权重、真实闭环成功、数据许可证尚未完整开放</td>
+<td>同一动作轨迹比较 10 秒视觉质量、60 秒状态漂移与策略成功</td>
+</tr>
+<tr>
+<td>VLA—Agent 工具接口</td>
+<td>InteractVLA 暴露几何目标和相机反馈；ForceHarness 暴露力与物理摘要</td>
+<td>额外重规划、API 延迟和接口误差的成本未统一</td>
+<td>做 geometry/force 双接口的错误诊断与成本一致性基准</td>
+</tr>
+<tr>
+<td>4D 与跨本体动作</td>
+<td>TCP4D 用 TCP SE(3) 连接视频、场景和 retargeting</td>
+<td>TCP 误差、接触约束和关节控制成功仍分开</td>
+<td>人类视频→TCP→关节策略的三阶段留出评测</td>
+</tr>
+<tr>
+<td>结构化空间与反应场景</td>
+<td>JointGV 纠正 scene graph 漂移；驾驶 WM 让背景车辆反应</td>
+<td>节点误差、渲染误差和规划风险没有共同真值</td>
+<td>counterfactual scene edit×closed-loop policy×risk 的统一基准</td>
+</tr>
+<tr>
+<td>手控交互视频</td>
+<td>LynnReal-Hand 用手部动作和相机控制交互视频</td>
+<td>MANO/FVD 与真实接触、物体动力学脱节</td>
+<td>手轨迹扰动、物体身份保持和接触事件的联合评测</td>
+</tr>
+<tr>
+<td>Agent 自演化</td>
+<td>Self-Org 允许模型自己发现学习循环；Resolution 审计选择器分辨率</td>
+<td>候选生成、评估器噪声、成本与 transfer 混在一起</td>
+<td>固定候选池和留出机制，测“可检测的最小改进”曲线</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：把 RWM 审计协议迁移到 VLA/WAM。</strong> 对同一 checkpoint 分别测一步预测、长时 rollout、策略 success、剪枝鲁棒性和不确定性 coverage；任何只改善前两项的模块都不能直接称为控制改进。</li>
+<li><strong>机会二：做 geometry + force 的双接口实验。</strong> 冻结同一个 VLA，在模拟器中分别给 TCP/相机反馈、力/物理摘要和两者联合输入，按成功、重试、延迟、状态估计误差和 token 成本报告，避免把接口增益误写成模型规模增益。</li>
+<li><strong>机会三：建立跨本体 TCP 数据闭环。</strong> 先用 20 段人类/机器人视频恢复 TCP，做 10-demo 新本体 retargeting，再以碰撞、接触和策略成功验收；数据量增加前先测相机标定和 TCP query 错误的敏感度。</li>
+<li><strong>机会四：独立刺激验证可执行世界。</strong> 对生成资产或场景只在刺激 A 上校准，在刺激 B/C 上测结构完整、接触和策略；将失败按网格、材料、求解器、相机和控制器分桶。</li>
+<li><strong>机会五：量出自演化的分辨率。</strong> 固定 8 个候选、20 个任务、4—8 次重复，比较均匀评估与自适应追加样本，报告排名稳定性、选择正确率、留出收益与总成本。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本轮完成公开论文、项目页、代码/模型目录和官方发布入口的核对，<strong>没有重训模型、下载全部数据、运行真实机器人或复现官方榜单</strong>。作者数字、官方声明、项目页资源与第三方验证严格分开；本轮没有任何条目获得“独立第三方完整复现”标签。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>发布性质与工件状态</th>
+<th>证据边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RWM 审计</td>
+<td>独立审计预印本；Apache-2.0 代码与 CPU 工件可见</td>
+<td>审计范围是 ANYmal D 仿真，未覆盖硬件与其他本体</td>
+</tr>
+<tr>
+<td>DreamFAR</td>
+<td>预印本；Apache-2.0 代码、配方和 sample scenes；正式 checkpoint 待核验</td>
+<td>需要 A100/H100/H200，真实闭环与权重开放状态未证实</td>
+</tr>
+<tr>
+<td>InteractVLA</td>
+<td>预印本与项目页；完整代码/权重/数据未核验</td>
+<td>成功率为作者实验，需核对 benchmark 协议和额外重规划成本</td>
+</tr>
+<tr>
+<td>ForceHarness</td>
+<td>预印本、项目页与代码/数据入口</td>
+<td>作者真机和仿真结果，传感器/任务脚本仍需运行核验</td>
+</tr>
+<tr>
+<td>TCP4D</td>
+<td>预印本；GitHub 训练/推理代码，HF 模型/数据条目可见</td>
+<td>HF 文件是否可下载、可运行和许可证兼容未逐项确认</td>
+</tr>
+<tr>
+<td>JointGV</td>
+<td>预印本；代码/权重/数据未核验</td>
+<td>结构图假设和 0/50 基线需要独立重跑</td>
+</tr>
+<tr>
+<td>Driving world model</td>
+<td>预印本；代码/权重/场景未核验</td>
+<td>PSNR/divergence 不等于规划安全或真实交通反应</td>
+</tr>
+<tr>
+<td>LynnReal-Hand</td>
+<td>预印本；GitHub 推理与模型下载入口；训练数据/全量代码待发布</td>
+<td>模型许可、H200 配置和 MANO/FVD 为作者/项目报告</td>
+</tr>
+<tr>
+<td>Self-Org</td>
+<td>预印本与项目页；代码/轨迹未核验</td>
+<td>游戏与 3D 导航 transfer 不等于物理机器人自进化</td>
+</tr>
+</tbody>
+</table></div>
+<p>候选池中未入选的 <code>PAIR</code>、FailureGen、PhysicalWorldAgent survey 等已被检索并记录，属于 Selection；本轮通过 arXiv、官方页、GitHub/HF 和 broader web 交叉后，未发现新的重大 Retrieval Failure。网页存在、文件清单可见、文件可下载、成功运行、任务成功是五个不同状态；本报告只把前两项作为“资源可见”，没有越级表述。</p>
+<p><strong>今天先读 RWM 审计与 DreamFAR，再用 InteractVLA/ForceHarness 选择一个接口做小规模闭环；如果只做一个实验，先完成 8 个候选、20 个任务的重复评估，量出当前验收器能够可靠识别的最小收益。</strong></p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-18/"><span>← 上一期 · 2026-11-18</span><strong>RelayWAM · RFW-S · The Resolution Hypothesis</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
