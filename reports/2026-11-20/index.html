@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-20｜WorldRuler · Phoenix · Z-sight · Yunhe</title><meta name="description" content="交互世界的开放入口、可执行状态、控制所需表征与外部验收正在同时推进，但四者仍不能相互替代。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-20/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-20｜WorldRuler · Phoenix · Z-sight"><meta property="og:description" content="交互世界的开放入口、可执行状态、控制所需表征与外部验收正在同时推进，但四者仍不能相互替代。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-20/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>WorldRuler · Phoenix · Z-sight</h1><p class="article-deck">交互世界的开放入口、可执行状态、控制所需表征与外部验收正在同时推进，但四者仍不能相互替代。</p><div class="article-meta"><time datetime="2026-11-20">2026 / 11 / 20</time><span>约 26 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">世界模型</span><span class="tag">Agent</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-genie-4%E4%BB%8E%E4%BA%A7%E5%93%81%E9%A2%84%E8%A7%88%E6%8E%A8%E8%BF%9B%E5%88%B0%E5%BC%80%E5%8F%91%E8%80%85-apip0">1. Genie 4：从产品预览推进到开发者 API｜P0</a><a class="toc-level-2" href="#2-worldruler%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99%E4%B9%9F%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99%E4%BD%9C%E7%94%A8%E8%BF%87%E7%9A%84%E4%B8%96%E7%95%8Cp0">2. WorldRuler：保存规则，也保存规则作用过的世界｜P0</a><a class="toc-level-2" href="#3-phoenix%E7%94%A8%E5%87%A0%E4%BD%95%E4%B8%8E%E6%97%B6%E7%A9%BA%E7%BB%93%E6%9E%84%E6%94%B9%E5%96%84-wam-%E8%A1%A8%E5%BE%81p0">3. Phoenix：用几何与时空结构改善 WAM 表征｜P0</a><a class="toc-level-2" href="#4-z-sight%E8%AE%A9%E5%8A%A8%E4%BD%9C%E8%AF%BB%E5%8F%96-vlm-%E8%87%AA%E5%B7%B1%E9%A2%84%E6%B5%8B%E7%9A%84%E6%9C%AA%E6%9D%A5p1">4. Z-sight：让动作读取 VLM 自己预测的未来｜P1</a><a class="toc-level-2" href="#5-physresponse%E7%89%A9%E7%90%86%E5%8F%82%E6%95%B0%E6%AD%A3%E7%A1%AE%E4%B8%8E%E4%BA%8B%E4%BB%B6%E7%BB%93%E6%9E%9C%E6%AD%A3%E7%A1%AE%E8%A6%81%E5%88%86%E5%88%AB%E6%B5%8Bp0">5. PhysResponse：物理参数正确与事件结果正确要分别测｜P0</a><a class="toc-level-2" href="#6-lightharness%E7%94%A8%E5%85%89%E7%85%A7%E8%AF%81%E6%8D%AE%E7%BA%A6%E6%9D%9F%E5%8F%AF%E7%BC%96%E8%BE%91-3d-%E9%87%8D%E5%BB%BAp1">6. LightHarness：用光照证据约束可编辑 3D 重建｜P1</a><a class="toc-level-2" href="#7-doppel%E6%8A%8A%E5%B7%B2%E7%9F%A5%E8%BA%AB%E4%BD%93%E8%BF%90%E5%8A%A8%E6%B8%B2%E6%9F%93%E7%BB%99%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E7%9C%8Bp1">7. Doppel：把已知身体运动渲染给世界模型看｜P1</a><a class="toc-level-2" href="#8-grana%E5%85%81%E8%AE%B8%E8%BF%9B%E5%BA%A6%E5%80%92%E9%80%80%E7%9A%84%E7%BB%84%E5%90%88%E5%A5%96%E5%8A%B1%E6%A8%A1%E5%9E%8Bp1">8. Grana：允许进度倒退的组合奖励模型｜P1</a><a class="toc-level-2" href="#9-f%C2%B3%E7%BB%8F%E9%AA%8C%E6%98%AF%E5%90%A6%E6%9C%89%E7%94%A8%E5%8F%96%E5%86%B3%E4%BA%8E%E5%AE%83%E5%A6%82%E4%BD%95%E8%BF%9B%E5%85%A5%E7%AD%96%E7%95%A5p1">9. F³：经验是否有用取决于它如何进入策略｜P1</a><a class="toc-level-2" href="#10-ahe-beta%E6%8C%89%E5%8F%AF%E9%AA%8C%E8%AF%81%E9%9C%80%E6%B1%82%E6%BC%94%E5%8C%96-agent-harnessp1">10. AHE-Beta：按可验证需求演化 Agent harness｜P1</a><a class="toc-level-2" href="#11-cosmos-data-factory%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E4%B8%8E%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5%E7%9A%84%E5%8F%AF%E7%BB%84%E5%90%88%E5%B7%A5%E4%BD%9C%E6%B5%81p1">11. Cosmos Data Factory：数据生成与质量检查的可组合工作流｜P1</a><a class="toc-level-2" href="#12-gemini-4-neonagent-%E8%83%BD%E5%8A%9B%E6%AF%94%E8%BE%83%E5%BF%85%E9%A1%BB%E5%9B%BA%E5%AE%9A-harnessp1">12. Gemini 4 Neon：Agent 能力比较必须固定 harness｜P1</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-20.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-20</div><article class="prose"><p>检索窗口为 <strong>2026-11-17 09:10—2026-11-20 09:10（北京时间）</strong>。本轮并行覆盖 arXiv Robotics、CV、AI、ML 与交叉投稿、公司和高校官方发布、GitHub/Hugging Face、独立的 Spatial Intelligence / 3D-4D / real-to-sim 主线、VLA/WAM/RL，以及 Agent/self-evolution。相对 11 月 19 日成稿，RWM 审计、DreamFAR、InteractVLA、ForceHarness、TCP4D、JointGV、驾驶世界模型、LynnReal-Hand 和 Self-Org 未发现足以重列的新证据，因此不重复展开。下文区分论文提交日期、产品开放日期和工件状态，不把抓取时间当作首发时间。</p>
+<p>今天最重要的新增判断是：<strong>交互世界的开放入口、可执行状态、控制所需表征与外部验收正在同时推进，但四者仍不能相互替代。</strong> Genie 4 在 11 月 19 日增加 Gemini API 入口；WorldRuler 研究规则和离屏状态持久性；Phoenix 与 Z-sight 分别探索外部结构教师和原生 VLM token 的未来表征；PhysResponse 检验生成动态是否响应物理参数。上期遗漏的 Genie 4、Neon 等 11 月 18 日官方证据，本期按 <strong>Retrieval Failure 回补</strong>，不以 Selection 解释。论文重点也保留其 11 月 18 日原始日期，不包装成 20 日首发。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>WorldRuler → Phoenix → Z-sight → PhysResponse → AHE-Beta</strong>。</p>
+<ul>
+<li><strong>A｜WorldRuler</strong>：先看规则、对象身份与离屏状态如何共同保存，再判断视频是否真正兑现了状态变化。</li>
+<li><strong>B｜Phoenix</strong>：看几何与时空教师如何改善 WAM 的表征和数据效率，重点核对训练阶段与基准适配。</li>
+<li><strong>C｜Z-sight</strong>：与 Phoenix 对照，研究原生视觉 token、共同去噪和未来内容干预，判断动作是否使用了预测。</li>
+<li><strong>D｜PhysResponse</strong>：建立参数响应与临界事件的双层评测，防止视觉指标掩盖物理错误。</li>
+<li><strong>E｜AHE-Beta</strong>：把自演化目标延伸到用户需求、交互纠正和独立验收，而非只追一个终局分数。</li>
+</ul>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-genie-4从产品预览推进到开发者-apip0">1. Genie 4：从产品预览推进到开发者 API｜P0</h2>
+<p><strong>标题：Genie 4 is now available / Genie 4 is now available on the Gemini API。</strong> Google DeepMind / Google Labs；产品公告作者 Diego Rivas、Pavan Kumar，API 公告署名 Lucia Loher。<strong>11 月 18 日</strong>向合资格 Google AI Ultra 用户开放新版 Project Genie，<strong>11 月 19 日</strong>宣布通过 Interactions API 和 AI Studio 向开发者提供入口。本期重访的依据是新增访问渠道。<a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/" target="_blank" rel="noopener noreferrer">产品公告</a>｜<a href="https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/" target="_blank" rel="noopener noreferrer">API 公告</a>｜<a href="https://deepmind.google/models/model-cards/genie-4/" target="_blank" rel="noopener noreferrer">模型卡</a>。</p>
+<p>它面向可导航、可即时修改的多模态世界。官方披露其基于 Gemini Omni Flash，并由 Gemini 参与推理与实时引导；输入包括文字、图像和用户操作，输出包含同步音频。模型卡说明训练使用视频、音频、图像和文字，但没有公开足以复建系统的完整结构、训练目标、数据配方或算力账本。</p>
+<p><strong>官方报告</strong>最高 720p、24 fps，支持会话内用文字改变环境、天气、角色与事件。这里的帧率是输出吞吐，不能推导端到端动作延迟。公告中的“最长三分钟、世界串联、全景图初始化”明确属于更新后的 <strong>Genie 3</strong>，不能移到 Genie 4 名下；没有本轮核验的真实机器人迁移或独立闭环成功率。它与 Atlas 的可导出空间资产、CWM2 的显式状态、WorldRuler 的规则执行形成互补；持久性、空间精度与复杂接触仍是官方承认的限制。</p>
+<p><strong>值得读发布与模型卡，优先做接口审计。</strong> 当前属于官方产品/API 发布，非新同行评审论文；代码、权重和训练数据未开放，本轮未调用付费 API。轻量验证可选 10 个固定场景，预先定义物体离屏移动、原路重访、文字编辑后身份保持及碰撞事件；记录输入到响应的 p50/p95 延迟、状态错误和单位试验成本。API 不可用时，先在 Habitat 或代码世界中实现同一测试协议，不能把代理实验当成 Genie 4 复现。</p>
+<h2 id="2-worldruler保存规则也保存规则作用过的世界p0">2. WorldRuler：保存规则，也保存规则作用过的世界｜P0</h2>
+<p><strong>标题：WorldRuler: Interactive World Modeling under Configurable Rules。</strong> Mingliang Zhai、Chuanhao Li、Jiaming Tan 等；Alaya Lab、北京理工大学、上海创智学院、东京大学、深圳北理莫斯科大学。<strong>11 月 18 日 18:20 UTC（北京时间 19 日 02:20）</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.24869" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://alaya-lab.github.io/WorldRuler/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/AlayaLab/WorldRuler" target="_blank" rel="noopener noreferrer">仓库</a>。问题是：存档后能否恢复规则依赖和对象状态，以及视野外的门被打开后，第一次看到它时能否已经呈现正确状态。</p>
+<p>方法将规则定义、触发依赖、对象身份、属性和空间信息放进可执行 3D rule graph，用动态对象绑定连接符号实体与视频实例，再以感知反馈更新对应关系。属性 reader/writer 在去噪过程中替换目标属性状态；训练使用成对重建、差分约束和双向属性交换，视频生成器等主体冻结，只优化相关写入模块。它与 CWM2 的显式世界状态、WorldDraft 的可执行场景同属状态约束路线，新增重点在规则依赖、存取档与离屏首次出现。</p>
+<p><strong>作者报告</strong> RuleVerse 共 3,200 对、6,400 段视频；Habitat 的平均 RSR 为 <strong>64.99%</strong>、FCR 为 <strong>48.04%</strong>，对照 SWM 分别低 20.93、30.06 个百分点。FCR 是 stages/order/goal 三个分项的平均，不能直接称为完整任务成功率。完整方法的 First-appearance 也只有 <strong>29.69%</strong>，说明符号状态正确到视觉兑现之间仍有明显缺口；评估依赖冻结 VLM，未见第三方复验。</p>
+<p><strong>非常值得精读，但工件仍不完整。</strong> GitHub 的推理代码仍列为待发布；模型页只有说明文件。RuleVerse 已有分片，但本轮读取的 <a href="https://huggingface.co/datasets/AlayaLab/RuleVerse/blob/main/release-manifest.json" target="_blank" rel="noopener noreferrer">release manifest</a> 为 <code>upload_in_progress</code>，<strong>103/168</strong> 个分片，不能称全量数据已发布。轻量验证先取清单中完整的测试子集，在小型 3D 环境实现开关—门、击败—掉钥匙—解锁两类规则，分别计符号状态、首次可见状态、保存恢复和无关对象干扰；生成器未开放时只报告规则/评测层验证。</p>
+<h2 id="3-phoenix用几何与时空结构改善-wam-表征p0">3. Phoenix：用几何与时空结构改善 WAM 表征｜P0</h2>
+<p><strong>标题：Phoenix: Learning Scene Structure Representations for Generalizable World-Action Models。</strong> Yupeng Zheng、Chaoyue Li、Linbo Wang 等；中科院自动化所、Anyverse Dynamics、清华、NUS、复旦。<strong>11 月 18 日 18:59 UTC（北京时间 19 日 02:59）</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.24938" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://openphoenix-team.github.io/Phoenix-pages/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/Anyverse-Dynamics/Phoenix-MWA" target="_blank" rel="noopener noreferrer">代码</a>。它研究视频重建 latent 没有显式突出操作所需的几何关系、物体状态和运动结构这一问题。</p>
+<p>Phoenix Encoder 以 DINOv3 为基础，由 <strong>VGGT-Ω</strong> 提供几何教师、<strong>V-JEPA 2.1-L</strong> 提供时空语义教师；CS-VAE 在保留 patch 布局时，将九帧特征因果压缩为三个 latent 时刻。WAM 联合预测结构 latent、Wan VAE 外观 latent 与动作，训练包括教师对齐、特征重建/压缩及联合 flow matching。约 <strong>39,000 小时</strong>是表征学习所用的人类与机器人视频，WAM 预训练使用其中机器人示范，不能说全部 39,000 小时都有机器人动作标签。</p>
+<p><strong>作者报告</strong>经各基准分别后训练后，LIBERO-Plus 为 <strong>94.8%</strong>，RoboTwin 2.0 C2R 为 <strong>72.4%</strong>；相对 InternW0-Δ 的提升分别为 2.0、0.5 个百分点。25% 下游示范时 LIBERO-Plus 为 91.1%。这些支持表征与数据效率研究，但不是单一 checkpoint 零样本横扫六套基准的证据。相对视频 VAE 路线，它把空间和时空先验前移；相对 Z-sight，则保留外部教师和单独压缩器，成本与组件归因更复杂。</p>
+<p><strong>值得精读，开放程度较好但尚非一键全量复现。</strong> 已核对训练分支和 <a href="https://huggingface.co/AnyverseDynamics/Phoenix-Pretrain/tree/main" target="_blank" rel="noopener noreferrer">预训练权重文件</a>、<a href="https://huggingface.co/AnyverseDynamics/Phoenix-Encoders/tree/main" target="_blank" rel="noopener noreferrer">encoder/CS-VAE 文件</a>；这些 Hub 工件早于论文存在，不冒称今日首次开放。资源说明承认原始数据准备流程不完整；正式 launcher 要求 <strong>224 GPU</strong>。轻量路径应冻结 encoder，在 20—50 段相同视频上测几何关系、状态变化和控制相关 probe，再比较 DINOv3、教师蒸馏与结构压缩；这能检验表示贡献，不能替代全规模预训练或真实策略复现。</p>
+<h2 id="4-z-sight让动作读取-vlm-自己预测的未来p1">4. Z-sight：让动作读取 VLM 自己预测的未来｜P1</h2>
+<p><strong>标题：Z-sight: Unifying Vision-Language-Action and Latent World Modeling。</strong> Junjie Ye、Yiqi Zhao、Muchen Xu 等；Maven Robotics 与南加州大学。<strong>11 月 18 日 18:59 UTC（北京时间 19 日 02:59）</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.24940" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://junjieye.com/Z-sight/" target="_blank" rel="noopener noreferrer">项目</a>。它追问能否在 VLM 感知现在所用的原生视觉 token 空间预测未来，并避免视频像素生成的成本。</p>
+<p>架构把 VLM、foresight expert 和连续 action expert 放入 mixture-of-transformers，在推理时共同去噪未来空间 token 与动作。EMA teacher 提供随感知编码器共同演化的目标；future loss 不回传到 VLM，配合阶段性 knowledge insulation、FAST 动作监督与连续 flow-matching 目标，降低目标坍缩和语义遗忘风险。与 RelayWAM 的信息读取、FLARE 的隐式特征对齐相比，它显式生成可被动作流读取的空间未来。</p>
+<p><strong>作者报告</strong> SIMPLE 成功率 <strong>81.9%</strong>，六项 Unitree G1 真机任务平均 <strong>73.3%</strong>，相对最强对照高 20 个百分点；真机每任务十次，样本较小。项目给出 RTX 4090、100 次同步调用的动作 chunk 中位延迟约 <strong>110 ms</strong>，属于进程内测量。冻结权重后，将其他 episode 的预测或伪装成可靠预测的噪声送入 foresight stream，会显著破坏控制；这比仅报告辅助损失更能说明策略使用了内容，但仍是作者实验。</p>
+<p><strong>方法与干预设计值得深读。</strong> 项目链接的 GitHub 在本轮返回 404，未核验到可下载代码、权重或整理后的训练数据，因此暂不能承诺复跑。轻量替代是在已有小型 latent planner 中固定动作初始噪声，交叉改变未来 token 内容和声明的不确定性，比较正常、跨 episode 替换及噪声三组。应同时保持参数量与去噪步数相同，避免把新增容量误判成预测收益。</p>
+<h2 id="5-physresponse物理参数正确与事件结果正确要分别测p0">5. PhysResponse：物理参数正确与事件结果正确要分别测｜P0</h2>
+<p><strong>标题：PhysResponse: Probing the Physics of Video Generation with Controlled Interventions。</strong> Yuhan Li、Shuran Zhang 等；中山大学、香港科技大学、MBZUAI。<strong>11 月 18 日 13:42 UTC（北京时间 21:42）</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.24419" target="_blank" rel="noopener noreferrer">论文</a>。研究问题是：视频看似合理时，重力、摩擦和初速度是否真的受指定条件控制，以及模型能否跨越接触、支撑或碰撞的临界结果。</p>
+<p>它用场景条件的 simulator inversion 反推生成运动对应的有效物理参数，再用临界点两侧的成对事件评估结果是否翻转。数据包含 <strong>24,000 次仿真、三个同步视角，共 72,000 段视频</strong>，覆盖 20 类交互，来自 Genesis 和 Isaac Sim；三视角按同次仿真共同划分，不能当作 72,000 个独立物理试验。作者还微调 Wan2.2，并加入数值条件 encoder，训练目标从一般视频去噪扩展到响应显式参数条件。</p>
+<p><strong>作者报告</strong>测试十个 I2V 模型，即使最好参数误差也高于物理正确参考一个数量级以上；最强设置的成对翻转准确率仍低于 50%。在留出交互类型上，微调后的初速度误差由 <strong>93.1% 降至 13.0%—16.4%</strong>，但参数改善并不保证所有事件指标提高。自动可测性判断与人工一致率约 74%，获得自动二元判定的事件与人工一致率约 79%，评估器本身也有限制。</p>
+<p><strong>值得优先读评测设计。</strong> 它与 PhysCapBench 的物理语言、RFW-S 的材料验证、RWM 的策略审计互补，补上“参数变化→运动变化→事件结果”的链。当前 arXiv 注明补充材料待后续版本，本轮未核验到该项目代码、全量数据或微调权重，不能把论文中的数据构建量当作公开下载量。轻量验证只需两个斜面/碰撞场景、三个摩擦或速度水平和固定相机，分别画参数误差与成对事件成功率；可先在物理引擎与现有开源视频模型上验证指标，不必重训大模型。</p>
+<h2 id="6-lightharness用光照证据约束可编辑-3d-重建p1">6. LightHarness：用光照证据约束可编辑 3D 重建｜P1</h2>
+<p><strong>标题：Beyond Appearance: Evidence-Guided Programmatic 3D Scene Reconstruction with Agentic Lighting Reasoning。</strong> Zeting Luo、Yifan Li、Shuai Yang；北京大学王选计算机研究所。<strong>11 月 18 日 15:01 UTC（北京时间 23:01）</strong>提交，预印本与代码。<a href="https://arxiv.org/abs/2611.24565" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://logic-al-al.github.io/LightHarness/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/lyf1212/LightHarness_Code" target="_blank" rel="noopener noreferrer">代码</a>。它解决单图 image-to-code 的歧义：暗像素可能来自材料、遮挡或光源，单独最小化外观误差难以判断该改哪一层。</p>
+<p>框架汇集 masks、深度、法线、albedo、shading 和 HDR 光照先验，让 VLM 迭代生成 Blender 场景。Lighting Reasoning Memory 保存光源身份、证据、参数和修订历史；确定性 rubric 与 VLM diagnosis 用分解 render passes 指导下一轮。它不新增模型训练，也不依赖可微渲染；目标是按固定几何/材质/光照误差权重选出有效候选，不是一个新神经重建 loss。</p>
+<p><strong>作者报告</strong>在 32 个原始重建输入上，PSNR 从 VIGA 的 <strong>14.28 提高到 15.03 dB</strong>，DreamSim 从 <strong>0.242 降到 0.216</strong>；SSIM 为 0.486，低于 VIGA 的 0.525，不能称所有指标最佳。新视角比较范围包含 ±15°，并不足以证明全空间几何正确。相对 Atlas 或 3DGS，它直接输出可修改的程序场景；相对 SceneRig/VIGA，创新在证据分解和跨轮光照假设，局限仍是单图不可辨识和 VLM/先验误差。</p>
+<p><strong>值得读并做小规模复验。</strong> 已见实现、示例场景和结果归档入口；完整流程需四组视觉模型环境与外部 VLM，仓库使用 GPT-6 Astra。CPU demo 仅用合成证据做两轮真实渲染，不等于重建性能复现。轻量实验选五张强阴影图片，在同一 VLM、相同轮数和渲染预算下比较完整方法、无 lighting memory、仅 RGB 验收；另外留出一个光照或视角变化，检查几何是否随提示“投机”改变。</p>
+<h2 id="7-doppel把已知身体运动渲染给世界模型看p1">7. Doppel：把已知身体运动渲染给世界模型看｜P1</h2>
+<p><strong>标题：Render the Robot, Generate the World: One Video World Model Across Embodiments。</strong> Yash Jangir、Karan Mirakhor、Renos Zabounidis、Muhammad Zubair Irshad 等；JHU、CMU、Toyota Research Institute。<strong>11 月 18 日 18:52 UTC（北京时间 19 日 02:52）</strong>提交，预印本；仓库记载 11 月 6 日已有工件，本期依据新论文及窗口内 Hub 修订追踪，不将仓库创建当作首发。<a href="https://arxiv.org/abs/2611.24925" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://doppelwm.github.io/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/DoppelWM/Doppel" target="_blank" rel="noopener noreferrer">代码</a>。</p>
+<p>核心是利用机器人几何和正向运动学，先将候选动作对应的身体姿态渲染到相机视角，再连同数值动作条件化 Wan 2.1 视频模型，让学习容量更多用于对象响应。对缺少外参的数据，先从记录中恢复相机并对齐渲染；render-action adapter 与视频 backbone 共同训练。与直接数值动作条件、TCP4D 的工具轨迹、跨本体 latent action 相比，这是一个更显式的视觉身体接口，但依赖身体模型与标定。</p>
+<p><strong>作者报告</strong>约 600 小时、八类本体/数据集联合训练，对三类机械臂的留出轨迹平均 PSNR 提升 <strong>1.00 dB</strong>，OOD 提升 <strong>1.20 dB</strong>；八本体联合训练在六个机械臂评测中有四个优于三本体训练。权重卡按训练 clips 另记约 670 小时，统计口径需保留，不能混写为精确相同规模。论文证据主要是视频预测，未证明机器人策略成功提升。</p>
+<p><strong>值得读动作接口与标定部分。</strong> 已核验 <a href="https://huggingface.co/sourlreapwr/doppel-emb8/tree/main" target="_blank" rel="noopener noreferrer">权重分片</a> 和 <a href="https://huggingface.co/datasets/sourlreapwr/doppel-camera-extrinsics" target="_blank" rel="noopener noreferrer">45,345 条相机表</a>；代码 MIT、模型 CC BY-NC 4.0，数据按子集许可。权重是依赖上游 Wan 的约 <strong>33 GB overlay</strong>，不是小 adapter 即可独立运行；相机置信指标也不是厘米级真值误差。轻量验证先用十段公开轨迹做渲染 overlay 和外参扰动，比较物体接触区域预测；没有足够显存时先完成标定与坐标契约审计，本轮未下载或运行模型。</p>
+<h2 id="8-grana允许进度倒退的组合奖励模型p1">8. Grana：允许进度倒退的组合奖励模型｜P1</h2>
+<p><strong>标题：Grana: Compositional Reward Modeling for Long-Horizon Robot Manipulation。</strong> Zi-ang Cao、Kaiyuan Zheng 等；NVIDIA、UT Austin、华盛顿大学。<strong>11 月 18 日 18:53 UTC（北京时间 19 日 02:53）</strong>提交，预印本、官方项目与代码。<a href="https://arxiv.org/abs/2611.24926" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://research.nvidia.com/labs/gear/grana/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/NVlabs/Grana" target="_blank" rel="noopener noreferrer">代码</a>。它研究跨任务 reward 如何保留已完成步骤的信用，同时在当前子任务失败时正确降低进度。</p>
+<p>VLM 先选择第一个未完成子任务，共享 progress head 估计其连续进度，再按 <strong>全局进度 =（已完成子任务数 + 当前局部进度）/ 子任务总数</strong>组合。训练不是直接用时间比例：人类标记子任务边界、次优区间和倒退区间，构造密集监督，训练 LoRA、进度头与子任务选择；在 200 类任务预训练后适配长任务。它与 Memory Clock 对“时间冒充进度”的批评、RoboMeter 的进度评价和 RL/MPC 奖励接口直接相关。</p>
+<p><strong>作者报告</strong>50 个未见任务的 RMSE 为 <strong>0.180</strong>，对比最强基线 0.227，下降 20.7%；五个长任务各用 15 条标注轨迹适配后，RMSE 相对最佳对照降低 16.1%—31.6%。论文和项目展示基于 GR00T-2 的真机 RL/MPC，但这些是作者实验；预测进度误差降低不能直接推导任意策略都能获益。开放词汇子任务仍需定义合理的阶段与前置条件。</p>
+<p><strong>值得深入读监督协议。</strong> Apache-2.0 代码公开，提供 CPU 标注/cache 路径与多尺寸训练配方；本轮未确认可下载的论文训练权重和完整训练数据。仓库报告 4B、八时刻×四相机、batch 1 的 BF16 推理低于 10 GB，仍需实际环境复核。轻量实验用十段含失败恢复的视频，对比时间比例、单调进度和组合进度，分别测质量排序、倒退识别与错误奖励；可先复现目标构建，再考虑训练小型头。</p>
+<h2 id="9-f³经验是否有用取决于它如何进入策略p1">9. F³：经验是否有用取决于它如何进入策略｜P1</h2>
+<p><strong>标题：F³: What Makes Good Experience in World-Action Models?</strong> Zihe Huang、Sirui Zhou、Haozhi Han 等；北京大学、清华 AIR、国科大、阿里巴巴、浙江大学及独立研究者。<strong>11 月 18 日 16:33 UTC（北京时间 19 日 00:33）</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.24708" target="_blank" rel="noopener noreferrer">论文</a>。它把部署经验的价值定义为在相同动作预算下，注入该记录是否真正提高当前状态的任务成功概率；成功 episode 不天然是好经验，失败 episode 也可能含有效局部操作。</p>
+<p>Form 将成功和失败轨迹压缩为经过检查的短操作记录；Fit 教模型读取记录，并用匹配种子的注入/旁路续跑学习增益预测；Fusion 将图像、文字和动作接入 Reasoner prefix 与 Generator action prior。训练包含动作 flow matching、动作先验似然与增益回归，部署后参数固定、经验库增长。它比普通 RAG 或相似度检索多出“是否该用”和“模型是否会读”两个可检验环节，与 WAM 的未来信息读取问题同构。</p>
+<p><strong>作者报告</strong>在 100 个 MolmoSpaces 实例、120 个 RoboLab 任务上，原生 Cosmos 3 Nano 成功率分别由 <strong>55%→67%</strong>、<strong>29.2%→40.0%</strong>；Fit 使用 200 个样本且不在 RoboLab 训练。已同时成功的 episode 上步数降低 12.2%、11.3%，不是所有 episode 的无条件平均；回归失败减少 57% 也应与被挽救的任务一起查看。直接输入记录可破坏既有成功，支持对注入机制做消融，但规模和外部验证仍有限。</p>
+<p><strong>值得读实验因果设计。</strong> 本轮没有核验到该项目的官方可用代码、训练 checkpoint 或完整经验库；聚合站的“code released”标签不足以改变结论。轻量实验先固定一个策略与 20 个任务，给同一批记录做无记忆、相似度强制注入、增益门控三组，报告 rescue/regression 配对计数和总调用成本。若无法接入 WAM，可先在公开视觉 Agent 中验证经验门控假设，明确这只是机制迁移实验。</p>
+<h2 id="10-ahe-beta按可验证需求演化-agent-harnessp1">10. AHE-Beta：按可验证需求演化 Agent harness｜P1</h2>
+<p><strong>标题：Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses。</strong> Jiahang Lin、Jiahao Chen、Yiding Wang 等；复旦、北大、人大及上海奇绩智峰。<strong>11 月 18 日 18:52 UTC（北京时间 19 日 02:52）</strong>提交，预印本与代码。<a href="https://arxiv.org/abs/2611.24924" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/Curry09/AHE-Beta" target="_blank" rel="noopener noreferrer">仓库</a>。它研究只按 benchmark 分数选补丁，为什么容易遗漏用户隐含需求、交互纠正和工程通用性。</p>
+<p>用户模拟器在多轮工作中提出需求和问题；团队角色将证据归纳为通用 harness 修改；修改只有解决已验证需求并通过 review 才合入。基础模型权重固定，优化对象是 prompts、工具、中间件和执行流程，选择目标是需求解决，benchmark 用于演化后的评估。与 DGM、Meta-Harness、RRSI 相比，这条路线将用户交互和验收证据放到选择环节，而不只改变候选生成方式。</p>
+<p><strong>作者报告</strong>在 38 个留出任务、三次运行上，GLM-5.3-Flash 的 pass@1 从 <strong>21.9%→33.3%</strong>，token 减少 <strong>40.8%</strong>；盲测中真人在 <strong>48 对有效比较的 31 对</strong>偏好新 harness。迁移到 GLM-5.3 和 DeepSeek-V4.1-Flash 分别高 15.8、5.3 个百分点。小型人测、模拟用户偏差、演化成本与角色分工的混杂仍限制结论，不能将这些数字泛化到所有真实用户或任意 Agent。</p>
+<p><strong>值得精读，并可先复核机制。</strong> MIT 代码公开；完整实验需模型端点、Docker/Gitea 等设施。仓库的 offline demo 是脚本化对话，不调用模型和完整交付流程，因此只能验证演示路径。轻量设计为固定模型、同一候选池和相同预算，比较纯分数选择与需求验收选择，用另一个未参与演化的评估器测任务成功、范围遵守、纠正响应和总成本；冻结测试与候选，延续 Resolution Hypothesis 对选择噪声的控制。</p>
+<h2 id="11-cosmos-data-factory数据生成与质量检查的可组合工作流p1">11. Cosmos Data Factory：数据生成与质量检查的可组合工作流｜P1</h2>
+<p><strong>标题：Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos。</strong> Nakul Arora / NVIDIA，<strong>11 月 18 日</strong>官方技术文章，配套公开 blueprints/skills；属于工程能力与教程更新，不是新基础模型权重发布。<a href="https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos/" target="_blank" rel="noopener noreferrer">官方文章</a>｜<a href="https://github.com/NVIDIA/cosmos-data-factory" target="_blank" rel="noopener noreferrer">代码入口</a>。它处理检索、增强、生成、质量检查和标注分散在不同工具中的问题。</p>
+<p>五类 blueprints 覆盖驾驶场景、人物属性、视频条件增强、稀有事件和工业缺陷；六类 skills 包含 curation/retrieval、augmentation、auto-labeling、simulation、AnomalyGen、orchestration。Agent 组织服务与 DAG，Cosmos Evaluator 检查身份、条件、伪影和物理合理性，失败后重试，最后输出带 provenance 的数据。这里的目标是有约束地生成并验收工件，不存在一个新统一训练 loss；底层模型与适配配方各有依赖和许可。</p>
+<p><strong>官方报告</strong>以八张 RTX PRO 6000 Blackwell 云服务器测吞吐/计算费用，宣传特定缺陷数据集组装从两个月到一天，以及 AV 场景生成约 45 倍计算成本优势。这些对照口径不等同于统一 benchmark；费用不含源数据、搭建、Agent、存储和人工审阅，更没有直接证明策略成功提升。相对 WorldRuler 的规则兑现和 PhysResponse 的参数评测，CDF 提供的是运行这些流程的基础设施，质量检验仍需外部真值。</p>
+<p><strong>值得读工作流与数据契约。</strong> 代码与技能入口公开，整套 blueprints 需要集群、对象存储、镜像和不同 GPU 配置；不能因标题“两条提示词”就认为本地零配置可用。轻量路径是复用单独标注/检索组件，固定十段视频和三类外观扰动，逐条核验 action/contact 是否被保留，并在同一小策略上比较原始、人工过滤增强和自动过滤增强。先计算有效样本率与全部失败重试成本，再讨论规模化收益。</p>
+<h2 id="12-gemini-4-neonagent-能力比较必须固定-harnessp1">12. Gemini 4 Neon：Agent 能力比较必须固定 harness｜P1</h2>
+<p><strong>标题：Introducing Gemini 4 Neon。</strong> Koray Kavukcuoglu / Google DeepMind，<strong>11 月 18 日</strong>官方模型发布及模型卡，本期补入上轮遗漏的 frontier release。<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">公告</a>｜<a href="https://deepmind.google/models/model-cards/gemini-4-neon/" target="_blank" rel="noopener noreferrer">模型卡</a>。定位是兼顾速度与推理深度的代码、分析和多步骤工具工作流，提供文字、图像、音频、视频输入与百万 token 上下文。</p>
+<p>官方说明它由 Gemini 4 Carbon 适配而来，但没有披露可复建的完整训练目标、数据与更新配方，因此不能替它推断 RL、自蒸馏或架构创新。<strong>官方模型卡报告</strong> Terminal-Bench 4.1 为 <strong>65.2%</strong>；同一模型在 SWE-sweep 的 provider harness 为 <strong>39.0%</strong>、Mini-SWE harness 为 <strong>12.8%</strong>，直接提醒我们模型名相同仍不等于系统配置相同。官方引用外部榜单，本轮未独立重跑或逐项复核榜单，保留为官方汇总证据。</p>
+<p><strong>值得读模型卡和评估方法，研究优先级低于前五项。</strong> 与 GPT-6.2 Sol、Claude 同类模型的关系首先是系统能力与成本对照，不是已经证明的机器人控制或世界建模优势。API/产品已宣布开放，权重、训练代码和训练数据不开放；本轮未调用 API。轻量验证固定同一 Agent、工具、任务、思考预算与 token 上限，在 20 个留出任务上同时测成功率、延迟、重试与成本，再单独改变 harness，分离模型升级与工程改动收益。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮有窗口内重大官方更新，不能写成“frontier 无新增”。</strong> 已核验的重点是 Genie 4 的产品/API 开放、Gemini 4 Neon、NVIDIA Cosmos Data Factory，以及 Grana 的研究与实现。11 月 19 日的 <a href="https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/" target="_blank" rel="noopener noreferrer">NVIDIA Agent 仿真案例集</a>也进入候选池：覆盖 SimReady/OpenUSD、场景组装、真实扫描到可编辑建筑和物理验证，性质为官方工程案例，不是新的统一模型或标准化性能证明。其中 Microduck 的 766/768 只表示 14 秒仿真后站立，不能写成医院任务成功率。</p>
+<p>扫描范围包括 <a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist AI</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、Google DeepMind/Robotics、NVIDIA Robotics/Cosmos/GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Anthropic、TRI；高校覆盖 Stanford、Berkeley/BAIR、MIT、CMU、Princeton，以及清华 AIR、北大、中科院、智源、腾讯混元等中国团队。World Labs 当前 Atlas 开放工具公告为 11 月 12 日；Generalist、PI、Figure、Field AI、1X、Meta 等入口本轮没有核验到足以追加为重点的窗口新研究发布。该表述仅限实际可见证据，不代表机构内部没有进展。</p>
+<p><strong>访问边界单列：</strong> PI 直接抓取遇到 429，已用可读官方索引补查；Skild 的旧 <code>/blog</code> 路径 404，转查实际官方 Steel 页面；TRI 新闻页 TLS 受限，但 Doppel 的官方合作信息已核对。Princeton 新闻页 403、清华部分页面 TLS 失败、智源主站返回空壳，采用官方可索引页面、论文与项目交叉补查，仍不能称入口完全覆盖。arXiv 的四类 recent 页面已解析 <strong>4,322 条分类记录、3,393 个去重 ID</strong>，它们是批次覆盖量，不是窗口内重要新作数量；可见最新公告批次停在 11 月 19 日，不据此断言 20 日没有新提交。</p>
+<p>最终筛选前另做了 Spatial Intelligence、World Model、Physical AI、Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与主要机构的 broader-web 交叉核对。<strong>Retrieval Failure</strong> 是未进入此前候选池的重要证据遗漏，本期用 Genie/Neon/CDF 等回补；<strong>Selection</strong> 是已检索后有理由暂不展开。例如 SIGame 的代码策略、LoRN、DiWALI、HandWorldBench、UltraTex 已入候选，分别留待等预算控制、跨本体实验或细分评测精读。RoboFinals RL Envs 的窗口内媒体文章也已查到原始官方产品页，但缺少可锁定的窗口内首次发布/新增工件证据，因此保留追踪，不把转载日期当新品日期。<a href="https://lightwheel.ai/robofinals-rl-env" target="_blank" rel="noopener noreferrer">RoboFinals 官方</a>。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<p>持续地图仍按“感知与状态 → 转移预测 → 规划与执行 → 学习闭环 → 评测与基础设施”组织。以下是基于本期材料的综合判断，不是任何单篇论文已经证明的统一结论。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久交互世界</td>
+<td>Genie 4 开放 API；WorldRuler 维护规则、身份与离屏状态</td>
+<td>视频连贯、可存取状态和真实物理仍分开验收</td>
+<td>建立规则执行、首次可见、重访和接触的分层测试</td>
+</tr>
+<tr>
+<td>空间与视频表征</td>
+<td>Phoenix 外部双教师；Z-sight 原生 token 未来</td>
+<td>可解码、被动作读取与真实成功尚未完全解耦</td>
+<td>同数据/容量下比较教师来源、未来目标和读取机制</td>
+</tr>
+<tr>
+<td>可编辑空间重建</td>
+<td>LightHarness 用光照证据和程序输出场景</td>
+<td>单视图外观能掩盖错误几何与材料</td>
+<td>用留出光照、视角和对象插入测可辨识性</td>
+</tr>
+<tr>
+<td>跨本体与人类数据</td>
+<td>Doppel 将身体渲染作为共同视觉接口</td>
+<td>外参、身体模型和环境响应相互混杂</td>
+<td>固定动作，交叉扰动标定、身体外观和接触条件</td>
+</tr>
+<tr>
+<td>物理与进度评估</td>
+<td>PhysResponse 测参数/临界事件；Grana 测组合进度</td>
+<td>参数正确、事件正确和奖励有效性没有共同真值</td>
+<td>建立状态、事件、进度和策略收益的配对审计</td>
+</tr>
+<tr>
+<td>经验与持续改进</td>
+<td>F³ 学何时注入；AHE-Beta 按需求验收</td>
+<td>记忆增长与候选增加仍可能引入回归和选择偏差</td>
+<td>固定候选池，用外部验收测 rescue/regression 与迁移</td>
+</tr>
+<tr>
+<td>数据和 Agent 基础设施</td>
+<td>CDF 编排生成/检查；Neon 展示 harness 差异</td>
+<td>自动质量分数、有效样本和总成本不等价</td>
+<td>建立含失败重试、人工复核和下游收益的数据账本</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>机会一：离屏因果状态的最小基准。</strong> 用 10 个场景、两类规则链、保存/加载和相机重访，分别冻结状态引擎与 renderer。测符号正确、首次可见正确、长期保持、无关内容干扰；可连接 WorldRuler、Genie、CWM2 与 WorldDraft，先做 CPU 可执行版本。</li>
+<li><strong>机会二：未来 token 的内容与可信度是否共同决定控制。</strong> 在同一小型策略上做“正常/替换内容 × 可靠/不可靠声明”四格干预，再加无未来损失的同容量对照。保持动作噪声、去噪步数和预算一致，复核 Z-sight 的关键机制，并比较 Phoenix 表征。</li>
+<li><strong>机会三：把物理参数、事件与奖励放在同一试验中。</strong> 选斜面接触和插接失败恢复两个任务，变化摩擦或初速度；同时算参数误差、临界事件成对正确率、Grana 式进度及策略成功。最有价值的结果是找出哪类指标改善却没有带来闭环收益。</li>
+<li><strong>机会四：生成数据验收器的盲点。</strong> 固定十段机器人视频，每段三种外观增强；让 CDF 式自动检查器和独立人工/状态真值分别过滤。对通过与被拒样本都抽查，记录接触保留、标签错误、有效样本率及重试总成本，避免只检查最终漂亮样本。</li>
+<li><strong>机会五：需求验收能否降低自演化回归。</strong> 固定八个候选、20 个留出任务与评估预算，比较分数选择、需求选择和重复评估；用另一评估器验收，联合报告回归、迁移、用户纠正和完整成本。F³ 提供记录注入视角，AHE-Beta 提供工程闭环，Resolution 提供噪声控制。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p><strong>证据口径：</strong> P0/P1 表示阅读优先级，不代表证据等级。本文论文均按预印本处理，未核验到其正式同行评审接收；官方模型、产品和教程另行标注。所有实验数字来自作者/官方，本轮完成的是来源、全文、代码说明、Hub 文件与 manifest 核验，未进行模型训练、付费 API 评测、真实机器人试验或独立完整复现。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>当前工件状态</th>
+<th>应保留的边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genie 4 / Neon</td>
+<td>官方产品/API 与模型卡；无公开训练权重/数据</td>
+<td>访问公告不等于本轮 API 调用或独立榜单复核</td>
+</tr>
+<tr>
+<td>WorldRuler / RuleVerse</td>
+<td>代码待发布、模型页占位；数据上传 103/168 分片</td>
+<td>不能宣称模型可跑或数据全量完整</td>
+</tr>
+<tr>
+<td>Phoenix</td>
+<td>训练代码、多分支及 checkpoint 文件可见</td>
+<td>原始数据准备不全；224 GPU 正式配方未复跑</td>
+</tr>
+<tr>
+<td>Z-sight</td>
+<td>论文、项目可读；所链仓库返回 404</td>
+<td>不以 Code 按钮认定实现或权重可用</td>
+</tr>
+<tr>
+<td>PhysResponse</td>
+<td>主文可读；补充材料和项目工件未完整核验</td>
+<td>数据构建量不等于公开量；自动评估器有误差</td>
+</tr>
+<tr>
+<td>LightHarness</td>
+<td>实现、示例和结果归档入口公开</td>
+<td>CPU demo 为合成证据；完整重建依赖模型/API</td>
+</tr>
+<tr>
+<td>Doppel</td>
+<td>代码、非商用模型分片和相机表可见</td>
+<td>需上游大模型；相机质量门控不等于外参真值</td>
+</tr>
+<tr>
+<td>Grana</td>
+<td>Apache-2.0 实现、标注/cache/训练工具公开</td>
+<td>未确认论文训练权重和全量私有训练数据</td>
+</tr>
+<tr>
+<td>F³</td>
+<td>论文可读，官方代码/经验库未核验</td>
+<td>不能据聚合站标签写成已开源复现</td>
+</tr>
+<tr>
+<td>AHE-Beta</td>
+<td>MIT 实现与完整实验说明；有脚本 demo</td>
+<td>脚本演示不证明演化收益，真人样本仍小</td>
+</tr>
+<tr>
+<td>Cosmos Data Factory</td>
+<td>blueprints/skills、依赖与部署说明公开</td>
+<td>计算报价不含全部成本；自动验收非物理真值</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天先读 <strong>WorldRuler 的规则/首次可见指标，再对照 Phoenix 与 Z-sight 的预测读取机制</strong>。第一项验证建议做离屏开门和保存恢复的十场景测试；先分清状态错误与渲染错误，再投入生成模型或大规模预训练。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-19/"><span>← 上一期 · 2026-11-19</span><strong>DreamFAR · InteractVLA · ForceHarness</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
