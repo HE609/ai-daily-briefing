@@ -1,5 +1,24 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-21 地图快照
+
+窗口为 2026-11-18 09:05—2026-11-21 09:05（北京时间），与 11 月 20 日成稿去重。最新可读 arXiv 公告批次为 20 日，多数新增论文实际于 19 日 UTC 提交。WM^MLLM 的 18 日论文与实现按 Retrieval Failure 回补；Genie 4、WorldRuler、Phoenix、Z-sight、PhysResponse、LightHarness、Doppel、Grana、F³、AHE-Beta、CDF 与 Neon 未因窗口重叠而机械重列。本期判断是状态、可表达形变、材料响应、动作效应和评估器精度需要分别建模并用独立证据连接。
+
+| 问题分类 | 今日工作与趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久空间与几何 | WM^MLLM 外部 revision/全景状态；Plan4D 从共享 latent 读出 RGB 与几何 | 确定性恢复、语义编辑、尺度精度与真实部署并不等价 | 状态不变量×请求成功×几何对策略贡献的三层审计 |
+| 对象交互与 real-to-sim | PRIO 预训练线性形变基；MorphTwin 扩大 bulk/shear 响应 | 形变可表达性、材料可辨识性和物理求解器贡献混合 | 固定几何/材料/外力，分别测表示误差与留出刺激响应 |
+| 动作与规则 | AFFECT 匹配动作扰动引起的视觉交叉矩；RIFT 用校准纠偏频率先验 | 预测美观、规则辨识和策略排序仍无共同保证 | 动作扰动×采样频率×校准充分性的统一受控基准 |
+| 触觉与跨本体监督 | TacInno 学触觉剩余信息；Awaken-HI 保留原始人体运动 | 新监督、容量、数据规模和 retargeting 误差难分 | 固定资源和机器人数据，比较监督内容与形态差异 |
+| 数据和视频分析 | HumanCOIN 意图代理与多频率同步；WeMM 原声音画理解 | 意图冗余、设备/音轨捷径和时间泄漏尚待排除 | 跨设备/操作者留出、音轨替换和时序偏移的配对实验 |
+| Agent 诊断与演化 | AgentRoboCritic 局部意图归因；Sage 改变观察分辨率 | 自评偏置、诊断误差、选择噪声与总成本混杂 | 固定候选库和外部验收，联合测 rescues/regressions、迁移与成本 |
+
+工件边界：WM^MLLM 会话引擎不包含视频模型/完整实验输出，首次播放中位 609.4 秒，程序 demo 不代表生成性能；Plan4D 项目代码入口占位，尚无本轮核验的完整工件。PRIO、MorphTwin、AFFECT、RIFT、Sage 未核验到官方可跑实现/完整数据与权重。TacInno 已见 tokenizer/策略权重与约 112 GB 仿真示范目录，部署仍需真实触觉输入；Awaken-HI 推理/权重仍 TODO，Awaken-Human 仅约 17 MB 单录制预览，不能称 50,000 小时全量开放。HumanCOIN 工具与多项门控数据目录可见，L1 gaze 多为推断，EEG 只覆盖 L3 500 小时，尚无意图监督提高策略成功率的证明。WeMM 已见 2B/35B-A3B 权重与模型实现，完整预训练语料未开放。AgentRoboCritic 已见代码、400 条人工测试集、12,844 训练/1,548 验证样本及 critic 权重；Overall Accuracy 67.75% 限制其作为终局验收器的可靠性。所有重点数字均为作者/官方报告，本轮未复现训练或真机。
+
+下一轮追踪：WM^MLLM 完整协议/输出、端点检查误差与生成成功成本；Plan4D 代码/权重及未对齐尺度与闭环任务；PRIO 工件、材料条件与真实接触；MorphTwin 完整数据、材料真值和跨图响应复用；AFFECT 扰动数据、特征盲区和规划收益；RIFT 基准/实现、短校准与规则切换；TacInno 单任务 code/tactile-off 对照及真实部署；Awaken-Human 完整 manifest、代码/权重和等计算量 scaling；HumanCOIN 跨层小时数、同步误差与额外信息价值；WeMM 采帧/音轨/推理模式对照；AgentRoboCritic 跨 actor 和独立人工标注；Sage 完整轨迹、观察更新与固定目标选择偏差。
+
+最小验证优先级：十场景状态/编辑双评分 → 三对象表示×材料交叉刺激 → 动作效应与规则先验的二维实验 → 多模态时间/音轨扰动 → 八候选×二十任务固定外部验收。Fast-JEPA、O²LaF、ActMem、PGX、PhyDEX、TwinLab-Bench、System-One RSI、World-delta 和 SceneAnything 已进候选池，未展开属于 Selection。[当期晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-21/)。
+
 ## 2026-11-20 地图快照
 
 本期窗口为 2026-11-17 09:10—2026-11-20 09:10（北京时间），与 11 月 19 日去重。Genie 4 因 18 日产品开放、19 日 API 新入口重访；Neon、CDF 等未识别官方证据按 Retrieval Failure 回补。18 日论文保留原提交日期。核心判断是交互世界开放、可执行状态、控制表征和外部验收同时推进，但相互之间仍需独立实验连接。
