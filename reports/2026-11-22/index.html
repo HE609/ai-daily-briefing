@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-22｜Inkling 2 Mini · World-delta · O²LaF · Yunhe</title><meta name="description" content="今天的重要新增是两项非 arXiv 资产：Thinking Machines Lab 20 日开放 Inkling 2 Mini 与可变循环研究模型；X Square Robot 21 日晚上传 WALL-WM 2.0 RoboDojo 预览权重。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-22/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-22｜Inkling 2 Mini · World-delta · O²LaF"><meta property="og:description" content="今天的重要新增是两项非 arXiv 资产：Thinking Machines Lab 20 日开放 Inkling 2 Mini 与可变循环研究模型；X Square Robot 21 日晚上传 WALL-WM 2.0 RoboDojo 预览权重。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-22/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>Inkling 2 Mini · World-delta · O²LaF</h1><p class="article-deck">今天的重要新增是两项非 arXiv 资产：Thinking Machines Lab 20 日开放 Inkling 2 Mini 与可变循环研究模型；X Square Robot 21 日晚上传 WALL-WM 2.0 RoboDojo 预览权重。</p><div class="article-meta"><time datetime="2026-11-22">2026 / 11 / 22</time><span>约 21 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">具身智能</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-inkling-2-mini%E5%85%AC%E5%BC%80%E5%BE%AA%E7%8E%AF%E6%B7%B1%E5%BA%A6%E4%B8%8E%E5%A4%96%E6%98%BE%E6%8E%A8%E7%90%86%E7%9A%84%E7%A0%94%E7%A9%B6%E6%8E%A5%E5%8F%A3p0">1. Inkling 2 Mini：公开循环深度与外显推理的研究接口｜P0</a><a class="toc-level-2" href="#2-direct3d-v3%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E5%87%A0%E4%BD%95%E7%9B%B4%E6%8E%A5%E5%9C%A8-sdf-%E4%B8%8A%E7%94%9F%E6%88%90p1">2. Direct3D-V3：高分辨率几何直接在 SDF 上生成｜P1</a><a class="toc-level-2" href="#3-world-delta%E6%96%B0%E8%AF%81%E6%8D%AE%E5%88%B0%E6%9D%A5%E6%97%B6%E5%8F%AA%E6%94%B9%E5%BA%94%E5%BD%93%E8%A2%AB%E4%BF%AE%E6%94%B9%E7%9A%84%E4%B8%96%E7%95%8Cp1">3. World-delta：新证据到来时，只改应当被修改的世界｜P1</a><a class="toc-level-2" href="#4-o%C2%B2laf%E8%AE%A9%E5%90%8C%E4%B8%80%E8%A7%86%E9%A2%91%E5%85%88%E9%AA%8C%E6%89%BF%E6%8B%85%E9%80%86%E6%AD%A3%E4%B8%A4%E7%A7%8D%E5%8A%A8%E5%8A%9B%E5%AD%A6p1">4. O²LaF：让同一视频先验承担逆、正两种动力学｜P1</a><a class="toc-level-2" href="#5-causyncvla%E7%94%A8%E5%B7%B2%E6%89%A7%E8%A1%8C%E5%8E%86%E5%8F%B2%E8%A1%A5%E9%BD%90%E8%BF%87%E6%97%B6%E7%9A%84%E8%A7%86%E8%A7%89%E8%AE%B0%E5%BF%86p1">5. CauSyncVLA：用已执行历史补齐过时的视觉记忆｜P1</a><a class="toc-level-2" href="#6-phydex%E4%BD%8E%E6%8A%95%E6%8E%B7%E6%88%90%E5%8A%9F%E7%8E%87%E7%A9%B6%E7%AB%9F%E6%9A%B4%E9%9C%B2%E4%BA%86%E4%BB%80%E4%B9%88p1">6. PhyDEX：低投掷成功率究竟暴露了什么｜P1</a><a class="toc-level-2" href="#7-skillplumber%E5%85%88%E5%AE%9A%E4%BD%8D%E5%93%AA%E6%9D%A1%E6%8C%87%E4%BB%A4%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98%E5%86%8D%E4%BF%AE-skillp1">7. SkillPlumber：先定位哪条指令出了问题，再修 skill｜P1</a><a class="toc-level-2" href="#8-wall-wm-20-robodojo-preview%E9%A2%84%E8%AE%AD%E7%BB%83%E8%B5%B7%E7%82%B9%E6%9D%83%E9%87%8D%E5%AE%9E%E9%99%85%E8%90%BD%E5%9C%B0p2">8. WALL-WM 2.0 RoboDojo Preview：预训练起点权重实际落地｜P2</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-22.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-22</div><article class="prose"><p>检索窗口为 <strong>2026-11-19 09:00—2026-11-22 09:00（北京时间）</strong>。本轮覆盖 arXiv Robotics、CV、AI、ML，机构官方发布，GitHub/Hugging Face，独立的 Spatial Intelligence / 3D-4D / real-to-sim 主线，VLA/WAM/RL，以及 Agent/self-evolution，并完成 broader-web 重大遗漏检查。周日可读的 arXiv 公告仍停在 11 月 20 日，不能把 19 日 UTC 提交的论文写成今日首发。与 21 日成稿去重后保留 <strong>8 项</strong>：World-delta、O²LaF、PhyDEX 等由既有候选池转为深入分析，属于 Selection 调整；WM^MLLM、Plan4D、PRIO、MorphTwin、AFFECT 等没有新证据便不重复。</p>
+<p>今天的重要新增是两项非 arXiv 资产：<strong>Thinking Machines Lab 20 日开放 Inkling 2 Mini 与可变循环研究模型；X Square Robot 21 日晚上传 WALL-WM 2.0 RoboDojo 预览权重。</strong> 前者是上一轮未进入候选池的 <strong>Retrieval Failure，本期回补</strong>；后者晚于上一期截止时间，属于正常新增。研究上的共同线索是：生成细节、状态纠错、动作表征、响应时延与任务成功，需要各自的证据；开放权重也不等于完整训练链已经开放。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>Inkling 2 Mini → World-delta → O²LaF → PhyDEX → SkillPlumber</strong>。</p>
+<ul>
+<li><strong>Inkling 2 Mini</strong>：开放循环模型使“增加内部计算是否胜过增加输出推理”成为可以控制变量的问题。</li>
+<li><strong>World-delta</strong>：看新观测如何纠正旧补全，同时保留已有可靠内容，连接空间生成与持续建图。</li>
+<li><strong>O²LaF</strong>：研究同一个视频预训练先验如何支持逆、正动力学，以及动作瓶颈是否真正保留控制信息。</li>
+<li><strong>PhyDEX</strong>：先检查任务要求的信息是否可观测，再解释低成功率，避免把抓取和物理推理混为一谈。</li>
+<li><strong>SkillPlumber</strong>：把自进化细化到指令与执行轨迹的对应关系，同时检查重试预算和修复后的稳定性。</li>
+</ul>
+<p>优先级表示阅读与跟踪价值，不代表同行评审、独立复现或产品成熟度。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-inkling-2-mini公开循环深度与外显推理的研究接口p0">1. Inkling 2 Mini：公开循环深度与外显推理的研究接口｜P0</h2>
+<p><strong>发布方：Thinking Machines Lab 团队，官方署名。11 月 20 日发布，官方研究说明、模型卡与开放权重，未核验同行评审。</strong> <a href="https://thinkingmachines.ai/news/inkling-2-mini/" target="_blank" rel="noopener noreferrer">官方说明</a>｜<a href="https://thinkingmachines.ai/model-card/inkling-2-mini/" target="_blank" rel="noopener noreferrer">模型卡</a>｜<a href="https://huggingface.co/thinkingmachines/Inkling-2-Mini" target="_blank" rel="noopener noreferrer">产品权重</a>｜<a href="https://huggingface.co/thinkingmachines/TML-d24-varloop-research" target="_blank" rel="noopener noreferrer">可变循环研究权重</a>。研究问题是：能否在有限存储下，让模型在输出一个 token 前做更多串行计算，并观察这种内部计算如何影响推理与可解释的轨迹。</p>
+<p>模型有 24 层，中间 12 层各执行三次，形成 48 次层访问；通过门控消息连接循环。MoE 总参数 26.4B，单次路由激活 3.4B，计入循环后的有效权重访问约 5.4B/token，不能按普通 3.4B 模型估算计算量。训练包含预训练、专家剪枝后蒸馏修复、SFT 与 RL；多数专家使用 NVFP4，末四层使用 MXFP8。相对 Universal Transformer 等循环思想，新增价值是可下载的多模态模型、后训练经验与循环次数实验；完整数据和奖励配方仍未公开。</p>
+<p><strong>官方报告</strong> DeepSWE v1.1 为 <strong>48.2%</strong>，使用 mini-swe-agent v2.4.6。可变循环研究模型的无外显 CoT 时间跨度从一轮的 <strong>16 秒</strong>增至三轮的 <strong>37 秒</strong>；这属于官方实验，不是第三方复现。产品模型固定三轮，研究模型可变循环，而且两者后期训练不同，不能直接把差异归给循环次数。公告中的部分速度图是带宽假设下的理论上界；“推理更短”和“循环增加”也不能推出知识更多或任意规模都易于监测。</p>
+<p><strong>值得优先阅读。</strong> 两套权重目录均已见约 19.5 GB 主 safetensors 与约 0.64 GB MTP 文件；模型卡标注 Apache-2.0，并另列使用政策。官方建议 32 GB 以上统一内存或显存；长上下文还需要 KV cache，不能把约 20 GB 权重大小当作整机峰值。未下载运行，未核验独立基准。轻量验证优先用同一可变循环权重做 1/3/5 轮配对实验，固定任务、工具和总时长，记录正确率、延迟、输出 token 与峰值内存；先检验固定规模的计算分配，无需从头训练。</p>
+<h2 id="2-direct3d-v3高分辨率几何直接在-sdf-上生成p1">2. Direct3D-V3：高分辨率几何直接在 SDF 上生成｜P1</h2>
+<p><strong>完整标题：Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain。</strong> Shuang Wu、Jiachen Qian、Youtian Lin、Feihu Zhang、Philip Torr、Yao Yao、Xun Cao；南京大学、DreamTech、港大、Oxford。<strong>11 月 19 日 17:58 UTC</strong>提交；作者项目列明已于 8 月获 ACM TOG / SIGGRAPH Asia 2026 接收，19 日发布论文与推理资产。<a href="https://arxiv.org/abs/2611.26511" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://dreamtechai.github.io/Direct3D-V3/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/DreamTechAI/Direct3D-V3" target="_blank" rel="noopener noreferrer">实现</a>｜<a href="https://huggingface.co/wushuang98/Direct3D-V3" target="_blank" rel="noopener noreferrer">权重</a>。它追问 3D VAE 的压缩损失与训练目标不一致，是否限制了细小几何的生成。</p>
+<p>方法直接对稀疏表面 patch 内的 SDF 去噪，用 patch-level DiT 处理全局结构、voxel-level DiT 恢复局部细节；邻接 SDF 正则减少开口，提取 mesh 后的渲染法线损失监督几何，辅助相机预测约束输入视角。它区别于 TRELLIS、Hunyuan3D 的 latent 路径，但<strong>高分辨率阶段仍依赖粗模型提供表面索引</strong>，不能称整个流程完全摆脱粗生成器。测试时可交替做扩散与法线引导重建。</p>
+<p><strong>作者报告</strong> GSO 重建 Chamfer Distance <strong>0.0131</strong>，TRELLIS2 为 0.0147；但 Volume IoU <strong>0.3815</strong>低于后者的 0.3884，不能写成全指标领先。1024³ 消融中，边界边数从无正则的 <strong>25,353 降至 898</strong>，也不构成数学上的水密保证。论文基础训练用 320K 公开来源 mesh，另有加入约 200K 私有 mesh 的版本，需分开读表。当前只生成几何，不能直接当作具备材料与动力学的仿真资产。</p>
+<p><strong>值得精读表示与几何损失。</strong> 推理代码与 512/1024/1536 三档权重已见，MIT；粗模型与训练代码仍待发布。公开版改为四层 DINOv3 特征及 Muon，作者称细节更好，<strong>不能把论文分数当作公开版的已验证分数</strong>；DINOv3 和外部粗模型另有依赖条件。论文训练使用 16 A800。轻量验证从 512 档、已有粗 mesh 与真实/合成法线开始，测薄结构、开口和未见视角误差，再增加分辨率；同时固定粗 mesh，防止把输入准备带来的改善归给生成器。</p>
+<h2 id="3-world-delta新证据到来时只改应当被修改的世界p1">3. World-delta：新证据到来时，只改应当被修改的世界｜P1</h2>
+<p><strong>完整标题：World-delta: Continually Integrating Observations for Incremental 3D Scene Generation。</strong> Haonan Wang、Hanyu Zhou、Xiaobin Hu、Luxin Yan；华中科大、NUS、Forma AI。<strong>11 月 19 日 09:25 UTC</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.25802" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://arxiv.org/pdf/2611.25802" target="_blank" rel="noopener noreferrer">全文</a>。它解决的不是单次补全，而是持续观察时早期生成错误被当作事实固化、越补越难改的问题。</p>
+<p>系统将几何与语义观测变为世界 token，持久状态分别记录来源、置信度和不确定性；新证据触发局部 delta。只在更新掩码内执行 flow matching，硬冻结可靠历史，再按 decoder 依赖解码受影响 Gaussian chunks；只读 halo 提供邻域信息，不扩大可写区域。训练分为 Gaussian codec 重建、状态校准、掩码 flow 与连续更新校准。相对普通增量 3DGS、Lyra 等场景生成，它把“观察所得”和“推测补全”在更新规则中区分开。</p>
+<p><strong>作者报告</strong> ScanNet v2 冲突区域的裁剪相对深度误差从 <strong>0.160 降至 0.079</strong>，历史可靠区域误差增加 <strong>0.008</strong>；整体重建纠错略强，达到 0.075，但历史漂移增加 0.035。局部方案保持相同 LPIPS 时，采样场景更新从全解码 <strong>16.7 秒降至 5.2 秒</strong>。这些分别衡量纠错、保留和成本，不能压成单一“世界一致性分数”。场景主要静态，真实物体移动可能被误认为旧补全出错。</p>
+<p><strong>值得精读其状态与写入契约。</strong> 本轮未核验到官方可跑代码、权重或完整更新序列包；论文使用八张 A100 训练、单 A100 推理，不构成已复现。轻量替代可在十个已知几何场景中人为植入错误补全，用新视角纠错，比较“只扩展、全部重建、局部修改”；固定 20% 可写预算，分别报告冲突纠正量、历史损坏量和运行成本。先用小型显式地图验证机制，再考虑训练大生成器。</p>
+<h2 id="4-o²laf让同一视频先验承担逆正两种动力学p1">4. O²LaF：让同一视频先验承担逆、正两种动力学｜P1</h2>
+<p><strong>完整标题：One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning。</strong> Yuxin Jiang、Wenqiang Sun、Jiaqi Li、Yuchao Gu、Lvmin Zhang、Ivor Tsang、Mike Zheng Shou；NUS Show Lab、A<em>STAR、Tencent、Stanford。</em><em>11 月 19 日 18:58 UTC</em>*提交，预印本。<a href="https://arxiv.org/abs/2611.26617" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://showlab.github.io/o2laf/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/showlab/O2LaF" target="_blank" rel="noopener noreferrer">仓库状态</a>。问题是：从无动作标签的视频学习 latent action 时，是否有必要从头重学已经存在于视频模型中的动力学知识。</p>
+<p>逆动力学与正动力学都从 Wan2.2-TI2V-5B 初始化，但分别适配，并非共享同一套训练参数。逆模型用动作 queries 读取帧间变化，形成 <strong>32 维 Gaussian 瓶颈</strong>；正模型根据起始视觉与动作瓶颈预测未来，以 flow loss、KL 约束联合训练。角色专属的 attention 与噪声分布限制信息捷径，迫使动作承载变化。相对 DreamDojo、LAPA、VILLA-X，重点是同时复用两个方向的预训练先验；也展示了 V-JEPA2 类预测表征先验的扩展。</p>
+<p><strong>作者报告</strong>仅用人类 EgoDex 视频训练的 encoder，在 GR-1 少样本 EEF probing 上取得 <strong>R² 0.277</strong>，DreamDojo 为 0.149。跨本体循环重建也改善，但这些是动作可读性和视频迁移证据，<strong>不是零样本人类视频直接控制机器人成功</strong>。相机迁移使用 Sim(3) 对齐轨迹，不能证明绝对尺度正确；不同方法的预训练数据也未完全统一。latent 的可解释性与闭环规划仍是后续问题。</p>
+<p><strong>值得精读瓶颈与信息访问消融。</strong> 仓库可读，但 README 明列代码和权重“未来几天发布”，模型入口本轮返回未授权；不能写成已经可复现。正式设置用 16 GPU，LoRA 训练仍有较高显存成本。轻量替代先在小视频先验上比较 head-only、rank-16 LoRA 与动作 shuffle，固定数据和参数预算，用少量线性探针及干预后果验收；只有动作交换稳定改变预期运动后，再评估完整生成与机器人部署。</p>
+<h2 id="5-causyncvla用已执行历史补齐过时的视觉记忆p1">5. CauSyncVLA：用已执行历史补齐过时的视觉记忆｜P1</h2>
+<p><strong>完整标题：CauSyncVLA: Causal Latent World Modeling for Asynchronous Robot Control。</strong> Xu Pan、Chubin Zhang、Xingrui Yu、Runmin Lan 等；NTU PINE Lab、NTU CCDS、A<em>STAR、新加坡 Embodied AI Center。</em><em>11 月 19 日 07:45 UTC</em>*提交，预印本，项目标注 under review。<a href="https://arxiv.org/abs/2611.25667" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://xupan.top/projects/causyncvla/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/TwSphinx54/CauSyncVLA" target="_blank" rel="noopener noreferrer">代码</a>｜<a href="https://huggingface.co/SSSSphinx/CauSyncVLA" target="_blank" rel="noopener noreferrer">updater 权重</a>。问题是异步 VLA 在加速时仍使用旧视觉条件，新旧动作块也可能不连续。</p>
+<p>冻结 π0.5 视觉与动作专家，用约 <strong>24.27M 参数</strong>的模型，根据最近真实视觉 KV 和实际执行的 state/action 历史，预测当前动作所需记忆；action-sensitive distillation 约束其保留控制响应，而非只最小化 KV 距离。PFWS 将上一计划尚未执行的尾部移位，做一步 flow 修正。相对 RTC 的调度、Latent Bridge 的记忆预测与 VLA-Rolling 的轨迹复用，其贡献在执行历史对齐与动作敏感目标的组合。</p>
+<p><strong>作者报告</strong> LIBERO-10 原生协议成功率 <strong>93.8%</strong>，单次模型延迟从 60.01 降至 11.91 ms，对应 <strong>5.04 倍模型推理容量</strong>。更接近部署的单 RTX 5090、20 Hz、26 秒闭环协议中，成功率从 <strong>86% 到 91%</strong>，观测到首动作的 P50 响应从 <strong>176.73 到 83.04 ms</strong>。前一个倍数不是后一个闭环加速；不同预算和 cohort 不应混算。强视角/布局扰动下 warm start 并非总有利，LIBERO-Plus 也未全面胜过同步 PFWS。</p>
+<p><strong>值得读调度协议与实际运行日志。</strong> 已见训练/评测代码和约 <strong>97 MB</strong> LIBERO updater，仍需匹配的 OpenPI 基础权重及归一化；真机 Franka updater 与动作专家未开放，不能把仿真资产当作真机复现。轻量验证先固定一个任务和初态，注入 0/50/100/200 ms 观测延迟，分开比较仅调度、旧 KV、预测 KV；同时计模型耗时、观测年龄、首动作响应和限时成功。较弱硬件可先做记录轨迹上的离线动作误差审计。</p>
+<h2 id="6-phydex低投掷成功率究竟暴露了什么p1">6. PhyDEX：低投掷成功率究竟暴露了什么｜P1</h2>
+<p><strong>完整标题：PhyDEX: A Benchmark for Physical Reasoning in Vision-Language-Action Models via Dynamic Extrinsic Dexterity。</strong> Hao Vo、Taisei Hanyu、Yuki Ikebe、Pham Tri Quang 等；VinUniversity、University of Arkansas AICV、Stuttgart/DFKI、Liverpool 等。<strong>11 月 19 日 18:33 UTC</strong>提交，预印本与基准提案。<a href="https://arxiv.org/abs/2611.26565" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://arxiv.org/html/2611.26565v1" target="_blank" rel="noopener noreferrer">全文</a>。它要求机器人利用质量、质心、摩擦与释放速度，将对象送到运动学工作空间之外，补足普通 pick-and-place 基准较少覆盖的外部动力学。</p>
+<p>基准报告 <strong>35K 轨迹、143 小时、九类任务、100 场景</strong>，覆盖均匀、非均匀、动态质量对象和不同目的地。数据流水线结合抓取生成、cuRobo 规划与闭环投掷优化，并随机化视觉、轨迹和物理量。它不提出新的通用策略损失，而是微调 GR00T N1.7、DynamicVLA、ForceVLA，并通过降低多样性、注入物理真值和力觉条件分解失败原因；与 TossingBot 类方法相比，重点在通用 VLA 的系统诊断。</p>
+<p><strong>作者报告</strong>完整多样性设置下平均成功率分别为 <strong>0.9%、0.2%、2.4%</strong>。但约 <strong>89% 的失败发生在真正投掷之前</strong>，因此不能把所有失败称为物理推理错误。某些隐藏质量/摩擦也无法从单张图像辨识；给出物理真值约能翻倍成功率，仍没有解决全部感知与抓取瓶颈。窄真机实验和完整仿真基准的设置不同，不能混合成一个分数。</p>
+<p><strong>值得读任务定义和失败归因。</strong> 当前只覆盖投掷与三类物理变量、三种策略；论文没有系统比较 RL 和主动校准。所链官方项目页本轮为 404，未核验到完整下载数据、评测实现和匹配权重；论文许可不等于数据许可。轻量验证先固定成功抓取后的初态，做两种质量与两档摩擦，再比较视觉、短校准历史、力觉、oracle 参数四种信息条件；分别统计投掷前失败和条件投掷成功，才适合判断缺的是信息、动力学还是策略。</p>
+<h2 id="7-skillplumber先定位哪条指令出了问题再修-skillp1">7. SkillPlumber：先定位哪条指令出了问题，再修 skill｜P1</h2>
+<p><strong>完整标题：Evolve Where It Matters: Coverage-Guided Self-Evolution of Agent Skills。</strong> Boyin Tan、Jiadong Zhang、Xiaosong Ma、Chun Jason Xue、Xiaowei Huang、Youcheng Sun；MBZUAI、University of Liverpool。<strong>11 月 19 日 03:11 UTC</strong>提交，预印本。<a href="https://arxiv.org/abs/2611.25429" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://arxiv.org/html/2611.25429v1" target="_blank" rel="noopener noreferrer">全文</a>。它针对自进化的诊断问题：失败来自指令错误、指令难以执行，还是本次执行根本没有遵守指令，整条轨迹的成功/失败标签无法区分。</p>
+<p>方法把每条 skill 指令映射到轨迹，标注 follow、not-follow、not-covered；持久 RCA agent 据此提出修订并检查下一次运行，maintainer 再沉淀跨任务策略。它不训练新的基础模型，而是在确定性 verifier 下优化自然语言 skill。相对 SkillRevise、CoEvoSkills 的整次运行反馈，新增信号是指令级覆盖；标签由模型判断，仍可能误标，not-follow 也不自动意味着该指令应删除。</p>
+<p><strong>作者报告</strong>三个基准、三类执行器解题率 <strong>64.7%—70.5%</strong>，比最强对照高 8.7—14.0 个百分点。SkillsBench 消融中，去掉覆盖信息后修复数从 <strong>24 降到 19</strong>；冻结最终 skill 做三次重跑，原始修复平均保留 <strong>86.1%</strong>。但主协议允许同一任务最多五轮带 verifier 的修复，属于按任务修复，不能称为未见任务泛化。总 token 约为对照两倍，需同时比较恢复任务数和成本，不能只看轮数。</p>
+<p><strong>值得精读消融、重跑与成本。</strong> 本轮未核验到官方完整代码、prompts 和轨迹下载，论文仍承诺随代码发布；现有开放基准不能替代整条方法复现。轻量实验可取十个任务，用真实覆盖、打乱覆盖、只看成败三组，固定执行次数和 token 预算；最终 skill 冻结后重跑三次，并在同类留出任务上单独验收。这样可以检查新增信息是否帮助诊断，而非只靠多试几次。</p>
+<h2 id="8-wall-wm-20-robodojo-preview预训练起点权重实际落地p2">8. WALL-WM 2.0 RoboDojo Preview：预训练起点权重实际落地｜P2</h2>
+<p><strong>发布方：X Square Robot 团队。</strong> <a href="https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo" target="_blank" rel="noopener noreferrer">官方模型卡</a>｜<a href="https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/tree/main" target="_blank" rel="noopener noreferrer">实际文件</a>｜<a href="https://github.com/X-Square-Robot/wall-wm" target="_blank" rel="noopener noreferrer">同名研究仓库</a>。Hub 于 <strong>11 月 21 日 19:41 北京时间</strong>创建，<strong>22:42</strong>上传 model.safetensors；这是窗口内新权重预览，不是已发表的 WALL-WM 2.0 完整技术报告。官方明确：它是 RoboDojo 训练的预训练起点，与后续完整版主要在训练迭代数上有差异。</p>
+<p>已见约 <strong>24.13 GB BF16/混合张量权重文件</strong>、config.yml 与动作/状态统计文件；模型卡指定 Qwen3.5-9B tokenizer 和 chat template。配置可见双臂末端相对动作、6D 旋转和 32 步动作段等接口。旧 WALL-WM 研究的 Wan 视频塔、动作 flow matching 与事件建模提供背景，但<strong>不能据此确认这版权重沿用完全相同架构、损失与训练数据</strong>；预览卡尚未给出足够的版本专属说明。</p>
+<p>该预览<strong>没有可独立核对的新版基准表、训练数据清单或第三方结果</strong>，因此列为资产观察项，不赋予性能结论。卡片标注 Apache-2.0；本轮确认文件存在，没有下载加载，也未确认公开代码与该配置严格兼容。先读短模型卡即可，等匹配 loader、完整报告和固定评测协议后再深入。轻量验证从归一化、旋转约定、动作维度、严格加载和单步输出范围开始，再固定十个初态跑闭环；接口不通时应记为未完成验证，不能写成任务成功率为零。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮主要官方入口已扫描；新增进入重点的是 Inkling 2 Mini，以及扩展中国团队入口发现的 WALL-WM 2.0 预览权重。</strong> Spatial Intelligence 作为独立主线覆盖了生成几何、持续空间更新、3D/4D 世界与 real-to-sim，没有要求候选必须包含 robot action 关键词。</p>
+<ul>
+<li><strong>世界与空间入口</strong>：<a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a> 的 Atlas 最新关键公告仍为 12 日；<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a> 的 Genie 4 / Neon 已在前两期详解，未找到新的窗口内增量足以重列。Direct3D-V3、World-delta、ScaleWorld、SpatialMem、TuringSpace 均进入候选池；TuringSpace 19 日提交，StrideWorld 实际为 18 日提交，后者未因媒体 20 日转载而升级为窗口内首发。</li>
+<li><strong>机器人与物理 AI 入口</strong>：扫描 Generalist AI、Physical Intelligence、NVIDIA Robotics / Cosmos / GR00T、Figure、Skild AI、Field AI、1X、Meta FAIR、Toyota Research Institute。除已报道的 NVIDIA 19 日 simulation-agent 案例等外，本轮未核验到这些入口有足以新增到重点的重大研究发布；<a href="https://blogs.nvidia.com/blog/category/robotics/" target="_blank" rel="noopener noreferrer">NVIDIA Robotics 索引</a>与<a href="https://skild.ai/blogs" target="_blank" rel="noopener noreferrer">Skild 官方博客</a>用于回查。SolarWM 官方仓库 20 日新增训练提速公告，声称各阶段 1.85/2.12/1.88 倍；已入资产跟踪，尚未核验完整硬件与等质量计时，未写成独立复现。<a href="https://github.com/Junchao-cs/SolarWM#news" target="_blank" rel="noopener noreferrer">更新记录</a>。</li>
+<li><strong>Agent 与高校、中国团队入口</strong>：扫描 <a href="https://www.anthropic.com/research" target="_blank" rel="noopener noreferrer">Anthropic research</a>、news、Thinking Machines Lab，以及 Stanford SAIL、Berkeley BAIR、MIT Robotics、CMU RI、Princeton Robotics；扩展到腾讯混元、字节 Seed、上海 AI Lab、清华 AIR、智源及相关官方仓库。Anthropic 窗口内公司公告没有当作技术突破；中国来源的 CloudRobo-WM1.2 转载仍指向 16 日发布，没有重列。高校新论文以原论文/作者项目页交叉核对。</li>
+</ul>
+<p><strong>访问与遗漏边界</strong>：PI 官方列表返回 429，Princeton news 返回 403，CMU 直接请求遇到证书问题，清华 AIR 连接异常，智源 news 仅返回页面壳；已使用官方索引、项目与论文作替代核查，不能把这些入口称为完整抓取成功。broader-web 对 Spatial Intelligence、World Model、Physical AI、Embodied/Robot Foundation Model、Real-to-Sim、3D/4D、Human-to-Robot、Agent/Self-Evolution 与主要机构做交叉检查后，补回 Inkling；WALL 则进一步核对了真实上传提交。二者已进入池，未用“筛选标准”解释漏检。</p>
+<p><strong>Selection 记录</strong>：ScaleWorld、Streaming-AAA、PGX、Fast-JEPA、SpatialMem、TuringSpace、System-One RSI、TwinLab-Bench 与自蒸馏记忆报告均已检索，本期未逐项展开。前几项保留到效率、物理执行和空间推理专题；IBM 记忆新报告整理了已有产品经验，代码与部分发现早于本窗口，未包装为本周新库。四个 arXiv 类别取得 4,129 条目录记录、3,240 个去重 ID、248 个近期 ID 的关键词标题候选；这些是覆盖统计，不是 248 项严格窗口内重要首发。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日工作与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原生几何与空间资产</td>
+<td>Direct3D-V3 让 SDF 直接接受几何监督</td>
+<td>细节提升、粗索引误差、材质与物理可用性仍分离</td>
+<td>固定粗 mesh，测薄结构与未见视角，再检验接触可用性</td>
+</tr>
+<tr>
+<td>持久世界与证据更新</td>
+<td>World-delta 区分观测与补全，限制局部写入</td>
+<td>静态纠错与真实对象移动仍会混淆</td>
+<td>纠错、保留、运动识别三目标的持续空间基准</td>
+</tr>
+<tr>
+<td>视频与跨本体动作</td>
+<td>O²LaF 复用逆、正两种动力学先验；WALL 开放预览资产</td>
+<td>可解码、视频迁移和真实执行未被共同证明</td>
+<td>动作交换干预，加上统一闭环与版本接口验收</td>
+</tr>
+<tr>
+<td>在线执行与时延</td>
+<td>CauSyncVLA 用已执行历史更新控制记忆</td>
+<td>模型耗时、观测年龄、闭环响应、限时成功常被混用</td>
+<td>固定时钟和 GPU 预算，测延迟扰动与控制退化曲线</td>
+</tr>
+<tr>
+<td>物理推理与感知</td>
+<td>PhyDEX 暴露抓取鲁棒性和隐藏物理信息不足</td>
+<td>感知失败与不可辨识参数会污染“物理推理”分数</td>
+<td>固定抓取起点，分层提供历史、力觉与 oracle 物理量</td>
+</tr>
+<tr>
+<td>Agent 计算与演化</td>
+<td>Inkling 开放循环深度；SkillPlumber 使用指令覆盖</td>
+<td>内部计算、诊断信息和重试成本仍未公平配平</td>
+<td>同权重循环实验，以及覆盖信号的预算匹配消融</td>
+</tr>
+</tbody>
+</table></div>
+<p>连续地图中的近期变化是：<strong>视频生成、可执行状态、控制相关表示和评估协议正逐渐成为独立研究对象。</strong> 这提供更清晰的因果拆分，但也要求在模块连接处做实验：好的 mesh 是否改善接触，好的 latent 是否改变策略，正确的指令诊断是否在留出任务上保留收益。表中的机会是基于今日证据的研究推断，尚不是已经验证的结论。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>证据驱动的空间修订</strong>：十个场景，每个保留一处可靠历史、一处错误补全和一个真实移动物体。对只扩展、全重建、局部修订设置相同写入预算；分别计纠错收益、历史损坏、把运动误当纠错的比例与时间。它能检验 World-delta 式机制能否走出静态假设，不需要先训练大型视频模型。</li>
+<li><strong>控制信息的三层验收</strong>：从小型 latent-action encoder 开始，依次测 probe、动作 shuffle/交换后的预测变化、同初态闭环成功。将“线性可读”和“动作可用”分开；再注入观测延迟，查看 CauSync 式记忆更新是否保留正确动作方向。</li>
+<li><strong>先保证有信息，再测物理推理</strong>：用已抓取对象的固定初态比较质量/摩擦变化，并逐步加入校准历史、力觉和 oracle 参数。如果单图信息不足，允许模型请求一次探测；将探测成本与最终投掷成功一起报告。这比直接给所有失败贴上物理盲区标签更有解释力。</li>
+<li><strong>Agent 演化的可信增益</strong>：同一任务集上固定 token、工具和时长；一条线用可变循环权重调内部计算，另一条线比较真实/打乱/无覆盖信息。返回的 skill 和模型设置冻结后重跑三次，再测同类留出任务，防止把择优重试记为可迁移学习。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p><strong>本轮完成的是论文/官方材料阅读、公开文件与版本核查，未训练模型、未运行付费 API 基准、未下载大权重或完整数据、未做机器人复现。</strong> 文中所有实验数字均为作者或官方报告；没有将作者的真机实验称为本轮复现，也没有把第三方转述升级为独立验证。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>已核验的公开资产</th>
+<th>仍需补齐的证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inkling 2 Mini</td>
+<td>产品及可变循环模型实际权重、配置、模型卡与运行入口</td>
+<td>完整训练数据/奖励；等预算独立循环与 Agent 评测</td>
+</tr>
+<tr>
+<td>Direct3D-V3</td>
+<td>推理代码、三档 safetensors；作者列明 TOG 接收</td>
+<td>粗模型、训练代码；公开新版与论文版的统一评测</td>
+</tr>
+<tr>
+<td>World-delta</td>
+<td>论文全文、纠错/保留与更新成本表</td>
+<td>可跑实现、权重、完整更新序列和动态场景验证</td>
+</tr>
+<tr>
+<td>O²LaF</td>
+<td>论文、项目、明确标注待发布的仓库</td>
+<td>可下载模型与实现、动作干预和真实闭环结果</td>
+</tr>
+<tr>
+<td>CauSyncVLA</td>
+<td>训练/评测代码、LIBERO updater 与匹配说明</td>
+<td>基础模型/资产整合；真机私有权重与跨骨干验证</td>
+</tr>
+<tr>
+<td>PhyDEX</td>
+<td>论文、协议与失败分解</td>
+<td>官方项目恢复、完整数据/许可、实现与更多策略对照</td>
+</tr>
+<tr>
+<td>SkillPlumber</td>
+<td>论文协议、消融、冻结 skill 的重跑统计</td>
+<td>完整代码/轨迹、等总预算和未见任务验收</td>
+</tr>
+<tr>
+<td>WALL-WM 2.0 Preview</td>
+<td>21 日实际上传的权重、配置和归一化统计</td>
+<td>版本专属报告、匹配 loader、公开数据与基准结果</td>
+</tr>
+</tbody>
+</table></div>
+<p>Direct3D-V3 的同行评审状态来自作者项目列明的 TOG/SIGGRAPH Asia 接收记录，ACM 正文入口本轮返回 403；其余研究论文未核验已完成同行评审，两个公司模型按官方发布处理。HF 页面创建、README 更新和实际权重上传是不同事件：Inkling Hub 虽于 17 日创建，本期按 20 日官方发布纳入；WALL 按 21 日真实权重上传纳入。公开资产状态也不等于加载、训练或任务成功已验收。</p>
+<p>今天先读 <strong>Inkling 的循环设计与 World-delta 的纠错/保留协议</strong>；若只做一个实验，先完成十场景空间修订对照，把正确纠错、保住历史和识别真实运动分别记分，再决定是否投入大型模型训练。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-21/"><span>← 上一期 · 2026-11-21</span><strong>WM^MLLM · PRIO · MorphTwin</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
