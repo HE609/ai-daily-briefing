@@ -1,5 +1,26 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-24 地图快照
+
+窗口为 2026-11-21 09:00—2026-11-24 09:00（北京时间），与 23 日成稿去重。已读到 23 日 arXiv 公告批次，多数新论文 20 日提交；公告、提交与资产日期分开。新增十一项：NoPeWorld、Zing-1.0、StereoVLM、场景几何审计、Ego4Gen、LS-MBPO、Round-Trip Check、RoboTrack、RoboCap-10k 技术报告、CoEvoBench、DeepMind 形式验证量子 Agent 官方发布。NoPeWorld 21 日工件公告和 COLMAP LoMa 镜像此前漏检，按 Retrieval Failure 回补；RoboCap 数据较早已有预告，DeepMind 论文 6 日首发，均不冒称本期新论文/数据首发。
+
+| 问题分类 | 今日映射与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久世界与规则 | NoPeWorld 约束命令；Zing 由引擎维护状态 | 状态、意图、渲染和交互性缺少共同验收 | 状态事件日志与画面事件配对，测违规及误停 |
+| 度量空间与 real-to-sim | StereoVLM 使用双目标定；激光扫描审计 Agent 场景 | 输入证据错误与未利用已有证据混杂 | 尺度/标定干预×误差报告×留出房间 |
+| 4D 表征与动作 | Ego4Gen 从几何/运动 latent 映射控制 | oracle 未来、可解码性与实际预测闭环未完全分离 | 固定任务交换/打乱 latent，测控制因果贡献 |
+| 规划与模型式 RL | Round-Trip 检查搜索漏洞；LS-MBPO 缩短想象链 | 搜索更多与预测更长都可能积累失败 | 搜索预算×rollout 长度，报告成功/回归和总计算 |
+| 数据与人机对齐 | RoboTrack 调整运动点分布；RoboCap 统一度量标签 | 跟踪和标签精度是否改善策略尚缺等预算证据 | 分层注入接触/尺度/遮挡噪声，测下游动作收益 |
+| Agent 与科研演化 | CoEvoBench 联动模型/harness；Lean 外部验收搜索 | 首轮收益难转持续改进，弱 verifier 易自证 | 冻结外部测试，联合测每轮新增成功、回归及总成本 |
+
+工件与指标边界：NoPeWorld 已见11个预测头和归档，Collision 的74%→16%不能配上 Prediction 的约1%开销；完整系统需上游大模型及80—96GB显存。Zing 23.82FPS 为H200加两张H100的短序列吞吐，长交互首帧10.33秒；系统代码/权重未核验公开。Stereo 8B深度与2B控制分开；控制38.1%→42.4%来自仿真。场景审计仓库主要单房演示，HF仅占位，评测代码待发布；误差报告在同30房设计测试。Ego4Gen混合视频适配后Hard15.2%→26.4%，Easy46.6%→37.2%，专家未来latent实验另列。LS-MBPO跨硬件计时不能称同硬件八倍加速。Round-Trip在Wall原MPC仅0.88→0.89，需先诊断是否存在规划漏洞。
+
+RoboTrack轻量权重约66MB，307段基准中42段需Ego-Exo4D原权限；15M是轨迹数，Warp非商用且约47GB显存。RoboCap目录可见但manual gate，未取得全量或验证10,000小时；4.5mm手误差是对齐后的9.2分钟留出集指标，非野外真值。CoEvoBench24h/4H20/100美元教师额度，31.23为加权分数非成功率；仓库承认Docker/GPU及final-eval仍有完整性缺口。DeepMind证明位于discoveries分支；改善是形式规范/成本模型下的量子程序资源，非现有硬件实测，部分比较需230GB以上RAM。所有headline结果均为作者/官方，本轮未训练、运行机器人或重查Lean证明。
+
+下一轮追踪：NoPeWorld模式配平、误停与接触扩展；Zing可运行工件及状态—画面一致性；Stereo模型/基准与未见标定；场景审计完整评测和留出泛化；Ego4Gen真实预测闭环与latent更新回归；LS-MBPO代码、数据与同硬件计时；Round-Trip代码和动作和可识别条件；RoboTrack遮挡分层与下游控制；RoboCap访问/manifest与噪声—收益曲线；CoEvoBench部署/评测隔离及完整研究成本；Lean规范覆盖、经典成本和完整搜索日志。
+
+建议阅读 NoPeWorld→场景几何审计→Round-Trip→RoboTrack→CoEvoBench。第一项验证优先50问题逐轮规划失败分解，或20段可访问视频遮挡跟踪。SceneRuler、Beyond Visual Fidelity、PhiJEPA、Skill-JEPA、LDS、Embodied-Harness、Search-RSI、PhysForce和γ-Scape已检索未展开，属于Selection。[当期晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-24/)。
+
 ## 2026-11-23 地图快照
 
 本期窗口为 2026-11-20 09:00—2026-11-23 09:00（北京时间），与 22 日成稿去重。保留六项：Waddle-1、NAT/LeRobot、Tesla Reality View、Hy4、RoboColosseum 新结果、IsaacSwim。Tesla 22 日晚架构说明为正常新增，其早期上线以及其他漏检的资产/结果按 Retrieval Failure 回补；不把旧论文或晚到新闻当成新首发。
