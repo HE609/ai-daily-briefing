@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f3">
+<title>2026-11-24｜NoPeWorld · Looking Right Is Not Being Right · Round-Trip Check · Yunhe</title><meta name="description" content="空间与世界模型需要把“能生成、能测量、能执行、能纠错”分别验收，再用受控实验连接起来。">
+<link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-24/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-24｜NoPeWorld · Looking Right Is Not Being Right · Round-Trip Check"><meta property="og:description" content="空间与世界模型需要把“能生成、能测量、能执行、能纠错”分别验收，再用受控实验连接起来。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-24/">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
+<nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main" class="wrap reader"><a class="breadcrumb" href="../../#archive">← 返回日报归档</a><header class="article-header"><p class="eyebrow">空间智能与通用 AI <span> / </span> RESEARCH DAILY</p><h1>NoPeWorld · Looking Right Is Not Being Right · Round-Trip Check</h1><p class="article-deck">空间与世界模型需要把“能生成、能测量、能执行、能纠错”分别验收，再用受控实验连接起来。</p><div class="article-meta"><time datetime="2026-11-24">2026 / 11 / 24</time><span>约 25 分钟阅读</span><div class="tags"><span class="tag">空间智能</span><span class="tag">Agent</span><span class="tag">世界模型</span></div></div></header>
+<div class="reader-layout"><aside class="toc"><details open><summary>本期目录 <span aria-hidden="true">⌄</span></summary><nav aria-label="本期目录"><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%B2%BE%E8%AF%BB%E9%A1%BA%E5%BA%8F">今日精读顺序</a><a class="toc-level-2" href="#%E9%87%8D%E7%82%B9%E8%AE%BA%E6%96%87-%E6%A8%A1%E5%9E%8B-%E9%A1%B9%E7%9B%AE">重点论文 / 模型 / 项目</a><a class="toc-level-2" href="#1-nopeworld%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E5%86%85%E9%83%A8%E8%AF%BB%E5%87%BA%E5%B9%B6%E9%98%BB%E6%AD%A2%E7%A9%BF%E5%A2%99p0">1. NoPeWorld：从视频世界模型内部读出并阻止穿墙｜P0</a><a class="toc-level-2" href="#2-zing-10%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%96%E7%95%8C%E5%86%B3%E5%AE%9A%E7%8A%B6%E6%80%81%E6%B5%81%E5%BC%8F%E6%A8%A1%E5%9E%8B%E8%B4%9F%E8%B4%A3%E5%91%88%E7%8E%B0p0">2. Zing-1.0：可执行世界决定状态，流式模型负责呈现｜P0</a><a class="toc-level-2" href="#3-stereovlm%E7%94%A8%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%8F%8C%E7%9B%AE%E5%87%A0%E4%BD%95%E7%BA%A6%E6%9D%9F%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%97%B4%E6%8E%A8%E7%90%86p1">3. StereoVLM：用正确的双目几何约束度量空间推理｜P1</a><a class="toc-level-2" href="#4-looking-right-is-not-being-right%E6%B5%8B%E9%87%8F-agent-%E6%89%80%E5%BB%BA%E5%9C%BA%E6%99%AF%E7%9A%84%E7%9C%9F%E5%AE%9E%E5%87%A0%E4%BD%95p0">4. Looking Right Is Not Being Right：测量 Agent 所建场景的真实几何｜P0</a><a class="toc-level-2" href="#5-ego4gen%E5%87%A0%E4%BD%95%E4%B8%8E%E8%BF%90%E5%8A%A8-latent-%E8%BF%9E%E6%8E%A5%E6%9C%AA%E6%9D%A5%E7%94%9F%E6%88%90%E5%92%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E4%BD%9Cp0">5. Ego4Gen：几何与运动 latent 连接未来生成和机器人动作｜P0</a><a class="toc-level-2" href="#6-ls-mbpo%E7%94%A8%E6%BD%9C%E5%9C%A8%E5%AD%90%E5%8A%A8%E4%BD%9C%E6%AE%B5%E9%99%8D%E4%BD%8E-vla-%E6%A8%A1%E5%9E%8B%E5%BC%8F%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%88%90%E6%9C%ACp1">6. LS-MBPO：用潜在子动作段降低 VLA 模型式强化学习成本｜P1</a><a class="toc-level-2" href="#7-round-trip-check%E8%A7%84%E5%88%92%E8%B6%8A%E4%B9%85%E5%8F%AF%E8%83%BD%E8%B6%8A%E4%BC%9A%E5%88%A9%E7%94%A8%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%8F%E6%B4%9Ep0">7. Round-Trip Check：规划越久，可能越会利用世界模型的漏洞｜P0</a><a class="toc-level-2" href="#8-robotrack%E7%9C%9F%E5%AE%9E%E6%93%8D%E4%BD%9C%E8%A7%86%E9%A2%91%E5%9F%BA%E5%87%86%E4%B8%8E%E5%8F%AF%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%B0%8F%E5%9E%8B%E7%82%B9%E8%B7%9F%E8%B8%AA%E6%A8%A1%E5%9E%8Bp0">8. RoboTrack：真实操作视频基准与可下载的小型点跟踪模型｜P0</a><a class="toc-level-2" href="#9-robocap-10k%E8%A7%84%E6%A8%A1%E5%8C%96%E7%AC%AC%E4%B8%80%E4%BA%BA%E7%A7%B0%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BA%A6%E9%87%8F%E6%A0%87%E6%B3%A8%E4%B8%8E%E8%AE%BF%E9%97%AE%E8%BE%B9%E7%95%8Cp1">9. RoboCap-10k：规模化第一人称数据的度量标注与访问边界｜P1</a><a class="toc-level-2" href="#10-coevobench%E4%B8%80%E6%AC%A1%E5%A4%A7%E5%B9%85%E6%94%B9%E5%96%84%E8%BF%98%E4%B8%8D%E8%B6%B3%E4%BB%A5%E8%AF%81%E6%98%8E%E9%80%92%E5%BD%92%E8%87%AA%E8%BF%9B%E5%8C%96p0">10. CoEvoBench：一次大幅改善还不足以证明递归自进化｜P0</a><a class="toc-level-2" href="#11-deepmind%E4%BB%A5%E5%BD%A2%E5%BC%8F%E9%AA%8C%E8%AF%81%E4%BD%9C%E4%B8%BA%E7%A7%91%E7%A0%94-agent-%E7%9A%84%E5%A4%96%E9%83%A8%E9%AA%8C%E6%94%B6%E5%99%A8p0">11. DeepMind：以形式验证作为科研 Agent 的外部验收器｜P0</a><a class="toc-level-2" href="#spatial-intelligence-frontier-%E6%89%AB%E6%8F%8F">Spatial Intelligence / Frontier 扫描</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE">今日研究地图</a><a class="toc-level-2" href="#%E4%BB%8A%E6%97%A5%E7%A0%94%E7%A9%B6%E6%9C%BA%E4%BC%9A%E4%B8%8E%E8%BD%BB%E9%87%8F%E9%AA%8C%E8%AF%81">今日研究机会与轻量验证</a><a class="toc-level-2" href="#%E8%AF%81%E6%8D%AE%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7">证据状态与可复现性</a></nav></details><div class="reader-actions"><button type="button" id="copy-link">复制本期链接 ↗</button><a href="../../raw/2026-11-24.md" download>下载 Markdown ↓</a></div></aside><div class="article-column"><div class="original-title">空间智能与通用 AI 科研晨报 <span>｜</span> 2026-11-24</div><article class="prose"><p>检索窗口为 <strong>2026-11-21 09:00—2026-11-24 09:00（北京时间）</strong>，与 23 日成稿及此前重点去重。本轮并行覆盖 arXiv Robotics / CV / AI / ML、官方研究发布、GitHub / Hugging Face、独立的 Spatial Intelligence / 3D-4D / real-to-sim 主线、VLA / WAM / RL，以及 Agent / self-evolution，并执行 broader-web 重大遗漏检查。已读到 <strong>11 月 23 日 arXiv 新公告批次</strong>；以下多篇论文实际于 20 日提交，按窗口内新公告纳入，保留原提交日期，不称为 24 日首发。本期保留 <strong>11 项重点工作</strong>，不机械重复 Waddle-1、NAT、Tesla Reality View、Hy4 或机器人旧榜单。</p>
+<p>今天最重要的新增判断是：<strong>空间与世界模型需要把“能生成、能测量、能执行、能纠错”分别验收，再用受控实验连接起来。</strong> NoPeWorld 把隐藏的碰撞信息变成执行约束；Zing 将规则执行与视频渲染分开；几何重建审计和 Round-Trip Check 揭示外观与预测目标容易掩盖的错误。另一条独立主线是科研 Agent：CoEvoBench 暴露递归改进停滞，DeepMind 展示形式验证约束下的算法搜索。NoPeWorld 的较早代码公告此前漏检，明确记为 <strong>Retrieval Failure 回补</strong>；本轮新论文公告与新官方发布则属于正常新增。</p>
+<h2 id="今日精读顺序">今日精读顺序</h2>
+<p>今天我建议的精读顺序是：<strong>NoPeWorld → Looking Right Is Not Being Right → Round-Trip Check → RoboTrack → CoEvoBench</strong>。</p>
+<ul>
+<li><strong>NoPeWorld</strong>：先理解如何把模型已有但未执行的物理知识，转化为可检查的动作约束。</li>
+<li><strong>Looking Right Is Not Being Right</strong>：建立尺度、表面和家具布局的测量标准，再看 Agent 是否真的纠正几何。</li>
+<li><strong>Round-Trip Check</strong>：理解为什么增加规划搜索反而可能降低成功率，以及怎样检查动作与预测的自洽性。</li>
+<li><strong>RoboTrack</strong>：有真实视频基准、小模型和训练数据，适合尽快开展独立的小规模验证。</li>
+<li><strong>CoEvoBench</strong>：把一次有效改进、持续递归收益、模型更新和 harness 改造放进同一预算与留出评测中。</li>
+</ul>
+<p>P0/P1 表示阅读和跟踪优先级，不等于同行评审、独立复现或产品成熟度。对生成系统更感兴趣，可将 Zing 提前；对科研 Agent 更感兴趣，可接着读第 11 项 DeepMind。</p>
+<h2 id="重点论文-模型-项目">重点论文 / 模型 / 项目</h2>
+<h2 id="1-nopeworld从视频世界模型内部读出并阻止穿墙p0">1. NoPeWorld：从视频世界模型内部读出并阻止穿墙｜P0</h2>
+<p><strong>论文：Non-penetrating World Models；Yuhang Dai、Yinwei Wu、Ziyue Lin、Han Ji、Xingyi Yang，香港理工大学 Learning &amp; Generation Lab。20 日提交、23 日新公告；仓库注明 21 日发布代码、预测头和数据，属于此前检索遗漏的工件回补。预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27963" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/yuhangdai427/NoPeWorld" target="_blank" rel="noopener noreferrer">代码与协议</a>｜<a href="https://huggingface.co/PeterDAI/NoPeWorld" target="_blank" rel="noopener noreferrer">预测头</a>｜<a href="https://huggingface.co/datasets/PeterDAI/NoPeBench" target="_blank" rel="noopener noreferrer">NoPeBench</a>。它问的是：生成器明明具有碰撞线索，为什么执行用户命令时仍会穿过或抹掉障碍？</p>
+<p>方法冻结六种视频世界模型，在 DiT 隐状态上训练不足 2M 参数的头，利用 Unreal 真实几何监督候选动作的安全性；不安全命令被替换为尽量保留原意的滑动或停止。Collision 模式读取当前块首个去噪步骤，Prediction 模式读取上一块缓存。NoPeBench 分开测真实历史上的单步决策、已知三维场景的闭环生成，以及开放域图像上的迁移，还加入畅通路线，避免“全部停住”获得虚高安全分。</p>
+<p><strong>作者报告</strong> Collision 模式六模型平均违反率 <strong>74%→16%</strong>。低开销数字属于另一配置：LingBot-World 2.0 每条原路线约 53.7 秒，Prediction 增加约 0.7 秒，Collision 增加约 9.9 秒，不能把两者拼成同一最优结果。外部深度方法有时更少穿墙，却更容易停滞；WorldPlay2 本来会后退，修正后安全性改善但 Safe-Intent Score 未超过原模型。三维评估器和开放域 VLM 评审均有误差；接触后的推、搬运、破碎也不在已解决范围。</p>
+<p><strong>值得优先精读。</strong> 相对视频物理 benchmark，它把检测接入执行链；相对传统碰撞求解器，它从生成模型内部估计约束。本轮已见 11 个实际预测头文件和数据归档，但完整生成仍依赖上游权重，官方要求至少 80 GB 显存，部分配置需 96 GB。轻量验证先审计 20 条已生成路线，交叉记录穿透、误停和滑墙，再在小场景用冻结小编码器训练安全头作为替代实验；这可检验机制，不能宣称复现六大模型结果。</p>
+<h2 id="2-zing-10可执行世界决定状态流式模型负责呈现p0">2. Zing-1.0：可执行世界决定状态，流式模型负责呈现｜P0</h2>
+<p><strong>Wenbo Zhang、Guanghui Zhang、Xinyao Yu 等，Zing Team / SeedLeap.ai；技术报告 20 日提交、23 日公告，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27336" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://zing.loopit.com/" target="_blank" rel="noopener noreferrer">项目入口</a>。研究问题是：玩家命令到底是“尝试做某事”，还是直接要求视频呈现一个结果？如果开门、碰撞、持久对象状态都由生成器临时决定，连续画面很难保证规则可靠执行。</p>
+<p>系统把 WorldKit 可执行代理世界、世界状态更新、观察合成和交互运行时分成明确接口。引擎根据规则更新状态并输出 proxy 视频；基于 MiniMax-H3 改造的块因果流式渲染器，在 proxy、文字、场景及主体参考图条件下合成画面。训练包含多任务生成与编辑、参考条件训练、自回归适配和少步蒸馏；增量解码、跨块联合计算与压缩 K/V 降低服务成本。生成目标负责外观与运动呈现，规则正确性来自引擎。</p>
+<p><strong>作者报告</strong> OpenVE 3.90、LongV2VBench 3.44，StreamEval 指令/参考编辑 57.86/54.06。832×480 短序列暖机配置达到 <strong>23.82 FPS</strong>，DiT 用一张 H200，编码和解码各用一张 H100；首帧时间约 <strong>0.695 秒</strong>。长交互配置约 20.40 FPS、首帧 10.33 秒，因此吞吐、首帧和动作到画面延迟应分别报告。编辑基准成绩也不直接证明复杂游戏规则或真实物理准确。</p>
+<p><strong>值得深入阅读系统接口。</strong> 它与 Genie 类纯生成交互、World Labs 的显式空间表示、Code World Model 的可执行状态形成互补。局限包括渲染逐渐偏离 proxy，以及“画面新出现的物体是否可被引擎拾取”等状态权属问题。未核验到完整可运行代码、专属权重和训练数据；项目站本轮直连 TLS 受限。轻量替代是用现成引擎构造十个开关、门与拾取场景，先检查状态日志、重访不变量和画面事件是否对应，再决定是否投入大模型渲染。</p>
+<h2 id="3-stereovlm用正确的双目几何约束度量空间推理p1">3. StereoVLM：用正确的双目几何约束度量空间推理｜P1</h2>
+<p><strong>Chi Yan、Guoyang Zhao、Wentao Yuan、Yixiao Ge、Yanning Zhou、Dan Xu，香港科技大学与小鹏机器人。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27915" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://xpeng-robotics.github.io/stereovlm/" target="_blank" rel="noopener noreferrer">官方项目</a>。问题是 VLM 给出的距离与深度究竟来自视觉几何，还是常见物体尺寸等语义先验；没有标定的多图输入无法自动消除尺度歧义。</p>
+<p>StereoVLM 从 Qwen3-VL 2B/8B 出发，把跨视图对应、视差、标定条件下的深度和对象级空间问答共同做指令微调，只在答案 token 上施加生成损失。几何监督是交织训练的层级任务，不是四个顺序训练阶段；一般多模态数据仍占训练混合的 75%。作者还通过复制左图、打乱右图和修改基线参数等干预，检查有效双目关系的贡献。</p>
+<p><strong>作者报告</strong> 8B 在 Stereo3D-Bench 的深度 δ1 为 <strong>95.17%</strong>、对象级平均分 66.98。下游控制来自另一个 <strong>2B</strong> 实验：相同 GR00T 架构、相同双目输入与训练协议下，RoboCasa 24 任务成功率 <strong>38.1%→42.4%</strong>；五个外部空间基准平均提高 3.54 点。不能把 8B 深度成绩与 2B 控制增益当作同一配置，也不能把仿真厨房任务当成真机验证。</p>
+<p><strong>适合精读几何干预与视差泛化。</strong> 它相对单目空间指令微调增加了可测量证据，但依赖同步、标定和合适纹理；尚未核验公开训练代码、模型文件或完整新基准下载。轻量验证可先用少量已有双目图和 2B VLM，对比正确右图、重复左图、错误右图及基线缩放，报告深度相对误差与输出对标定的敏感性；只有在相同 token 和数据预算下改善，才支持几何贡献。</p>
+<h2 id="4-looking-right-is-not-being-right测量-agent-所建场景的真实几何p0">4. Looking Right Is Not Being Right：测量 Agent 所建场景的真实几何｜P0</h2>
+<p><strong>Ziyang Long、Yen-Liang Lin、Shifan Zhu、Allen Tu 等，UCLA、Amazon、UMass Amherst、Maryland、Oxford 等机构。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.26937" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/Albertlongzi/looking-right-being-right" target="_blank" rel="noopener noreferrer">项目与工件状态</a>。它研究视频重建 Agent 生成的可编辑房间到底有多准，以及看自己的渲染图是否真的能修正几何。</p>
+<p>作者对 ARKitScenes 的 30 间真实房间引入激光扫描参考，分别测表面、深度/边界和家具布局，再用几何平均组成 0—100 分的 G。主要配准仅允许保持尺度的刚体变换，另测可缩放配准来诊断尺度问题。Agent 在 Blender 工具循环中建模；没有新的模型训练目标，干预变量是提供何种几何证据、是否能看渲染，以及是否收到场景对输入点云的误差报告。</p>
+<p><strong>作者报告</strong> 视频输入下最强被测 Astra 得 <strong>51.4</strong>，同视频的稠密重建参考为 <strong>75.9</strong>；提供估计点云后，可编辑场景可接近稠密参考，但会近比例继承输入尺度错误。误差报告让 Terra / Sol 的修改收益相对并行隐藏报告对照增加 <strong>3.9 / 5.5 点</strong>，Astra 的区间则包含零。报告不新增几何信息，只促使已有证据被用于核对输出。它在同一批房间上设计和测试，尚未证明跨房间、跨厂商的泛化。</p>
+<p><strong>非常值得精读实验设计。</strong> 相对仅看图像相似度的 scene-generation 评估，它提供明确的 real-to-sim 几何验收，但不覆盖语义正确性、可编辑性或接触动力学。仓库当前主要是单房间演示和网站，评测代码/harness 待发布；HF 数据库本轮只有 README 与属性文件，不能称 30 房间实验包已开放。轻量验证用三间有扫描参考的房间，固定预算比较“看渲染/看几何误差报告”，同时测试输入尺度扰动和留出房间。</p>
+<h2 id="5-ego4gen几何与运动-latent-连接未来生成和机器人动作p0">5. Ego4Gen：几何与运动 latent 连接未来生成和机器人动作｜P0</h2>
+<p><strong>Yang Liu、Chao Ye、Jiahao Zhang、Zeyuan Hou 等，哈尔滨工业大学与云南民族大学。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27513" target="_blank" rel="noopener noreferrer">论文</a>。它试图让未来表征同时具有可解码的空间含义和可供控制读取的运动信息，减少单纯视频 latent 与机器人动作接口之间的断层。</p>
+<p>模型基于 Cosmos3-Nano，从单帧自我中心观察和文字同时生成 RGB、点图和 scene flow；MotionCrafter 提供几何/运动伪标签，模态路由 LoRA、非对称注意力及梯度隔离用于控制多模态训练干扰。FlowInverse 先在多任务动作数据上预训练，再按任务使用生成 latent 与动作配对训练。生成骨干用未来模态监督，逆动力学网络用动作监督，因此“视频无动作标签适配”不代表整套系统无动作数据。</p>
+<p><strong>作者报告</strong> 五个 RoboTwin 2.0 任务的闭环 Easy / Hard 均值为 <strong>46.6% / 15.2%</strong>；增加随机场景的无动作视频并保持 FlowInverse 不变后，变成 <strong>37.2% / 26.4%</strong>。困难条件改善伴随简单条件退化；π0 对照为 41.0% / 21.4%，不能概括为所有设置全面最优。另一个表征比较实验用对应测试场景的专家未来视频提供 latent，具有额外未来信息，不能与模型自己预测未来的闭环结果混读。</p>
+<p><strong>值得读方法与代价交换。</strong> 它连接 Plan4D 式几何生成与 WAM，但伪几何不是独立物理真值，动作读取器还可能与更新后的 latent 不兼容。预训练使用 8 张 RTX PRO 6000、40K 步；未核验官方可运行代码、专属权重和生成伪标签集。轻量替代先固定少量轨迹，比较 RGB latent、scene-flow latent 和二者组合的动作预测，再交换/打乱未来 latent，测控制是否依赖运动内容；同时保留简单/困难条件的回归检查。</p>
+<h2 id="6-ls-mbpo用潜在子动作段降低-vla-模型式强化学习成本p1">6. LS-MBPO：用潜在子动作段降低 VLA 模型式强化学习成本｜P1</h2>
+<p><strong>论文：Efficient VLA Reinforcement Learning via Subchunk Rollouts in Latent World Models；Nan Tang、Han-Tao Zhang、Jing-Cheng Pang 等，南京大学与 Cirquar Technologies。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27645" target="_blank" rel="noopener noreferrer">论文</a>。研究问题是：不反复生成高成本视频，也不更新整套大 VLA，能否利用世界模型的想象改善动作？</p>
+<p>LS-MBPO 冻结 π0.5，让其产生基础动作块，再训练潜在残差策略逐个修正子段。Hierarchical Forcing 结合稠密因果预测监督和递归反馈，控制误差累积；Latent Subchunk Rollouts 避免在每个想象步骤重新构造 VLA 的图像输入；按进度安排的起点课程，从较后阶段逐渐转到任务前段。训练包括潜在预测/辅助重建与残差策略 RL，仍需离线轨迹及少量专家数据。</p>
+<p><strong>作者报告</strong> LIBERO Long 从基础策略 <strong>52.0%</strong> 提升到 <strong>71.2%</strong>，Dreamer 残差对照为 69.6%；另测三个 RoboTwin 任务和两个真机 ALOHA 任务。与 VLA-MBPO 的资源表中，LS-MBPO 的世界模型为 4×RTX 5090 训练 12 小时、RL 为单卡 1.5 小时；对照为 4×H100 的 18 小时与 12 小时。这说明资源配置不同下的工程成本差异，不能直接称同硬件加速八倍。真机每任务 20 次，覆盖面仍有限。</p>
+<p><strong>值得精读接口与短 rollout 设计。</strong> 相对 Dreamer 和视频生成式 VLA-MBPO，它保留预训练动作先验并缩短想象链，仍受残差可达范围和世界模型误差约束；本轮未核验到官方实现、策略/世界模型权重或完整离线轨迹发布。轻量验证只选一个 LIBERO 任务，冻结已有策略，配平真实交互和总 GPU 时间，比较无想象、单步想象、子段想象，记录成功与生成误差，避免仅按环境步数比较。</p>
+<h2 id="7-round-trip-check规划越久可能越会利用世界模型的漏洞p0">7. Round-Trip Check：规划越久，可能越会利用世界模型的漏洞｜P0</h2>
+<p><strong>论文：A Plan or an Adversarial Example? A Round-Trip Check for Latent World Models；Huiyuan Tian、Chih-Yung Wen、Shijian Li，浙江大学与香港理工大学。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27124" target="_blank" rel="noopener noreferrer">论文</a>。它检验潜在世界模型规划的一个反直觉现象：CEM 持续降低预测目标代价，却可能把已能成功的任务重新规划失败。</p>
+<p>作者逐轮执行计划，统计“曾解决、后来丢失”的任务；再训练小型逆动力学网络，从相邻预测状态读回动作，与候选计划比较并加惩罚。关键细节是这些模型每一步跨越五个环境动作，相邻状态不一定能识别五个独立动作，所以检查的是可识别的块内动作和，而非强行恢复每一拍。它只训练辅助回读器，保持原世界模型冻结。</p>
+<p><strong>作者在已发布 DINO-WM、LeWM、JEPA-WM 上报告</strong> 无重规划时，Wall 的 DINO-WM/CEM 成功率 <strong>0.39→0.76</strong>；Cube 的 LeWM 在 MPC 下 <strong>0.70→0.81</strong>，但 Wall 采用提前停止的原 MPC 协议时只从 <strong>0.88→0.89</strong>。回读器不超过预测器参数的 4.3%，训练约 4.5—15 分钟，规划开销增加 0.2%—3.1%。这些是作者对公开模型的外部研究，仍不是本轮独立重跑。</p>
+<p><strong>值得优先精读。</strong> 相对 Skill-JEPA 让搜索分布贴近训练动作的思路，它在搜索时加自洽约束；二者可能互补。局限是可识别动作和依赖所测动力学，不能直接推广到非交换接触动作；有些协议本来就不需要修补。本轮未核验到本方法可跑代码/回读器权重。轻量验证用一个已发布世界模型、50 个固定任务，逐轮画出预测代价、真实成功与丢失任务率；再测试回读惩罚，而不是只比较最终一轮均值。</p>
+<h2 id="8-robotrack真实操作视频基准与可下载的小型点跟踪模型p0">8. RoboTrack：真实操作视频基准与可下载的小型点跟踪模型｜P0</h2>
+<p><strong>Vincent Shao、Max Argus、Winson Han、Eli VanderBilt 等，Ai2、华盛顿大学与 UNC Chapel Hill。23 日官方发布基准、训练数据、代码和模型；属于研究发布，未核验同行评审。</strong> <a href="https://allenai.org/blog/robotrack" target="_blank" rel="noopener noreferrer">官方文章</a>｜<a href="https://github.com/allenai/robotrack" target="_blank" rel="noopener noreferrer">代码与完整协议</a>｜<a href="https://huggingface.co/allenai/RoboTracker" target="_blank" rel="noopener noreferrer">轻量权重</a>｜<a href="https://huggingface.co/datasets/allenai/RoboTrack-Bench" target="_blank" rel="noopener noreferrer">基准</a>｜<a href="https://huggingface.co/datasets/allenai/RoboTrack-15M" target="_blank" rel="noopener noreferrer">训练数据</a>。问题是通用视频点跟踪成绩，能否代表抓持、遮挡、细小工具和跨视角操作中的可靠性。</p>
+<p>RoboTrack-Bench 含 <strong>307 段真实视频、2,522 条人工核验轨迹</strong>；RoboTrack-15M 是 <strong>3,000 段仿真视频、300 个住宅、1,500 万条轨迹</strong>，不是 1,500 万个视频。作者用 MolmoSpaces 生成位置与可见性标签，并通过调整静态/运动点采样，让位移分布贴近真实操作。RoboTracker 在 AllTracker 17M 参数架构上微调；Warp 版从约 1B 的 CoWTracker 出发，使用原数据与新仿真数据各半的混合训练。</p>
+<p><strong>作者报告</strong> RoboTracker 的 AJ <strong>62.56→63.40</strong>，Warp 为 <strong>63.87→65.98</strong>；AJ 同时涉及定位和遮挡判断，不能当作任务成功率。单示范移液实验完整完成 <strong>17/20</strong>，mask 和光流分别为 8/20、5/20，但这是小规模专门系统，未隔离所有模块贡献。旧仿真 RGB-Stacking 与真实操作会给出不同的模型排序，说明生成数据量与真实可用性之间仍缺少充分连接。</p>
+<p><strong>最适合今天启动独立验证。</strong> 本轮已见约 <strong>66 MB</strong> 的轻量 .pth 文件、Warp 权重及训练数据文件；轻量模型 Apache 2.0，Warp 权重 CC BY-NC 4.0。307 段基准中，<strong>42 段 Ego-Exo4D 视频需原数据权限并自行裁剪</strong>，其余 265 段可直接获取；重编码也会引入约 0.1 AJ 差异。Warp 官方协议需约 47 GB 显存，先用轻量版测 20 段遮挡视频即可。与 CoTracker/BootsTAP 相比，主要价值是操作分布与可审计数据协议；下一步应检验跟踪改善是否稳定改变闭环动作，而非只看 AJ。</p>
+<h2 id="9-robocap-10k规模化第一人称数据的度量标注与访问边界p1">9. RoboCap-10k：规模化第一人称数据的度量标注与访问边界｜P1</h2>
+<p><strong>Kheri Hughes、Qasim Ali、Nikash Bhardwaj 等，Grounded Superintelligence 与 BitRobot。技术论文 20 日提交、23 日公告；数据此前已有预告，本期新增是技术报告证据，不能称 23 日首次公开 10,000 小时数据。预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.26916" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://robocap10k.com/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://huggingface.co/datasets/groundedsi/RoboCap-10k" target="_blank" rel="noopener noreferrer">数据入口</a>。研究问题是跨地区采集人类工作视频时，能否统一设备、标定和三维标签质量。</p>
+<p>作者报告 <strong>10,000 小时、11 个国家、18 个任务家族、200 种任务类型、2,000 个任务</strong>，使用 250 g 六相机/双 IMU 头戴设备。Grounded API 为视频生成重力对齐的头部轨迹、手部 MANO/关键点和分层语言描述，按统一时钟存入 LeRobot v3；这是数据和处理流水线工作，没有展示新的端到端策略训练目标或跨本体控制增益。论文称发布格式约 412 个分片、总量约 127 TB。</p>
+<p><strong>作者的独立验证集测量</strong>中，RoboMoCap 头轨迹中位 ATE 为 3.0 mm；手部 9.2 分钟留出集的 <strong>4.5 mm 是去除旋转、平移和尺度后的 PA-MPJPE</strong>，另一已知手形的内部集 MPJPE 为 9.2 mm。这些都不能升级成全部野外视频的毫米级真值。真实接触遮挡处误差更难控制，约三分之二时长集中在印度和菲律宾，困难跟踪片段可能被质量筛选排除，且无力觉/触觉。</p>
+<p><strong>适合读质量协议和标签价值，优先级低于可直接验收的小基准。</strong> 相对 Ego4D、EgoDex 等，它强调统一设备与度量轨迹；尚缺证明“精度更高的人类标签带来多少策略收益”的等数据实验。HF 本轮显示 <strong>manual gate、CC BY 4.0</strong>，可见大量视频/Parquet 文件名，但未取得访问、下载或核对完整时长，不能声称全量已验收；处理栈完整代码/模型也未核验开放。轻量实验待授权后只取一个小分片，审计相机—手轨迹重投影和接触段，并做标签噪声注入、操作者留出与固定机器人示范量的迁移对照。</p>
+<h2 id="10-coevobench一次大幅改善还不足以证明递归自进化p0">10. CoEvoBench：一次大幅改善还不足以证明递归自进化｜P0</h2>
+<p><strong>Chuan Xiao、Baojie Wang、Haizhao Fan、Hongzhe Du、Xander Xu，浙江大学、阿里巴巴与上海交通大学。20 日提交、23 日公告，预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.27116" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/AlibabaResearch/CoEvoBench" target="_blank" rel="noopener noreferrer">代码与当前实现状态</a>。它让 LLM 研究员共同修改目标模型和工具交互 harness，检验能否在系统已经改善后继续找到下一次有效更新。</p>
+<p>五个领域包括 SWE-bench Verified、TB-Lite、AppWorld、Telecom、BFCL。研究员从统一的 9B 或 2B base 与初始 harness 出发，可造数据、训练、改工具/上下文/记忆，再提交模型—harness 配对；开发可见集、只返回成绩的选择集、最终测试集分开。参考预算是 <strong>24 小时、4 张 H20、100 美元教师模型调用额度</strong>，其中 100 美元不是所有研究员 API 的总成本。训练目标由研究员选择，平台评价的是最终留出表现和开发轨迹。</p>
+<p><strong>作者报告</strong> 9B 目标上，最佳研究员配置的跨领域加权分数 <strong>1.09→31.23</strong>，指令模型加参考 harness 为 37.42，约填补 83% 差距；31.23 不是五域统一的完整成功率。改进运行中首次候选通常贡献约四分之三的总收益，后续新最佳明显减少，长程 coding 的训练尤其困难。不同研究员还使用不同 CLI，不能把排名只归因于模型。作者审计违规后会回退到 base 权重配最终 harness 计分，这也说明数据来源与评价权限必须纳入实验。</p>
+<p><strong>值得精读协议与失败轨迹。</strong> 相对只改 prompt/harness 或只做训练配方的 benchmark，它允许两者相互改变收益；当前证据仍不支持稳定递归加速。代码公开，但 README 明确说现有 Docker/GPU 镜像未完成验收、operator 最终评测/比较仍有连线与完整性缺口；toy researcher 是脚本式生命周期样例，不能当自主研究演示。轻量验证先用固定 2B 模型和单领域小集做“仅改 harness/仅改权重/交替修改”对照，冻结外部测试并记录每轮新增成功、回归和总成本。</p>
+<h2 id="11-deepmind以形式验证作为科研-agent-的外部验收器p0">11. DeepMind：以形式验证作为科研 Agent 的外部验收器｜P0</h2>
+<p><strong>Discovering formally verified quantum programs with AI；Sergey Shirobokov、Ben Jaderberg、Ryan Babbush 等，Google DeepMind 与 Google Quantum AI。官方文章 23 日 17:00 UTC 发布，即北京时间 24 日 01:00；论文最早 6 日提交、16 日修订，本期按新官方研究发布纳入，不称新论文首发。未核验同行评审。</strong> <a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" target="_blank" rel="noopener noreferrer">官方发布</a>｜<a href="https://arxiv.org/abs/2611.09822" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/google-deepmind/formal-quantum-computation" target="_blank" rel="noopener noreferrer">Lean 框架</a>｜<a href="https://github.com/google-deepmind/formal-quantum-computation/tree/discoveries/QuantumComputationDiscoveries" target="_blank" rel="noopener noreferrer">发现结果与验证说明</a>。</p>
+<p>Gemini 4 Agent 团队针对人类指定的量子程序规范搜索候选，Lean 检查正确性与规定成本；各团队维护共享知识，并每四小时交流一次。这里的优化对象是量子程序和资源开销，没有发布一个通过该过程自改权重的新基础模型。创新点在于把本来无法在现有硬件完整运行的程序，转成可形式化检验的搜索问题。</p>
+<p><strong>官方报告</strong> 特定 Grover 实现最多改善 2.57 倍，arcsin 例程 290 倍；聚变、光化学、P450 应用的成本改善约为 11.8、8、2.5 倍。它们是特定形式规范及成本模型下的算法资源改进，不是当代量子计算机的实测墙钟加速，也不证明任意科研任务都能自主解决。人类选题和团队设置仍发挥作用；证明只覆盖已形式化命题，库还把经典控制/计算的显式成本模型列为后续里程碑。</p>
+<p><strong>值得精读外部验收机制。</strong> 与 AlphaEvolve、形式化数学和 CoEvoBench 相比，它展示在强 verifier 可用时如何约束搜索，但不能直接移植到没有完整真值的机器人场景。代码、规范和证明可见，发现结果位于 <strong>discoveries 分支</strong>；未见完整 Agent 编排、调用日志和模型权重开放。作者说明小型 Grover FindAny 可数分钟构建/比较，而部分化学案例峰值 RAM 超过 230 GB。轻量验证应先重查一个小 Grover 证明和资源计数，固定版本与规范，再讨论搜索收益；本轮未实际构建 Lean 或复核全部证明。</p>
+<h2 id="spatial-intelligence-frontier-扫描">Spatial Intelligence / Frontier 扫描</h2>
+<p><strong>本轮主要官方入口已扫描，发现 DeepMind 的窗口内重大研究发布，扩展机构中发现 Ai2 RoboTrack；空间智能主线的新论文与工件已独立入池。</strong> 在可访问与可交叉核对的入口中，其余下列主要公司未发现足以替换本期重点的窗口内重大新增。该结论限于本轮检索，访问失败不算完成覆盖。</p>
+<ul>
+<li><strong>空间与物理基础模型：</strong> <a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs</a>、<a href="https://generalistai.com/blog" target="_blank" rel="noopener noreferrer">Generalist</a>、<a href="https://www.pi.website/blog" target="_blank" rel="noopener noreferrer">Physical Intelligence</a>、<a href="https://deepmind.google/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a>、<a href="https://blogs.nvidia.com/blog/category/robotics/" target="_blank" rel="noopener noreferrer">NVIDIA Robotics</a> 及 Cosmos / GR00T 的模型入口。Atlas、Genie 产品开放、CDF 和既有机器人发布按原日期去重；PI 直连 429，辅以官方索引检索，不能据此保证完整最新性。</li>
+<li><strong>机器人系统：</strong> Figure、Skild AI、Field AI、1X、Toyota Research Institute；同时查 Meta FAIR 与 Anthropic 的 research/news。Skild 原 blog 路径 404，改查官方入口与 Steel 页面；TRI 主站 TLS 受限，补查官方索引。未把旧产品、合作和新闻转载当作新模型。</li>
+<li><strong>高校与中国团队：</strong> Stanford AI、Berkeley BAIR、MIT Robotics、CMU RI、Princeton Robotics，以及清华、北大/智源、上海交大、浙大、港科大/港理工、腾讯混元、智元、自变量和蚂蚁相关官方/作者入口。Princeton 403、清华部分入口 TLS 失败、智源页面空壳，已用论文、项目与仓库补查，仍保留检索盲区。</li>
+<li><strong>代码与产业空间系统补充：</strong> <a href="https://github.com/colmap/colmap/releases/tag/models-loma-v1.0.0" target="_blank" rel="noopener noreferrer">COLMAP LoMa 模型发布</a> 于 21 日 19:58 UTC 发布，实际是上游 ONNX 模型和词汇树的字节一致镜像，属于部署可用性更新，不能称新模型训练结果；此前未入池，记 Retrieval Failure 回补。CupixWorks 5.0 的 23 日企业空间平台 beta 发布进入候选，但缺少本期所需的新研究方法/可比较验证，未列重点。<a href="https://rss.globenewswire.com/news-release/2026/11/23/3408441/0/en/cupix-opens-cupixworks-5-0-beta-unifying-construction-and-operations-into-one-trusted-record.html" target="_blank" rel="noopener noreferrer">官方新闻稿</a></li>
+</ul>
+<p><strong>重大遗漏兜底已执行：</strong> broader web 交叉使用 Spatial Intelligence、World Model、Physical AI、Embodied / Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent / Self-Evolution 与主要机构名称。WorldFlow、RTPolicy 的近期转载已回查到更早来源，没有核验到窗口内新版本或新工件，未用新闻日期刷新首发时间。</p>
+<p><strong>Selection 与 Retrieval Failure 分开记录：</strong> SceneRuler、Beyond Visual Fidelity、PhiJEPA、Skill-JEPA、Linear Decodability Supervision、Embodied-Harness、Search-RSI、PhysForce、γ-Scape 等已进入候选池。本期优先覆盖状态约束、度量几何、动作接口、真实数据和外部验收，未逐篇展开属于 Selection。NoPeWorld 的早期工件公告、COLMAP 镜像此前未入池属于 Retrieval Failure；不能用筛选理由掩盖。四个 arXiv 入口共解析 4,321 条分类记录、3,371 个去重 ID，23 日批次 496 个去重 ID；432 个关键词标题命中跨越多个批次，不代表窗口内 432 项重要新发布。</p>
+<h2 id="今日研究地图">今日研究地图</h2>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>问题分类</th>
+<th>今日映射与近期趋势</th>
+<th>尚未解决的 gap</th>
+<th>可形成论文的机会</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持久世界与执行规则</td>
+<td>NoPeWorld 约束命令；Zing 用引擎维护状态</td>
+<td>碰撞、意图、渲染和对象可交互性缺少共同验收</td>
+<td>状态事件日志与视频可见事件的配对一致性测试</td>
+</tr>
+<tr>
+<td>度量空间与 real-to-sim</td>
+<td>StereoVLM 使用标定；场景审计测扫描几何</td>
+<td>证据有误、模型不使用证据、反馈未纠错难区分</td>
+<td>标定/尺度扰动×显式误差报告×留出房间</td>
+</tr>
+<tr>
+<td>4D 表征与动作接口</td>
+<td>Ego4Gen 从几何/运动生成 latent 再映射动作</td>
+<td>解码质量、oracle 未来和闭环用途容易混读</td>
+<td>同场景交换未来表征，分开测可解码性和控制因果贡献</td>
+</tr>
+<tr>
+<td>规划与模型式 RL</td>
+<td>Round-Trip 检查搜索；LS-MBPO 缩短想象链</td>
+<td>搜索越多的漏洞利用与长 rollout 误差尚未统一控制</td>
+<td>搜索预算×rollout 长度，记录成功、回归与计算成本</td>
+</tr>
+<tr>
+<td>数据与人机对齐</td>
+<td>RoboTrack 调整运动点分布；RoboCap 统一度量标签</td>
+<td>跟踪/标签精度是否改善跨本体策略尚待证明</td>
+<td>固定数据量，分层注入接触、尺度和遮挡噪声</td>
+</tr>
+<tr>
+<td>Agent 与科研演化</td>
+<td>CoEvoBench 联动模型/harness；Lean 提供外部验证</td>
+<td>首轮收益难转成持续增益，verifier 不完备时易自证</td>
+<td>固定外部验收，测每轮新增成功、回归与证据成本</td>
+</tr>
+</tbody>
+</table></div>
+<p>本期与既有研究地图的连接是：持久空间、几何与材料、视频表征、人类数据、动作接口、控制和自进化仍是平行分支。新增趋势是显式检查模块之间的关系。<strong>“能从表征读出信息”到“信息被决策利用”，以及“内部评分提高”到“外部任务改善”，都需要单独实验。</strong> 表中机会属于基于当前证据的研究推断，尚不是已被验证的论文结论。</p>
+<h2 id="今日研究机会与轻量验证">今日研究机会与轻量验证</h2>
+<ul>
+<li><strong>先做可执行约束与意图保留。</strong> 十个带门、开关、固定/移动障碍的小场景，分别报告规则违规、误停、滑墙、事件到画面的一致性；将 NoPeWorld 式动作约束与 Zing 式显式状态放在同一任务里比较，避免安全性靠完全停住获得。</li>
+<li><strong>几何反馈要经过留出与错误输入测试。</strong> 三间开发房、三间留出房，固定模型/预算，交叉提供正确点云、缩放点云和只有渲染的条件；误差报告只测一致性，另用独立扫描验证真实精度，防止更好地拟合错误证据。</li>
+<li><strong>规划先查是否需要修补。</strong> 50 个固定问题逐轮执行 CEM 结果，画“预测代价下降—真实成功—曾解决后丢失”曲线；随后比较提前停止、动作分布约束和回读惩罚，再扩到残差 RL。无需先训练大视频模型。</li>
+<li><strong>数据实验先固定监督量。</strong> RoboTrack 先取 20 个可访问视频，按遮挡/小物体/视角分层；RoboCap 待获授权后只取小分片。保持样本数、训练步数和机器人示范不变，比较运动点采样、度量标签和噪声强度，最终以闭环成功检验中间指标价值。</li>
+<li><strong>自进化同时报告收益和回归。</strong> 单领域 20 个开发任务加冻结外部测试，限定候选次数和总费用，比较模型更新、harness 更新和联合更新。把脚本 smoke test、一次成功优化、连续多轮留出提升分别记录；有形式规范时才用 Lean 式证明替代运行测试。</li>
+</ul>
+<h2 id="证据状态与可复现性">证据状态与可复现性</h2>
+<p>本轮完成的是原始论文、官方说明、仓库内容与 Hub 文件/权限核验，<strong>没有进行模型训练、付费 API 基准、大权重/全量数据下载、真实机器人实验或量子程序证明重跑</strong>。正文实验数字均为作者/官方报告；未找到可升级为独立完整复现的窗口内证据。作者对公开模型的外部研究、人工标注、形式证明文件、公开下载和本轮实际运行是不同证据层级。</p>
+<div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工作</th>
+<th>当前可核验工件</th>
+<th>复现前最重要的边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NoPeWorld</td>
+<td>代码、11 个预测头、NoPeBench 归档</td>
+<td>依赖上游大模型/许可；80—96 GB 显存；模式与指标配对</td>
+</tr>
+<tr>
+<td>Zing-1.0</td>
+<td>论文、项目入口</td>
+<td>完整系统/专属权重和数据未核验公开；三 GPU 吞吐非交互延迟</td>
+</tr>
+<tr>
+<td>StereoVLM</td>
+<td>论文、项目与干预结果</td>
+<td>未核验代码/权重/全基准下载；2B 控制与 8B 几何分开</td>
+</tr>
+<tr>
+<td>场景几何审计</td>
+<td>单房间演示与说明</td>
+<td>评测/harness 待发布；HF 仅占位，反馈泛化未验收</td>
+</tr>
+<tr>
+<td>Ego4Gen</td>
+<td>论文与数据来源说明</td>
+<td>专属实现/权重未核验；oracle 表征实验与预测闭环分开</td>
+</tr>
+<tr>
+<td>LS-MBPO</td>
+<td>论文与实现细节</td>
+<td>工件未核验；离线数据预算及跨硬件计时应重做</td>
+</tr>
+<tr>
+<td>Round-Trip Check</td>
+<td>论文、上游模型公开</td>
+<td>本方法工件未核验；动作和的可识别性受环境限制</td>
+</tr>
+<tr>
+<td>RoboTrack</td>
+<td>训练/评测代码、模型、真实及仿真数据文件</td>
+<td>42 段视频需原权限；Warp 非商用且约 47 GB 显存</td>
+</tr>
+<tr>
+<td>RoboCap-10k</td>
+<td>门控数据目录、论文、样例入口</td>
+<td>人工审批；127 TB 为作者规模；野外标签不是测量真值</td>
+</tr>
+<tr>
+<td>CoEvoBench</td>
+<td>协议、split、训练/运行框架</td>
+<td>当前部署与最终评测完整性有待验收，toy 不是研究能力</td>
+</tr>
+<tr>
+<td>DeepMind 量子 Agent</td>
+<td>Lean 库、规范、discoveries 分支证明</td>
+<td>编排和完整轨迹未核验公开；成本模型和证明覆盖有边界</td>
+</tr>
+</tbody>
+</table></div>
+<p>今天先读 NoPeWorld 与场景几何审计，再选 Round-Trip 的“逐轮成功丢失”或 RoboTracker 的 20 段遮挡评测做第一项小实验。先得到一个可独立核对的失败分解，再决定是否扩到大模型训练或跨本体部署。</p></article><nav class="issue-pagination" aria-label="相邻日报"><a class="older" href="../2026-11-23/"><span>← 上一期 · 2026-11-23</span><strong>Waddle-1：高层 Agent 与局部策略的系统组合 · NAT：动作 token 的时间顺序进入 LeRobot 执行链 · Tesla Reality View：共享视觉特征，分出实时生成支路</strong></a><span></span></nav><p class="article-end">读到这里，留一个问题给明天。<a href="../../map/">查看持续研究地图 ↗</a></p></div></div></main>
+<footer class="site-footer wrap"><div><strong>Yunhe / 科研日报</strong><p>把每天的发现，留给下一次思考。</p></div><div class="footer-right"><span>以原始来源为依据 · 证据状态见各期正文</span><a href="../../feed.xml">RSS 订阅 ↗</a></div></footer><button class="back-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+</body></html>
