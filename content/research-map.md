@@ -1,5 +1,28 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-26 地图快照
+
+窗口为 2026-11-23 09:00—2026-11-26 09:00（北京时间），与25日及此前成稿去重。重点十一项：MoGe-4D、OmniAct、iWAM、SimPWM、Exploratory Midtraining / β-Data、RFW-W、ROAM-Bench、OmniHarness-RSI、MAGI-2、NWM3.0、DeepMind Mass Spec Skills。论文多数24日UTC提交、25日公告。MAGI-2与SenseNova U1.6更早材料明确Retrieval Failure回补；WorldFoundry25日活动不改7日论文首发日期，不混同另一PyPI项目。
+
+| 问题分类 | 今日工作与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 统一 3D/4D 空间表示 | MoGe-4D 统一几何、运动与查询 | 好几何、长时身份和控制收益未共同验收 | 双坐标一致性×遮挡×动作任务的分层基准 |
+| 世界知识到动作 | iWAM 保留未来条件；NWM 双闭环 | 未来信息被利用、监督对齐和时延贡献混杂 | 同骨干、同动作步数的条件干预与成功—延迟曲线 |
+| 跨本体与人机对齐 | OmniAct 输入场景运动学；β-Data 增加恢复路线 | 形态条件、总数据量和采集人时未充分分离 | 固定数据预算的图交换×恢复数据因子实验 |
+| Real-to-sim 与生成模拟 | SimPWM 输出状态与视频；RFW-W 扩资产源 | 模型能忽略状态；估计物理不等于测量真值 | 冻结/错位状态干预，连接资产接触误差与下游失败 |
+| 主动空间智能评测 | ROAM 分开结果、必要证据与强佐证 | 证据不足与拿到证据仍推理错误并存 | 信息补全×几何输入×评估器校准的独立消融 |
+| 多模态 Agent 自进化 | OmniHarness 改工作流；Mass Spec 封装工具 | 推理、工具质量、选择噪声与完整成本难归因 | 冻结外部测试，测净救回、回归、证据精度及总成本 |
+| 视频规模与后训练 | MAGI-2 扩稀疏计算与数据 | 偏好提升可能掩盖规则能力退化 | 同样本同预算的审美—规则—时序三维回归审计 |
+
+持续地图的本轮变化是：空间、形态、未来条件、仿真状态和恢复经验都开始成为可单独干预的研究变量。**研究机会在于证明模块连接处的因果贡献**：有坐标是否真的影响动作、有状态是否真的控制画面、有工具是否真的改善证据、有更多经历是否真的带来留出任务收益。这些机会是基于今日资料的研究推断，尚未验证。
+
+
+证据边界：MoGe代码/数据coming soon，64A100-40GB/160k步；50帧全对查询对4RC约4倍，OpenD4RT比较含假设，500帧相机轨迹不等于密集动态可靠。OmniAct约80万本体有成功训练轨迹，400M策略；真机14/20与13/20，Code/Data soon。iWAM85%真机各任务20次，6倍时延图的基线成功率8步、计时2步；项目404。SimPWM源码可见，H3-C权重API401；冻结刚体H3-C举起42→10、LTX57→49；非控制成功率。β-Data记录时长匹配不等总人时；代码soon。RFW-W1010386资产记录/2228数据集类别条目非去重语义类；71.2/41.8为仿真，49刚体未完成导出；公开复现范围完整任务仍blocked/not_run，全库未核验。ROAM manifest250/27、约17.1GB场景归档可见，未启动；T=A∧N，脚本演示不算VLM轨迹。OmniHarness test+8.86/+8.13/+6.23，部分工具调用增加，未核验代码/总演化成本。MAGI旗舰报告/工件待发布，官方能力回归是假设。NWM54%整车时延、36倍仅attention，官方无完整协议。MassSpec约97%仅100库内化合物×3，排除暂时基础设施错误，不是未知分子发现。所有结果作者/官方，本轮未训练、调用付费模型、下载大权重或运行模拟器/真机。
+
+下一轮：MoGe/OmniAct/iWAM工件，SimPWM权重/状态干预，RFW全量manifest/动态任务，ROAM隔离与重置，β-Data人时/恢复回归，OmniHarness轨迹与教师成本，MAGI后训练回归，NWM完整时延协议，MassSpec库外弃答。Any2Act、CriticJEPA、CIA、RoboProbe、Physicl Scenes、SpatialCraft、SofaSpace、FactorWorld和DexWAC已检索未展开，属于Selection；Physis/REAL保持新版一手材料待核验。
+
+阅读MoGe→OmniAct→iWAM→SimPWM→β-Data。第一项实验：20段状态冻结/错位审计，分别测状态、画面跟随与接触违规。[当期晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-26/)。
+
 ## 2026-11-25 地图快照
 
 窗口为 2026-11-22 09:00—2026-11-25 09:00（北京时间），与24日成稿去重。主要新增：Lyris、WorldLatent、Native LAM / PAWlicy、Real2Worlds2Real、RoboUniverse-10K、RUIBench、SWEEP-Bench、Innata-0、HumanCOIN回补、WorldGPT、ShellBench、Siren、ComputeWise。多数论文23日UTC提交、24日公告；HumanCOIN19日论文/更早工件与24日活动分开，明确此前Retrieval Failure。
