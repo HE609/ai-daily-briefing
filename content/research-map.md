@@ -1,5 +1,27 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-27 地图快照
+
+窗口 2026-11-24 09:00—2026-11-27 09:00（Asia/Shanghai）；与 26 日成稿去重，最新可读 arXiv 公告为 26 日，多数论文 25 日 UTC 提交。新增十三项：ABot-World 0.5、WorldExpand、WorldInteract、PhysReader、Cairn、WorldReforge、X-Harness、RoboEvo²、ShowNow、PROVE、Tripo H3.5、Meta AgentBox、Cogentic 新论文集。ABot、AgentBox、Cogentic 与 Tripo 为此前漏检回补，保留原日期；不把旧方法论文和晚到转载当首发。
+
+| 问题分类 | 今日映射与近期趋势 | 尚未解决的 gap | 可形成论文的机会 |
+|---|---|---|---|
+| 持久空间与三维资产 | WorldExpand 联合稀疏视图；Tripo 将几何接入制造验收 | 生成补全、几何真值、可打印性和可交互物理仍脱节 | 固定视点预算，测覆盖、几何、拓扑与任务可用性的一致性 |
+| 材料与可组合物理 | WorldInteract 速度增量接口；PhysReader 仿真—现实输入反转 | VLM 估参、有效材料与真实接触响应没有共同置信度 | 参数可辨识性×跨材质留出×接触事件误差的系统评测 |
+| 视频世界与连续因果链 | ABot 数据/事件对齐；ShowNow 预备动作分支 | 物理正确、响应及时、长期状态保持和计算开销缺少同一协议 | 同权重、同动作序列下的响应—一致性—成本曲线 |
+| 3D 运动与 VLA | Cairn 用对象 SE(3) 先验引导冻结策略 | 成功抓取后的搬运收益与全 episode 泛化容易混用 | 按抓取、路线、姿态、碰撞拆解闭环收益及适用条件 |
+| 数据与表征 | WorldReforge 失败接触/成功保持；PhysReader 测量一致性 | 局部物理对应更好是否真的改善策略仍缺证据 | 固定数据量的成功/失败配比及预测—控制双重验收 |
+| Agent 与策略自进化 | X-Harness 条件化设计；RoboEvo² 修复内化 | 增益来自更多搜索、工具、训练还是记忆，且回归/成本易漏报 | 冻结预算与外部测试，分离发现、蒸馏、再发现的边际收益 |
+| 验收与科研基础设施 | PROVE 证据奖励；AgentBox 隔离；Cogentic 证明账本 | 外部证据到达、访问边界、结论真实性尚未贯通 | 可重放的证据链；测正确但无证据、证据齐但结论错的分离 |
+
+持续地图保留此前 JEPA/RSSM、4D 表征、人类视频、人机/跨本体对齐、强化学习和主动感知分支。本期增加的连接是：**输入测量一致性 → 可组合状态接口 → 有反馈的执行 → 外部证据验收**。这是从多篇公开工作的共同问题归纳，不代表任一论文已经完成这条闭环。
+
+关键边界：ABot Iris21FPS与Halo音视频分开，8.26倍仅decoder，v0.5报告待发布；WorldExpand定量使用真值源深度，8.6倍仅四方向去噪，端到端未完整计时；WorldInteract90%是画面目标开始运动，物理控制器为无摩擦中心碰撞，未核验资源公开。PhysReader16物体80掉落，有效材料非固有常数，0.677vs0.745差异区间含零且总回放损失不全面占优；GitHub只有展示，HF401。Cairn95.1%自建集，第三方位置轴全episode38%，正确抓取适用子集81.1%；资源将公开。WorldReforge30.35GB模型可列出，eval仍uploading，训练代码/数据不含。X-Harness489380rollouts，VLABench+42.8点，标准LIBERO退1.1点，代码地址404。RoboEvo²13.41GB主策略auto-gated，逐轮API下降非总成本，EWC保留旧能力，需自接模型客户端。ShowNow620→208ms含不同训练配置，预计算同权重主要减少空tick；不含网络/显示硬件且画质下降。PROVE一协议/十留出序列，adapter未确认。Tripo无技术报告/独立几何评价；AgentBoxunderconstruction无独立隔离审计；Cogentic25日六篇材料的Lean工件尚未公开，旧专家核验不等于新结论已确认。
+
+下一轮：ABot完整报告/因果链数据与事件回归；WorldExpand预测深度/覆盖预算与完整耗时；WorldInteract接触/旋转/摩擦和可运行工件；PhysReader有效材料参考与输入跨域验证；Cairn误抓/多物体/时延；WorldReforge完整manifest与预测到控制；X-Harness仓库/新旧任务与总成本；RoboEvo²两轮预算配平/修复内化/长期回归；ShowNow同权重端到端响应；PROVE跨协议/外部证据通道；Tripo修复前后几何；AgentBox合成标记隔离；CogenticLean代码及theorem核对。DynMF2、NeurCo、ActRosetta、Force探针、CoTacWAM、CoWM、WorldBridge、DemoFoundry、Loop4D、SEEK、OS-Memory与Real2SimLab已检索未展开，属于Selection。所有性能均作者/官方；本轮没有模型训练、GPU推理、仿真/真机评测或证明复查。
+
+建议阅读WorldExpand→WorldInteract→PhysReader→X-Harness→RoboEvo²；首项验证为20段轨迹的条件、动作与事件时间检查。[当期晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-27/)。
+
 ## 2026-11-26 地图快照
 
 窗口为 2026-11-23 09:00—2026-11-26 09:00（北京时间），与25日及此前成稿去重。重点十一项：MoGe-4D、OmniAct、iWAM、SimPWM、Exploratory Midtraining / β-Data、RFW-W、ROAM-Bench、OmniHarness-RSI、MAGI-2、NWM3.0、DeepMind Mass Spec Skills。论文多数24日UTC提交、25日公告。MAGI-2与SenseNova U1.6更早材料明确Retrieval Failure回补；WorldFoundry25日活动不改7日论文首发日期，不混同另一PyPI项目。
