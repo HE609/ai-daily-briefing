@@ -4,7 +4,7 @@
 <title>2026-11-27｜WorldExpand · WorldInteract · PhysReader · Yunhe</title><meta name="description" content="世界模型正在增加可操作的接口——空间覆盖、接触响应、对象轨迹、动作反馈和证据验收——但每个接口都需要独立检验。">
 <link rel="canonical" href="https://he609.github.io/ai-daily-briefing/reports/2026-11-27/"><meta property="og:type" content="article"><meta property="og:title" content="2026-11-27｜WorldExpand · WorldInteract · PhysReader"><meta property="og:description" content="世界模型正在增加可操作的接口——空间覆盖、接触响应、对象轨迹、动作反馈和证据验收——但每个接口都需要独立检验。"><meta property="og:url" content="https://he609.github.io/ai-daily-briefing/reports/2026-11-27/">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="alternate" type="application/atom+xml" title="Yunhe 科研日报" href="../../feed.xml">
-<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><link rel="stylesheet" href="../../assets/katex/katex.min.css"><script defer src="../../assets/katex/katex.min.js"></script><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
+<link rel="stylesheet" href="../../assets/site.css?v=9f1bc03d04"><script defer src="../../assets/site.js?v=9f1bc03d04"></script></head>
 <body data-root="../../"><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
 <header class="site-header"><div class="wrap header-inner"><a class="brand" href="../../" aria-label="Yunhe 科研日报首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h10v20H5zM17 6h10v20H17z"/><path d="M9 11h2m-2 5h2m10-5h2m-2 5h2"/></svg><span>Yunhe <span class="brand-divider">/</span> 科研日报<small>RESEARCH, DAY BY DAY</small></span></a>
 <nav aria-label="主导航"><a href="../../latest/">最新一期</a><a href="../../#archive">历史归档</a><a href="../../map/">研究地图</a><a class="github-nav" href="https://github.com/HE609/ai-daily-briefing" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
@@ -60,7 +60,7 @@
 <h2 id="8-roboevo²将-agent-的修复逐轮内化为策略p0">8. RoboEvo²：将 Agent 的修复逐轮内化为策略｜P0</h2>
 <p><strong>RoboEvo²: Recursive Robot Self-Improvement via Harness–Policy Co-Evolution；Chenzhi Liu、Jiehong Lin、Wei Huang 等，香港大学、浙江大学、南方科技大学、港中大深圳与香港城市大学。25 日提交、26 日公告；预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.34675" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://kaiknower.github.io/RoboEvo2/" target="_blank" rel="noopener noreferrer">项目</a>｜<a href="https://github.com/kaiknower/RoboEvo2" target="_blank" rel="noopener noreferrer">代码</a>。它研究如何把昂贵、反复思考的机器人 Agent，变成越来越少依赖外部救援的本地策略。</p>
 <p>Policy-to-Harness 阶段由策略失败引导纯代码、代码+ICL、代码+策略三条修复路线，验证后存入技能、路由和经验。Harness-to-Policy 阶段用成功轨迹做 SFT；Counterfactual Preference Distillation 将<strong>同初态的失败延续和成功修复</strong>配对，学习相对偏好，同时用 EWC 保留旧能力。更新后的策略再暴露下一轮失败，形成相互反馈。所谓不增加人工示范，仍建立在已有示范训练策略、原子技能、感知工具和任务成功检查上。</p>
-<p><strong>作者报告</strong> LIBERO-PRO 八轮后，独立策略 <strong>11.0%→84.1%</strong>，带 harness 的 hybrid <strong>30.4%→90.5%</strong>；三次完整运行的独立策略均值为 <strong>83.7±1.4%</strong>。RoboTwin C2R 五轮独立策略 46.0%→77.5%，hybrid 到 87.4%。API 费用的 <span class="arithmatex">\(430.63→\)</span>98.92 是<strong>逐轮 Agent 支出</strong>，不是整套训练和发现过程总成本。EWC 消融中原 LIBERO 成功为 <strong>92.5% vs 不用 EWC 的 72.0%</strong>，新任务指标却接近；这比单看最终峰值更有研究价值。Unitree G1-D 的 95% 仅是作者限定实验，不能外推为广泛人形可靠性。</p>
+<p><strong>作者报告</strong> LIBERO-PRO 八轮后，独立策略 <strong>11.0%→84.1%</strong>，带 harness 的 hybrid <strong>30.4%→90.5%</strong>；三次完整运行的独立策略均值为 <strong>83.7±1.4%</strong>。RoboTwin C2R 五轮独立策略 46.0%→77.5%，hybrid 到 87.4%。API 费用的 430.63→98.92 美元 是<strong>逐轮 Agent 支出</strong>，不是整套训练和发现过程总成本。EWC 消融中原 LIBERO 成功为 <strong>92.5% vs 不用 EWC 的 72.0%</strong>，新任务指标却接近；这比单看最终峰值更有研究价值。Unitree G1-D 的 95% 仅是作者限定实验，不能外推为广泛人形可靠性。</p>
 <p><strong>值得精读同初态修复配对及回归控制。</strong> 相对只演化 harness 的系统，它明确测独立策略是否吸收修复；跨方法表格保留各原协议，并非完全配平预算。本轮代码已有演化、训练和评测入口；<a href="https://huggingface.co/Liukaikai/RoboEvo2/tree/main" target="_blank" rel="noopener noreferrer">HF 清单</a>可见约 <strong>13.41GB 主策略</strong>及多组 PPO 策略，但模型标 <strong>auto-gated</strong>，本轮未获权下载；接入 Agent 需要自行实现模型调用接口，完整训练轨迹未核验开放。轻量验证先只做两轮、每轮固定 50 次探索，比较 SFT、同初态偏好、偏好+旧能力约束，在固定新旧测试集上同时计成功与回归，再决定是否扩轮。</p>
 <h2 id="9-shownow用播放期间的计算提前准备动作分支p1">9. ShowNow：用播放期间的计算提前准备动作分支｜P1</h2>
 <p><strong>ShowNow: Fine-Grained Speculative Streaming for Responsive World Models；Yiren Song、Guian Fang、Mike Zheng Shou，NUS Show Lab。25 日提交、26 日公告；预印本，未核验同行评审。</strong> <a href="https://arxiv.org/abs/2611.34693" target="_blank" rel="noopener noreferrer">论文</a>｜<a href="https://github.com/showlab/ShowNow" target="_blank" rel="noopener noreferrer">代码</a>。它解决的是“生成吞吐够快，按键后仍要等”——视频播放与模型决策块的时间尺度不同。</p>
@@ -98,7 +98,7 @@
 <tbody>
 <tr>
 <td>空间智能与世界生成</td>
-<td>World Labs 官方 blog、ABot、高德、腾讯混元、GitHub/HF；并查 3D/4D、持久空间、real-to-sim、generative simulation</td>
+<td><a href="https://worldlabs.ai/blog" target="_blank" rel="noopener noreferrer">World Labs 官方 blog</a>、ABot、高德、腾讯混元、GitHub/HF；并查 3D/4D、持久空间、real-to-sim、generative simulation</td>
 <td>Atlas 最近主要公告仍为 12 日，不因新转述重复；ABot/Tripo 入选；WorldExpand、WorldInteract 是独立空间主线</td>
 </tr>
 <tr>
@@ -109,12 +109,12 @@
 <tr>
 <td>大学及中国团队</td>
 <td>Stanford、Berkeley BAIR、MIT、CMU、Princeton；清华 AIR、BAAI、腾讯、智元、蚂蚁 Robbyant、上海相关作者团队</td>
-<td>Princeton 403、AIR TLS、BAAI 主站动态空壳；使用作者论文/仓库补检。LingBot-Touch 是较早论文及已有资源，不因 25 日转载当新发布</td>
+<td>Princeton 403、AIR TLS、BAAI 主站动态空壳；使用作者论文/仓库补检。<a href="https://github.com/Robbyant/lingbot-touch" target="_blank" rel="noopener noreferrer">LingBot-Touch</a> 是较早论文及已有资源，不因 25 日转载当新发布</td>
 </tr>
 <tr>
 <td>Agent 与科研基础设施</td>
 <td>Meta FAIR、Anthropic research/news、Google Research/DeepMind、OpenAI research、GitHub/HF</td>
-<td>AgentBox、Cogentic 入选；Google 25 日社会推理 blog 的原论文是 9 月，已进候选但未重点展开；Mass Spec Skills 昨日已报，不重复</td>
+<td>AgentBox、Cogentic 入选；<a href="https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/" target="_blank" rel="noopener noreferrer">Google 25 日社会推理 blog</a> 的原论文是 9 月，已进候选但未重点展开；Mass Spec Skills 昨日已报，不重复</td>
 </tr>
 <tr>
 <td>arXiv 与跨类投稿</td>
@@ -124,7 +124,7 @@
 </tbody>
 </table></div>
 <p><strong>重大遗漏兜底已执行。</strong> broader web 将 Spatial Intelligence、World Model、Physical AI、Embodied/Robot Foundation Model、Real-to-Sim、3D/4D World Generation、Human-to-Robot、Agent/Self-Evolution 与机构、24—26 日日期交叉查询，再回到一手来源。ABot 尤其说明仅扫 arXiv 不够：其 Iris 权重 24 日已经存在，未进入此前候选属于 Retrieval Failure；Cogentic、AgentBox 同样保留补检记录。Tripo 的原始公告只确认到日级，不把晚到媒体时间当首发时刻。</p>
-<p><strong>已入池但未展开，属于 Selection：</strong> DynMF2（无掩码的刚性运动 EM 分解）、NeurCo（视频能力手册与编译）、ActRosetta（导航动作编码审计）、Can Visual World Models See Force?、CoTacWAM、CoWM、WorldBridge、DemoFoundry、Loop4D、SEEK、OS-Memory，以及 <a href="https://arxiv.org/abs/2611.34849" target="_blank" rel="noopener noreferrer">Real2SimLab</a> 的公开平台论文。后者报告支持 47 个 coding agent、五种非 Agent 方法和六个 benchmark，这些是接入覆盖声明，不等于每条路径经本轮独立复现。ActRosetta 所报约 42% DreamSim 误差下降属于另一团队对已有 NWM 接口的审计，未证明控制收益，也不与蔚来 NWM 3.0 混淆。这些候选继续保留在地图，今天优先展开机制、证据与开放状态更有代表性的项目。</p>
+<p><strong>已入池但未展开，属于 Selection：</strong> DynMF2（无掩码的刚性运动 EM 分解）、NeurCo（视频能力手册与编译）、ActRosetta（导航动作编码审计）、Can Visual World Models See Force?、CoTacWAM、CoWM、WorldBridge、DemoFoundry、Loop4D、SEEK、OS-Memory，以及 <a href="https://arxiv.org/abs/2611.34849" target="_blank" rel="noopener noreferrer">Real2SimLab</a> 的公开平台论文。后者报告支持 47 个 coding agent、五种非 Agent 方法和六个 benchmark，这些是接入覆盖声明，不等于每条路径经本轮独立复现。<a href="https://arxiv.org/abs/2611.34739" target="_blank" rel="noopener noreferrer">ActRosetta</a> 所报约 42% DreamSim 误差下降属于另一团队对已有 NWM 接口的审计，未证明控制收益，也不与蔚来 NWM 3.0 混淆。这些候选继续保留在地图，今天优先展开机制、证据与开放状态更有代表性的项目。</p>
 <h2 id="今日研究地图">今日研究地图</h2>
 <div class="table-scroll" role="region" aria-label="数据表格" tabindex="0"><table>
 <thead>
