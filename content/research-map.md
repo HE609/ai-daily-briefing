@@ -1,5 +1,31 @@
 # 研究地图：空间智能与通用 AI（持续更新）
 
+## 2026-11-28 地图快照
+
+窗口 2026-11-25 09:00—2026-11-28 09:00（Asia/Shanghai）。与27日去重；arXiv四类及RO新稿页仍为26日公告，多数论文25日UTC提交。展开十一项：LingBot-Map 2.0/Navi、ActRosetta、RoboRSI-27B新文章/脚本/GGUF、Dianjing、AgenTAP/EgoTAP-4D、Agentic LongLive、DynMF2、EvoLink-Bench、Maco-RL、HF Swarms、HY-3D-3.6 API。LingBot、HF及RoboRSI26日指引是此前Retrieval Failure；ActRosetta/Dianjing/DynMF2已在池中，本期展开属Selection调整。
+
+持续地图保留历史；今天新增的是“记忆、接口、学习”的可验收连接。下表中的机会是基于公开证据的研究推断，不是已被这些工作证明的结论。
+
+| 问题分类 | 当天证据与近期趋势 | 未解决 gap | 可形成论文的机会 |
+| --- | --- | --- | --- |
+| 持久空间、重建与导航 | LingBot 把历史修正写回上下文，并测下游导航；DynMF2 用结构化运动约束单目 4D | 完整 GCR 未公开；辅助探索、尺度漂移、运动分解与实际任务效果分离 | 固定导航器，对地图修正、记忆时效和重定位做受控干预，测收益是否持续 |
+| 动作条件世界模型 | ActRosetta 检查接口，Dianjing 检查强先验的最小动作适配 | 视觉提升可能来自编码修复，仍不保证物体状态与闭环控制正确 | 把接口正确性、动作敏感性、状态准确性、决策收益作为四项独立验收 |
+| 视频表征与人类数据 | AgenTAP 用视觉推理补遮挡后对应，再教专用追踪器；Motubrain 暴露跨源对齐需求 | 高成本标注、错误深度、数据许可与下游回归 | 只对不确定轨迹调用 Agent，用成本受控的主动标注证明净收益 |
+| 长视频与世界记忆 | LongLive 将实体记忆异步送入生成器 | 单向记忆不核实执行，真实总成本高，旧状态可能被重新注入 | 设计带验证与版本号的记忆提交，测一致性、纠错、等待和 GPU 总成本 |
+| Agent 与机器人自进化 | RoboRSI 协同模型/工具；EvoLink 区分保留、更新、恢复；Maco 以混合 RL 扩域 | 教师贡献、环境泄漏、更新是否真被使用、旧能力回归 | 同任务同预算拆开模型更新、工具更新与记忆更新，跨任务延迟验收 |
+| 通信、协作与基础设施 | HF 小共享模型能学会通信，配额调度使多域训练更稳定 | 私有信息任务不能证明通用协作缩放，推理/训练账本不统一 | 在单 Agent 可解与不可解两类任务分别给预算曲线、消息价值和故障恢复 |
+| 生成式 3D 资产与仿真入口 | HY-3D-3.6 发布可控导出、几何/纹理接口 | 产品规格、资产几何与接触物理之间没有自动保证 | 固定输入与后处理，测几何、重光照、碰撞和下游任务可用性 |
+
+经典参照继续保留：SLAM 的回环与位姿图解释“输出修正/内部记忆修正”的区别；Dreamer、RSSM 与 JEPA 提醒我们预测表征应服务决策；Diffusion Policy、Code as Policies、CTDE/多智能体 RL 提供动作与协作基线。今天没有把它们重新包装成窗口内新工作。
+
+证据边界：LingBotMap基础公开权重4.63GB、无GCR；GCR VBR4.72m对新版在线17.01m，旧版31.12m。Navi68.6%有模拟器几何和路径执行，重建几何完整GOAT40.76%/自建26.28%，均先模拟器辅助探索；数据manual-gated，模型16.13GB Apache。ActRosetta42%为预测误差，默认NWM规划另路径未受同错误影响、控制收益未证；封存测试是作者内部Agent生成，无第三方复验。RoboRSI26脚本/27文章新，主模型旧23日，54.71GB主权重与16.74GBQ4+0.93GB投影器可列；34.7新协议均分不混旧57.1，真机6/10与9/10，VLA仍用跨任务真实示范，RL是未来方向。Dianjing33B冻结/114M适配/65h/32H20/8epoch，WorldOracle四轨最高非成功率，代码权重未确认。AgenTAP297.2h总源视频非全量VLM核验，141-184K输入tokens/query，D4RT均值改善但DexYCB定位回归；TrackingBench图像/评测脚本可列，EgoTAP全包/代码待确认。LongLive0.9%时间开销非算力，H10015.9FPS，B200六GPU34.3FPS，RLplannercomingsoon。DynMF2硬运动分配、EM无渲染不等于整个重建无渲染，深度/轨迹瓶颈，代码未确认。EvoLink19635是评分槽位/不同cohort/部分无learner/非统一预算，代码MIT、任务包需另取，smoke非学习证据。Maco64训练+32-40推理设备；最佳均值68.41vs64.28和12572vs13091GPUh非普适便宜，评分泄漏修复是关键。HF博客75步32留出81.25%与代码50步192留出60.9%两次运行分开；后者2.38GB权重可列，小任务通信前提不证明通用协作缩放。
+
+遗漏兜底回补：Motubrain2官方正文24日/列表25日与26-27报道分开，按最早24日不计今日72hTop；20B四流/Canonical55/有效掩码/人类UMI机器人对齐与冻结模型HarnessRSI纳入长期分支；3137episode总运行不是32次seen指令消融，7/32WAM、25/32Harness无WAM、29/32完整，代码权重按钮comingnextweek。WALL-OSS1官方23日不把25-27媒体当首发；原生VLA/312任务/XRHarness待专题。XiaomiWorldModel2原论文1日，27报道未证新技术版本或工件，不刷新旧结果日期。Hy3D3.6进一步查得25日更新的专属官方调用指南与模型列表，已从候选转入第11项，训练架构/盲测未核实，资产外观与物理可用性分别判断。
+
+下一轮：GCR权重/源码与导航同条件；Map许可和Navi数据包；ActRosetta工件/接口到控制；RoboRSI量化/跨任务留出/总成本；Dianjing代码LoRA与高噪声消融；AgenTAP发布包/标注成本/跨数据回归；LongLiveRLplanner与总GPU秒；DynMF2代码/非刚性；EvoLink适配器实际更新与同cohort；Maco发布工件/队列和环境泄漏；HF两次实验的checkpoint版本及同预算任务；Motubrain真实可运行开放、WALLOSS原报告、Hy3D专属官方页、Xiaomi新发布证据。官方入口PI429/CMUTLS/Princeton403/AIRTLS/BAAI壳保留检索不完整边界。
+
+所有实验数值作者/官方，本轮无训练、GPU推理、付费API、仿真/真机、全量大权重数据下载。建议LingBot→ActRosetta→AgenTAP→Dianjing→EvoLink，先20条动作接口与时间对齐。[当期晨报](https://he609.github.io/ai-daily-briefing/reports/2026-11-28/)。
+
 ## 2026-11-27 地图快照
 
 窗口 2026-11-24 09:00—2026-11-27 09:00（Asia/Shanghai）；与 26 日成稿去重，最新可读 arXiv 公告为 26 日，多数论文 25 日 UTC 提交。新增十三项：ABot-World 0.5、WorldExpand、WorldInteract、PhysReader、Cairn、WorldReforge、X-Harness、RoboEvo²、ShowNow、PROVE、Tripo H3.5、Meta AgentBox、Cogentic 新论文集。ABot、AgentBox、Cogentic 与 Tripo 为此前漏检回补，保留原日期；不把旧方法论文和晚到转载当首发。
